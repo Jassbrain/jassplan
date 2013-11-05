@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassServerModelTests", "JassServerModelTest\JassServerModelTests.csproj", "{6B7730A0-8C45-49CC-AA13-548D449AE70C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassServerModel", "JassServerModel\JassServerModel.csproj", "{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B7730A0-8C45-49CC-AA13-548D449AE70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7730A0-8C45-49CC-AA13-548D449AE70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7730A0-8C45-49CC-AA13-548D449AE70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7730A0-8C45-49CC-AA13-548D449AE70C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
