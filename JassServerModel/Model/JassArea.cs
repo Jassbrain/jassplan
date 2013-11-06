@@ -10,6 +10,7 @@ namespace Jassplan.Model
     {
         public int JassAreaID { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public virtual List<JassActivity> Activities { get; set; }
 
 

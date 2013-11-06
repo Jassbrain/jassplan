@@ -6,9 +6,11 @@ using System.Globalization;
 
 namespace Jassplan.Model
 {
-    public class JassActivity
+    public class JassActivityHistory
     {
-        public int JassActivityID { get; set; }
+        public int JassActivityHistoryID { get; set; }
+        public int JassActivityKey { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -23,5 +25,7 @@ namespace Jassplan.Model
         public DateTime LastUpdated { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Done { get; set; }
+
+        public DateTime TimeStamp { get; set; }
     }
 }

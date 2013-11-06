@@ -7,7 +7,7 @@
     <ProjectGuid>{CF9C58D6-BB57-4E62-BDF8-A88B3B811095}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JassServerModel2</RootNamespace>
+    <RootNamespace>JassServerModel</RootNamespace>
     <AssemblyName>JassServerModel</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,8 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201311040155352_InitialCreate.cs" />
+    <Compile Include="Migrations\201311040155352_InitialCreate.Designer.cs">
+      <DependentUpon>201311040155352_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311050315476_done-date-time.cs" />
+    <Compile Include="Migrations\201311050315476_done-date-time.Designer.cs">
+      <DependentUpon>201311050315476_done-date-time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311060026470_history-classes.cs" />
+    <Compile Include="Migrations\201311060026470_history-classes.Designer.cs">
+      <DependentUpon>201311060026470_history-classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311060046101_AreaHistoryTable.cs" />
+    <Compile Include="Migrations\201311060046101_AreaHistoryTable.Designer.cs">
+      <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\ModelManager.cs" />
+    <Compile Include="Model\JassActivityHistory.cs" />
+    <Compile Include="Model\JassAreaHistory.cs" />
     <Compile Include="Model\JassActivity.cs" />
     <Compile Include="Model\JassActivityLog.cs" />
     <Compile Include="Model\JassArea.cs" />
@@ -63,6 +82,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201311040155352_InitialCreate.resx">
+      <DependentUpon>201311040155352_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311050315476_done-date-time.resx">
+      <DependentUpon>201311050315476_done-date-time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311060026470_history-classes.resx">
+      <DependentUpon>201311060026470_history-classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311060046101_AreaHistoryTable.resx">
+      <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -69,6 +69,119 @@ namespace Jassplan.Tests.ModelManager
 
             DBCleanStateCheck();
         }
+        [TestMethod]
+        public void ModelManagerAreaHistoriesCRUD()
+        {
+            //Purpose: basic test of all CRUD operations on JassAreaHistory       
+
+
+            DBClean();
+
+            List<JassAreaHistory> areas0 = mm.AreaHistoriesGetAll();
+
+            //we can create an area
+            JassAreaHistory newAreaHistory0 = new JassAreaHistory();
+            newAreaHistory0.Name = "TestAreaHistory0";
+            newAreaHistory0.Activities = new List<JassActivityHistory>();
+
+            int newAreaHistory0Id = mm.AreaHistoryCreate(newAreaHistory0);
+
+            refreshManager(); //
+
+            //we verify that the new get all includes this area
+            List<JassAreaHistory> areas1 = mm.AreaHistoriesGetAll();
+            Assert.IsTrue(areas1.Count == areas0.Count + 1);
+
+            //we can get it back
+            JassAreaHistory newAreaHistory1 = mm.AreaHistoryGetById(newAreaHistory0Id);
+
+            Assert.IsFalse(newAreaHistory0 == newAreaHistory1);  //this is to make sure are refreshing the context
+
+            //and both are equal
+            AssertEqualAreaHistories(newAreaHistory0, newAreaHistory1); //however, the areas should be the same
+
+            //Now, we change area 2
+            newAreaHistory1.Name = "TestAreaHistory1";
+
+            //we save the changes
+            mm.AreaHistorySave(newAreaHistory1);
+
+            refreshManager(); //
+
+            //and we get it back
+            JassAreaHistory newAreaHistory2 = mm.AreaHistoryGetById(newAreaHistory1.JassAreaHistoryID);
+
+            Assert.IsFalse(newAreaHistory1 == newAreaHistory2);  //this is to make sure are refreshing the context
+
+            //and both are equal
+            AssertEqualAreaHistories(newAreaHistory1, newAreaHistory2);
+
+
+            //finally we delete the created area
+            mm.AreaHistoryDelete(newAreaHistory0Id);
+
+            //and we verify that get all remains same.
+            List<JassAreaHistory> areas2 = mm.AreaHistoriesGetAll();
+            Assert.IsTrue(areas2.Count == areas0.Count);
+
+            DBCleanStateCheck();
+        }
+
+        [TestMethod]
+        public void ModelManagerActivityLogCRUD()
+        {
+            //Purpose: basic test of all CRUD operations on JassActivityLog   
+            //To test that we can create this we need at least 1 area and 1 activity
+
+
+            DBClean();
+
+            List<JassActivityLog> activityLogs0 = mm.ActivityLogsGetAll();
+
+            //So, we create an area
+            JassArea newArea0 = new JassArea();
+            newArea0.Name = "TestArea0";
+            newArea0.Activities = new List<JassActivity>();
+            int newArea0Id = mm.AreaCreate(newArea0);
+
+            //Then, we create an activity
+            JassActivity newActivity0 = new JassActivity();
+            newActivity0.Name = "TestActivity0";
+            newActivity0.JassAreaID = newArea0Id;
+            int newActivity0Id = mm.ActivityCreate(newActivity0);
+
+            refreshManager(); //
+
+            //we get the activity again just in case
+
+            newActivity0 = mm.ActivityGetById(newActivity0Id);
+
+            //Finally, we will create an ActivityLog based on that activity and area
+            //WARNING: This test actually will not prove too much, we will just check that the
+            //CRUD is moslty working. Hwoever, we will have another specifric method
+
+            //Then, we create an activityLog based on that activity
+
+            int newActivityLog0Id = mm.ActivityLogCreate(newActivity0);
+
+            //we verify that the new get all includes this activitylog
+            List<JassActivityLog> activityLogs1 = mm.ActivityLogsGetAll();
+            Assert.IsTrue(activityLogs1.Count == activityLogs0.Count + 1);
+
+            refreshManager();
+
+            //and we get it back
+            JassActivityLog newActivityLog1 = mm.ActivityLogGetById(newActivityLog0Id);
+
+            //now we will delete the original area and activity
+
+            mm.AreaDelete(newArea0Id);
+ 
+//crap delete deletes everything...!!!
+      
+
+            DBCleanStateCheck();
+        }
 
         [TestMethod]
         public void ModelManagerActivitiesCRUD()
@@ -161,6 +274,23 @@ namespace Jassplan.Tests.ModelManager
 
         }
 
+        public void AssertEqualAreaHistories(JassAreaHistory area0, JassAreaHistory area1)
+        {
+            Assert.IsTrue(area0.JassAreaHistoryID == area1.JassAreaHistoryID);
+            Assert.IsTrue(area0.Name == area1.Name);
+            Assert.IsTrue(area0.Activities.Count == area1.Activities.Count);
+
+
+            List<JassActivityHistory> activities0 = area0.Activities;
+            List<JassActivityHistory> activities1 = area1.Activities;
+
+            for (int i = 0; i < activities0.Count; i++)
+            {
+                AssertEqualActivities(activities0[i], activities1[i]);
+            }
+
+        }
+
         public void AssertEqualActivities(JassActivity activity0, JassActivity activity1)
         {
             var activityProps = typeof(JassActivity).GetProperties();
@@ -184,6 +314,28 @@ namespace Jassplan.Tests.ModelManager
             }
         }
 
+        public void AssertEqualActivities(JassActivityHistory activity0, JassActivityHistory activity1)
+        {
+            var activityProps = typeof(JassActivityHistory).GetProperties();
+
+            foreach (PropertyInfo activityProperty in activityProps)
+            {
+                if (!activityProperty.GetMethod.IsVirtual
+                    && activityProperty.Name != "LastUpdated")
+                {
+                    var value0 = activityProperty.GetValue(activity0);
+                    var value1 = activityProperty.GetValue(activity1);
+
+                    if (value0 != null)
+                    {
+                        value0 = value0.ToString();
+                        value1 = value1.ToString();
+                    }
+
+                    Assert.AreEqual(value0, value1);
+                }
+            }
+        }
 
         public void DBCleanStateCheck()
         {
