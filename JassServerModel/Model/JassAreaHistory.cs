@@ -6,14 +6,13 @@ using System.Globalization;
 
 namespace Jassplan.Model
 {
-    public class JassAreaHistory
+    public class JassAreaHistory: JassAreaCommon
     {
         public int JassAreaHistoryID { get; set; }
-        public int JassAreaKey { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int JassAreaKey { get; set; } //I use the word Key as opposed to ID to avoid messing up EF
 
-        public virtual List<JassActivityHistory> Activities { get; set; }
+        public virtual List<JassActivityHistory> ActivityHistories { get; set; }
+
         public DateTime TimeStamp  { get; set; }
 
     }

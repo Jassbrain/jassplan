@@ -24,6 +24,7 @@ namespace Jassplan.ModelManager
 
         public DbSet<JassActivity> JassActivities { get; set; }
 
-        public DbSet<JassActivityLog> JassActivityLogs { get; set; }
+        public DbSet<JassActivityHistory> JassActivityHistories { get; set; }
+
     }
 }

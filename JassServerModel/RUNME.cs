@@ -18,7 +18,6 @@ namespace JassServerModel2
                 JassModelManager mm = new JassModelManager();
                 List<JassArea> areas = mm.AreasGetAll();
                 List<JassActivity> activities = mm.ActivitiesGetAll();
-                List<JassActivityLog> activityLogs = mm.ActivityLogsGetAll();
 
                 Console.WriteLine("JassServerModel Sanity Test Successfuly\n");
 

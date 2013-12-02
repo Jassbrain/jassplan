@@ -14,18 +14,8 @@ namespace Jassplan.ModelManager
     {
         private JassContext db = new JassContext();
 
-        #region Refleccion on Activities and ActivityLogs
-
-            private PropertyInfo[] activityProps = typeof(JassActivity).GetProperties();
-            private PropertyInfo[] activityLogProps = typeof(JassActivityLog).GetProperties();
-            Dictionary<string, PropertyInfo> activityLogPropDict = new Dictionary<string, PropertyInfo>();
-            PropertyInfo logProperty;
-        #endregion
-
             public JassModelManager()
             {
-                foreach (PropertyInfo activityLogProp in activityLogProps)
-                { activityLogPropDict.Add(activityLogProp.Name, activityLogProp); }
             }
 
         #region Area Model API
@@ -137,6 +127,46 @@ namespace Jassplan.ModelManager
 
         #endregion Activity Model API
 
+        #region ActivityHistory Model API
+
+        //activity is the primary object, we track them and assignthem to, at least, one area.
+        //in thefuture will be assinged to more than one area.
+        //activities represent a current state, when an activity is done it can be archived
+        //and they will go to the activities log that will be used as a primary source of tracking
+        //somehow, the activity log is a fact table.
+
+        public List<JassActivityHistory> ActivityHistoriesGetAll()
+        {
+            return db.JassActivityHistories.ToList<JassActivityHistory>();
+        }
+        public JassActivityHistory ActivityHistoryGetById(int id)
+        {
+            var JassActivityHistory = db.JassActivityHistories.Find(id);
+            return JassActivityHistory;
+        }
+        public int ActivityHistoryCreate(JassActivityHistory ActivityHistory)
+        {
+            db.JassActivityHistories.Add(ActivityHistory);
+            ActivityHistory.TimeStamp= DateTime.Now;
+            ActivityHistory.Created = DateTime.Now;
+            ActivityHistory.LastUpdated = DateTime.Now;
+            db.SaveChanges();
+            return ActivityHistory.JassActivityHistoryID;
+        }
+        public void ActivityHistorySave(JassActivityHistory ActivityHistory)
+        {
+            db.Entry(ActivityHistory).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+        public void ActivityHistoryDelete(int id)
+        {
+            JassActivityHistory JassActivityHistory = this.ActivityHistoryGetById(id);
+            db.JassActivityHistories.Remove(JassActivityHistory);
+            db.SaveChanges();
+        }
+
+        #endregion ActivityHistory Model API
+
         #region List Model API
 
         //a list is a kind of area (actually is a subclass) but is dynamic in nature.
@@ -156,58 +186,6 @@ namespace Jassplan.ModelManager
 
         #endregion
 
-        #region Activity Log Model API
-        //The activity log is a central object and will used to store the fact table of 
-        //completed tasks. This log is carefully filled by a specific action 'archive' that will
-        //check certain rules before archiving a day. I esepcualte that maybe in the future 
-        //I will have a few different ways to archive, the initial way is based on a completed day.
-        //i want to enforce certain criteria to avoid having a funky log and filter strange things 
-        //like a task marked todo but then remarked not done by mistake.
-        //the log can still be modified but this process will be more cumbersome and with rules to avoid
-        //trashing the log.
-
-        public List<JassActivityLog> ActivityLogsGetAll()
-        {
-            return db.JassActivityLogs.ToList<JassActivityLog>();
-        }
-        public JassActivityLog ActivityLogGetById(int id)
-        {
-            var JassActivityLog = db.JassActivityLogs.Find(id);
-            return JassActivityLog;
-        }
-        public int ActivityLogCreate(JassActivity activity)
-        {
-            JassActivityLog activityLog = new JassActivityLog();
-            foreach (PropertyInfo activityProperty in activityProps)
-            {
-                if (!activityProperty.GetMethod.IsVirtual)
-                {
-                    var result = activityLogPropDict.TryGetValue(activityProperty.Name, out logProperty);
-                    var value = activityProperty.GetValue(activity);
-                    logProperty.SetValue(activityLog, value);
-                }
-
-            }
-            activityLog.Logged = DateTime.Now;
-            
-            db.JassActivityLogs.Add(activityLog);
-            db.SaveChanges();
-            return activityLog.JassActivityLogID;
-        }
-        public void ActivityLogSave(JassActivityLog ActivityLog)
-        {
-            db.Entry(ActivityLog).State = EntityState.Modified;
-            db.SaveChanges();
-        }
-
-        public void ActivityLogDelete(int id)
-        {
-            JassActivityLog JassActivityLog = this.ActivityLogGetById(id);
-            db.JassActivityLogs.Remove(JassActivityLog);
-            db.SaveChanges();
-        }
-
-        #endregion AcivityLog Model API
 
         #region IDispose
         protected virtual void Dispose(bool flag){

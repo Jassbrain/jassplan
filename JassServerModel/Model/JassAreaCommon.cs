@@ -6,10 +6,9 @@ using System.Globalization;
 
 namespace Jassplan.Model
 {
-    public class JassArea:JassAreaCommon
+    public class JassAreaCommon
     {
-        public int JassAreaID { get; set; }
-        public virtual List<JassActivity> Activities { get; set; }
-
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

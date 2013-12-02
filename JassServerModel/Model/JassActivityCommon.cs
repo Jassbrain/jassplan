@@ -6,17 +6,10 @@ using System.Globalization;
 
 namespace Jassplan.Model
 {
-    public class JassActivityLog
+    public class JassActivityCommon
     {
-        public int JassActivityLogID { get; set; }
-        public DateTime Logged { get; set; }
-     
-        public int JassActivityID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
-        public int JassAreaID { get; set; }
-        public virtual JassArea JassArea { get; set; }
 
         public int? EstimatedDuration { get; set; }
         public int? ActualDuration { get; set; }

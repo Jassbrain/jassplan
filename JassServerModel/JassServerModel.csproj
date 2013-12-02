@@ -64,13 +64,26 @@
     <Compile Include="Migrations\201311060046101_AreaHistoryTable.Designer.cs">
       <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311060118521_activityhistory.cs" />
+    <Compile Include="Migrations\201311060118521_activityhistory.Designer.cs">
+      <DependentUpon>201311060118521_activityhistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311070248390_nothing.cs" />
+    <Compile Include="Migrations\201311070248390_nothing.Designer.cs">
+      <DependentUpon>201311070248390_nothing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312020128436_remove-activity-log.cs" />
+    <Compile Include="Migrations\201312020128436_remove-activity-log.Designer.cs">
+      <DependentUpon>201312020128436_remove-activity-log.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\ModelManager.cs" />
+    <Compile Include="Model\JassAreaCommon.cs" />
+    <Compile Include="Model\JassActivityCommon.cs" />
     <Compile Include="Model\JassActivityHistory.cs" />
     <Compile Include="Model\JassAreaHistory.cs" />
     <Compile Include="Model\JassActivity.cs" />
-    <Compile Include="Model\JassActivityLog.cs" />
     <Compile Include="Model\JassArea.cs" />
     <Compile Include="Model\JassList.cs" />
     <Compile Include="RUNME.cs" />
@@ -95,6 +108,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311060046101_AreaHistoryTable.resx">
       <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311060118521_activityhistory.resx">
+      <DependentUpon>201311060118521_activityhistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311070248390_nothing.resx">
+      <DependentUpon>201311070248390_nothing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312020128436_remove-activity-log.resx">
+      <DependentUpon>201312020128436_remove-activity-log.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
