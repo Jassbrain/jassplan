@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassTools", "JassTools\Jass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassToolsTests", "JassToolsTests\JassToolsTests.csproj", "{1D6F75FE-CF71-4B30-AD1B-982A29BEACF2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServerSideModel", "ServerSideModel", "{5630780D-3D01-437B-B770-48A4EB65EC25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UtilityTools", "UtilityTools", "{C146A0CD-8833-47C0-BB7A-C9BBBF41DC6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF9C58D6-BB57-4E62-BDF8-A88B3B811095} = {5630780D-3D01-437B-B770-48A4EB65EC25}
+		{6B7730A0-8C45-49CC-AA13-548D449AE70C} = {5630780D-3D01-437B-B770-48A4EB65EC25}
+		{03D5A981-C8D7-4FB7-BBB0-4F0AD4E6B583} = {C146A0CD-8833-47C0-BB7A-C9BBBF41DC6E}
+		{1D6F75FE-CF71-4B30-AD1B-982A29BEACF2} = {C146A0CD-8833-47C0-BB7A-C9BBBF41DC6E}
 	EndGlobalSection
 EndGlobal
