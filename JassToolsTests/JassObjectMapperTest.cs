@@ -8,15 +8,15 @@ namespace JassToolsTests
     public class JassObjectMapperTest
     {
         public class personBasic {
-            public string name;
-            public int age;
+            public string name {get;set;}
+            public int age {get;set;}
         }
 
         public class personBasicExtended
         {
-            public string name;
-            public int age;
-            public int gender;
+            public string name { get; set; }
+            public int age { get; set; }
+            public int gender { get; set; }
         }
 
         [TestMethod]
@@ -31,7 +31,10 @@ namespace JassToolsTests
             personBasicExtended.gender = 1;
 
             var mapper = new JassObjectMapper<personBasic,personBasicExtended>();
-            mapper.map(personBasic, personBasicExtended);
+            mapper.mapProperties(personBasic, personBasicExtended);
+
+            Assert.IsTrue(personBasicExtended.name == personBasic.name);
+            Assert.IsTrue(personBasicExtended.age == personBasic.age);
 
         }
     }
