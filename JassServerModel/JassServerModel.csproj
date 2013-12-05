@@ -119,6 +119,12 @@
       <DependentUpon>201312020128436_remove-activity-log.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JassTools\JassTools.csproj">
+      <Project>{03d5a981-c8d7-4fb7-bbb0-4f0ad4e6b583}</Project>
+      <Name>JassTools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

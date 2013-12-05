@@ -4,6 +4,7 @@ using Jassplan.ModelManager;
 using Jassplan.Model;
 using System.Collections.Generic;
 using System.Reflection;
+using JassTools;
 
 namespace Jassplan.Tests.ModelManager
 {
@@ -67,6 +68,44 @@ namespace Jassplan.Tests.ModelManager
 
             DBCleanStateCheck();
         }
+
+        [TestMethod]
+        public void mmAreasHistory()
+        {
+           /* 
+            The purpose of this test is to verify that after any CRUD operation is
+            * performed on an Area the corresponding previois state is stored in the 
+            * history. The idea of the test is simple, I create an area and test that the
+            * history is created and make sense. The I update the area and check the history again.
+            */
+
+            
+            DBClean();  //we clean the DB
+
+            //Create an area
+            JassArea newArea0 = new JassArea();
+            newArea0.Name = "TestArea0";
+            newArea0.Activities = new List<JassActivity>();
+            int newArea0Id = mm.AreaCreate(newArea0);
+
+            var allAreaHistories = mm.AreaHistoriesGetAll();
+
+            Assert.IsTrue(allAreaHistories.Count == 1);
+
+            var areaHistory = allAreaHistories[0];
+            var area = mm.AreaGetById(newArea0Id);
+
+            var mapper = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+
+            var result = mapper.Compare(area, areaHistory);
+
+            Assert.IsTrue(result);
+            DBClean();  //we clean the DB
+
+            DBCleanStateCheck(); //we make sure the DB is clean again
+    
+        }
+
         [TestMethod]
         public void mmAreaHistoriesCRUD()
         {
@@ -362,11 +401,17 @@ namespace Jassplan.Tests.ModelManager
         public void DBClean()
         {
 
+            List<JassArea> areas = mm.AreasGetAll();
+            foreach (JassArea area in areas) { mm.AreaDelete(area.JassAreaID); };
+            
             List<JassActivity> activities = mm.ActivitiesGetAll();
             foreach(JassActivity activity in activities){ mm.ActivityDelete(activity.JassActivityID);};
 
-            List<JassArea> areas = mm.AreasGetAll();
-            foreach(JassArea area in areas){ mm.AreaDelete(area.JassAreaID); };
+            List<JassAreaHistory> areaHistories = mm.AreaHistoriesGetAll();
+            foreach (JassAreaHistory area in areaHistories) { mm.AreaHistoryDelete(area.JassAreaHistoryID); };
+
+            List<JassActivityHistory> activityHistories = mm.ActivityHistoriesGetAll();
+            foreach (JassActivityHistory activity in activityHistories) { mm.ActivityHistoryDelete(activity.JassActivityHistoryID); };
 
             DBCleanStateCheck();
 

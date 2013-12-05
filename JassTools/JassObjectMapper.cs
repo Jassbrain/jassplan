@@ -6,20 +6,53 @@ using System.Threading.Tasks;
 
 namespace JassTools
 {
-    public class JassObjectMapper<T1, T2> //where T1 : new()
-    {       
-        public void mapProperties(T1 t1, T2 t2)
+    public class JassProperties<T1, T2, T3> 
+    {
+        public void map(T2 t2, T3 t3)
         {//assign the value of each property from t1 into t2
             var propsT1 = typeof(T1).GetProperties();
-            var propsT2 = typeof(T2).GetProperties();
             foreach (var prop in propsT1)
             {
                 //assign value of property prop from t1 into t2
                 var property1Name = prop.Name;
-                var property1Value = prop.GetValue(t1);
                 var property2 = typeof(T2).GetProperty(property1Name);
-                property2.SetValue(t2,property1Value);
+                var property3 = typeof(T3).GetProperty(property1Name);
+
+                var property2Value = property2.GetValue(t2);
+                property3.SetValue(t3,property2Value);
             }
         }
+
+        public bool Compare(T2 t2, T3 t3)
+        {//assign the value of each property from t1 into t2
+
+            var propsT1 = typeof(T1).GetProperties();
+
+            foreach (var prop in propsT1)
+            {
+                //assign value of property prop from t1 into t2
+                var property1Name = prop.Name;
+                var property2 = typeof(T2).GetProperty(property1Name);
+                var property3 = typeof(T3).GetProperty(property1Name);
+
+                var property2Value = property2.GetValue(t2);
+                var property3Value = property3.GetValue(t3);
+
+                if (property2Value != null || property3Value != null)
+                {
+
+                    var property2ValueS = property2.GetValue(t2).ToString();
+                    var property3ValueS = property3.GetValue(t3).ToString();
+
+                    if (property2ValueS != property3ValueS) return false;
+                }
+                else
+                {
+                    if (property2Value != null || property3Value != null) return false;
+                }
+            }
+            return true;
+        }
+
     }
 }

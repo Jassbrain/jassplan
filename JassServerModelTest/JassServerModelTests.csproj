@@ -66,6 +66,10 @@
       <Project>{cf9c58d6-bb57-4e62-bdf8-a88b3b811095}</Project>
       <Name>JassServerModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JassTools\JassTools.csproj">
+      <Project>{03d5a981-c8d7-4fb7-bbb0-4f0ad4e6b583}</Project>
+      <Name>JassTools</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

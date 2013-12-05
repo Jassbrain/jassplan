@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Reflection;
+using JassTools;
 
 namespace Jassplan.ModelManager
 {
@@ -36,6 +37,13 @@ namespace Jassplan.ModelManager
         {
             db.JassAreas.Add(area);
             db.SaveChanges();
+
+            JassAreaHistory areaHistory = new JassAreaHistory();
+            var mapper = new JassProperties<JassAreaCommon,JassArea, JassAreaHistory>();
+            mapper.map(area, areaHistory);
+
+            AreaHistoryCreate(areaHistory);
+
             return area.JassAreaID;
         }
         public void AreaSave(JassArea area)
