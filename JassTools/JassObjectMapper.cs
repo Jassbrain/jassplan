@@ -20,6 +20,7 @@ namespace JassTools
 
                 var property2Value = property2.GetValue(t2);
                 property3.SetValue(t3,property2Value);
+                //var property3Value = property3.GetValue(t3);
             }
         }
 

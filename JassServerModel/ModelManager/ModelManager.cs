@@ -37,19 +37,24 @@ namespace Jassplan.ModelManager
         {
             db.JassAreas.Add(area);
             db.SaveChanges();
+            AreaSaveHistory(area);
+            return area.JassAreaID;
+        }
 
+        private void AreaSaveHistory(JassArea area)
+        {
             JassAreaHistory areaHistory = new JassAreaHistory();
-            var mapper = new JassProperties<JassAreaCommon,JassArea, JassAreaHistory>();
+            var mapper = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
             mapper.map(area, areaHistory);
-
+            areaHistory.JassAreaKey = area.JassAreaID;
             AreaHistoryCreate(areaHistory);
 
-            return area.JassAreaID;
         }
         public void AreaSave(JassArea area)
         {
             db.Entry(area).State = EntityState.Modified;
             db.SaveChanges();
+            AreaSaveHistory(area);
         }
         public void AreaDelete(int id)
         {

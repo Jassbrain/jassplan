@@ -82,7 +82,10 @@ namespace Jassplan.Tests.ModelManager
             
             DBClean();  //we clean the DB
 
-            //Create an area
+            var startTime = DateTime.Now;
+
+            //Create an area and we test that the history was saved properly
+
             JassArea newArea0 = new JassArea();
             newArea0.Name = "TestArea0";
             newArea0.Activities = new List<JassActivity>();
@@ -100,8 +103,43 @@ namespace Jassplan.Tests.ModelManager
             var result = mapper.Compare(area, areaHistory);
 
             Assert.IsTrue(result);
-            DBClean();  //we clean the DB
 
+            Assert.IsTrue(areaHistory.Description == area.Description);
+            Assert.IsTrue(areaHistory.Name == area.Name);
+            Assert.IsTrue(areaHistory.TimeStamp < DateTime.Now);
+            Assert.IsTrue(areaHistory.TimeStamp > startTime);
+
+            Assert.IsTrue(areaHistory.JassAreaKey == area.JassAreaID);
+
+            var startTime2 = DateTime.Now;
+
+            //Now we will update that area and verify that the history is saved again.
+
+            newArea0.Name += "X";
+            newArea0.Description += "X";
+
+            mm.AreaSave(newArea0);
+
+            var allAreaHistories2 = mm.AreaHistoriesGetAll();
+
+            
+            Assert.IsTrue(allAreaHistories2.Count == 2);
+
+            var areaHistory2 = allAreaHistories2[1];
+            var area2 = mm.AreaGetById(newArea0Id);
+
+            var mapper2 = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+
+            var result2 = mapper.Compare(area, areaHistory);
+
+            Assert.IsTrue(result);
+
+            Assert.IsTrue(areaHistory2.Description == area.Description);
+            Assert.IsTrue(areaHistory2.Name == area.Name);
+            Assert.IsTrue(areaHistory2.TimeStamp < DateTime.Now);
+            Assert.IsTrue(areaHistory2.TimeStamp > startTime2);
+
+            DBClean();  //we clean the DB
             DBCleanStateCheck(); //we make sure the DB is clean again
     
         }
