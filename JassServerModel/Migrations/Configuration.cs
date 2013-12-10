@@ -5,7 +5,7 @@ namespace JassServerModel2.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Jassplan.ModelManager.JassContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Jassplan.JassServerModelManager.JassContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace JassServerModel2.Migrations
             ContextKey = "Jassplan.ModelManager.JassContext";
         }
 
-        protected override void Seed(Jassplan.ModelManager.JassContext context)
+        protected override void Seed(Jassplan.JassServerModelManager.JassContext context)
         {
             //  This method will be called after migrating to the latest version.
 

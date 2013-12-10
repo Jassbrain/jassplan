@@ -1,5 +1,5 @@
 ﻿using Jassplan.Model;
-using Jassplan.ModelManager;
+using Jassplan.JassServerModelManager;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +9,7 @@ using System.Data.Entity;
 using System.Reflection;
 using JassTools;
 
-namespace Jassplan.ModelManager
+namespace Jassplan.JassServerModelManager
 {
     public class JassModelManager: IDisposable
     {
@@ -48,8 +48,8 @@ namespace Jassplan.ModelManager
             mapper.map(area, areaHistory);
             areaHistory.JassAreaKey = area.JassAreaID;
             AreaHistoryCreate(areaHistory);
-
         }
+
         public void AreaSave(JassArea area)
         {
             db.Entry(area).State = EntityState.Modified;
@@ -80,6 +80,17 @@ namespace Jassplan.ModelManager
             var JassAreaHistory = db.JassAreaHistories.Find(id);
             return JassAreaHistory;
         }
+
+        private JassAreaHistory AreaHistoryGetByArea(JassArea area)
+        {
+            var JassAreaHistory =
+                     (from ah in db.JassAreaHistories
+                      where ah.JassAreaKey == area.JassAreaID
+                     select ah).First();
+
+            return JassAreaHistory;
+        }
+
         public int AreaHistoryCreate(JassAreaHistory area)
         {
             db.JassAreaHistories.Add(area);
@@ -124,8 +135,22 @@ namespace Jassplan.ModelManager
             Activity.Created = DateTime.Now;
             Activity.LastUpdated = DateTime.Now;
             db.SaveChanges();
+            ActivitySaveHistory(Activity);
             return Activity.JassActivityID;
         }
+
+        private void ActivitySaveHistory(JassActivity activity)
+        {
+            JassActivityHistory activityHistory = new JassActivityHistory();
+            var mapper = new JassProperties<JassActivityCommon, JassActivity, JassActivityHistory>();
+            mapper.map(activity, activityHistory);
+            activityHistory.JassActivityKey = activity.JassActivityID;
+
+            var areaHistory = AreaHistoryGetByArea(activity.JassArea);
+            activityHistory.JassAreaHistoryID = areaHistory.JassAreaHistoryID;
+            ActivityHistoryCreate(activityHistory);
+        }
+
         public void ActivitySave(JassActivity Activity)
         {
             db.Entry(Activity).State = EntityState.Modified;
@@ -163,6 +188,7 @@ namespace Jassplan.ModelManager
             ActivityHistory.TimeStamp= DateTime.Now;
             ActivityHistory.Created = DateTime.Now;
             ActivityHistory.LastUpdated = DateTime.Now;
+            
             db.SaveChanges();
             return ActivityHistory.JassActivityHistoryID;
         }

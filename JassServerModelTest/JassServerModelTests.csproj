@@ -58,17 +58,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModelManagerTest.cs" />
+    <Compile Include="JassServerModelManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JassServerModel\JassServerModel.csproj">
       <Project>{cf9c58d6-bb57-4e62-bdf8-a88b3b811095}</Project>
-      <Name>JassServerModel</Name>
+      <Name>JassServerModel %28JassServerModel\JassServerModel%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\JassTools\JassTools.csproj">
       <Project>{03d5a981-c8d7-4fb7-bbb0-4f0ad4e6b583}</Project>
-      <Name>JassTools</Name>
+      <Name>JassTools %28JassTools\JassTools%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

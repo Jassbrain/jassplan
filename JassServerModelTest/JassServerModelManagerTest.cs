@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Jassplan.ModelManager;
+using Jassplan.JassServerModelManager;
 using Jassplan.Model;
 using System.Collections.Generic;
 using System.Reflection;
@@ -9,7 +9,7 @@ using JassTools;
 namespace Jassplan.Tests.ModelManager
 {
     [TestClass] //Test of the Model Manager
-    public class ModelManagerTest
+    public class JassServerModelManagerTest
     {
         JassModelManager mm = new JassModelManager();
 
@@ -72,13 +72,12 @@ namespace Jassplan.Tests.ModelManager
         [TestMethod]
         public void mmAreasHistory()
         {
-           /* 
-            The purpose of this test is to verify that after any CRUD operation is
-            * performed on an Area the corresponding previois state is stored in the 
-            * history. The idea of the test is simple, I create an area and test that the
-            * history is created and make sense. The I update the area and check the history again.
-            */
-
+            /* 
+             The purpose of this test is to verify that after any CRUD operation is
+             * performed on an Area the corresponding previois state is stored in the 
+             * history. The idea of the test is simple, I create an area and test that the
+             * history is created and make sense. The I update the area and check the history again.
+             */
             
             DBClean();  //we clean the DB
 
@@ -271,6 +270,105 @@ namespace Jassplan.Tests.ModelManager
 
             DBCleanStateCheck();
         }
+
+
+        [TestMethod]
+        public void mmActivitiesHistory()
+        {
+            /* 
+             The purpose of this test is to verify that after any CRUD operation is
+             * performed on an Activity the corresponding previouis state is stored in the 
+             * history. The idea of the test is simple, I create an area and test that the
+             * history is created and make sense. The I update the area and check the history again.
+             */
+
+
+            DBClean();  //we clean the DB
+
+            var startTime = DateTime.Now;
+
+            //Create an activity and verify that we have got a history
+
+            //first we need an area becuase is mandatory
+
+            JassArea newArea0 = new JassArea();
+            newArea0.Name = "TestArea0";
+            newArea0.Activities = new List<JassActivity>();
+            int newAreaId = mm.AreaCreate(newArea0);
+
+
+            var allAreaHistories = mm.AreaHistoriesGetAll();
+
+            JassActivity newActivity = new JassActivity();
+            newActivity.Name = "TestActivity0";
+            newActivity.JassAreaID = newAreaId;
+            int newActivityId = mm.ActivityCreate(newActivity);
+
+            //So at least ewe need one record in this activityu history
+            var allActivityHistories = mm.ActivityHistoriesGetAll();
+
+            Assert.IsTrue(allActivityHistories.Count == 1);
+
+       //now , let's really verify that the history record is what is supposed to be
+
+            var activityHistory = allActivityHistories[0];//we only have one so..
+            var activity = mm.ActivityGetById(newActivityId);
+
+            var mapper = new JassProperties<JassActivityCommon, JassActivity, JassActivityHistory>();
+
+            var result = mapper.Compare(activity, activityHistory);
+
+            Assert.IsTrue(result); //this test should habe been enough
+            //but just to be paranoid I will add some test manually as well not all fields.. but just a few
+
+            Assert.IsTrue(activityHistory.Description == activity.Description);
+            Assert.IsTrue(activityHistory.Name == activity.Name);
+            Assert.IsTrue(activityHistory.TimeStamp < DateTime.Now);
+            Assert.IsTrue(activityHistory.TimeStamp > startTime);
+
+            Assert.IsTrue(activityHistory.JassActivityKey == activity.JassActivityID);
+
+            //at this point that is pointing to the right area history.
+
+            //So, the idea is that is I ask this activity historu about this area history
+            //I wil get an area history who original are is the are i created in the beginning of the test
+
+
+
+/*
+            var startTime2 = DateTime.Now;
+
+            //Now we will update that area and verify that the history is saved again.
+
+            newActivity.Name += "X";
+            newActivity.Description += "X";
+
+            mm.AreaSave(newActivity);
+
+            var allAreaHistories2 = mm.AreaHistoriesGetAll();
+
+
+            Assert.IsTrue(allAreaHistories2.Count == 2);
+
+            var areaHistory2 = allAreaHistories2[1];
+            var area2 = mm.AreaGetById(newArea0Id);
+
+            var mapper2 = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+
+            var result2 = mapper.Compare(area, areaHistory);
+
+            Assert.IsTrue(result);
+
+            Assert.IsTrue(areaHistory2.Description == area.Description);
+            Assert.IsTrue(areaHistory2.Name == area.Name);
+            Assert.IsTrue(areaHistory2.TimeStamp < DateTime.Now);
+            Assert.IsTrue(areaHistory2.TimeStamp > startTime2);
+
+            DBClean();  //we clean the DB
+            DBCleanStateCheck(); //we make sure the DB is clean again
+*/
+        }
+
         [TestMethod]
         public void mmActivityHistoriesCRUD()
 

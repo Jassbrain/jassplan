@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Jassplan.Model;
 
-namespace Jassplan.ModelManager
+namespace Jassplan.JassServerModelManager
 {
     public class JassContext : DbContext
     {

@@ -1,12 +1,12 @@
 ﻿using Jassplan.Model;
-using Jassplan.ModelManager;
+using Jassplan.JassServerModelManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JassServerModel2
+namespace JassServerModelAliveTest
 {
     class RUNME
     {
