@@ -161,7 +161,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JassTools\JassTools.csproj">
       <Project>{03d5a981-c8d7-4fb7-bbb0-4f0ad4e6b583}</Project>
-      <Name>JassTools %28JassTools\JassTools%29</Name>
+      <Name>JassTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

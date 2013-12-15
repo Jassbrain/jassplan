@@ -38,7 +38,7 @@ namespace JassToolsTests
             personBasic.age = 10;
             personBasicExtended1.gender = 1;
 
-            var mapper = new JassProperties<personBasic, personBasic, personBasicExtended1>();
+            var mapper = new JassCommonAttributesMapper<personBasic, personBasic, personBasicExtended1>();
             mapper.map(personBasic, personBasicExtended1);
 
             Assert.IsTrue(personBasicExtended1.name == personBasic.name);
@@ -60,10 +60,10 @@ namespace JassToolsTests
             personBasicExtended.age = 10;
             personBasicExtended.gender = 1;
 
-            var mapper = new JassProperties<personBasic, personBasic, personBasicExtended1>();
+            var mapper = new JassCommonAttributesMapper<personBasic, personBasic, personBasicExtended1>();
             mapper.map(personBasic, personBasicExtended);
 
-            var result = mapper.Compare(personBasic, personBasicExtended);
+            var result = mapper.compare(personBasic, personBasicExtended);
 
             Assert.IsTrue(result);
 

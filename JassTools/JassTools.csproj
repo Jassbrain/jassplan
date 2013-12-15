@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JassObjectMapper.cs" />
+    <Compile Include="IJassCommonAttributesMapper.cs" />
+    <Compile Include="JassCommonAttributesMapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -97,9 +97,9 @@ namespace Jassplan.Tests.ModelManager
             var areaHistory = allAreaHistories[0];
             var area = mm.AreaGetById(newArea0Id);
 
-            var mapper = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+            var mapper = new JassCommonAttributesMapper<JassAreaCommon, JassArea, JassAreaHistory>();
 
-            var result = mapper.Compare(area, areaHistory);
+            var result = mapper.compare(area, areaHistory);
 
             Assert.IsTrue(result);
 
@@ -127,9 +127,9 @@ namespace Jassplan.Tests.ModelManager
             var areaHistory2 = allAreaHistories2[1];
             var area2 = mm.AreaGetById(newArea0Id);
 
-            var mapper2 = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+            var mapper2 = new JassCommonAttributesMapper<JassAreaCommon, JassArea, JassAreaHistory>();
 
-            var result2 = mapper.Compare(area, areaHistory);
+            var result2 = mapper.compare(area, areaHistory);
 
             Assert.IsTrue(result);
 
@@ -314,9 +314,9 @@ namespace Jassplan.Tests.ModelManager
             var activityHistory = allActivityHistories[0];//we only have one so..
             var activity = mm.ActivityGetById(newActivityId);
 
-            var mapper = new JassProperties<JassActivityCommon, JassActivity, JassActivityHistory>();
+            var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
 
-            var result = mapper.Compare(activity, activityHistory);
+            var result = mapper.compare(activity, activityHistory);
 
             Assert.IsTrue(result); //this test should habe been enough
             //but just to be paranoid I will add some test manually as well not all fields.. but just a few

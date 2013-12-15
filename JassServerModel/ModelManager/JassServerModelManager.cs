@@ -44,7 +44,7 @@ namespace Jassplan.JassServerModelManager
         private void AreaSaveHistory(JassArea area)
         {
             JassAreaHistory areaHistory = new JassAreaHistory();
-            var mapper = new JassProperties<JassAreaCommon, JassArea, JassAreaHistory>();
+            var mapper = new JassCommonAttributesMapper<JassAreaCommon, JassArea, JassAreaHistory>();
             mapper.map(area, areaHistory);
             areaHistory.JassAreaKey = area.JassAreaID;
             AreaHistoryCreate(areaHistory);
@@ -142,7 +142,7 @@ namespace Jassplan.JassServerModelManager
         private void ActivitySaveHistory(JassActivity activity)
         {
             JassActivityHistory activityHistory = new JassActivityHistory();
-            var mapper = new JassProperties<JassActivityCommon, JassActivity, JassActivityHistory>();
+            var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
             mapper.map(activity, activityHistory);
             activityHistory.JassActivityKey = activity.JassActivityID;
 

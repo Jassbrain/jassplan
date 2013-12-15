@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JassTools
 {
-    public class JassProperties<T1, T2, T3> 
+    public class JassCommonAttributesMapper<T1, T2, T3> : JassTools.IJassCommonAttributesMapper<T1,T2,T3>// where T2:T1 where T3:T1
     {
         public void map(T2 t2, T3 t3)
         {//assign the value of each property from t1 into t2
@@ -22,9 +22,10 @@ namespace JassTools
                 property3.SetValue(t3,property2Value);
                 //var property3Value = property3.GetValue(t3);
             }
+
         }
 
-        public bool Compare(T2 t2, T3 t3)
+        public bool compare(T2 t2, T3 t3)
         {//assign the value of each property from t1 into t2
 
             var propsT1 = typeof(T1).GetProperties();
