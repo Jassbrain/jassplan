@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Bootswatch</id>
+    <version>2.3.2</version>
+    <title>Bootswatch</title>
+    <authors>Thomas Park</authors>
+    <owners>Thomas Park</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://twitter.github.com/bootstrap/</projectUrl>
+    <iconUrl>https://f.cloud.github.com/assets/900407/202907/25f524e2-8123-11e2-8c86-3f090c96f14f.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bootswatch is a collection of free themes for Twitter Bootstrap. Check it out at bootswatch.com.
+
+Packaged by Francesco Pontillo.</description>
+    <summary>Copyright 2012 Thomas Park
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.</summary>
+    <releaseNotes />
+    <language>en-US</language>
+    <tags>twitter bootstrap theme themes bootswatch swatch css less</tags>
+    <dependencies>
+      <dependency id="Twitter.Bootstrap" version="2.3.2" />
+    </dependencies>
+  </metadata>
+</package>
