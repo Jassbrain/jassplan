@@ -24,13 +24,7 @@ Jassplan.controller = (function () {
             + "</a>"
             + "</li>").appendTo(ul);
         }
-
-
-
         ul.listview();
-
-
-
     };
 
     var onPageChange = function (event, data) {
