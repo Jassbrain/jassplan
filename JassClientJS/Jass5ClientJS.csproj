@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="WS\JassClientJS\spec\" />
     <Folder Include="WS\lib\jqstorage\" />
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +54,11 @@
     <Content Include="WS\JassClientJS\app\datacontext.js" />
     <Content Include="WS\JassClientJS\app\index.html" />
     <Content Include="WS\JassClientJS\app\model.js" />
+    <Content Include="WS\JassClientJS\css\app.css" />
     <Content Include="WS\JassClientJS\index.html" />
     <Content Include="WS\JassClientJS\specrunner.html" />
+    <Content Include="WS\JassClientJS\spec\appspec.js" />
+    <Content Include="WS\JassClientJS\spec\testhelper.js" />
     <Content Include="WS\lib\jasmine\jasmine-html.js" />
     <Content Include="WS\lib\jasmine\jasmine.css" />
     <Content Include="WS\lib\jasmine\jasmine.js" />

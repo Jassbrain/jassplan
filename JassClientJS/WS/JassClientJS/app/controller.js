@@ -23,8 +23,8 @@ Jassplan.controller = (function (dataContext) {
         for (i = 0; i < notesCount; i += 1) {
             $("<li>"
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
-            + "<div>Note title " + notesList[i].title + "</div>"
-            + "<div class=\"list-item-narrative\">Note Narrative " + notesList[i].narrative + "</div>"
+            + "<div class=\"list-item-title\">" + notesList[i].title + "</div>"
+            + "<div class=\"list-item-narrative\">" + notesList[i].narrative + "</div>"
             + "</a>"
             + "</li>").appendTo(ul);
         }
