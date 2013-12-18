@@ -26,7 +26,7 @@
       <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JassClientJS/app/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="71" selection-start="891" selection-end="891" vertical-scroll-proportion="0.512987" vertical-offset="126" max-vertical-offset="1122">
+            <state line="27" column="0" selection-start="753" selection-end="753" vertical-scroll-proportion="0.8727273" vertical-offset="75" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JassClientJS/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="4" selection-start="45" selection-end="59" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+            <state line="3" column="4" selection-start="45" selection-end="59" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="testhelper.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JassClientJS/spec/testhelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="42" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="561">
+            <state line="15" column="42" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="model.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JassClientJS/app/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="306">
+            <state line="8" column="0" selection-start="139" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
@@ -83,7 +83,7 @@
       <file leaf-file-name="specrunner.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JassClientJS/specrunner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="78" selection-start="265" selection-end="265" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="527">
+            <state line="6" column="78" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -92,7 +92,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JassClientJS/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="64" selection-start="300" selection-end="300" vertical-scroll-proportion="-2.6153846" vertical-offset="68" max-vertical-offset="714">
+            <state line="8" column="64" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
@@ -262,7 +262,7 @@
       <recent name="C:\JASSPLAN\JassClientJS\WS\JassClientJS" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="JavaScript Debug.specrunner.html">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/WS/JassClientJS/index.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -271,6 +271,14 @@
     <configuration default="false" name="specrunner.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/WS/JassClientJS/specrunner.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -283,23 +291,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -315,8 +315,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.specrunner.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.specrunner.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -423,13 +423,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="163030" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JassClientJS/app/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JassClientJS/app/datacontext.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="42" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
@@ -447,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JassClientJS/spec/testhelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JassClientJS/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="4" selection-start="45" selection-end="59" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
@@ -463,21 +449,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JassClientJS/specrunner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="78" selection-start="265" selection-end="265" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="527">
+        <state line="6" column="78" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="527">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JassClientJS/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="64" selection-start="300" selection-end="300" vertical-scroll-proportion="-2.6153846" vertical-offset="68" max-vertical-offset="714">
+        <state line="8" column="64" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JassClientJS/app/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="139" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JassClientJS/spec/testhelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="42" selection-start="464" selection-end="464" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JassClientJS/app/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="71" selection-start="891" selection-end="891" vertical-scroll-proportion="0.512987" vertical-offset="126" max-vertical-offset="1122">
+        <state line="27" column="0" selection-start="753" selection-end="753" vertical-scroll-proportion="0.8727273" vertical-offset="75" max-vertical-offset="1292">
           <folding />
         </state>
       </provider>

@@ -16,11 +16,21 @@ Jassplan.controller = (function (dataContext) {
 
         var notesCount = notesList.length,
             note,
+            dateGroup,
+            noteDate,
             i;
         var view = $(notesListSelector);
         view.empty();
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
         for (i = 0; i < notesCount; i += 1) {
+
+            noteDate = (new Date(notesList[i].dateCreated)).toDateString();
+
+            if (dateGroup !== noteDate) {
+                $("<li data-role=\"list-divider\">" + noteDate + "</li>").appendTo(ul);
+                dateGroup = noteDate;
+            }
+
             $("<li>"
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
             + "<div class=\"list-item-title\">" + notesList[i].title + "</div>"
