@@ -4,23 +4,27 @@
 
 var Jassplan = Jassplan || {};
 
-Jassplan.controller = (function () {
+Jassplan.controller = (function (dataContext) {
 
+    var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
     var notesListSelector = "#notes-list-content";
 
     var renderNotesList = function () {
-        var dummyNotesCount = 10,
+
+        var notesList = dataContext.getNotesList();
+
+        var notesCount = notesList.length,
             note,
             i;
         var view = $(notesListSelector);
         view.empty();
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
-        for (i = 0; i < dummyNotesCount; i += 1) {
+        for (i = 0; i < notesCount; i += 1) {
             $("<li>"
-            + "<a href=\"index.html#note-editor-page?noteId=" + i + "\">"
-            + "<div>Note title " + i + "</div>"
-            + "<div class=\"list-item-narrative\">Note Narrative " + i + "</div>"
+            + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
+            + "<div>Note title " + notesList[i].title + "</div>"
+            + "<div class=\"list-item-narrative\">Note Narrative " + notesList[i].narrative + "</div>"
             + "</a>"
             + "</li>").appendTo(ul);
         }
@@ -37,18 +41,18 @@ Jassplan.controller = (function () {
     };
 
     var init = function () {
+        dataContext.init(appStorageKey);
         $(document).bind("pagechange", onPageChange);
     };
 
-    var public = {
+    return {
         init: init
     };
 
-    return public;
-
-})();
+})(Jassplan.dataContext);
 
 $(document).bind("mobileinit", function () {
+    Jassplan.testHelper.createDummyNotes("Notes.NotesList");
     Jassplan.controller.init();
 
 });

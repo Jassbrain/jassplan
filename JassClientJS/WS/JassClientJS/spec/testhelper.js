@@ -12,8 +12,8 @@ Jassplan.testHelper = (function () {
             var config = {};
             var dateCreated = new Date();
             config.id = i.toString();
-            config.title = "Title " + i;
-            config.narrative = "Narrative " + i;
+            config.title = "Titlex " + i;
+            config.narrative = "Narrativex " + i;
             config.dateCreated = dateCreated;
             var note = new Jassplan.NoteModel(config);
             notes.push(note);
