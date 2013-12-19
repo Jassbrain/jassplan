@@ -8,6 +8,7 @@ Jassplan.controller = (function (dataContext) {
 
     var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
+    var noteEditorPageId = "note-editor-page";
     var notesListSelector = "#notes-list-content";
 
     var renderNotesList = function () {
@@ -46,6 +47,8 @@ Jassplan.controller = (function (dataContext) {
         switch (toPageId) {
             case notesListPageId:
                 renderNotesList();
+                break;
+            case noteEditorPageId:
                 break;
         }
     };
