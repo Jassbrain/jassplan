@@ -10,6 +10,9 @@ Jassplan.controller = (function (dataContext) {
     var notesListPageId = "notes-list-page";
     var noteEditorPageId = "note-editor-page";
     var notesListSelector = "#notes-list-content";
+    var noteTitleEditorSel = "[name=note-title-editor]";
+    var noteNarrativeEditorSel = "[name=note-narrative-editor]";
+
 
     var renderNotesList = function () {
 
@@ -43,15 +46,39 @@ Jassplan.controller = (function (dataContext) {
     };
 
     var onPageChange = function (event, data) {
+        var fromPageId;
+        if (data.options.fromPage) {
+            fromPageId = data.options.fromPage.attr("id");
+        }
         var toPageId = data.toPage.attr("id");
         switch (toPageId) {
             case notesListPageId:
                 renderNotesList();
                 break;
             case noteEditorPageId:
+                if (fromPageId === notesListPageId) {
+                    renderSelectedNote(data);
+                }
                 break;
         }
     };
+
+
+    var renderSelectedNote = function (data){
+        var u = $.mobile.path.parseUrl(data.options.fromPage.context.URL);
+        var re = "^#" + noteEditorPageId;
+        if (u.hash.search(re) !== -1)
+        {
+
+        var queryStringObj = queryStringToObject(data.options.queryString);
+        var titleEditor = $(noteTitleEditorSel);
+        var narrativeEditor = $(noteNarrativeEditorSel);
+        var noteId = queryStringObj["noteId"];
+
+        if (typeof noteId !== "undefined") { alert('Ji'); } else { alert('Jo');}
+        }
+
+        return data;};
 
     var init = function () {
         dataContext.init(appStorageKey);
