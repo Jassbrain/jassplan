@@ -73,16 +73,67 @@ Jassplan.controller = (function (dataContext) {
         var queryStringObj = queryStringToObject(data.options.queryString);
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
+        titleEditor.val("");
+        narrativeEditor.val("");
         var noteId = queryStringObj["noteId"];
 
-        if (typeof noteId !== "undefined") { alert('Ji'); } else { alert('Jo');}
-        }
+        if (typeof noteId !== "undefined")
+        {  //here we are supposed to load the values into the fields
+            var notesList = dataContext.getNotesList();
 
-        return data;};
+            var notesCount = notesList.length;
+            var note;
+            for (var i = 0; i < notesCount; i++) {
+                note = notesList[i];
+                if (noteId === note.id) {
+                    titleEditor.val(note.title);
+                    narrativeEditor.val(note.narrative);
+                    break;
+                }
+            }
+            titleEditor.focus();}
+        }
+        return data;
+    };
+
+    var onPageBeforeChange = function (event, data) {
+        var titleEditor = $(noteTitleEditorSel);
+        var narrativeEditor = $(noteNarrativeEditorSel);
+        titleEditor.val("");
+        narrativeEditor.val("");
+
+        if (typeof data.toPage === "string") {
+            var url = $.mobile.path.parseUrl(data.toPage);
+
+            if ($.mobile.path.isEmbeddedPage(url)) {
+                var parsedHash = url.hash.replace(/^#/, "");
+                var parsedQueryString = $.mobile.path.parseUrl(parsedHash);
+                data.options.queryString = parsedQueryString.search.replace("?", "");
+                var x = 1;
+            }
+        }
+    };
 
     var init = function () {
         dataContext.init(appStorageKey);
         $(document).bind("pagechange", onPageChange);
+        $(document).bind("pagebeforechange", onPageBeforeChange);
+    };
+
+    var queryStringToObject = function (queryString)
+    { var queryStringObj = {};
+      var e;
+      var a = /\+/g; // Replace + symbol with a space
+      var r = /([^&;=]+)=?([^&;]*)/g;
+      var d = function (s) { return decodeURIComponent(s.replace(a, " ")); };
+      e = r.exec(queryString);
+
+
+        while (e) {
+            queryStringObj[d(e[1])] = d(e[2]);
+            e = r.exec(queryString);
+        }
+       return queryStringObj;
     };
 
     return {
