@@ -35,4 +35,21 @@ describe("Data context tests", function () {
         }
     });
 
+    it("Saves a note to local storage", function () {
+        // Make sure LS is empty before the test.
+        $.jStorage.deleteKey(notesListStorageKey);
+        var notesList = $.jStorage.get(notesListStorageKey);
+        expect(notesList).toBeNull();
+        // Create a note.
+        var dateCreated = new Date();
+        var id = dateCreated.getTime().toString();
+        var noteModel = new Jassplan.NoteModel({ id: id, dateCreated: dateCreated, title: "", narrative: "" });
+        Jassplan.dataContext.init(notesListStorageKey);
+        notesList = $.jStorage.get(notesListStorageKey);
+        Jassplan.dataContext.saveNote(noteModel);
+        // Should contain a note.
+        notesList = $.jStorage.get(notesListStorageKey);
+        expect(notesList.length).toBe(11);
+        // Clean up
+        $.jStorage.deleteKey(notesListStorageKey); });
 });

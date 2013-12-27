@@ -10,3 +10,9 @@ Jassplan.NoteModel = function(config) {
     this.title = config.title;
     this.narrative = config.narrative;
 };
+
+Jassplan.NoteModel.prototype.isValid = function () {
+    "use strict";
+    if (this.title && this.title.length > 0)
+    { return true; }
+    return false; };

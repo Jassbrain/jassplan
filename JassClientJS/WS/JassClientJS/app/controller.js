@@ -12,7 +12,8 @@ Jassplan.controller = (function (dataContext) {
     var notesListSelector = "#notes-list-content";
     var noteTitleEditorSel = "[name=note-title-editor]";
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
-
+    var currentNote;
+    var saveNoteButtonSel = "#save-note-button";
 
     var renderNotesList = function () {
 
@@ -44,7 +45,6 @@ Jassplan.controller = (function (dataContext) {
         }
         ul.listview();
     };
-
     var onPageChange = function (event, data) {
         var fromPageId;
         if (data.options.fromPage) {
@@ -62,8 +62,6 @@ Jassplan.controller = (function (dataContext) {
                 break;
         }
     };
-
-
     var renderSelectedNote = function (data){
         var u = $.mobile.path.parseUrl(data.options.fromPage.context.URL);
         var re = "^#" + noteEditorPageId;
@@ -73,8 +71,6 @@ Jassplan.controller = (function (dataContext) {
         var queryStringObj = queryStringToObject(data.options.queryString);
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        titleEditor.val("");
-        narrativeEditor.val("");
         var noteId = queryStringObj["noteId"];
 
         if (typeof noteId !== "undefined")
@@ -88,6 +84,7 @@ Jassplan.controller = (function (dataContext) {
                 if (noteId === note.id) {
                     titleEditor.val(note.title);
                     narrativeEditor.val(note.narrative);
+                    currentNote=note;
                     break;
                 }
             }
@@ -95,12 +92,12 @@ Jassplan.controller = (function (dataContext) {
         }
         return data;
     };
-
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         titleEditor.val("");
         narrativeEditor.val("");
+        currentNote=null;
 
         if (typeof data.toPage === "string") {
             var url = $.mobile.path.parseUrl(data.toPage);
@@ -113,15 +110,34 @@ Jassplan.controller = (function (dataContext) {
             }
         }
     };
+    var onSaveNoteButtonTapped = function () {
+        var titleEditor = $(noteTitleEditorSel);
+        var narrativeEditor = $(noteNarrativeEditorSel);
+        var tempNote = dataContext.createBlankNote();
+
+        tempNote.title = titleEditor.val();
+        tempNote.narrative = narrativeEditor.val();
+
+        if (tempNote.isValid()) {
+            if (null !== currentNote) {
+                currentNote.title = tempNote.title;
+                currentNote.narrative = tempNote.narrative; }
+            else {
+                currentNote = tempNote; }
+            dataContext.saveNote(currentNote);
+            returnToNotesListPage(); }
+        else {
+            alert('temp Note is Invalid');
+        };
+    }
 
     var init = function () {
         dataContext.init(appStorageKey);
         $(document).bind("pagechange", onPageChange);
         $(document).bind("pagebeforechange", onPageBeforeChange);
+        $(document).delegate(saveNoteButtonSel, "tap", onSaveNoteButtonTapped);
     };
-
-    var queryStringToObject = function (queryString)
-    { var queryStringObj = {};
+    var queryStringToObject = function (queryString){ var queryStringObj = {};
       var e;
       var a = /\+/g; // Replace + symbol with a space
       var r = /([^&;=]+)=?([^&;]*)/g;
@@ -135,7 +151,6 @@ Jassplan.controller = (function (dataContext) {
         }
        return queryStringObj;
     };
-
     return {
         init: init
     };
@@ -145,7 +160,6 @@ Jassplan.controller = (function (dataContext) {
 $(document).bind("mobileinit", function () {
     Jassplan.testHelper.createDummyNotes("Notes.NotesList");
     Jassplan.controller.init();
-
 });
 
 
