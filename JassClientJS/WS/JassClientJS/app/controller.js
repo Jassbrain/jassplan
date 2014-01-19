@@ -158,7 +158,7 @@ Jassplan.controller = (function (dataContext) {
 })(Jassplan.dataContext);
 
 $(document).bind("mobileinit", function () {
-    Jassplan.testHelper.createDummyNotes("Notes.NotesList");
+  //  Jassplan.testHelper.createDummyNotes("Notes.NotesList");
     Jassplan.controller.init();
 });
 
