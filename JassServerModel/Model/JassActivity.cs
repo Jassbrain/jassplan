@@ -9,7 +9,5 @@ namespace Jassplan.Model
     public class JassActivity:JassActivityCommon
     {
         public int JassActivityID { get; set; }
-        public int JassAreaID { get; set; }
-        public virtual JassArea JassArea { get; set; }
     }
 }

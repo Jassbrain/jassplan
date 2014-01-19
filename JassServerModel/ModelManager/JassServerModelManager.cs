@@ -19,99 +19,6 @@ namespace Jassplan.JassServerModelManager
             {
             }
 
-        #region Area Model API
-        //and are is a pretty static object, that may change once in a while 
-        //and represents a primary focus subject like 'mind', 'body',.etc
-        //areas will be a primary source of measure. In the future and activity 
-        //may impact more than one area but there will alwasy be a primary area.
- 
-        public List<JassArea> AreasGetAll()
-        {
-            return db.JassAreas.ToList<JassArea>();
-        }
-        public JassArea AreaGetById(int id){
-            var JassArea = db.JassAreas.Find(id);
-            return JassArea;
-        }
-        public int AreaCreate(JassArea area)
-        {
-            db.JassAreas.Add(area);
-            db.SaveChanges();
-            AreaSaveHistory(area);
-            return area.JassAreaID;
-        }
-
-        private void AreaSaveHistory(JassArea area)
-        {
-            JassAreaHistory areaHistory = new JassAreaHistory();
-            var mapper = new JassCommonAttributesMapper<JassAreaCommon, JassArea, JassAreaHistory>();
-            mapper.map(area, areaHistory);
-            areaHistory.JassAreaKey = area.JassAreaID;
-            AreaHistoryCreate(areaHistory);
-        }
-
-        public void AreaSave(JassArea area)
-        {
-            db.Entry(area).State = EntityState.Modified;
-            db.SaveChanges();
-            AreaSaveHistory(area);
-        }
-        public void AreaDelete(int id)
-        {
-            JassArea Jassarea = this.AreaGetById(id);
-            db.JassAreas.Remove(Jassarea);
-            db.SaveChanges();
-        }
-
-        #endregion Area Model API
-
-        #region AreaHistory Model API
-        //and are is a pretty static object, that may change once in a while 
-        //and represents a primary focus subject like 'mind', 'body',.etc
-        //areas will be a primary source of measure. In the future and activity 
-        //may impact more than one area but there will alwasy be a primary area.
-
-        public List<JassAreaHistory> AreaHistoriesGetAll()
-        {
-            return db.JassAreaHistories.ToList<JassAreaHistory>();
-        }
-        public JassAreaHistory AreaHistoryGetById(int id)
-        {
-            var JassAreaHistory = db.JassAreaHistories.Find(id);
-            return JassAreaHistory;
-        }
-
-        private JassAreaHistory AreaHistoryGetByArea(JassArea area)
-        {
-            var JassAreaHistory =
-                     (from ah in db.JassAreaHistories
-                      where ah.JassAreaKey == area.JassAreaID
-                     select ah).First();
-
-            return JassAreaHistory;
-        }
-
-        public int AreaHistoryCreate(JassAreaHistory area)
-        {
-            db.JassAreaHistories.Add(area);
-            area.TimeStamp = DateTime.Now;
-            db.SaveChanges();
-            return area.JassAreaHistoryID;
-        }
-        public void AreaHistorySave(JassAreaHistory area)
-        {
-            db.Entry(area).State = EntityState.Modified;
-            db.SaveChanges();
-        }
-        public void AreaHistoryDelete(int id)
-        {
-            JassAreaHistory Jassarea = this.AreaHistoryGetById(id);
-            db.JassAreaHistories.Remove(Jassarea);
-            db.SaveChanges();
-        }
-
-        #endregion AreaHistory Model API
-
         #region Activity Model API
 
         //activity is the primary object, we track them and assignthem to, at least, one area.
@@ -144,10 +51,8 @@ namespace Jassplan.JassServerModelManager
             JassActivityHistory activityHistory = new JassActivityHistory();
             var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
             mapper.map(activity, activityHistory);
-            activityHistory.JassActivityKey = activity.JassActivityID;
+            activityHistory.JassActivityID = activity.JassActivityID;
 
-            var areaHistory = AreaHistoryGetByArea(activity.JassArea);
-            activityHistory.JassAreaHistoryID = areaHistory.JassAreaHistoryID;
             ActivityHistoryCreate(activityHistory);
         }
 
@@ -205,25 +110,6 @@ namespace Jassplan.JassServerModelManager
         }
 
         #endregion ActivityHistory Model API
-
-        #region List Model API
-
-        //a list is a kind of area (actually is a subclass) but is dynamic in nature.
-        //This is going to evolve and become a very generic mechanism butfor the moment 
-        //we only have one method that will give us the list of tasks to-do today.
-        //which is defined as the set of all activityes with a 'todo' true for today.
-        public JassList ListTodoTodayGet()
-        {
-            var Jassactivities = db.JassActivities.Where(a => a.TodoToday == true).ToList();
-            JassList JassTodayList = new JassList();
-            JassTodayList.Activities = Jassactivities.ToList();
-            JassTodayList.Name = "Today";
-            JassTodayList.JassAreaID = 0;
-
-            return JassTodayList;
-        }
-
-        #endregion
 
 
         #region IDispose
