@@ -200,6 +200,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Controllers\TodoListController.cs" />
@@ -350,6 +351,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JassServerModel\JassServerModel.csproj">
+      <Project>{cf9c58d6-bb57-4e62-bdf8-a88b3b811095}</Project>
+      <Name>JassServerModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
