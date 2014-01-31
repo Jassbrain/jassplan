@@ -8,6 +8,8 @@ using System.Net.Http;
 using System.Web.Http;
 using JassWeb.Filters;
 using JassWeb.Models;
+using Jassplan.Model;
+using Jassplan.JassServerModelManager;
 
 namespace JassWeb.Controllers
 {
@@ -15,15 +17,12 @@ namespace JassWeb.Controllers
     public class TodoListController : ApiController
     {
         private TodoItemContext db = new TodoItemContext();
+        private JassModelManager mm = new JassModelManager();
 
         // GET api/TodoList
-        public IEnumerable<TodoListDto> GetTodoLists()
+        public List<JassActivity> GetTodoLists()
         {
-            return db.TodoLists.Include("Todos")
-                .Where(u => u.UserId == User.Identity.Name)
-                .OrderByDescending(u => u.TodoListId)
-                .AsEnumerable()
-                .Select(todoList => new TodoListDto(todoList));
+            return mm.ActivitiesGetAll();
         }
 
         // GET api/TodoList/5
@@ -65,8 +64,6 @@ namespace JassWeb.Controllers
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
             }
 
-            db.Entry(todoList).State = EntityState.Modified;
-
             try
             {
                 db.SaveChanges();
@@ -81,21 +78,17 @@ namespace JassWeb.Controllers
 
         // POST api/TodoList
         [ValidateHttpAntiForgeryToken]
-        public HttpResponseMessage PostTodoList(TodoListDto todoListDto)
+        public HttpResponseMessage PostTodoList(JassActivity todoList)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            todoListDto.UserId = User.Identity.Name;
-            TodoList todoList = todoListDto.ToEntity();
-            db.TodoLists.Add(todoList);
-            db.SaveChanges();
-            todoListDto.TodoListId = todoList.TodoListId;
+            mm.ActivityCreate(todoList);
 
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, todoListDto);
-            response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = todoListDto.TodoListId }));
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, todoList);
+            response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = todoList.JassActivityID }));
             return response;
         }
 

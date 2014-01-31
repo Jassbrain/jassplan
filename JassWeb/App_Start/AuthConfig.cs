@@ -25,8 +25,8 @@ namespace JassWeb
             //OAuthWebSecurity.RegisterFacebookClient(
             //    appId: "",
             //    appSecret: "");
-           
-            OAuthWebSecurity.RegisterGoogleClient();
+
+            //OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

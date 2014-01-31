@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3BA085D1-956C-4233-99FE-45B67EEBF337}</ProjectGuid>
+    <ProjectGuid>{F93F0474-FF48-4CAB-9103-6202CD10CB4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JassWeb.Tests</RootNamespace>
@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -107,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JassWeb\JassWeb.csproj">
-      <Project>{933BEF82-2206-43DB-9379-DBE047E3F021}</Project>
+      <Project>{CF1FE721-80C5-44DA-B8D6-A38A8F42A6FF}</Project>
       <Name>JassWeb</Name>
     </ProjectReference>
   </ItemGroup>
