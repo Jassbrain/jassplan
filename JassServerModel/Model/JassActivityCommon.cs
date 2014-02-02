@@ -18,6 +18,6 @@ namespace Jassplan.Model
 
         public DateTime LastUpdated { get; set; }
         public DateTime Created { get; set; }
-        public DateTime? Done { get; set; }
+        public DateTime? DoneDate { get; set; }
     }
 }

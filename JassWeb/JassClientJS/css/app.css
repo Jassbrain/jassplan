@@ -1,0 +1,15 @@
+.list-item-title
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-item-narrative
+
+{
+    color: #666666;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 19px;
+}

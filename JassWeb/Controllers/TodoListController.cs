@@ -19,56 +19,33 @@ namespace JassWeb.Controllers
         private TodoItemContext db = new TodoItemContext();
         private JassModelManager mm = new JassModelManager();
 
-        // GET api/TodoList
+        // GET api/TodoList - DONE
         public List<JassActivity> GetTodoLists()
         {
             return mm.ActivitiesGetAll();
         }
 
-        // GET api/TodoList/5
-        public TodoListDto GetTodoList(int id)
+        // GET api/TodoList/5 - DONE
+        public JassActivity GetTodoList(int id)
         {
-            TodoList todoList = db.TodoLists.Find(id);
+            JassActivity todoList = mm.ActivityGetById(id);
             if (todoList == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            if (todoList.UserId != User.Identity.Name)
-            {
-                // Trying to modify a record that does not belong to the user
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.Unauthorized));
-            }
-
-            return new TodoListDto(todoList);
+            return todoList;
         }
 
-        // PUT api/TodoList/5
+        // PUT api/TodoList/5 - DONE
         [ValidateHttpAntiForgeryToken]
-        public HttpResponseMessage PutTodoList(int id, TodoListDto todoListDto)
+        public HttpResponseMessage PutTodoList(JassActivity todoList)
         {
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
-            if (id != todoListDto.TodoListId)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-
-            TodoList todoList = todoListDto.ToEntity();
-            if (db.Entry(todoList).Entity.UserId != User.Identity.Name)
-            {
-                // Trying to modify a record that does not belong to the user
-                return Request.CreateResponse(HttpStatusCode.Unauthorized);
-            }
-
             try
             {
-                db.SaveChanges();
+                mm.ActivitySave(todoList);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
@@ -76,7 +53,7 @@ namespace JassWeb.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/TodoList
+        // POST api/TodoList - DONE
         [ValidateHttpAntiForgeryToken]
         public HttpResponseMessage PostTodoList(JassActivity todoList)
         {

@@ -17,7 +17,6 @@ namespace Jassplan.JassServerModelManager
 
             public JassModelManager()
             {
-                var x=1;
             }
 
         #region Activity Model API

@@ -121,6 +121,10 @@
     <Compile Include="Migrations\201401190345230_remove_area.Designer.cs">
       <DependentUpon>201401190345230_remove_area.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402010610548_xxxx.cs" />
+    <Compile Include="Migrations\201402010610548_xxxx.Designer.cs">
+      <DependentUpon>201402010610548_xxxx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401190345230_remove_area.resx">
       <DependentUpon>201401190345230_remove_area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402010610548_xxxx.resx">
+      <DependentUpon>201402010610548_xxxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
