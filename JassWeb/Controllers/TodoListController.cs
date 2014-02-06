@@ -16,11 +16,11 @@ namespace JassWeb.Controllers
     [Authorize]
     public class TodoListController : ApiController
     {
-        private TodoItemContext db = new TodoItemContext();
+       
         private JassModelManager mm = new JassModelManager();
 
         // GET api/TodoList - DONE
-        public List<JassActivity> GetTodoLists()
+        public List<JassActivity> GetTodoList()
         {
             return mm.ActivitiesGetAll();
         }
@@ -73,37 +73,21 @@ namespace JassWeb.Controllers
         [ValidateHttpAntiForgeryToken]
         public HttpResponseMessage DeleteTodoList(int id)
         {
-            TodoList todoList = db.TodoLists.Find(id);
-            if (todoList == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-
-            if (db.Entry(todoList).Entity.UserId != User.Identity.Name)
-            {
-                // Trying to delete a record that does not belong to the user
-                return Request.CreateResponse(HttpStatusCode.Unauthorized);
-            }
-
-            TodoListDto todoListDto = new TodoListDto(todoList);
-            db.TodoLists.Remove(todoList);
-
             try
             {
-                db.SaveChanges();
+                mm.ActivityDelete(id);
             }
             catch (DbUpdateConcurrencyException)
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, todoListDto);
+            return Request.CreateResponse(HttpStatusCode.OK, id);
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            mm.Dispose();
         }
     }
 }

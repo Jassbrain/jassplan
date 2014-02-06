@@ -14,7 +14,10 @@ namespace JassWeb.Controllers
         {
             JassModelManager mm = new JassModelManager();
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            if (!User.Identity.IsAuthenticated) return View();
+            else return Redirect("/JassClientJS/index.html");
+            
         }
+
     }
 }
