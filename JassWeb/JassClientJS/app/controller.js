@@ -6,7 +6,6 @@ var Jassplan = Jassplan || {};
 
 Jassplan.controller = (function (dataContext) {
 
-    var userLogged = false;
     var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
     var noteEditorPageId = "note-editor-page";
@@ -132,23 +131,7 @@ Jassplan.controller = (function (dataContext) {
         };
     }
 
-    var checkUserLogged= function (){
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "/account/getuserlogged",
-            success: function (data) {
-                alert("sucess userLogged=" + data);
-            },
-            error: function (data) {
-                alert("You are offline or not logged in");
-            }
-        });
-    }
-
     var init = function () {
-        checkUserLogged();
         dataContext.init(appStorageKey);
         $(document).bind("pagechange", onPageChange);
         $(document).bind("pagebeforechange", onPageBeforeChange);

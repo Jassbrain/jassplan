@@ -112,9 +112,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JassWeb\JassWeb.csproj">
+    <ProjectReference Include="..\JassWeb\Jass4Web.csproj">
       <Project>{CF1FE721-80C5-44DA-B8D6-A38A8F42A6FF}</Project>
-      <Name>JassWeb</Name>
+      <Name>Jass4Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

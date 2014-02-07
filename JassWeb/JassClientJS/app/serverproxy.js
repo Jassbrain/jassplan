@@ -7,15 +7,50 @@ var Jassplan = Jassplan || {};
 
 Jassplan.serverProxy = (function () {
  
-    var myfunction = function () {
+    var checkUserLogged = function () {
 
-        if (JassplanIsOnline) return 'we are online';
-        else return "we are offline";
-    };
+        var serverLogged;
 
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async:false,
+            url: "/account/getuserlogged",
+            success: function (data) {
+                serverLogged = data;
+            },
+            error: function (data) {
+                serverLogged = false;
+            }
+        });
+
+        return serverLogged;
+    }
+
+    var getTodoLists = function () {
+
+        var todoLists;
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: false,
+            url: "/api/todolist/",
+            success: function (data) {
+                alert("sucess got todolist");
+                todoLists = data;
+            },
+            error: function (data) {
+                alert("Error while getting todolist");
+            }
+        });
+
+        return todoLists;
+    }
   
     var public = {
-        myfunction: myfunction
+        checkUserLogged: checkUserLogged,
+        getTodoLists: getTodoLists
     };
     return public;
 })();
