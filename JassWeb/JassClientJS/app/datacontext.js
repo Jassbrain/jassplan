@@ -46,7 +46,6 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var saveNote = function (noteModel) {
-        var xxx = 1;
 
         var found = false;
         var i;
@@ -55,7 +54,10 @@ Jassplan.dataContext = (function (serverProxy) {
               notesList[i] = noteModel;
               found = true;
               i = notesList.length; } }
-        if (!found) { notesList.splice(0, 0, noteModel); }
+        if (!found) {
+            Jassplan.serverProxy.createTodoList(noteModel);
+            notesList.splice(0, 0, noteModel);
+        }
 
         saveNotesToLocalStorage(); };
 

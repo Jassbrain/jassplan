@@ -1,5 +1,5 @@
 /**
- * Created by pablo on 12/15/13.
+ * MODEL
  */
 
 var Jassplan = Jassplan || {};
@@ -12,7 +12,5 @@ Jassplan.NoteModel = function(config) {
 };
 
 Jassplan.NoteModel.prototype.isValid = function () {
-    "use strict";
-    if (this.title && this.title.length > 0)
     { return true; }
     return false; };

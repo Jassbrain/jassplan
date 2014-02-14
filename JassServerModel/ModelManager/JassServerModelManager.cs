@@ -40,6 +40,7 @@ namespace Jassplan.JassServerModelManager
         {
             db.JassActivities.Add(Activity);
             Activity.Created = DateTime.Now;
+            Activity.dateCreated = DateTime.Now;
             Activity.LastUpdated = DateTime.Now;
             db.SaveChanges();
             ActivitySaveHistory(Activity);

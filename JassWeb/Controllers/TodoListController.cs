@@ -38,7 +38,7 @@ namespace JassWeb.Controllers
         }
 
         // PUT api/TodoList/5 - DONE
-        [ValidateHttpAntiForgeryToken]
+       // [ValidateHttpAntiForgeryToken]
         public HttpResponseMessage PutTodoList(JassActivity todoList)
         {
             try
@@ -54,19 +54,11 @@ namespace JassWeb.Controllers
         }
 
         // POST api/TodoList - DONE
-        [ValidateHttpAntiForgeryToken]
-        public HttpResponseMessage PostTodoList(JassActivity todoList)
+        //[ValidateHttpAntiForgeryToken]
+        public JassActivity PostTodoList(JassActivity todoList)
         {
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
             mm.ActivityCreate(todoList);
-
-            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, todoList);
-            response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = todoList.JassActivityID }));
-            return response;
+            return todoList;
         }
 
         // DELETE api/TodoList/5
