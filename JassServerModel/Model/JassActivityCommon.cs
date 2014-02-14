@@ -11,6 +11,10 @@ namespace Jassplan.Model
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public string title { get; set; }
+        public string narrative { get; set; }
+        public DateTime dateCreated { get; set; }
+
         public int? EstimatedDuration { get; set; }
         public int? ActualDuration { get; set; }
         public bool TodoToday { get; set; }

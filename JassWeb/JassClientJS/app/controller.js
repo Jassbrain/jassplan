@@ -17,7 +17,7 @@ Jassplan.controller = (function (dataContext) {
 
     var renderNotesList = function () {
 
-        var notesList = dataContext.getNotesList();
+        notesList = dataContext.getNotesList();
 
         var notesCount = notesList.length,
             note,
@@ -81,14 +81,15 @@ Jassplan.controller = (function (dataContext) {
             var note;
             for (var i = 0; i < notesCount; i++) {
                 note = notesList[i];
-                if (noteId === note.id) {
+                if (noteId == note.id) {
                     titleEditor.val(note.title);
                     narrativeEditor.val(note.narrative);
                     currentNote=note;
                     break;
                 }
             }
-            titleEditor.focus();}
+            titleEditor.focus();
+        }
         }
         return data;
     };
@@ -125,7 +126,8 @@ Jassplan.controller = (function (dataContext) {
             else {
                 currentNote = tempNote; }
             dataContext.saveNote(currentNote);
-            returnToNotesListPage(); }
+           // returnToNotesListPage();
+        }
         else {
             alert('temp Note is Invalid');
         };

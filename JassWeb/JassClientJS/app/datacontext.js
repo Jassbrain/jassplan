@@ -11,10 +11,13 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var loadNotesFromLocalStorage = function () {
 
+        var storedNotes;
         if (userLogged) {
             storedNotes = serverProxy.getTodoLists();
         }
-        var storedNotes = $.jStorage.get(notesListStorageKey);
+        else {
+            storedNotes = $.jStorage.get(notesListStorageKey);
+        }
 
         if (storedNotes !== null) {
             notesList = storedNotes;
@@ -44,6 +47,7 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var saveNote = function (noteModel) {
         var xxx = 1;
+
         var found = false;
         var i;
         for (i = 0; i < notesList.length; i += 1) {
