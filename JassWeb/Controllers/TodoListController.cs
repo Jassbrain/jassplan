@@ -39,18 +39,10 @@ namespace JassWeb.Controllers
 
         // PUT api/TodoList/5 - DONE
        // [ValidateHttpAntiForgeryToken]
-        public HttpResponseMessage PutTodoList(JassActivity todoList)
+        public JassActivity PutTodoList(JassActivity todoList)
         {
-            try
-            {
                 mm.ActivitySave(todoList);
-            }
-            catch (Exception)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return todoList;
         }
 
         // POST api/TodoList - DONE
@@ -62,7 +54,7 @@ namespace JassWeb.Controllers
         }
 
         // DELETE api/TodoList/5
-        [ValidateHttpAntiForgeryToken]
+        //[ValidateHttpAntiForgeryToken]
         public HttpResponseMessage DeleteTodoList(int id)
         {
             try

@@ -61,6 +61,26 @@ Jassplan.serverProxy = (function () {
             async: false,
             url: "/api/todolist/",
             success: function (data) {
+                alert("sucess POST todolist");
+                todoListOut = data;
+            },
+            error: function (data) {
+                alert("Error while creating todolist");
+            }
+        });
+        todoListOut.id = todoListOut.jassActivityID;
+        return todoListOut;
+    }
+
+    var saveTodoList = function (todoListIn) {
+        var todoListOut;
+        $.ajax({
+            type: "PUT",
+            dataType: "json",
+            data: todoListIn,
+            async: false,
+            url: "/api/todolist/",
+            success: function (data) {
                 alert("sucess PUT todolist");
                 todoListOut = data;
             },
@@ -71,11 +91,13 @@ Jassplan.serverProxy = (function () {
         todoListOut.id = todoListOut.jassActivityID;
         return todoListOut;
     }
+
   
     var public = {
         checkUserLogged: checkUserLogged,
         getTodoLists: getTodoLists,
-        createTodoList:createTodoList
+        createTodoList: createTodoList,
+        saveTodoList: saveTodoList
     };
     return public;
 })();

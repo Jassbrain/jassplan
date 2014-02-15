@@ -57,6 +57,8 @@ Jassplan.dataContext = (function (serverProxy) {
         if (!found) {
             Jassplan.serverProxy.createTodoList(noteModel);
             notesList.splice(0, 0, noteModel);
+        } else {
+            Jassplan.serverProxy.saveTodoList(noteModel);
         }
 
         saveNotesToLocalStorage(); };
