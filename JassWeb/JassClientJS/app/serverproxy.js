@@ -1,7 +1,3 @@
-/**
- * Created by pablo on 12/15/13.
- */
-
 var JassplanIsOnline = true;
 var Jassplan = Jassplan || {};
 
@@ -37,7 +33,6 @@ Jassplan.serverProxy = (function () {
             async: false,
             url: "/api/todolist/",
             success: function (data) {
-                alert("sucess GET ALL todolists");
                 todoLists = data;
             },
             error: function (data) {
@@ -61,7 +56,6 @@ Jassplan.serverProxy = (function () {
             async: false,
             url: "/api/todolist/",
             success: function (data) {
-                alert("sucess POST todolist");
                 todoListOut = data;
             },
             error: function (data) {
@@ -81,7 +75,6 @@ Jassplan.serverProxy = (function () {
             async: false,
             url: "/api/todolist/",
             success: function (data) {
-                alert("sucess PUT todolist");
                 todoListOut = data;
             },
             error: function (data) {
@@ -95,6 +88,7 @@ Jassplan.serverProxy = (function () {
   
     var public = {
         checkUserLogged: checkUserLogged,
+
         getTodoLists: getTodoLists,
         createTodoList: createTodoList,
         saveTodoList: saveTodoList

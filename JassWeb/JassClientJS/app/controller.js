@@ -1,10 +1,6 @@
-/**
- * Created by pablo on 12/15/13.
- */
-
 var Jassplan = Jassplan || {};
 
-Jassplan.controller = (function (dataContext) {
+Jassplan.controller = (function (viewModel, helper) {
 
     var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
@@ -13,11 +9,14 @@ Jassplan.controller = (function (dataContext) {
     var noteTitleEditorSel = "[name=note-title-editor]";
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
     var currentNote;
-    var saveNoteButtonSel = "#save-note-button";
+
+    var renderViewModel = function(){
+        $("#view-model-state").html(viewModel.getState());
+    }
 
     var renderNotesList = function () {
 
-        notesList = dataContext.getNotesList();
+        notesList = viewModel.getNotesList();
 
         var notesCount = notesList.length,
             note,
@@ -53,6 +52,7 @@ Jassplan.controller = (function (dataContext) {
         var toPageId = data.toPage.attr("id");
         switch (toPageId) {
             case notesListPageId:
+                renderViewModel();
                 renderNotesList();
                 break;
             case noteEditorPageId:
@@ -68,14 +68,14 @@ Jassplan.controller = (function (dataContext) {
         if (u.hash.search(re) !== -1)
         {
 
-        var queryStringObj = queryStringToObject(data.options.queryString);
+        var queryStringObj = helper.queryStringToObject(data.options.queryString);
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var noteId = queryStringObj["noteId"];
 
         if (typeof noteId !== "undefined")
         {  //here we are supposed to load the values into the fields
-            var notesList = dataContext.getNotesList();
+            var notesList = viewModel.getNotesList();
 
             var notesCount = notesList.length;
             var note;
@@ -114,7 +114,7 @@ Jassplan.controller = (function (dataContext) {
     var onSaveNoteButtonTapped = function () {
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        var tempNote = dataContext.createBlankNote();
+        var tempNote = viewModel.createBlankNote();
 
         tempNote.title = titleEditor.val();
         tempNote.narrative = narrativeEditor.val();
@@ -125,7 +125,7 @@ Jassplan.controller = (function (dataContext) {
                 currentNote.narrative = tempNote.narrative; }
             else {
                 currentNote = tempNote; }
-            dataContext.saveNote(currentNote);
+            viewModel.saveNote(currentNote);
            // returnToNotesListPage();
         }
         else {
@@ -133,34 +133,45 @@ Jassplan.controller = (function (dataContext) {
         };
     }
 
+    var onRefreshButtonTapped = function () {        
+        refresh();
+    }
+    var onPlanButtonTapped = function () {
+        viewModel.setStatePlan();
+        refresh();
+    }
+    var onDoButtonTapped = function () {
+        viewModel.setStateDo();
+        refresh();
+    }
+    var onReviewButtonTapped = function () {
+        viewModel.setStateReview();
+        refresh();
+    }
+
+    var refresh = function(){
+
+        window.location.href = window.location.href;
+    }
+
     var init = function () {
-        dataContext.init(appStorageKey);
-        $(document).bind("pagechange", onPageChange);
-        $(document).bind("pagebeforechange", onPageBeforeChange);
-        $(document).delegate(saveNoteButtonSel, "tap", onSaveNoteButtonTapped);
+        viewModel.init(appStorageKey);
+        $(document).on("pagechange", onPageChange);
+        $(document).on("pagebeforechange", onPageBeforeChange);
+        $(document).on("tap", "#save-note-button", null, onSaveNoteButtonTapped);
+        $(document).on("tap", "#refresh-button", null, onRefreshButtonTapped);
+        $(document).on("tap", "#plan-button", null, onPlanButtonTapped);
+        $(document).on("tap", "#do-button", null, onDoButtonTapped);
+        $(document).on("tap", "#review-button", null, onReviewButtonTapped);
     };
-    var queryStringToObject = function (queryString){ var queryStringObj = {};
-      var e;
-      var a = /\+/g; // Replace + symbol with a space
-      var r = /([^&;=]+)=?([^&;]*)/g;
-      var d = function (s) { return decodeURIComponent(s.replace(a, " ")); };
-      e = r.exec(queryString);
-
-
-        while (e) {
-            queryStringObj[d(e[1])] = d(e[2]);
-            e = r.exec(queryString);
-        }
-       return queryStringObj;
-    };
+   
     return {
         init: init
     };
 
-})(Jassplan.dataContext);
+})(Jassplan.viewmodel, Jassplan.helper);
 
 $(document).bind("mobileinit", function () {
-  //  Jassplan.testHelper.createDummyNotes("Notes.NotesList");
     Jassplan.controller.init();
 });
 

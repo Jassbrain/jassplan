@@ -1,7 +1,3 @@
-/**
- * MODEL
- */
-
 var Jassplan = Jassplan || {};
 
 Jassplan.NoteModel = function(config) {

@@ -1,13 +1,14 @@
-/**
- * Created by pablo on 12/15/13.
- */
-
 var Jassplan = Jassplan || {};
 
 Jassplan.dataContext = (function (serverProxy) {
     var userLogged = false;
     var notesList = [];
     var notesListStorageKey;
+    var logged = false;
+
+    var getLogged = function () {
+        return logged;
+    }
 
     var loadNotesFromLocalStorage = function () {
 
@@ -69,7 +70,8 @@ Jassplan.dataContext = (function (serverProxy) {
         init: init,
         getNotesList: getNotesList,
         createBlankNote: createBlankNote,
-        saveNote: saveNote
+        saveNote: saveNote,
+        getLogged: getLogged
     };
     return public;
 })(Jassplan.serverProxy);
