@@ -11,7 +11,8 @@ Jassplan.controller = (function (viewModel, helper) {
     var currentNote;
 
     var renderViewModel = function(){
-        $("#view-model-state").html(viewModel.getState());
+        $("#view-model-state").text(viewModel.getState());
+        $("#view-model-logged").text(viewModel.getLogged());
     }
 
     var renderNotesList = function () {

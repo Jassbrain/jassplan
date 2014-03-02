@@ -25,17 +25,16 @@
 <body>
 <div data-role="page" id="notes-list-page" data-title="To Do">
     <div data-role="header" data-position="fixed">
-        <table><tr><td><h1>Life Tracker</h1></td><td><h1 id="view-model-state"/></td></tr></table>
+        <table><tr><td><h1 id="view-model-state">Do</h1></td></tr></table>
         <a href="#note-editor-page" class="ui-btn-right" data-theme="b" data-icon="plus">New</a>
     </div>
     <div data-role="content" id="notes-list-content">
     </div>
     <div data-role="footer" data-position="fixed" class="ui-bar">
-        <a id="refresh-button">Refresh</a>
-        <a id="plan-button">Plan</a>
-        <a id="do-button">Do</a>
-        <a id="review-button">Review</a>
-
+        <a id="refresh-button" data-role="button" data-theme="b">Refresh</a>
+        <a id="plan-button" data-role="button" data-theme="b">Plan</a>
+        <a id="do-button" data-role="button" data-theme="b">Do</a>
+        <a id="review-button" data-role="button" data-theme="b">Review</a>
     </div>
 </div>
 <!--Note Editor page--> 
@@ -44,7 +43,7 @@
     <div data-role="header" data-position="fixed">
         <a href="#notes-list-page" data-icon="back" data-rel="back">Cancel</a>
         <h1>
-            Edit Note</h1>
+            Edit</h1>
         <a id="save-note-button" href="#notes-list-page" data-theme="b" data-icon="check">Save</a>
     </div>
     <div data-role="content">

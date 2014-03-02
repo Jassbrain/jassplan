@@ -54,6 +54,7 @@ Jassplan.viewmodel = (function (dataContext) {
         createBlankNote: createBlankNote,
         saveNote: saveNote,
         getState: getState,
+        getLogged: getLogged,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,
         setStateReview: setStateReview,
