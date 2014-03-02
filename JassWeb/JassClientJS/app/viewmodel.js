@@ -10,7 +10,8 @@ Jassplan.viewmodel = (function (dataContext) {
     }
 
     var getLogged = function () {
-        return dataContext.getLogged();
+        var logged = dataContext.getLogged();
+        return logged;
     }
 
     var setStatePlan = function (){
