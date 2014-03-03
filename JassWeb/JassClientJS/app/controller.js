@@ -38,9 +38,17 @@ Jassplan.controller = (function (viewModel, helper) {
                 dateGroup = noteDate;
             }
 
+            var starImg = "star.png";
+            var doneImg = "done.png";
             $("<li>"
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
-            + "<div class=\"list-item-title\">" + notesList[i].title + "</div>"
+            + "<div class=\"list-item-title\">"
+                + "<table><tr>"
+                + "<td style=\"min-width:200px\">" + notesList[i].title + "</td>"
+                + "<td style=\"min-width:50px\">" + "<img src=\"images/" + starImg + "\"/>" + "</td>"
+                + "<td style=\"min-width:50px\">" + "<img src=\"images/" + doneImg + "\"/>" + "</td>"
+                + "</tr></table>"
+            + "</div>"
             + "<div class=\"list-item-narrative\">" + notesList[i].narrative + "</div>"
             + "</a>"
             + "</li>").appendTo(ul);

@@ -4,8 +4,10 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
+    var stateStorageKey = "Notes.State";
 
     var getState = function (){
+        state = $.jStorage.get(stateStorageKey);
         return state;
     }
 
@@ -15,13 +17,16 @@ Jassplan.viewmodel = (function (dataContext) {
     }
 
     var setStatePlan = function (){
-        state = "Plan"; 
+        state = "Plan";
+        $.jStorage.set(stateStorageKey, state);
     }
     var setStateDo = function () {
-        state = "Do"; 
+        state = "Do";
+        $.jStorage.set(stateStorageKey, state);
     }
     var setStateReview = function () {
         state = "Review";
+        $.jStorage.set(stateStorageKey, state);
     }
 
     var getNotesList = function () {
@@ -58,7 +63,7 @@ Jassplan.viewmodel = (function (dataContext) {
         getLogged: getLogged,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,
-        setStateReview: setStateReview,
+        setStateReview: setStateReview
     };
 
 })(Jassplan.dataContext);
