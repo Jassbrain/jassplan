@@ -7,6 +7,7 @@ Jassplan.controller = (function (viewModel, helper) {
     var noteEditorPageId = "note-editor-page";
     var notesListSelector = "#notes-list-content";
     var noteTitleEditorSel = "[name=note-title-editor]";
+    var noteStatusEditorSel = "#note-status-editor";
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
     var currentNote;
 
@@ -81,6 +82,7 @@ Jassplan.controller = (function (viewModel, helper) {
 
         var queryStringObj = helper.queryStringToObject(data.options.queryString);
         var titleEditor = $(noteTitleEditorSel);
+        var statusEditor = $(noteStatusEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var noteId = queryStringObj["noteId"];
 
@@ -94,6 +96,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 note = notesList[i];
                 if (noteId == note.id) {
                     titleEditor.val(note.title);
+                    statusEditor.val(note.status);
                     narrativeEditor.val(note.narrative);
                     currentNote=note;
                     break;
@@ -125,15 +128,18 @@ Jassplan.controller = (function (viewModel, helper) {
     var onSaveNoteButtonTapped = function () {
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        var tempNote = viewModel.createBlankNote();
 
+        var tempNote = viewModel.createBlankNote();
         tempNote.title = titleEditor.val();
         tempNote.narrative = narrativeEditor.val();
+        tempNote.status = $(noteStatusEditorSel).val();
 
         if (tempNote.isValid()) {
             if (null !== currentNote) {
                 currentNote.title = tempNote.title;
-                currentNote.narrative = tempNote.narrative; }
+                currentNote.narrative = tempNote.narrative;
+                currentNote.status = tempNote.status;
+            }
             else {
                 currentNote = tempNote; }
             viewModel.saveNote(currentNote);

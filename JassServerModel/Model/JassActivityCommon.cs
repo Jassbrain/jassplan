@@ -10,9 +10,13 @@ namespace Jassplan.Model
     {
         public string Name { get; set; }
         public string Description { get; set; }
-
         public string title { get; set; }
         public string narrative { get; set; }
+
+        public string Status { get; set; }   //sleep, star, done... for now
+
+
+
         public DateTime dateCreated { get; set; }
 
         public int? EstimatedDuration { get; set; }

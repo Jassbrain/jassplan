@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201402090525425_title.Designer.cs">
       <DependentUpon>201402090525425_title.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403050229063_status.cs" />
+    <Compile Include="Migrations\201403050229063_status.Designer.cs">
+      <DependentUpon>201403050229063_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402090525425_title.resx">
       <DependentUpon>201402090525425_title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403050229063_status.resx">
+      <DependentUpon>201403050229063_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

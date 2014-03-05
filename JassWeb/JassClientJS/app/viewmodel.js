@@ -33,7 +33,18 @@ Jassplan.viewmodel = (function (dataContext) {
 
         notesList = dataContext.getNotesList();
 
-        return notesList;
+        var filteredNotesList = [];
+
+        for (var i = 0; i < notesList.length; i++) {
+
+            if (state == "Do" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
+            if (state == "Plan") filteredNotesList.push(notesList[i]);
+            if (state == "Review" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
+
+
+        }
+
+        return filteredNotesList;
     };
 
     var createBlankNote = function () {
