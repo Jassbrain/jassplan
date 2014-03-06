@@ -294,6 +294,10 @@
     <Content Include="JassClientJS\app\serverproxy.js" />
     <Content Include="JassClientJS\images\done.png" />
     <Content Include="JassClientJS\images\star.png" />
+    <Content Include="JassClientJS\images\star_black.png" />
+    <Content Include="JassClientJS\images\star_blue.png" />
+    <Content Include="JassClientJS\images\star_green.png" />
+    <Content Include="JassClientJS\images\star_yellow.png" />
     <Content Include="JassClientJS\lib\jasmine\MIT.LICENSE" />
     <Content Include="JassClientJS\lib\jqm\demos\js\jquery.mobile-1.3.2.min.map" />
     <Content Include="JassClientJS\lib\jqm\jquery.mobile-1.3.2.min.map" />
