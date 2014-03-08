@@ -47,41 +47,23 @@ Jassplan.controller = (function (viewModel, helper) {
             
             var doneImg = "done.png";
             var imageid = "itemimage" + notesList[i].id;
-            $("<li>"
-            + "<a name=\"itembar\" href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
-            + "<div class=\"list-item-title\">"
-                + "<table><tr>"
-                + "<td style=\"min-width:200px\">" + notesList[i].title + "</td>"
-                + "<td style=\"min-width:50px\">" + "<img id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</td>"
-                + "</tr></table>"
-            + "</div>"
-            + "<div class=\"list-item-narrative\">" + notesList[i].narrative + "</div>"
-            + "</a>"
+            $("<li style=\"min-height:50px\">"
+            + "<div style=\"border-style:solid; min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
+            + "<div style=\"border-style:solid; min-width:35px;float:left\">tar</div>"
+            + "<div style=\"border-style:solid; min-width:150px;float:left\">" + notesList[i].title + "</div>"
+            + "<div style=\"border-style:solid; min-width:35px;float:left\">com</div>"
             + "</li>").appendTo(ul);
         }
         ul.listview();
 
-        $(document).on("taphold", "[name=itembar]", function (e) {
-            var href = e.currentTarget.href;
-            var index = href.indexOf("=");
-            var id = href.substring(index + 1);
+        $(document).on("tap", "[name=starimage]", function (e) {
+
+            var href = e.currentTarget.id;
+            var id = href.replace("itemimage","");
             viewModel.star(id);
-            location.href = location.href;
+            $("#" + href).attr("src", "images/star_black.png");
         });
-        $(document).on("swiperight", "[name=itembar]", function (e) {
-            var href = e.currentTarget.href;
-            var index = href.indexOf("=");
-            var id = href.substring(index + 1);
-            viewModel.star(id);
-            location.href = location.href;
-        });
-        $(document).on("swipeleft", "[name=itembar]", function (e) {
-            var href = e.currentTarget.href;
-            var index = href.indexOf("=");
-            var id = href.substring(index + 1);
-            viewModel.unstar(id);
-            location.href = location.href;
-        });
+ 
     };
     var onPageChange = function (event, data) {
         var fromPageId;
