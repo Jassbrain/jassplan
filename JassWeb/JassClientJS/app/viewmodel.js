@@ -5,6 +5,7 @@ Jassplan.viewmodel = (function (dataContext) {
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
     var stateStorageKey = "Notes.State";
+    var noteList;
 
     var getState = function (){
         state = $.jStorage.get(stateStorageKey);
@@ -27,6 +28,44 @@ Jassplan.viewmodel = (function (dataContext) {
     var setStateReview = function () {
         state = "Review";
         $.jStorage.set(stateStorageKey, state);
+    }
+
+    var noteForId = function(id){
+
+        for(var i=0; i<notesList.length; i++){
+
+            if (notesList[i].id==id) return i;
+        };
+
+        return -1;
+
+    }
+
+    var star = function (id) {
+
+        var i = this.noteForId(id);
+        if (i == -1) return;
+        var note = notesList[i];
+
+        if (note.status == "done") note.status = "done++";
+        if (note.status == "stared") note.status = "done";
+        if (note.status == null || note.status == "asleep") note.status = "stared";
+
+
+        this.saveNote(note);
+    }
+
+    var unstar = function (id) {
+
+        var i = this.noteForId(id);
+        if (i == -1) return;
+        var note = notesList[i];
+
+        if (note.status == "stared") note.status = "asleep";
+        if (note.status == "done") note.status = "stared";
+        if (note.status == "done++") note.status = "done";
+
+        this.saveNote(note);
     }
 
     var getNotesList = function () {
@@ -74,7 +113,9 @@ Jassplan.viewmodel = (function (dataContext) {
         getLogged: getLogged,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,
-        setStateReview: setStateReview
+        setStateReview: setStateReview,
+        star: star,
+        noteForId: noteForId
     };
 
 })(Jassplan.dataContext);

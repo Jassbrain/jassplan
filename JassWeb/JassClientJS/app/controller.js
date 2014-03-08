@@ -45,13 +45,14 @@ Jassplan.controller = (function (viewModel, helper) {
             if (notesList[i].status == "done") { starImg = "star_green.png"; }
             if (notesList[i].status == "done++") { starImg = "star_blue.png"; }
             
-                var doneImg = "done.png";
+            var doneImg = "done.png";
+            var imageid = "itemimage" + notesList[i].id;
             $("<li>"
-            + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
+            + "<a name=\"itembar\" href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
             + "<div class=\"list-item-title\">"
                 + "<table><tr>"
                 + "<td style=\"min-width:200px\">" + notesList[i].title + "</td>"
-                + "<td style=\"min-width:50px\">" + "<img src=\"images/" + starImg + "\"/>" + "</td>"
+                + "<td style=\"min-width:50px\">" + "<img id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</td>"
                 + "</tr></table>"
             + "</div>"
             + "<div class=\"list-item-narrative\">" + notesList[i].narrative + "</div>"
@@ -59,6 +60,28 @@ Jassplan.controller = (function (viewModel, helper) {
             + "</li>").appendTo(ul);
         }
         ul.listview();
+
+        $(document).on("taphold", "[name=itembar]", function (e) {
+            var href = e.currentTarget.href;
+            var index = href.indexOf("=");
+            var id = href.substring(index + 1);
+            viewModel.star(id);
+            location.href = location.href;
+        });
+        $(document).on("swiperight", "[name=itembar]", function (e) {
+            var href = e.currentTarget.href;
+            var index = href.indexOf("=");
+            var id = href.substring(index + 1);
+            viewModel.star(id);
+            location.href = location.href;
+        });
+        $(document).on("swipeleft", "[name=itembar]", function (e) {
+            var href = e.currentTarget.href;
+            var index = href.indexOf("=");
+            var id = href.substring(index + 1);
+            viewModel.unstar(id);
+            location.href = location.href;
+        });
     };
     var onPageChange = function (event, data) {
         var fromPageId;
