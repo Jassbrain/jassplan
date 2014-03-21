@@ -174,6 +174,10 @@ Jassplan.controller = (function (viewModel, helper) {
         viewModel.setStateReview();
         refresh();
     }
+    var onArchiveButtonTapped = function () {
+        viewModel.handleArchiveAction();
+        refresh();
+    }
 
     var refresh = function(){
 
@@ -189,6 +193,7 @@ Jassplan.controller = (function (viewModel, helper) {
         $(document).on("tap", "#plan-button", null, onPlanButtonTapped);
         $(document).on("tap", "#do-button", null, onDoButtonTapped);
         $(document).on("tap", "#review-button", null, onReviewButtonTapped);
+        $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
     };
    
     return {

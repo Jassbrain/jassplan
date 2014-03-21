@@ -31,6 +31,24 @@ namespace Jassplan.JassServerModelManager
         {
             return db.JassActivities.ToList<JassActivity>();
         }
+
+        public List<JassActivity> ActivitiesArchiveGetAll()
+        {
+            var activities =  db.JassActivities.ToList<JassActivity>();
+            foreach (var activity in activities)
+            {
+                if (activity.Status == "done")
+                {
+                    activity.Status = "doneArchived";
+                    ActivitySave(activity);
+                }
+
+                activity.Status="asleep";
+                ActivitySave(activity);
+            }
+            return ActivitiesGetAll();
+        }
+
         public JassActivity ActivityGetById(int id)
         {
             var JassActivity = db.JassActivities.Find(id);

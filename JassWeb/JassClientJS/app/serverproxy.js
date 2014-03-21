@@ -31,7 +31,7 @@ Jassplan.serverProxy = (function () {
             type: "GET",
             dataType: "json",
             async: false,
-            url: "/api/todolist/",
+            url: "/api/todolist/GetTodoList",
             success: function (data) {
                 todoLists = data;
             },
@@ -47,6 +47,29 @@ Jassplan.serverProxy = (function () {
         return todoLists;
     }
 
+    var archiveTodoLists = function () {
+
+        var todoLists;
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: false,
+            url: "/api/todolist/GetArchiveTodoList",
+            success: function (data) {
+                todoLists = data;
+            },
+            error: function (data) {
+                alert("Error while getting todolist");
+            }
+        });
+
+        for (var x = 0; x < todoLists.length; x++) {
+            todoLists[x].id = todoLists[x].jassActivityID;
+        }
+        return todoLists;
+    }
+
     var createTodoList = function (todoListIn) {
         var todoListOut;
         $.ajax({
@@ -54,7 +77,7 @@ Jassplan.serverProxy = (function () {
             dataType: "json",
             data: todoListIn,
             async: false,
-            url: "/api/todolist/",
+            url: "/api/todolist/PostTodoList",
             success: function (data) {
                 todoListOut = data;
             },
@@ -73,7 +96,7 @@ Jassplan.serverProxy = (function () {
             dataType: "json",
             data: todoListIn,
             async: false,
-            url: "/api/todolist/",
+            url: "/api/todolist/PutTodoList",
             success: function (data) {
                 todoListOut = data;
             },
@@ -91,7 +114,8 @@ Jassplan.serverProxy = (function () {
 
         getTodoLists: getTodoLists,
         createTodoList: createTodoList,
-        saveTodoList: saveTodoList
+        saveTodoList: saveTodoList,
+        archiveTodoLists: archiveTodoLists,
     };
     return public;
 })();

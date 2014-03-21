@@ -25,6 +25,11 @@ Jassplan.dataContext = (function (serverProxy) {
         }
     };
 
+    var archiveAndReloadNotes = function () {
+            storedNotes = serverProxy.archiveTodoLists();
+            notesList = storedNotes;
+    };
+
     var getNotesList = function () {
         return notesList;
     };
@@ -71,7 +76,8 @@ Jassplan.dataContext = (function (serverProxy) {
         getNotesList: getNotesList,
         createBlankNote: createBlankNote,
         saveNote: saveNote,
-        getLogged: getLogged
+        getLogged: getLogged,
+        archiveAndReloadNotes: archiveAndReloadNotes
     };
     return public;
 })(Jassplan.serverProxy);

@@ -30,6 +30,10 @@ Jassplan.viewmodel = (function (dataContext) {
         $.jStorage.set(stateStorageKey, state);
     }
 
+    var handleArchiveAction = function () {
+        dataContext.archiveAndReloadNotes();
+    }
+
     var noteForId = function(id){
 
         for(var i=0; i<notesList.length; i++){
@@ -115,7 +119,8 @@ Jassplan.viewmodel = (function (dataContext) {
         setStateDo: setStateDo,
         setStateReview: setStateReview,
         star: star,
-        noteForId: noteForId
+        noteForId: noteForId,
+        handleArchiveAction: handleArchiveAction
     };
 
 })(Jassplan.dataContext);
