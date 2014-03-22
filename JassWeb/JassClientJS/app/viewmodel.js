@@ -2,6 +2,21 @@ var Jassplan = Jassplan || {};
 
 Jassplan.viewmodel = (function (dataContext) {
 
+    var public = {
+        init: init,
+        getNotesList: getNotesList,
+        createBlankNote: createBlankNote,
+        saveNote: saveNote,
+        getState: getState,
+        getLogged: getLogged,
+        setStatePlan: setStatePlan,
+        setStateDo: setStateDo,
+        setStateReview: setStateReview,
+        star: star,
+        noteForId: noteForId,
+        handleArchiveAction: handleArchiveAction
+    }
+
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
     var stateStorageKey = "Notes.State";
@@ -107,21 +122,8 @@ Jassplan.viewmodel = (function (dataContext) {
     var init = function () {
         dataContext.init(appStorageKey);
     };
-  
-    return {
-        init: init,
-        getNotesList: getNotesList,
-        createBlankNote: createBlankNote,
-        saveNote: saveNote,
-        getState: getState,
-        getLogged: getLogged,
-        setStatePlan: setStatePlan,
-        setStateDo: setStateDo,
-        setStateReview: setStateReview,
-        star: star,
-        noteForId: noteForId,
-        handleArchiveAction: handleArchiveAction
-    };
+
+    return public;
 
 })(Jassplan.dataContext);
 

@@ -61,7 +61,10 @@ Jassplan.controller = (function (viewModel, helper) {
             var href = e.currentTarget.id;
             var id = href.replace("itemimage","");
             viewModel.star(id);
-            $("#" + href).attr("src", "images/star_black.png");
+            var div = $("#" + href).get();
+            $("#" + href).attr("src", "images/star_yellow.png");
+            var div = $("#" + href).get();
+
         });
  
     };

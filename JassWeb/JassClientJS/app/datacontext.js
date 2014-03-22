@@ -1,6 +1,16 @@
 var Jassplan = Jassplan || {};
 
 Jassplan.dataContext = (function (serverProxy) {
+
+    var public = {
+        init: init,
+        getNotesList: getNotesList,
+        createBlankNote: createBlankNote,
+        saveNote: saveNote,
+        getLogged: getLogged,
+        archiveAndReloadNotes: archiveAndReloadNotes
+    };
+
     var userLogged = false;
     var notesList = [];
     var notesListStorageKey;
@@ -52,7 +62,6 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var saveNote = function (noteModel) {
-
         var found = false;
         var i;
         for (i = 0; i < notesList.length; i += 1) {
@@ -71,14 +80,6 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
 
-    var public = {
-        init: init,
-        getNotesList: getNotesList,
-        createBlankNote: createBlankNote,
-        saveNote: saveNote,
-        getLogged: getLogged,
-        archiveAndReloadNotes: archiveAndReloadNotes
-    };
     return public;
 })(Jassplan.serverProxy);
 
