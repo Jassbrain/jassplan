@@ -2,14 +2,6 @@ var JassplanIsOnline = true;
 var Jassplan = Jassplan || {};
 
 Jassplan.serverProxy = (function () {
-
-    var public = {
-        checkUserLogged: checkUserLogged,
-        getTodoLists: getTodoLists,
-        createTodoList: createTodoList,
-        saveTodoList: saveTodoList,
-        archiveTodoLists: archiveTodoLists,
-    };
  
     var checkUserLogged = function () {
 
@@ -115,6 +107,14 @@ Jassplan.serverProxy = (function () {
         todoListOut.id = todoListOut.jassActivityID;
         return todoListOut;
     }
+
+    var public = {
+        checkUserLogged: checkUserLogged,
+        getTodoLists: getTodoLists,
+        createTodoList: createTodoList,
+        saveTodoList: saveTodoList,
+        archiveTodoLists: archiveTodoLists,
+    };
  
     return public;
 })();
