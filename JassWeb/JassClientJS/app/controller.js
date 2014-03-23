@@ -39,35 +39,37 @@ Jassplan.controller = (function (viewModel, helper) {
                 dateGroup = noteDate;
             }
 
-            var starImg="star_black.png";
-            
-            if (notesList[i].status == "stared") {starImg = "star_yellow.png";}
-            if (notesList[i].status == "done") { starImg = "star_green.png"; }
-            if (notesList[i].status == "done++") { starImg = "star_blue.png"; }
-            
-            var doneImg = "done.png";
+            var starImg = "star_" + notesList[i].status + ".png";
+          
             var imageid = "itemimage" + notesList[i].id;
             $("<li style=\"min-height:50px\">"
-            + "<div style=\"border-style:solid; min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
-            + "<div style=\"border-style:solid; min-width:35px;float:left\">tar</div>"
-            + "<div style=\"border-style:solid; min-width:150px;float:left\">" + notesList[i].title + "</div>"
-            + "<div style=\"border-style:solid; min-width:35px;float:left\">com</div>"
+            + "<div style=\"min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
+            + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
+            + "<div style=\"min-width:150px;float:left\">" + notesList[i].title + "</div>"
+            + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
             + "</li>").appendTo(ul);
         }
         ul.listview();
 
-        $(document).on("tap", "[name=starimage]", function (e) {
-
-            var href = e.currentTarget.id;
-            var id = href.replace("itemimage","");
-            viewModel.star(id);
-            var div = $("#" + href).get();
-            $("#" + href).attr("src", "images/star_yellow.png");
-            var div = $("#" + href).get();
-
-        });
+        $(document).on("tap", "[name=starimage]", onTapStar);
+        $(document).on("taphold", "[name=starimage]", onTapHoldStar);
  
     };
+
+    var onTapStar = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage","");
+        var taskStatus = viewModel.star(taskId);
+        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+    }
+
+    var onTapHoldStar = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.unstar(taskId);
+        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+    }
+
     var onPageChange = function (event, data) {
         var fromPageId;
         if (data.options.fromPage) {

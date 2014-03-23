@@ -51,12 +51,22 @@ Jassplan.viewmodel = (function (dataContext) {
         if (i == -1) return;
         var note = notesList[i];
 
-        if (note.status == "done") note.status = "done++";
-        if (note.status == "stared") note.status = "done";
-        if (note.status == null || note.status == "asleep") note.status = "stared";
+        if (state == "Plan") {
+            if (note.status == null || note.status == "asleep") note.status = "stared";
+        }
+        if (state == "Do") {
+            if (note.status == "done") note.status = "doneplus";
+            if (note.status == "stared") note.status = "done";
+        }
 
+        if (state == "Review") {
+            if (note.status == "done") note.status = "doneplus";
+            if (note.status == "stared") note.status = "done";
+        }
 
         this.saveNote(note);
+
+        return note.status;
     }
 
     var unstar = function (id) {
@@ -65,11 +75,22 @@ Jassplan.viewmodel = (function (dataContext) {
         if (i == -1) return;
         var note = notesList[i];
 
-        if (note.status == "stared") note.status = "asleep";
-        if (note.status == "done") note.status = "stared";
-        if (note.status == "done++") note.status = "done";
+        if (state == "Plan") {
+            if (note.status == "stared") note.status = "asleep";
+        }
+        if (state == "Do") {
+            if (note.status == "done") note.status = "stared";
+            if (note.status == "doneplus") note.status = "done";
+        }
+
+        if (state == "Review") {
+            if (note.status == "done") note.status = "stared";
+            if (note.status == "doneplus") note.status = "done";
+        }
 
         this.saveNote(note);
+
+        return note.status;
     }
 
     var getNotesList = function () {
@@ -119,6 +140,7 @@ Jassplan.viewmodel = (function (dataContext) {
         setStateDo: setStateDo,
         setStateReview: setStateReview,
         star: star,
+        unstar: unstar,
         noteForId: noteForId,
         handleArchiveAction: handleArchiveAction
     }
