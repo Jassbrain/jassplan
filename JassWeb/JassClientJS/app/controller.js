@@ -193,8 +193,16 @@ Jassplan.controller = (function (viewModel, helper) {
         window.location.href = window.location.href;
     }
 
+    var onOfflineTapped = function () {
+
+        var href = window.location;
+        var hrefNew = window.location.protocol + "//" + window.location.host;
+        window.location.href = hrefNew;
+    }
+
     var init = function () {
         viewModel.init(appStorageKey);
+        $(document).on("tap", "#view-model-logged", onOfflineTapped);
         $(document).on("pagechange", onPageChange);
         $(document).on("pagebeforechange", onPageBeforeChange);
         $(document).on("tap", "#save-note-button", null, onSaveNoteButtonTapped);

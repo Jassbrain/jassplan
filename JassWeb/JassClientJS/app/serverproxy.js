@@ -1,4 +1,3 @@
-var JassplanIsOnline = true;
 var Jassplan = Jassplan || {};
 
 Jassplan.serverProxy = (function () {
