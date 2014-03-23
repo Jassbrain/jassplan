@@ -45,7 +45,11 @@ Jassplan.controller = (function (viewModel, helper) {
             $("<li style=\"min-height:50px\">"
             + "<div style=\"min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
             + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
-            + "<div style=\"min-width:150px;float:left\">" + notesList[i].title + "</div>"
+            + "<div style=\"min-width:150px;float:left\">" 
+            + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
+            + notesList[i].title
+            + "</a>"
+            + "</div>"
             + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
             + "</li>").appendTo(ul);
         }
