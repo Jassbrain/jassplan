@@ -66,7 +66,27 @@ Jassplan.dataContext = (function (serverProxy) {
             Jassplan.serverProxy.saveTodoList(noteModel);
         }
 
-        saveNotesToLocalStorage(); };
+        saveNotesToLocalStorage();
+    };
+
+    var deleteNote = function (noteModel) {
+        var found = false;
+        var i;
+        for (i = 0; i < notesList.length; i += 1) {
+            if (notesList[i].id === noteModel.id) {
+                notesList[i] = noteModel;
+                found = true;
+                i = notesList.length;
+            }
+        }
+        if (!found) {
+            alert("Note cannot be deleted beucase we could not find it");
+        } else {
+            Jassplan.serverProxy.deleteTodoList(noteModel);
+        }
+
+        saveNotesToLocalStorage();
+    };
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
 
@@ -76,6 +96,7 @@ Jassplan.dataContext = (function (serverProxy) {
         getNotesList: getNotesList,
         createBlankNote: createBlankNote,
         saveNote: saveNote,
+        deleteNote: deleteNote,
         getLogged: getLogged,
         archiveAndReloadNotes: archiveAndReloadNotes
     };

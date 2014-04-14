@@ -1,3 +1,4 @@
+
 var Jassplan = Jassplan || {};
 
 Jassplan.serverProxy = (function () {
@@ -107,11 +108,31 @@ Jassplan.serverProxy = (function () {
         return todoListOut;
     }
 
+    var deleteTodoList = function (todoListIn) {
+        var todoListOut;
+        $.ajax({
+            type: "PUT",
+            dataType: "json",
+            data: todoListIn,
+            async: false,
+            url: "/api/todolist/PutDeleteTodoList",
+            success: function (data) {
+                todoListOut = data;
+            },
+            error: function (data) {
+                alert("Error while creating todolist");
+            }
+        });
+        todoListOut.id = todoListOut.jassActivityID;
+        return todoListOut;
+    }
+
     var public = {
         checkUserLogged: checkUserLogged,
         getTodoLists: getTodoLists,
         createTodoList: createTodoList,
         saveTodoList: saveTodoList,
+        deleteTodoList: deleteTodoList,
         archiveTodoLists: archiveTodoLists,
     };
  

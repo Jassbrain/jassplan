@@ -34,6 +34,15 @@ Jassplan.viewmodel = (function (dataContext) {
         dataContext.archiveAndReloadNotes();
     }
 
+    var handleDeleteAction = function () {
+        dataContext.archiveAndReloadNotes();
+    }
+
+    var deleteNote = function (currentNote) {
+        var result = dataContext.deleteNote(currentNote);
+        return result;
+    };
+
     var noteForId = function(id){
 
         for(var i=0; i<notesList.length; i++){
@@ -134,6 +143,7 @@ Jassplan.viewmodel = (function (dataContext) {
         getNotesList: getNotesList,
         createBlankNote: createBlankNote,
         saveNote: saveNote,
+        deleteNote: deleteNote,
         getState: getState,
         getLogged: getLogged,
         setStatePlan: setStatePlan,
@@ -143,7 +153,7 @@ Jassplan.viewmodel = (function (dataContext) {
         unstar: unstar,
         noteForId: noteForId,
         handleArchiveAction: handleArchiveAction
-    }
+   }
 
     return public;
 

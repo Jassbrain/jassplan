@@ -168,6 +168,32 @@ Jassplan.controller = (function (viewModel, helper) {
         };
     }
 
+    var onDeleteNoteButtonTapped = function () {
+        var titleEditor = $(noteTitleEditorSel);
+        var narrativeEditor = $(noteNarrativeEditorSel);
+
+        var tempNote = viewModel.createBlankNote();
+        tempNote.title = titleEditor.val();
+        tempNote.narrative = narrativeEditor.val();
+        tempNote.status = $(noteStatusEditorSel).val();
+
+        if (tempNote.isValid()) {
+            if (null !== currentNote) {
+                currentNote.title = tempNote.title;
+                currentNote.narrative = tempNote.narrative;
+                currentNote.status = tempNote.status;
+            }
+            else {
+                currentNote = tempNote;
+            }
+            viewModel.deleteNote(currentNote);
+            // returnToNotesListPage();
+        }
+        else {
+            alert('temp Note is Invalid');
+        };
+    }
+
     var onRefreshButtonTapped = function () {        
         refresh();
     }
@@ -185,6 +211,11 @@ Jassplan.controller = (function (viewModel, helper) {
     }
     var onArchiveButtonTapped = function () {
         viewModel.handleArchiveAction();
+        refresh();
+    }
+
+    var onDeleteButtonTapped = function () {
+        viewModel.handleDeleteAction();
         refresh();
     }
 
@@ -211,6 +242,7 @@ Jassplan.controller = (function (viewModel, helper) {
         $(document).on("tap", "#do-button", null, onDoButtonTapped);
         $(document).on("tap", "#review-button", null, onReviewButtonTapped);
         $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
+        $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
     };
    
     return {
