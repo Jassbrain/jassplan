@@ -72,10 +72,12 @@ Jassplan.dataContext = (function (serverProxy) {
     var deleteNote = function (noteModel) {
         var found = false;
         var i;
+        var ifound;
         for (i = 0; i < notesList.length; i += 1) {
             if (notesList[i].id === noteModel.id) {
                 notesList[i] = noteModel;
                 found = true;
+                ifound = i;
                 i = notesList.length;
             }
         }
@@ -83,13 +85,13 @@ Jassplan.dataContext = (function (serverProxy) {
             alert("Note cannot be deleted beucase we could not find it");
         } else {
             Jassplan.serverProxy.deleteTodoList(noteModel);
+            notesList.splice(ifound, 1);
         }
 
         saveNotesToLocalStorage();
     };
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
-
 
     var public = {
         init: init,

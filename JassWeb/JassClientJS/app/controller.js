@@ -192,10 +192,13 @@ Jassplan.controller = (function (viewModel, helper) {
         else {
             alert('temp Note is Invalid');
         };
+       // refresh();
     }
 
     var onRefreshButtonTapped = function () {        
-        refresh();
+        var href = window.location;
+        var hrefNew = window.location.protocol + "//" + window.location.host;
+        window.location.href = hrefNew;
     }
     var onPlanButtonTapped = function () {
         viewModel.setStatePlan();
