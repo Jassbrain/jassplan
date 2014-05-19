@@ -103,7 +103,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var titleEditor = $(noteTitleEditorSel);
         var statusEditor = $(noteStatusEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        var DescriptionEditor = $(noteDescriptionEditorSel);
+        var descriptionEditor = $(noteDescriptionEditorSel);
         var noteId = queryStringObj["noteId"];
 
         if (typeof noteId !== "undefined")
@@ -118,7 +118,7 @@ Jassplan.controller = (function (viewModel, helper) {
                     titleEditor.val(note.title);
                     statusEditor.val(note.status);
                     narrativeEditor.val(note.narrative);
-                    DescriptionEditor.val(note.Description);
+                    descriptionEditor.val(note.description);
                     currentNote=note;
                     break;
                 }
@@ -130,11 +130,11 @@ Jassplan.controller = (function (viewModel, helper) {
     };
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
-        var DescriptionEditor = $(noteDescriptionEditorSel);
+        var descriptionEditor = $(noteDescriptionEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         titleEditor.val("");
         narrativeEditor.val("");
-        DescriptionEditor.val("");
+        descriptionEditor.val("");
         currentNote=null;
 
         if (typeof data.toPage === "string") {
@@ -153,51 +153,54 @@ Jassplan.controller = (function (viewModel, helper) {
 
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        var DescriptionEditor = $(noteDescriptionEditorSel);
+        var descriptionEditor = $(noteDescriptionEditorSel);
         var note = viewModel.createBlankNote();
         note.title = titleEditor.val();
         note.narrative = narrativeEditor.val();
-        note.Description = DescriptionEditor.val();
+        note.description = descriptionEditor.val();
         note.status = $(noteStatusEditorSel).val();
         return note;
     };
 
     var onSaveNoteButtonTapped = function () {
-        var tempNote = getNoteFromEditor();
+        //This method will both save a note or create it depending on
+        //whether we have a current note or not. If we do we just copy
+        //the key fields preserving other data like ids, timestamps..
+        var newNoteFromEditor = getNoteFromEditor();
 
-        if (tempNote.isValid()) {
-            if (null !== currentNote) {
-                currentNote.title = tempNote.title;
-                currentNote.narrative = tempNote.narrative;
-                currentNote.Description = tempNote.Description;
-                currentNote.status = tempNote.status;
+        if (newNoteFromEditor.isValid()) {
+            if (currentNote !==  null) { // So we save
+                currentNote.title = newNoteFromEditor.title;
+                currentNote.narrative = newNoteFromEditor.narrative;
+                currentNote.description = newNoteFromEditor.description;
+                currentNote.status = newNoteFromEditor.status;
             }
-            else {
-                currentNote = tempNote; }
+            else { //So we save a new note..this is a create
+                currentNote = newNoteFromEditor; }
             viewModel.saveNote(currentNote);
            // returnToNotesListPage();
         }
         else {
-            alert('temp Note is Invalid');
+            alert('onSaveNoteButtonTapped - We could not get a valid Note from the Editor');
         };
     }
 
     var onDeleteNoteButtonTapped = function () {
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
-        var DescriptionEditor = $(noteDescriptionEditorSel);
+        var descriptionEditor = $(noteDescriptionEditorSel);
 
         var tempNote = viewModel.createBlankNote();
         tempNote.title = titleEditor.val();
         tempNote.narrative = narrativeEditor.val();
-        tempNote.Description = DescriptionEditor.val();
+        tempNote.description = descriptionEditor.val();
         tempNote.status = $(noteStatusEditorSel).val();
 
         if (tempNote.isValid()) {
             if (null !== currentNote) {
                 currentNote.title = tempNote.title;
                 currentNote.narrative = tempNote.narrative;
-                currentNote.Description = tempNote.Description;
+                currentNote.description = tempNote.description;
                 currentNote.status = tempNote.status;
             }
             else {
