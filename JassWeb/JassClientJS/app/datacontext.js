@@ -40,6 +40,7 @@ Jassplan.dataContext = (function (serverProxy) {
         var config = {};
         config.id = id;
         config.title = "";
+        config.Description = "";
         config.narrative = "";
         config.dateCreated = dateCreated;
         var noteModel = new Jassplan.NoteModel(config);
