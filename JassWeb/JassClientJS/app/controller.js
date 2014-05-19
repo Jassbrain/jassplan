@@ -186,15 +186,7 @@ Jassplan.controller = (function (viewModel, helper) {
     }
 
     var onDeleteNoteButtonTapped = function () {
-        var titleEditor = $(noteTitleEditorSel);
-        var narrativeEditor = $(noteNarrativeEditorSel);
-        var descriptionEditor = $(noteDescriptionEditorSel);
-
-        var tempNote = viewModel.createBlankNote();
-        tempNote.title = titleEditor.val();
-        tempNote.narrative = narrativeEditor.val();
-        tempNote.description = descriptionEditor.val();
-        tempNote.status = $(noteStatusEditorSel).val();
+        var tempNote = getNoteFromEditor();
 
         if (tempNote.isValid()) {
             if (null !== currentNote) {
