@@ -148,16 +148,22 @@ Jassplan.controller = (function (viewModel, helper) {
             }
         }
     };
-    var onSaveNoteButtonTapped = function () {
+
+    var getNoteFromEditor = function () {
+
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var DescriptionEditor = $(noteDescriptionEditorSel);
+        var note = viewModel.createBlankNote();
+        note.title = titleEditor.val();
+        note.narrative = narrativeEditor.val();
+        note.Description = DescriptionEditor.val();
+        note.status = $(noteStatusEditorSel).val();
+        return note;
+    };
 
-        var tempNote = viewModel.createBlankNote();
-        tempNote.title = titleEditor.val();
-        tempNote.narrative = narrativeEditor.val();
-        tempNote.Description = DescriptionEditor.val();
-        tempNote.status = $(noteStatusEditorSel).val();
+    var onSaveNoteButtonTapped = function () {
+        var tempNote = getNoteFromEditor();
 
         if (tempNote.isValid()) {
             if (null !== currentNote) {
