@@ -17,6 +17,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var logged = viewModel.getLogged()
         $("#view-model-logged").text(logged);
         $("#view-model-logged").css('color', 'red');
+
     }
 
     var renderNotesList = function () {

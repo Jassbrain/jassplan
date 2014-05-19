@@ -5,7 +5,7 @@ Jassplan.NoteModel = function(config) {
     this.dateCreated = config.dateCreated;
     this.title = config.title;
     this.narrative = config.narrative;
-    this.Description = config.Description;
+    this.description = config.description;
 };
 
 Jassplan.NoteModel.prototype.isValid = function () {
