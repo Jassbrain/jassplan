@@ -10,6 +10,7 @@ Jassplan.controller = (function (viewModel, helper) {
     var noteStatusEditorSel = "#note-status-editor";
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
     var noteDescriptionEditorSel = "[name=note-description-editor]";
+    var noteEstimatedDurationEditorSel = "[name=note-estimatedDuration-editor]";
     var currentNote;
 
     var renderViewModel = function(){
@@ -43,16 +44,23 @@ Jassplan.controller = (function (viewModel, helper) {
 
             var starImg = "star_" + notesList[i].status + ".png";
           
+            var description = notesList[i].description;
+            if (notesList[i].description == null) { description = "" };
+
+            var estimatedDuration = notesList[i].estimatedDuration;
+            if (notesList[i].estimatedDuration == null) { estimatedDuration = "?" };
+
             var imageid = "itemimage" + notesList[i].id;
             $("<li style=\"min-height:50px\">"
             + "<div style=\"min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
-            + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
-            + "<div style=\"min-width:150px;float:left\">" 
+            + "<div style=\"min-width:35px;float:left\">"+notesList[i].estimatedDuration+"</div>"
+            + "<div style=\"min-width:150px\">" 
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
-            + notesList[i].title
-            + "</a>"
+            + notesList[i].title 
+            + "</a>"           
             + "</div>"
-            + "<div style=\"min-width:35px;float:left\">&nbsp;&nbsp;</div>"
+            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
+            + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
             + "</li>").appendTo(ul);
         }
         ul.listview();
@@ -105,6 +113,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var statusEditor = $(noteStatusEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
+        var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
         var noteId = queryStringObj["noteId"];
 
         if (typeof noteId !== "undefined")
@@ -120,6 +129,7 @@ Jassplan.controller = (function (viewModel, helper) {
                     statusEditor.val(note.status);
                     narrativeEditor.val(note.narrative);
                     descriptionEditor.val(note.description);
+                    estimatedDurationEditor.val(note.estimatedDuration);
                     currentNote=note;
                     break;
                 }
@@ -132,10 +142,12 @@ Jassplan.controller = (function (viewModel, helper) {
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
+        var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         titleEditor.val("");
         narrativeEditor.val("");
         descriptionEditor.val("");
+        estimatedDurationEditor.val("");
         currentNote=null;
 
         if (typeof data.toPage === "string") {
@@ -155,10 +167,12 @@ Jassplan.controller = (function (viewModel, helper) {
         var titleEditor = $(noteTitleEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
+        var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
         var note = viewModel.createBlankNote();
         note.title = titleEditor.val();
         note.narrative = narrativeEditor.val();
         note.description = descriptionEditor.val();
+        note.estimatedDuration = estimatedDurationEditor.val();
         note.status = $(noteStatusEditorSel).val();
         return note;
     };
@@ -174,6 +188,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.title = newNoteFromEditor.title;
                 currentNote.narrative = newNoteFromEditor.narrative;
                 currentNote.description = newNoteFromEditor.description;
+                currentNote.estimatedDuration = newNoteFromEditor.estimatedDuration;
                 currentNote.status = newNoteFromEditor.status;
             }
             else { //So we save a new note..this is a create
@@ -194,6 +209,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.title = tempNote.title;
                 currentNote.narrative = tempNote.narrative;
                 currentNote.description = tempNote.description;
+                currentNote.estimatedDuration = tempNote.estimatedDuration;
                 currentNote.status = tempNote.status;
             }
             else {
