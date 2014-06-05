@@ -6,6 +6,8 @@ Jassplan.NoteModel = function(config) {
     this.title = config.title;
     this.narrative = config.narrative;
     this.description = config.description;
+    this.estimatedDuration = config.estimatedDuration;
+    this.actualDuration = config.actualDuration;
 };
 
 Jassplan.NoteModel.prototype.isValid = function () {
