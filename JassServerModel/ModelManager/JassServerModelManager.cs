@@ -29,7 +29,11 @@ namespace Jassplan.JassServerModelManager
 
         public List<JassActivity> ActivitiesGetAll()
         {
-            return db.JassActivities.ToList<JassActivity>();
+            var allActivities = db.JassActivities.OrderBy(ac => ac.title).ToList<JassActivity>();
+            foreach (var activity in allActivities) {
+                if (activity.ActualDuration == null) activity.ActualDuration = activity.EstimatedDuration;
+            }
+            return allActivities;
         }
 
         public List<JassActivity> ActivitiesArchiveGetAll()
@@ -77,6 +81,7 @@ namespace Jassplan.JassServerModelManager
 
         public void ActivitySave(JassActivity Activity)
         {
+            if (Activity.Status == null) Activity.Status = "asleep";
             db.Entry(Activity).State = EntityState.Modified;
             db.SaveChanges();
         }
