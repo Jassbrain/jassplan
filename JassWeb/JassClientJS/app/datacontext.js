@@ -6,8 +6,8 @@ Jassplan.dataContext = (function (serverProxy) {
     var notesListStorageKey;
 
     var getLogged = function () {
-        if (userLogged) return "Online"
-        else return "Offline";
+        if (userLogged) return ""
+        else return "x";
     }
 
     var loadNotesFromLocalStorage = function () {

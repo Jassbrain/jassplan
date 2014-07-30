@@ -41,7 +41,8 @@ Jassplan.controller = (function (viewModel, helper) {
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
         totalPoints=0;
         totalPointsScheduled=0;
-        totalPointsDone=0;
+        totalPointsDone = 0;
+        totalPointsDonePlus = 0;
         for (i = 0; i < notesCount; i += 1) {
 
             noteDate = (new Date(notesList[i].dateCreated)).toDateString();
@@ -62,6 +63,7 @@ Jassplan.controller = (function (viewModel, helper) {
             var narrativeHTML = "";
 
             narrativeHTML = "<div style=\"min-width:150px;font-weight:normal; font-size:small; font-style:italic\">" + narrative + "</div>";
+            var notesListTemp = notesList[i];
 
             var estimatedDuration = notesList[i].estimatedDuration;
             if (notesList[i].estimatedDuration == null) { estimatedDuration = "?" };
@@ -70,11 +72,14 @@ Jassplan.controller = (function (viewModel, helper) {
             if (notesList[i].actualDuration == null) { actualDuration = "?" };
 
             totalPoints += notesList[i].actualDuration;
-            if (notesList[i].status == "stared" || notesList[i].status == "done" || notesList[i].status == "done++") {
+            if (notesList[i].status == "stared" || notesList[i].status == "done" || notesList[i].status == "doneplus") {
                 totalPointsScheduled += notesList[i].actualDuration;
             }
-            if (notesList[i].status == "done" || notesList[i].status == "done++") {
+            if (notesList[i].status == "done" || notesList[i].status == "doneplus") {
                 totalPointsDone += notesList[i].actualDuration;
+            }
+            if (notesList[i].status == "doneplus") {
+                totalPointsDonePlus += notesList[i].actualDuration;
             }
 
             var imageid = "itemimage" + notesList[i].id;
@@ -97,7 +102,9 @@ Jassplan.controller = (function (viewModel, helper) {
         $(document).on("tap", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
 
-        alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
+       // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
+
+        $("#view-model-done-status").text(totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled);
  
     };
 
