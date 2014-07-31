@@ -75,15 +75,16 @@ namespace Jassplan.JassServerModelManager
             var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
             mapper.map(activity, activityHistory);
             activityHistory.JassActivityID = activity.JassActivityID;
-
             ActivityHistoryCreate(activityHistory);
         }
 
         public void ActivitySave(JassActivity Activity)
         {
             if (Activity.Status == null) Activity.Status = "asleep";
+            Activity.LastUpdated = DateTime.Now;
             db.Entry(Activity).State = EntityState.Modified;
             db.SaveChanges();
+            ActivitySaveHistory(Activity);
         }
         public void ActivityDelete(int id)
         {

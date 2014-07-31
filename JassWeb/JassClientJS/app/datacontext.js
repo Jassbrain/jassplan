@@ -4,6 +4,8 @@ Jassplan.dataContext = (function (serverProxy) {
     var userLogged = false;
     var notesList = [];
     var notesListStorageKey;
+    var reviewsList = [];
+    var reviewsListStorageKey;
 
     var getLogged = function () {
         if (userLogged) return ""
@@ -25,6 +27,21 @@ Jassplan.dataContext = (function (serverProxy) {
         }
     };
 
+    var loadReviewsFromLocalStorage = function () {
+
+        var storedReviews;
+        if (userLogged) {
+            storedReviews = serverProxy.getReviewLists();
+        }
+        else {
+            storedReviews = $.jStorage.get(reviewsListStorageKey);
+        }
+
+        if (storedReviews !== null) {
+            reviewsList = storedReviews;
+        }
+    };
+
     var archiveAndReloadNotes = function () {
             storedNotes = serverProxy.archiveTodoLists();
             notesList = storedNotes;
@@ -32,6 +49,10 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var getNotesList = function () {
         return notesList;
+    };
+
+    var getReviewsList = function () {
+        return reviewsList;
     };
 
     var createBlankNote = function () {
@@ -50,6 +71,8 @@ Jassplan.dataContext = (function (serverProxy) {
         userLogged = serverProxy.checkUserLogged();
         notesListStorageKey = storageKey;
         loadNotesFromLocalStorage();
+        notesListStorageKey = storageKey+"review";
+        loadReviewsFromLocalStorage();
     };
 
     var saveNote = function (noteModel) {
@@ -97,6 +120,7 @@ Jassplan.dataContext = (function (serverProxy) {
     var public = {
         init: init,
         getNotesList: getNotesList,
+        getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,
         saveNote: saveNote,
         deleteNote: deleteNote,

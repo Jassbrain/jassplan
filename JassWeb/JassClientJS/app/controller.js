@@ -29,7 +29,7 @@ Jassplan.controller = (function (viewModel, helper) {
 
     var renderReviewList = function () {
 
-        notesList = viewModel.getNotesList();
+        notesList = viewModel.getReviewsList();
 
         var notesCount = notesList.length,
             note,

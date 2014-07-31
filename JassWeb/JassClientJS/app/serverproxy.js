@@ -23,6 +23,30 @@ Jassplan.serverProxy = (function () {
         return serverLogged;
     }
 
+    var getReviewLists = function () {
+
+        var todoLists;
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: false,
+            url: "/api/todolist/GetReviewList",
+            success: function (data) {
+                todoLists = data;
+            },
+            error: function (data) {
+                alert("Error while getting todolist");
+            }
+        });
+
+        for (var x = 0; x < todoLists.length; x++) {
+            todoLists[x].id = todoLists[x].jassActivityID;
+        }
+        return todoLists;
+    }
+
+
     var getTodoLists = function () {
 
         var todoLists;
@@ -130,6 +154,7 @@ Jassplan.serverProxy = (function () {
     var public = {
         checkUserLogged: checkUserLogged,
         getTodoLists: getTodoLists,
+        getReviewLists: getReviewLists,
         createTodoList: createTodoList,
         saveTodoList: saveTodoList,
         deleteTodoList: deleteTodoList,

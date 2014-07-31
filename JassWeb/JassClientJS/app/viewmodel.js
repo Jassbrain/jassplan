@@ -5,7 +5,8 @@ Jassplan.viewmodel = (function (dataContext) {
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
     var stateStorageKey = "Notes.State";
-    var noteList;
+    var notesList;
+    var reviewsList;
 
     var getState = function (){
         state = $.jStorage.get(stateStorageKey);
@@ -120,6 +121,24 @@ Jassplan.viewmodel = (function (dataContext) {
         return filteredNotesList;
     };
 
+    var getReviewsList = function () {
+
+        reviewsList = dataContext.getReviewsList();
+
+        var filteredReviewsList = [];
+
+        for (var i = 0; i < reviewsList.length; i++) {
+
+            if (state == "Do" && reviewsList[i].status != null && reviewsList[i].status != "asleep") filteredReviewsList.push(reviewsList[i]);
+            if (state == "Plan") filteredReviewsList.push(reviewsList[i]);
+            if (state == "Review" && reviewsList[i].status != null && reviewsList[i].status != "asleep") filteredReviewsList.push(reviewsList[i]);
+
+
+        }
+
+        return filteredReviewsList;
+    };
+
     var createBlankNote = function () {
 
         var blankNote = dataContext.createBlankNote();
@@ -141,6 +160,7 @@ Jassplan.viewmodel = (function (dataContext) {
     var public = {
         init: init,
         getNotesList: getNotesList,
+        getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,
         saveNote: saveNote,
         deleteNote: deleteNote,

@@ -133,9 +133,18 @@
     <Compile Include="Migrations\201403050229063_status.Designer.cs">
       <DependentUpon>201403050229063_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407310359244_reivew.cs" />
+    <Compile Include="Migrations\201407310359244_reivew.Designer.cs">
+      <DependentUpon>201407310359244_reivew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407310440070_reviewdate.cs" />
+    <Compile Include="Migrations\201407310440070_reviewdate.Designer.cs">
+      <DependentUpon>201407310440070_reviewdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
+    <Compile Include="Model\JassActivityReview.cs" />
     <Compile Include="Model\JassActivityCommon.cs" />
     <Compile Include="Model\JassActivityHistory.cs" />
     <Compile Include="Model\JassActivity.cs" />
@@ -182,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403050229063_status.resx">
       <DependentUpon>201403050229063_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407310359244_reivew.resx">
+      <DependentUpon>201407310359244_reivew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407310440070_reviewdate.resx">
+      <DependentUpon>201407310440070_reviewdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

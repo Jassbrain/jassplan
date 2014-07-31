@@ -20,6 +20,8 @@ namespace Jassplan.JassServerModelManager
 
         public DbSet<JassActivity> JassActivities { get; set; }
 
+        public DbSet<JassActivityReview> JassActivityReviews { get; set; }
+
         public DbSet<JassActivityHistory> JassActivityHistories { get; set; }
 
     }
