@@ -36,17 +36,51 @@ namespace Jassplan.JassServerModelManager
             return allActivities;
         }
 
+        public List<JassActivityReview> ActivityReviewsGetAll()
+        {
+            var allActivityReviews = db.JassActivityReviews.OrderBy(ac => ac.ReviewDate).ToList<JassActivityReview>();
+            return allActivityReviews;
+        }
+
         public List<JassActivity> ActivitiesArchiveGetAll()
         {
             var activities =  db.JassActivities.ToList<JassActivity>();
+
+            //firt of all let's check some conditions
+            //1. for now only one review a day
+            var now = DateTime.Now;
+            var existingReview = db.JassActivityReviews.Where(r => r.ReviewYear == now.Year &&
+                r.ReviewMonth == now.Month &&
+                r.ReviewDay == now.Day).ToList();
+
+            if (existingReview.Count>0) return ActivitiesGetAll();
+
+            //2. Now, let's make sure all scheduled tasks are done or doneplus
+
+            int tasks = 0; int stared = 0; int done = 0; int doneplus = 0;
             foreach (var activity in activities)
             {
-                if (activity.Status == "done")
-                {
-                    activity.Status = "doneArchived";
-                    ActivitySave(activity);
-                }
+                tasks++;
+                if (activity.Status == "stared") stared++;
+                if (activity.Status == "done") done++;
+                if (activity.Status == "doneplus") doneplus++;
+            }
 
+            //we will only accept a review if something is done and nothing is still stared
+
+            if ( (stared > 0) || (done + doneplus == 0) )return ActivitiesGetAll();
+
+            var review = new JassActivityReview();
+            db.JassActivityReviews.Add(review);
+            review.ReviewDate = DateTime.Now;
+            review.ReviewYear = review.ReviewDate.Year;
+            review.ReviewMonth = review.ReviewDate.Month;
+            review.ReviewDay = review.ReviewDate.Day;
+            db.SaveChanges();
+
+            foreach (var activity in activities)
+            {
+                var activityHistory = ActivitySave(activity,review);
                 activity.Status="asleep";
                 ActivitySave(activity);
             }
@@ -69,22 +103,45 @@ namespace Jassplan.JassServerModelManager
             return Activity.JassActivityID;
         }
 
-        private void ActivitySaveHistory(JassActivity activity)
+        private JassActivityHistory ActivitySaveHistory(JassActivity activity)
         {
             JassActivityHistory activityHistory = new JassActivityHistory();
             var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
             mapper.map(activity, activityHistory);
             activityHistory.JassActivityID = activity.JassActivityID;
             ActivityHistoryCreate(activityHistory);
+            return activityHistory;
         }
 
-        public void ActivitySave(JassActivity Activity)
+        private JassActivityHistory ActivitySaveHistory(JassActivity activity, JassActivityReview review)
+        {
+            JassActivityHistory activityHistory = new JassActivityHistory();
+            var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivityHistory>();
+            mapper.map(activity, activityHistory);
+            activityHistory.JassActivityID = activity.JassActivityID;
+            activityHistory.JassActivityReviewID = review.JassActivityReviewID;
+            ActivityHistoryCreate(activityHistory);
+            return activityHistory;
+        }
+
+        public JassActivityHistory ActivitySave(JassActivity Activity)
         {
             if (Activity.Status == null) Activity.Status = "asleep";
             Activity.LastUpdated = DateTime.Now;
             db.Entry(Activity).State = EntityState.Modified;
             db.SaveChanges();
-            ActivitySaveHistory(Activity);
+            var activityHistory = ActivitySaveHistory(Activity);
+            return activityHistory;
+        }
+
+        public JassActivityHistory ActivitySave(JassActivity Activity, JassActivityReview review)
+        {
+            if (Activity.Status == null) Activity.Status = "asleep";
+            Activity.LastUpdated = DateTime.Now;
+            db.Entry(Activity).State = EntityState.Modified;
+            db.SaveChanges();
+            var activityHistory = ActivitySaveHistory(Activity, review);
+            return activityHistory;
         }
         public void ActivityDelete(int id)
         {

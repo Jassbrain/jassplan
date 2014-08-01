@@ -41,7 +41,7 @@ Jassplan.serverProxy = (function () {
         });
 
         for (var x = 0; x < todoLists.length; x++) {
-            todoLists[x].id = todoLists[x].jassActivityID;
+            todoLists[x].id = todoLists[x].jassActivityReviewID;
         }
         return todoLists;
     }

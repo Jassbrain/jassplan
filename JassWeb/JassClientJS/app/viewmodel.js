@@ -128,12 +128,7 @@ Jassplan.viewmodel = (function (dataContext) {
         var filteredReviewsList = [];
 
         for (var i = 0; i < reviewsList.length; i++) {
-
-            if (state == "Do" && reviewsList[i].status != null && reviewsList[i].status != "asleep") filteredReviewsList.push(reviewsList[i]);
-            if (state == "Plan") filteredReviewsList.push(reviewsList[i]);
-            if (state == "Review" && reviewsList[i].status != null && reviewsList[i].status != "asleep") filteredReviewsList.push(reviewsList[i]);
-
-
+             filteredReviewsList.push(reviewsList[i]);
         }
 
         return filteredReviewsList;

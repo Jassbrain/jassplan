@@ -71,7 +71,7 @@ Jassplan.dataContext = (function (serverProxy) {
         userLogged = serverProxy.checkUserLogged();
         notesListStorageKey = storageKey;
         loadNotesFromLocalStorage();
-        notesListStorageKey = storageKey+"review";
+        reviewsListStorageKey = storageKey+"review";
         loadReviewsFromLocalStorage();
     };
 

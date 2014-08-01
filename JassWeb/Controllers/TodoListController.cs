@@ -25,9 +25,9 @@ namespace JassWeb.Controllers
             return mm.ActivitiesGetAll();
         }
 
-        public List<JassActivity> GetReviewList()
+        public List<JassActivityReview> GetReviewList()
         {
-            return mm.ActivitiesGetAll();
+            return mm.ActivityReviewsGetAll();
         }
 
         // GET api/TodoList - DONE
