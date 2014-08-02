@@ -29,41 +29,28 @@ Jassplan.controller = (function (viewModel, helper) {
 
     var renderReviewList = function () {
 
-        notesList = viewModel.getReviewsList();
+        var reviewsList = viewModel.getReviewsList();
 
-        var notesCount = notesList.length,
-            note,
-            dateGroup,
-            noteDate,
-            i;
+
         var view = $(notesListSelector);
         view.empty();
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
+
+        for (r = 0; r < reviewsList.length; r += 1){
+
         totalPoints = 0;
         totalPointsScheduled = 0;
         totalPointsDone = 0;
         totalPointsDonePlus = 0;
+
+
         for (i = 0; i < notesCount; i += 1) {
-
-            noteDate = (new Date(notesList[i].dateCreated)).toDateString();
-
-            if (dateGroup !== noteDate) {
-                $("<li data-role=\"list-divider\">" + noteDate + "</li>").appendTo(ul);
-                dateGroup = noteDate;
-            }
-
-            var starImg = "star_" + notesList[i].status + ".png";
-
-            var description = notesList[i].description;
-            if (notesList[i].description == null) { description = "" };
-
-            var narrative = notesList[i].narrative;
-            if (notesList[i].narrative == null) { narrative = "" };
-
-            var narrativeHTML = "";
-
-            narrativeHTML = "<div style=\"min-width:150px;font-weight:normal; font-size:small; font-style:italic\">" + narrative + "</div>";
-            var notesListTemp = notesList[i];
+            var notesList = reviewsList[r];
+            var notesCount = notesList.length,
+    note,
+    dateGroup,
+    noteDate,
+    i;
 
             var estimatedDuration = notesList[i].estimatedDuration;
             if (notesList[i].estimatedDuration == null) { estimatedDuration = "?" };
@@ -82,21 +69,14 @@ Jassplan.controller = (function (viewModel, helper) {
                 totalPointsDonePlus += notesList[i].actualDuration;
             }
 
-            var imageid = "itemimage" + notesList[i].id;
-            $("<li style=\"min-height:50px\">"
-            + "<div style=\"min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
-            + "<div style=\"min-width:35px;float:left\">" + notesList[i].actualDuration + "</div>"
-            + "<div style=\"min-width:150px\">"
-            + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
-            + notesList[i].title
-            + "</a>"
-            + "</div>"
-            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
 
-            + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
-            + narrativeHTML
-            + "</li>").appendTo(ul);
-        }
+        }//end notes loop
+
+        $("<li style=\"min-height:50px\">"
++ "<div style=\"min-width:35px;float:left\">" + totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled + "</div>"
++ "</li>").appendTo(ul);
+        } //end reviews loop
+
         ul.listview();
 
         $(document).on("tap", "[name=starimage]", onTapStar);
