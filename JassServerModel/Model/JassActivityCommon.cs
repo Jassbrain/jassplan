@@ -14,6 +14,7 @@ namespace Jassplan.Model
         public string narrative { get; set; }
 
         public string Status { get; set; }   //sleep, star, done... for now
+        public string Flag { get; set; }   //red, yellow, red, blue
 
 
 

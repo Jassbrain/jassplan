@@ -37,15 +37,15 @@ Jassplan.controller = (function (viewModel, helper) {
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
 
         for (r = 0; r < reviewsList.length; r += 1){
-
+            var review = reviewsList[r];
         totalPoints = 0;
         totalPointsScheduled = 0;
         totalPointsDone = 0;
         totalPointsDonePlus = 0;
 
 
-        for (i = 0; i < notesCount; i += 1) {
-            var notesList = reviewsList[r];
+        for (i = 0; i < review.activityHistories.length; i += 1) {
+            var notesList = review.activityHistories;
             var notesCount = notesList.length,
     note,
     dateGroup,
@@ -84,7 +84,7 @@ Jassplan.controller = (function (viewModel, helper) {
 
         // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
 
-        $("#view-model-done-status").text(totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled);
+       // $("#view-model-done-status").text(totalPointsDonePlusAvg + "/" + totalPointsDoneAvg + "/" + totalPointsScheduledAvg);
 
     };
 

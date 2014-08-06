@@ -38,7 +38,14 @@ namespace Jassplan.JassServerModelManager
 
         public List<JassActivityReview> ActivityReviewsGetAll()
         {
+            
             var allActivityReviews = db.JassActivityReviews.OrderBy(ac => ac.ReviewDate).ToList<JassActivityReview>();
+            foreach (var review in allActivityReviews)
+            {
+                var allActivityHistories = db.JassActivityHistories.Where(h=>h.JassActivityReviewID==review.JassActivityReviewID).OrderBy(h=>h.title).ToList<JassActivityHistory>();
+                review.ActivityHistories = allActivityHistories; 
+            }
+            
             return allActivityReviews;
         }
 
