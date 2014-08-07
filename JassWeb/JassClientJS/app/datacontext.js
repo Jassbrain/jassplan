@@ -12,6 +12,7 @@ Jassplan.dataContext = (function (serverProxy) {
         else return "x";
     }
 
+
     var loadNotesFromLocalStorage = function () {
 
         var storedNotes;

@@ -8,6 +8,7 @@ Jassplan.controller = (function (viewModel, helper) {
     var notesListSelector = "#notes-list-content";
     var noteTitleEditorSel = "[name=note-title-editor]";
     var noteStatusEditorSel = "#note-status-editor";
+    var noteFlagEditorSel = "#note-flag-editor";
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
     var noteDescriptionEditorSel = "[name=note-description-editor]";
     var noteEstimatedDurationEditorSel = "[name=note-estimatedDuration-editor]";
@@ -42,8 +43,8 @@ Jassplan.controller = (function (viewModel, helper) {
         totalPointsScheduled = 0;
         totalPointsDone = 0;
         totalPointsDonePlus = 0;
-
-
+        var flagColor = "red";
+        var flagBanner = "";
         for (i = 0; i < review.activityHistories.length; i += 1) {
             var notesList = review.activityHistories;
             var notesCount = notesList.length,
@@ -68,13 +69,17 @@ Jassplan.controller = (function (viewModel, helper) {
             if (notesList[i].status == "doneplus") {
                 totalPointsDonePlus += notesList[i].actualDuration;
             }
-
+            flagBanner += "<div style=\"border:solid;position:relative; top:3px;height:15px;width:15px;float:left; background-color:" + flagColor + "\"></div>";
 
         }//end notes loop
 
+
         $("<li style=\"min-height:50px\">"
-+ "<div style=\"min-width:35px;float:left\">" + totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled + "</div>"
++ "<div style=\"min-width:35px\">" + totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled + "</div>"
++ flagBanner
 + "</li>").appendTo(ul);
+
+
         } //end reviews loop
 
         ul.listview();
@@ -148,16 +153,21 @@ Jassplan.controller = (function (viewModel, helper) {
                 totalPointsDonePlus += notesList[i].actualDuration;
             }
 
+            var flagColor = notesList[i].flag;
+
             var imageid = "itemimage" + notesList[i].id;
             $("<li style=\"min-height:50px\">"
-            + "<div style=\"min-width:35px;float:left\">" + "<img name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
-            + "<div style=\"min-width:35px;float:left\">"+notesList[i].actualDuration+"</div>"
+            + "<div style=\"min-width:35px;float:left\">" + "<img height=20px width=20px name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
+            + "<div style=\"position:relative; top:2px;min-width:35px;float:left\">" + notesList[i].actualDuration + "</div>"
+            + "<div style=\"position:relative; top:3px;height:15px;width:15px;float:left; background-color:"+ flagColor +"\"></div>"
+            + "<div style=\"height:15px;width:15px;float:left\"></div>"
             + "<div style=\"min-width:150px\">" 
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
             + notesList[i].title 
             + "</a>"           
             + "</div>"
             + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
+
    
             + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
             + narrativeHTML
@@ -217,6 +227,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var queryStringObj = helper.queryStringToObject(data.options.queryString);
         var titleEditor = $(noteTitleEditorSel);
         var statusEditor = $(noteStatusEditorSel);
+        var flagEditor = $(noteFlagEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
         var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
@@ -234,6 +245,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 if (noteId == note.id) {
                     titleEditor.val(note.title);
                     statusEditor.val(note.status);
+                    flagEditor.val(note.flag);
                     narrativeEditor.val(note.narrative);
                     descriptionEditor.val(note.description);
                     estimatedDurationEditor.val(note.estimatedDuration);
@@ -284,6 +296,7 @@ Jassplan.controller = (function (viewModel, helper) {
         note.narrative = narrativeEditor.val();
         note.description = descriptionEditor.val();
         note.status = $(noteStatusEditorSel).val();
+        note.flag = $(noteFlagEditorSel).val();
         note.estimatedDuration = $(noteEstimatedDurationEditorSel).val();
         note.actualDuration = $(noteActualDurationEditorSel).val();
         
@@ -304,6 +317,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.estimatedDuration = newNoteFromEditor.estimatedDuration;
                 currentNote.actualDuration = newNoteFromEditor.actualDuration;
                 currentNote.status = newNoteFromEditor.status;
+                currentNote.flag = newNoteFromEditor.flag;
             }
             else { //So we save a new note..this is a create
                 currentNote = newNoteFromEditor; }
@@ -326,6 +340,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.estimatedDuration = tempNote.estimatedDuration;
                 currentNote.actualDuration = tempNote.actualDuration;
                 currentNote.status = tempNote.status;
+                currentNote.flag = tempNote.flag;
             }
             else {
                 currentNote = tempNote;
