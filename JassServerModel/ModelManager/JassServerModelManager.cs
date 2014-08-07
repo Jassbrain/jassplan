@@ -55,6 +55,7 @@ namespace Jassplan.JassServerModelManager
 
             //firt of all let's check some conditions
             //1. for now only one review a day
+            
             var now = DateTime.Now;
             var existingReview = db.JassActivityReviews.Where(r => r.ReviewYear == now.Year &&
                 r.ReviewMonth == now.Month &&
@@ -133,9 +134,19 @@ namespace Jassplan.JassServerModelManager
 
         public JassActivityHistory ActivitySave(JassActivity Activity)
         {
+            JassActivity ActivityCurrent = db.JassActivities.Find(Activity.JassActivityID);
             if (Activity.Status == null) Activity.Status = "asleep";
+
+            if ((ActivityCurrent.Status == "asleep" || ActivityCurrent.Status == null) && (Activity.Status == "stared")){
+                Activity.DoneDate = DateTime.Now;
+            }
             Activity.LastUpdated = DateTime.Now;
-            db.Entry(Activity).State = EntityState.Modified;
+            //db.Entry(Activity).State = EntityState.Modified;
+
+            var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivity>();
+            mapper.map(Activity, ActivityCurrent);
+
+            db.Entry(ActivityCurrent).State = EntityState.Modified;
             db.SaveChanges();
             var activityHistory = ActivitySaveHistory(Activity);
             return activityHistory;

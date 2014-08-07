@@ -9,7 +9,7 @@ namespace JassTools
     public class JassCommonAttributesMapper<T1, T2, T3> : JassTools.IJassCommonAttributesMapper<T1,T2,T3>// where T2:T1 where T3:T1
     {
         public void map(T2 t2, T3 t3)
-        {//assign the value of each property from t1 into t2
+        {//for every property in T1, it will assing the value from T2 into T3
             var propsT1 = typeof(T1).GetProperties();
             foreach (var prop in propsT1)
             {
