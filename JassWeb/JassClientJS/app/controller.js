@@ -51,10 +51,17 @@ Jassplan.controller = (function (viewModel, helper) {
         var jsDoneDate = new Date(review.reviewYear, review.reviewMonth-1, review.reviewDay)
         var flagColor = "red";
         var flagBanner = "";
+        var statusColor = "red";
+        var statusBanner = "";
         for (i = 0; i < review.activityHistories.length; i += 1) {
             var notesList = review.activityHistories;
 
             flagColor = notesList[i].flag;
+
+            if (notesList[i].status == "asleep") { statusColor = "white" };
+            if (notesList[i].status == "stared") { statusColor = "yellow" };
+            if (notesList[i].status == "done")   { statusColor = "green" };
+            if (notesList[i].status == "doneplus") { statusColor = "blue" };
 
             var notesCount = notesList.length,
     note,
@@ -79,13 +86,15 @@ Jassplan.controller = (function (viewModel, helper) {
                 totalPointsDonePlus += notesList[i].actualDuration;
             }
             flagBanner += "<div style=\"margin:1px;position:relative; top:3px;height:15px;width:15px;float:left; background-color:" + flagColor + "\"></div>";
+            statusBanner += "<div style=\"margin:1px;position:relative; top:3px;height:15px;width:15px;float:left; background-color:" + statusColor + "\"></div>";
 
         }//end notes loop
 
 
             $("<li style=\"min-height:50px\">"
 + "<div style=\"width:60px;float:left\">" + doneDate + "</div>"
-+ "<div style=\"min-width:35px\">" + totalPointsDonePlus + "/" + totalPointsDone  +"</div>"
++ "<div style=\"min-width:35px\">" + totalPointsDonePlus + "/" + totalPointsDone + "</div>"
++ statusBanner + "<div style=\"clear:both\"><div>"
 + flagBanner
 + "</li>").appendTo(ul);
 
