@@ -39,7 +39,7 @@ namespace Jassplan.JassServerModelManager
         public List<JassActivityReview> ActivityReviewsGetAll()
         {
             
-            var allActivityReviews = db.JassActivityReviews.OrderBy(ac => ac.ReviewDate).ToList<JassActivityReview>();
+            var allActivityReviews = db.JassActivityReviews.OrderByDescending(ac => ac.ReviewDate).ToList<JassActivityReview>();
             foreach (var review in allActivityReviews)
             {
                 var allActivityHistories = db.JassActivityHistories.Where(h=>h.JassActivityReviewID==review.JassActivityReviewID).OrderBy(h=>h.title).ToList<JassActivityHistory>();
@@ -53,13 +53,38 @@ namespace Jassplan.JassServerModelManager
         {
             var activities =  db.JassActivities.ToList<JassActivity>();
 
+            //before anything we find out the 'done day' of this task list
+
+            DateTime? doneDate=null;
+            foreach (var activity in activities)
+            {
+                if (doneDate == null)
+                {
+                    doneDate = activity.DoneDate;
+                }
+                else
+                {
+                    if(  ((DateTime)doneDate).Year != ((DateTime)activity.DoneDate).Year || 
+                         ((DateTime)doneDate).Month != ((DateTime)activity.DoneDate).Month || 
+                         ((DateTime)doneDate).Day != ((DateTime)activity.DoneDate).Day
+                       )
+                    {
+                        return ActivitiesGetAll();
+                    }
+
+                }
+
+            }
+
+            if (doneDate == null) return ActivitiesGetAll();
+
             //firt of all let's check some conditions
             //1. for now only one review a day
-            
+            DateTime doneDate2 = (DateTime)doneDate;
             var now = DateTime.Now;
-            var existingReview = db.JassActivityReviews.Where(r => r.ReviewYear == now.Year &&
-                r.ReviewMonth == now.Month &&
-                r.ReviewDay == now.Day).ToList();
+            var existingReview = db.JassActivityReviews.Where(r => r.ReviewYear == doneDate2.Year &&
+                r.ReviewMonth == doneDate2.Month &&
+                r.ReviewDay == doneDate2.Day).ToList();
 
             if (existingReview.Count>0) return ActivitiesGetAll();
 
@@ -81,9 +106,10 @@ namespace Jassplan.JassServerModelManager
             var review = new JassActivityReview();
             db.JassActivityReviews.Add(review);
             review.ReviewDate = DateTime.Now;
-            review.ReviewYear = review.ReviewDate.Year;
-            review.ReviewMonth = review.ReviewDate.Month;
-            review.ReviewDay = review.ReviewDate.Day;
+            review.ReviewYear = doneDate2.Year;
+            review.ReviewMonth = doneDate2.Month;
+            review.ReviewDay = doneDate2.Day;
+
             db.SaveChanges();
 
             foreach (var activity in activities)
