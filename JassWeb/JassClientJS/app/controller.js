@@ -105,6 +105,8 @@ Jassplan.controller = (function (viewModel, helper) {
 
         $(document).on("tap", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
+        $(document).on("tap", "[name=parentimage]", onTapParent);
+        $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
 
         // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
 
@@ -143,6 +145,7 @@ Jassplan.controller = (function (viewModel, helper) {
             }
 
             var starImg = "star_" + notesList[i].status + ".png";
+            var parentImg = "star_" + notesList[i].status + ".png";
           
             var description = notesList[i].description;
             if (notesList[i].description == null) { description = "" };
@@ -174,17 +177,20 @@ Jassplan.controller = (function (viewModel, helper) {
 
             var flagColor = notesList[i].flag;
 
-            var imageid = "itemimage" + notesList[i].id;
+            var starimageid = "itemimage" + notesList[i].id;
+            var parentimageid = "itemimage" + notesList[i].id;
+
             $("<li style=\"min-height:50px\">"
-            + "<div style=\"min-width:35px;float:left\">" + "<img height=20px width=20px name=\"starimage\" id=\"" + imageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
+            + "<div style=\"min-width:35px;float:left\">" + "<img height=20px width=20px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
             + "<div style=\"position:relative; top:2px;min-width:35px;float:left\">" + notesList[i].actualDuration + "</div>"
             + "<div style=\"position:relative; top:3px;height:15px;width:15px;float:left; background-color:"+ flagColor +"\"></div>"
             + "<div style=\"height:15px;width:15px;float:left\"></div>"
-            + "<div style=\"min-width:150px\">" 
+            + "<div style=\"min-width:150px;float:left\">"
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
             + notesList[i].title 
             + "</a>"           
             + "</div>"
+            + "<div style=\"min-width:35px\">" + "<img height=20px width=20px name=\"parentimage\" id=\"" + parentimageid + "\" src=\"images/" + parentImg + "\"/>" + "</div>"
             + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
 
    
@@ -196,6 +202,8 @@ Jassplan.controller = (function (viewModel, helper) {
 
         $(document).on("tap", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
+        $(document).on("tap", "[name=parentimage]", onTapParent);
+        $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
 
        // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
 
@@ -217,6 +225,20 @@ Jassplan.controller = (function (viewModel, helper) {
         var taskId = id.replace("itemimage", "");
         var taskStatus = viewModel.unstar(taskId);
         $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+    }
+
+    var onTapParent = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.starparent(taskId);
+        refresh();
+    }
+
+    var onTapHoldParent = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.unstarparent(taskId);
+        refresh();
     }
 
     var onPageChange = function (event, data) {

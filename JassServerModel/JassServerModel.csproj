@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201408060406365_flag.Designer.cs">
       <DependentUpon>201408060406365_flag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408081332165_parentid.cs" />
+    <Compile Include="Migrations\201408081332165_parentid.Designer.cs">
+      <DependentUpon>201408081332165_parentid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408060406365_flag.resx">
       <DependentUpon>201408060406365_flag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408081332165_parentid.resx">
+      <DependentUpon>201408081332165_parentid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

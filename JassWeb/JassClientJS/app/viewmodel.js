@@ -4,7 +4,9 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
+    var parent = null;
     var stateStorageKey = "Notes.State";
+    var parentStorageKey = "Notes.Parent";
     var notesList;
     var reviewsList;
 
@@ -13,9 +15,19 @@ Jassplan.viewmodel = (function (dataContext) {
         return state;
     }
 
+    var getParent = function () {
+        parent = $.jStorage.get(parentStorageKey);
+        return parent;
+    }
+
     var getLogged = function () {
         var logged = dataContext.getLogged();
         return logged;
+    }
+
+    var setParent = function (parentin) {
+        parent = parentin;
+        $.jStorage.set(parentStorageKey, parent);
     }
 
     var setStatePlan = function (){
@@ -53,6 +65,22 @@ Jassplan.viewmodel = (function (dataContext) {
 
         return -1;
 
+    }
+
+    var starparent = function (id) {
+        var i = this.noteForId(id);
+        if (i == -1) return;
+        var note = notesList[i];
+        setParent(note.id);
+        alert("starparent");
+    }
+
+    var unstarparent = function (id) {
+        var i = this.noteForId(id);
+        if (i == -1) return;
+        var note = notesList[i];
+        setParent(note.parentID);
+        alert("unstarparent");
     }
 
     var star = function (id) {
@@ -110,12 +138,11 @@ Jassplan.viewmodel = (function (dataContext) {
         var filteredNotesList = [];
 
         for (var i = 0; i < notesList.length; i++) {
-
+            if (notesList[i].parentID == parent || notesList[i].id == parent) {
             if (state == "Do" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
             if (state == "Plan") filteredNotesList.push(notesList[i]);
             if (state == "Review" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
-
-
+            }
         }
 
         return filteredNotesList;
@@ -150,6 +177,7 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var init = function () {
         dataContext.init(appStorageKey);
+        parent = getParent();
     };
 
     var public = {
@@ -166,6 +194,8 @@ Jassplan.viewmodel = (function (dataContext) {
         setStateReview: setStateReview,
         star: star,
         unstar: unstar,
+        starparent: starparent,
+        unstarparent: unstarparent,
         noteForId: noteForId,
         handleArchiveAction: handleArchiveAction
    }
