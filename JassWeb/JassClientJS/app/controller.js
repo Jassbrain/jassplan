@@ -22,6 +22,7 @@ Jassplan.controller = (function (viewModel, helper) {
 
     var renderViewModel = function(){
         $("#view-model-state").text(viewModel.getState());
+        $("#view-model-parent").text(viewModel.getParentName());
         var logged = viewModel.getLogged()
         $("#view-model-logged").text(logged);
         $("#view-model-logged").css('color', 'red');
@@ -135,17 +136,29 @@ Jassplan.controller = (function (viewModel, helper) {
         totalPointsScheduled=0;
         totalPointsDone = 0;
         totalPointsDonePlus = 0;
+
+        //if wew have done date, show done date, otherwise show today
+        var dateForDivider = new Date().toDateString();
+        for (i = 0; i < notesCount; i += 1) {
+            if (notesList[i].doneDate != null) {
+                dateForDivider = notesList[i].doneDate.substring(0,10);
+            }
+        }
+        $("<li data-role=\"list-divider\">" + dateForDivider + "</li>").appendTo(ul);
+
+
         for (i = 0; i < notesCount; i += 1) {
 
             noteDate = (new Date(notesList[i].dateCreated)).toDateString();
 
+            /*
             if (dateGroup !== noteDate) {
                 $("<li data-role=\"list-divider\">" + noteDate + "</li>").appendTo(ul);
                 dateGroup = noteDate;
-            }
+            }*/
 
             var starImg = "star_" + notesList[i].status + ".png";
-            var parentImg = "star_" + notesList[i].status + ".png";
+            var parentImg = "subtasks2.png";
           
             var description = notesList[i].description;
             if (notesList[i].description == null) { description = "" };
@@ -361,7 +374,9 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.flag = newNoteFromEditor.flag;
             }
             else { //So we save a new note..this is a create
-                currentNote = newNoteFromEditor; }
+                currentNote = newNoteFromEditor;
+                currentNote.parentID = viewModel.getParent();
+            }
             viewModel.saveNote(currentNote);
            // returnToNotesListPage();
         }

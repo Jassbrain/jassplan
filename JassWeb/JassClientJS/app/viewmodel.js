@@ -5,6 +5,7 @@ Jassplan.viewmodel = (function (dataContext) {
     var appStorageKey = "Notes.NotesList";
     var state = "Do";
     var parent = null;
+    var parentName = null;
     var stateStorageKey = "Notes.State";
     var parentStorageKey = "Notes.Parent";
     var notesList;
@@ -19,6 +20,11 @@ Jassplan.viewmodel = (function (dataContext) {
         parent = $.jStorage.get(parentStorageKey);
         return parent;
     }
+
+    var getParentName = function () {
+        return parentName;
+    }
+
 
     var getLogged = function () {
         var logged = dataContext.getLogged();
@@ -72,7 +78,6 @@ Jassplan.viewmodel = (function (dataContext) {
         if (i == -1) return;
         var note = notesList[i];
         setParent(note.id);
-        alert("starparent");
     }
 
     var unstarparent = function (id) {
@@ -80,7 +85,6 @@ Jassplan.viewmodel = (function (dataContext) {
         if (i == -1) return;
         var note = notesList[i];
         setParent(note.parentID);
-        alert("unstarparent");
     }
 
     var star = function (id) {
@@ -133,8 +137,6 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var getNotesList = function () {
 
-        notesList = dataContext.getNotesList();
-
         var filteredNotesList = [];
 
         for (var i = 0; i < notesList.length; i++) {
@@ -150,12 +152,19 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var getReviewsList = function () {
 
-        reviewsList = dataContext.getReviewsList();
-
         var filteredReviewsList = [];
 
-        for (var i = 0; i < reviewsList.length; i++) {
-             filteredReviewsList.push(reviewsList[i]);
+        for (var r = 0; r < reviewsList.length; r++) {
+            var notesListR = reviewsList[r].activityHistories;
+            var filteredNotesList = [];
+
+            for (var i = 0; i < notesListR.length; i++) {
+                if (notesListR[i].parentID == parent || notesListR[i].jassActivityID == parent) {
+                   filteredNotesList.push(notesListR[i]);
+                }
+            }
+
+            filteredReviewsList.push(filteredNotesList);
         }
 
         return filteredReviewsList;
@@ -178,6 +187,14 @@ Jassplan.viewmodel = (function (dataContext) {
     var init = function () {
         dataContext.init(appStorageKey);
         parent = getParent();
+        notesList = dataContext.getNotesList();
+        reviewsList = dataContext.getReviewsList();
+        for (var i = 0; i < notesList.length; i++) {
+            if (notesList[i].id == parent) {
+                parentName = notesList[i].title;
+            }
+        }
+        if (parentName == null) { parentName = "";}
     };
 
     var public = {
@@ -188,6 +205,8 @@ Jassplan.viewmodel = (function (dataContext) {
         saveNote: saveNote,
         deleteNote: deleteNote,
         getState: getState,
+        getParentName: getParentName,
+        getParent: getParent,
         getLogged: getLogged,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,

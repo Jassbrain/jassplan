@@ -58,22 +58,10 @@ namespace Jassplan.JassServerModelManager
             DateTime? doneDate=null;
             foreach (var activity in activities)
             {
-                if (doneDate == null)
+                if (doneDate == null && activity.DoneDate != null)
                 {
                     doneDate = activity.DoneDate;
                 }
-                else
-                {
-                    if(  ((DateTime)doneDate).Year != ((DateTime)activity.DoneDate).Year || 
-                         ((DateTime)doneDate).Month != ((DateTime)activity.DoneDate).Month || 
-                         ((DateTime)doneDate).Day != ((DateTime)activity.DoneDate).Day
-                       )
-                    {
-                        return ActivitiesGetAll();
-                    }
-
-                }
-
             }
 
             if (doneDate == null) return ActivitiesGetAll();
@@ -116,6 +104,7 @@ namespace Jassplan.JassServerModelManager
             {
                 var activityHistory = ActivitySave(activity,review);
                 activity.Status="asleep";
+                activity.DoneDate = null;
                 ActivitySave(activity);
             }
             return ActivitiesGetAll();
