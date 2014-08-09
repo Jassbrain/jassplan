@@ -155,6 +155,7 @@ Jassplan.viewmodel = (function (dataContext) {
         var filteredReviewsList = [];
 
         for (var r = 0; r < reviewsList.length; r++) {
+            var review = reviewsList[r];
             var notesListR = reviewsList[r].activityHistories;
             var filteredNotesList = [];
 
@@ -163,8 +164,8 @@ Jassplan.viewmodel = (function (dataContext) {
                    filteredNotesList.push(notesListR[i]);
                 }
             }
-
-            filteredReviewsList.push(filteredNotesList);
+            review.activityHistories = filteredNotesList;
+            filteredReviewsList.push(review);
         }
 
         return filteredReviewsList;
