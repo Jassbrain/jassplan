@@ -82,7 +82,8 @@ namespace Jassplan.JassServerModelManager
             foreach (var activity in activities)
             {
                 tasks++;
-                if (activity.Status == "stared") stared++;
+                if (activity.Status == "stared") { 
+                    stared++; };
                 if (activity.Status == "done") done++;
                 if (activity.Status == "doneplus") doneplus++;
             }
@@ -152,7 +153,12 @@ namespace Jassplan.JassServerModelManager
             JassActivity ActivityCurrent = db.JassActivities.Find(Activity.JassActivityID);
             if (Activity.Status == null) Activity.Status = "asleep";
 
-            if ((ActivityCurrent.Status == "asleep" || ActivityCurrent.Status == null) && (Activity.Status == "stared")){
+            if ((Activity.DoneDate ==null) &&
+                (ActivityCurrent.Status == "asleep" ||
+                 ActivityCurrent.Status == "stared" ||
+                 ActivityCurrent.Status == null) && 
+                (Activity.Status == "done")
+                ){
                 Activity.DoneDate = DateTime.Now;
             }
             Activity.LastUpdated = DateTime.Now;

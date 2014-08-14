@@ -7,6 +7,7 @@ Jassplan.NoteModel = function(config) {
     this.narrative = config.narrative;
     this.description = config.description;
     this.estimatedDuration = config.estimatedDuration;
+    this.doneDate = config.doneDate;
     this.actualDuration = config.actualDuration;
 };
 

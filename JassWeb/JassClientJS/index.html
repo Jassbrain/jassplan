@@ -27,10 +27,10 @@
 <div data-role="page" id="notes-list-page" data-title="To Do">
     <div data-role="header" data-position="fixed">
         <table><tr>
-            <td><h1 id="view-model-state">Do</h1></td>
-            <td><h1 id="view-model-parent">Do</h1></td>
+            <td><h3 id="view-model-state">Do</h3></td>
+            <td><h3 id="view-model-parent">Do</h3></td>
                    <td>&nbsp;</td>
-            <td><h1 id="view-model-done-status"></h1></td>
+            <td><h3 id="view-model-done-status"></h3></td>
             <td><small style="width:60px; float:right; position:relative; top:7px" id="view-model-logged">
     Offline
 </small></td>
@@ -78,7 +78,10 @@
                 TodayPoints:
             </label>
             <input type="text" name="note-actualDuration-editor" id="note-actualDuration-editor" value="" />
-    
+            <label for="note-doneDate-editor">
+                DoneDate:
+            </label>
+            <input type="text" name="note-doneDate-editor" id="note-doneDate-editor" value="" />
             
            <select name="note-flag-editor" id="note-flag-editor">
                 <option value="blue">blue</option>
@@ -92,7 +95,7 @@
    <option value="asleep">asleep</option>
    <option value="stared">stared</option>
    <option value="done">done</option>
-   <option value="done++">done++</option>
+   <option value="done++">doneplus</option>
 </select>
 
         </form>

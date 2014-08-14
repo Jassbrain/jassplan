@@ -12,6 +12,7 @@ Jassplan.controller = (function (viewModel, helper) {
     var noteNarrativeEditorSel = "[name=note-narrative-editor]";
     var noteDescriptionEditorSel = "[name=note-description-editor]";
     var noteEstimatedDurationEditorSel = "[name=note-estimatedDuration-editor]";
+    var noteDoneDateEditorSel = "[name=note-doneDate-editor]";
     var noteActualDurationEditorSel = "[name=note-actualDuration-editor]";
     var currentNote;
 
@@ -285,6 +286,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var narrativeEditor = $(noteNarrativeEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
         var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
+        var doneDateEditor = $(noteDoneDateEditorSel);
         var actualDurationEditor = $(noteActualDurationEditorSel);
         var noteId = queryStringObj["noteId"];
 
@@ -303,6 +305,7 @@ Jassplan.controller = (function (viewModel, helper) {
                     narrativeEditor.val(note.narrative);
                     descriptionEditor.val(note.description);
                     estimatedDurationEditor.val(note.estimatedDuration);
+                    doneDateEditor.val(note.doneDate);
                     actualDurationEditor.val(note.actualDuration);
                     currentNote=note;
                     break;
@@ -317,12 +320,14 @@ Jassplan.controller = (function (viewModel, helper) {
         var titleEditor = $(noteTitleEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
         var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
+        var doneDateEditor = $(noteDoneDateEditorSel);
         var actualDurationEditor = $(noteActualDurationEditorSel);
         var narrativeEditor = $(noteNarrativeEditorSel);
         titleEditor.val("");
         narrativeEditor.val("");
         descriptionEditor.val("");
         estimatedDurationEditor.val("");
+        doneDateEditor.val("");
         actualDurationEditor.val("");
         currentNote=null;
 
@@ -344,6 +349,7 @@ Jassplan.controller = (function (viewModel, helper) {
         var narrativeEditor = $(noteNarrativeEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
         var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
+        var doneDateEditor = $(noteDoneDateEditorSel);
         var actualDurationEditor = $(noteActualDurationEditorSel);
         var note = viewModel.createBlankNote();
         note.title = titleEditor.val();
@@ -352,6 +358,7 @@ Jassplan.controller = (function (viewModel, helper) {
         note.status = $(noteStatusEditorSel).val();
         note.flag = $(noteFlagEditorSel).val();
         note.estimatedDuration = $(noteEstimatedDurationEditorSel).val();
+        note.doneDate = $(noteDoneDateEditorSel).val();
         note.actualDuration = $(noteActualDurationEditorSel).val();
         
         return note;
@@ -369,6 +376,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.narrative = newNoteFromEditor.narrative;
                 currentNote.description = newNoteFromEditor.description;
                 currentNote.estimatedDuration = newNoteFromEditor.estimatedDuration;
+                currentNote.doneDate = newNoteFromEditor.doneDate;
                 currentNote.actualDuration = newNoteFromEditor.actualDuration;
                 currentNote.status = newNoteFromEditor.status;
                 currentNote.flag = newNoteFromEditor.flag;
@@ -394,6 +402,7 @@ Jassplan.controller = (function (viewModel, helper) {
                 currentNote.narrative = tempNote.narrative;
                 currentNote.description = tempNote.description;
                 currentNote.estimatedDuration = tempNote.estimatedDuration;
+                currentNote.doneDate = tempNote.doneDate;
                 currentNote.actualDuration = tempNote.actualDuration;
                 currentNote.status = tempNote.status;
                 currentNote.flag = tempNote.flag;
