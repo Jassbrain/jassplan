@@ -150,6 +150,7 @@ namespace Jassplan.JassServerModelManager
 
         public JassActivityHistory ActivitySave(JassActivity Activity)
         {
+            
             JassActivity ActivityCurrent = db.JassActivities.Find(Activity.JassActivityID);
             if (Activity.Status == null) Activity.Status = "asleep";
 

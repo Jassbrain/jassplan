@@ -97,14 +97,21 @@ Jassplan.viewmodel = (function (dataContext) {
             if (note.status == null || note.status == "asleep") note.status = "stared";
         }
         if (state == "Do") {
-            if (note.status == "done") note.status = "doneplus";
-            if (note.status == "stared") note.status = "done";
+            if (note.status == "done"){
+                note.status = "doneplus";
+            }
+            if (note.status == "stared") {
+                note.status = "done";
+                note.doneDate = new Date().toDateString();
+            }
         }
 
         if (state == "Review") {
             if (note.status == "done") note.status = "doneplus";
             if (note.status == "stared") note.status = "done";
         }
+
+
 
         this.saveNote(note);
 
