@@ -300,7 +300,8 @@ Jassplan.controller = (function (viewModel, helper) {
                 note = notesList[i];
                 if (noteId == note.id) {
                     titleEditor.val(note.title);
-                    statusEditor.val(note.status);
+                    updateStatusEditor(statusEditor, note.status);
+                    updateFlagEditor(flagEditor, note.flag);
                     flagEditor.val(note.flag);
                     narrativeEditor.val(note.narrative);
                     descriptionEditor.val(note.description);
@@ -316,6 +317,17 @@ Jassplan.controller = (function (viewModel, helper) {
         }
         return data;
     };
+
+    var updateStatusEditor = function (statusEditor, status) {
+        statusEditor.val(status);
+        statusEditor.selectmenu("refresh");
+    };
+
+    var updateFlagEditor = function (flagEditor, flag) {
+        flagEditor.val(flag);
+        flagEditor.selectmenu("refresh");
+    };
+
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
