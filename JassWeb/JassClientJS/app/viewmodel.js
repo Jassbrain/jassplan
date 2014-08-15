@@ -87,6 +87,13 @@ Jassplan.viewmodel = (function (dataContext) {
         setParent(note.parentID);
     }
 
+    var unstarcurrentparent = function () {
+        var i = this.noteForId(parent);
+        if (i == -1) return;
+        var note = notesList[i];
+        setParent(note.parentID);
+    }
+
     var star = function (id) {
 
         var i = this.noteForId(id);
@@ -223,6 +230,7 @@ Jassplan.viewmodel = (function (dataContext) {
         unstar: unstar,
         starparent: starparent,
         unstarparent: unstarparent,
+        unstarcurrentparent: unstarcurrentparent,
         noteForId: noteForId,
         handleArchiveAction: handleArchiveAction
    }

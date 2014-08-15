@@ -28,6 +28,8 @@ Jassplan.controller = (function (viewModel, helper) {
         $("#view-model-logged").text(logged);
         $("#view-model-logged").css('color', 'red');
 
+        var parentId = viewModel.getParent();
+
     }
 
     var renderReviewList = function () {
@@ -64,6 +66,7 @@ Jassplan.controller = (function (viewModel, helper) {
             if (notesList[i].status == "stared") { statusColor = "yellow" };
             if (notesList[i].status == "done")   { statusColor = "green" };
             if (notesList[i].status == "doneplus") { statusColor = "blue" };
+            if (notesList[i].status == "donebad") { statusColor = "red" };
 
             var notesCount = notesList.length,
     note,
@@ -195,9 +198,9 @@ Jassplan.controller = (function (viewModel, helper) {
             var parentimageid = "itemimage" + notesList[i].id;
 
             $("<li style=\"min-height:50px\">"
-            + "<div style=\"min-width:35px;float:left\">" + "<img height=20px width=20px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
+            + "<div style=\"min-width:35px;float:left\">" + "<img height=23px width=23px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
             + "<div style=\"position:relative; top:2px;min-width:35px;float:left\">" + notesList[i].actualDuration + "</div>"
-            + "<div style=\"position:relative; top:3px;height:15px;width:15px;float:left; background-color:"+ flagColor +"\"></div>"
+            + "<div style=\"position:relative; top:1px;height:20px;width:20px;float:left; background-color:"+ flagColor +"\"></div>"
             + "<div style=\"height:15px;width:15px;float:left\"></div>"
             + "<div style=\"min-width:150px;float:left\">"
             + "<a href=\"index.html#note-editor-page?noteId=" + notesList[i].id + "\">"
@@ -464,10 +467,14 @@ Jassplan.controller = (function (viewModel, helper) {
     }
 
     var onOfflineTapped = function () {
-
         var href = window.location;
         var hrefNew = window.location.protocol + "//" + window.location.host;
         window.location.href = hrefNew;
+    }
+
+    var onParentNameTapped = function () {
+        viewModel.unstarcurrentparent();
+        refresh();
     }
 
     var init = function () {
@@ -482,6 +489,9 @@ Jassplan.controller = (function (viewModel, helper) {
         $(document).on("tap", "#review-button", null, onReviewButtonTapped);
         $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
         $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
+        //view-model-parent
+        $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
+
     };
    
     return {
