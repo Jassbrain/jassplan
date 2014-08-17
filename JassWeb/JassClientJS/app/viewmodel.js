@@ -114,8 +114,7 @@ Jassplan.viewmodel = (function (dataContext) {
         }
 
         if (state == "Review") {
-            if (note.status == "done") note.status = "doneplus";
-            if (note.status == "stared") note.status = "done";
+            alert("this shold not happen");
         }
 
 
@@ -194,6 +193,15 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var saveNote = function (currentNote) {
 
+        if (currentNote.doneDate == null) {
+            if (currentNote.status == "done" && currentNote.status == "donebad") {
+                currentNote.doneDate = new Date();
+            }
+        } else {
+            if (currentNote.status == "asleep") {
+                currentNote.doneDate = null;
+            }
+        }
         var result = dataContext.saveNote(currentNote);
 
         return result;
