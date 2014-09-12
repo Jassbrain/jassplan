@@ -8,16 +8,49 @@ using System.Web;
 using System.Data.Entity;
 using System.Reflection;
 using JassTools;
+using JassServerModel.Model;
 
 namespace Jassplan.JassServerModelManager
 {
     public class JassModelManager: IDisposable
     {
-        private JassContext db = new JassContext();
+        private JassContext _db = new JassContext();
 
-            public JassModelManager()
+        private string _username;
+
+            public JassModelManager(string username)
             {
+                _username = username;
             }
+
+
+            #region Single User Ilusion Layer
+            /*
+         * This set of methods produce an abstraction to let the API 
+         * think that this is a single user database as it was in the origins
+         */
+
+            public IQueryable<JassActivity> myActivities()
+            {
+                return _db.JassActivities.Where(ac => ac.UserName == _username);
+            }
+
+            public IQueryable<JassActivityReview> myActivityReviews()
+            {
+                return _db.JassActivityReviews.Where(ac => ac.UserName == _username);
+            }
+
+            public IQueryable<JassActivityHistory> myActivityHistories()
+            {
+                return _db.JassActivityHistories.Where(ac => ac.UserName == _username);
+            }
+
+            public void checkIfMine(IUserOwned activity)
+            {
+                if (activity.UserName != _username) throw new Exception("id does not belong to user");
+            }
+
+            #endregion Single User Ilusion Layer
 
         #region Activity Model API
 
@@ -29,7 +62,7 @@ namespace Jassplan.JassServerModelManager
 
         public List<JassActivity> ActivitiesGetAll()
         {
-            var allActivities = db.JassActivities.OrderBy(ac => ac.title).ToList<JassActivity>();
+            var allActivities = myActivities().OrderBy(ac => ac.title).ToList<JassActivity>();
             foreach (var activity in allActivities) {
                 if (activity.ActualDuration == null) activity.ActualDuration = activity.EstimatedDuration;
             }
@@ -39,10 +72,10 @@ namespace Jassplan.JassServerModelManager
         public List<JassActivityReview> ActivityReviewsGetAll()
         {
             
-            var allActivityReviews = db.JassActivityReviews.OrderByDescending(ac => ac.ReviewDate).ToList<JassActivityReview>();
+            var allActivityReviews = myActivityReviews().OrderByDescending(ac => ac.ReviewDate).ToList<JassActivityReview>();
             foreach (var review in allActivityReviews)
             {
-                var allActivityHistories = db.JassActivityHistories.Where(h=>h.JassActivityReviewID==review.JassActivityReviewID).OrderBy(h=>h.title).ToList<JassActivityHistory>();
+                var allActivityHistories = myActivityHistories().Where(h=>h.JassActivityReviewID==review.JassActivityReviewID).OrderBy(h=>h.title).ToList<JassActivityHistory>();
                 review.ActivityHistories = allActivityHistories; 
             }
             
@@ -51,7 +84,7 @@ namespace Jassplan.JassServerModelManager
 
         public List<JassActivity> ActivitiesArchiveGetAll()
         {
-            var activities =  db.JassActivities.ToList<JassActivity>();
+            var activities =  myActivities().ToList<JassActivity>();
 
             //before anything we find out the 'done day' of this task list
 
@@ -70,7 +103,7 @@ namespace Jassplan.JassServerModelManager
             //1. for now only one review a day
             DateTime doneDate2 = (DateTime)doneDate;
             var now = DateTime.Now;
-            var existingReview = db.JassActivityReviews.Where(r => r.ReviewYear == doneDate2.Year &&
+            var existingReview = myActivityReviews().Where(r => r.ReviewYear == doneDate2.Year &&
                 r.ReviewMonth == doneDate2.Month &&
                 r.ReviewDay == doneDate2.Day).ToList();
 
@@ -90,16 +123,17 @@ namespace Jassplan.JassServerModelManager
 
             //we will only accept a review if something is done and nothing is still stared
 
-            if ( (stared > 0) || (done + doneplus == 0) )return ActivitiesGetAll();
+           // if ( (stared > 0) || (done + doneplus == 0) )return ActivitiesGetAll();
 
             var review = new JassActivityReview();
-            db.JassActivityReviews.Add(review);
+            _db.JassActivityReviews.Add(review);
+            review.UserName = _username;
             review.ReviewDate = DateTime.Now;
             review.ReviewYear = doneDate2.Year;
             review.ReviewMonth = doneDate2.Month;
             review.ReviewDay = doneDate2.Day;
 
-            db.SaveChanges();
+            _db.SaveChanges();
 
             foreach (var activity in activities)
             {
@@ -113,16 +147,18 @@ namespace Jassplan.JassServerModelManager
 
         public JassActivity ActivityGetById(int id)
         {
-            var JassActivity = db.JassActivities.Find(id);
+            var JassActivity = _db.JassActivities.Find(id);
+            checkIfMine(JassActivity);
             return JassActivity;
         }
         public int ActivityCreate(JassActivity Activity)
         {
-            db.JassActivities.Add(Activity);
+            _db.JassActivities.Add(Activity);
+            Activity.UserName =_username;
             Activity.Created = DateTime.Now;
             Activity.dateCreated = DateTime.Now;
             Activity.LastUpdated = DateTime.Now;
-            db.SaveChanges();
+            _db.SaveChanges();
             ActivitySaveHistory(Activity);
             return Activity.JassActivityID;
         }
@@ -151,7 +187,8 @@ namespace Jassplan.JassServerModelManager
         public JassActivityHistory ActivitySave(JassActivity Activity)
         {
             
-            JassActivity ActivityCurrent = db.JassActivities.Find(Activity.JassActivityID);
+            JassActivity ActivityCurrent = _db.JassActivities.Find(Activity.JassActivityID);
+            checkIfMine(ActivityCurrent);
             if (Activity.Status == null) Activity.Status = "asleep";
 
             if ((Activity.DoneDate ==null) &&
@@ -168,26 +205,28 @@ namespace Jassplan.JassServerModelManager
             var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivity>();
             mapper.map(Activity, ActivityCurrent);
 
-            db.Entry(ActivityCurrent).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(ActivityCurrent).State = EntityState.Modified;
+            _db.SaveChanges();
             var activityHistory = ActivitySaveHistory(Activity);
             return activityHistory;
         }
 
         public JassActivityHistory ActivitySave(JassActivity Activity, JassActivityReview review)
         {
+            checkIfMine(Activity); checkIfMine(review); 
             if (Activity.Status == null) Activity.Status = "asleep";
             Activity.LastUpdated = DateTime.Now;
-            db.Entry(Activity).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(Activity).State = EntityState.Modified;
+            _db.SaveChanges();
             var activityHistory = ActivitySaveHistory(Activity, review);
             return activityHistory;
         }
         public void ActivityDelete(int id)
         {
             JassActivity JassActivity = this.ActivityGetById(id);
-            db.JassActivities.Remove(JassActivity);
-            db.SaveChanges();
+            checkIfMine(JassActivity);
+            _db.JassActivities.Remove(JassActivity);
+            _db.SaveChanges();
         }
 
         #endregion Activity Model API
@@ -202,33 +241,37 @@ namespace Jassplan.JassServerModelManager
 
         public List<JassActivityHistory> ActivityHistoriesGetAll()
         {
-            return db.JassActivityHistories.ToList<JassActivityHistory>();
+            return myActivityHistories().ToList<JassActivityHistory>();
         }
         public JassActivityHistory ActivityHistoryGetById(int id)
         {
-            var JassActivityHistory = db.JassActivityHistories.Find(id);
+            var JassActivityHistory = _db.JassActivityHistories.Find(id);
+            checkIfMine(JassActivityHistory);
             return JassActivityHistory;
         }
         public int ActivityHistoryCreate(JassActivityHistory ActivityHistory)
         {
-            db.JassActivityHistories.Add(ActivityHistory);
+            _db.JassActivityHistories.Add(ActivityHistory);
+            ActivityHistory.UserName = _username;
             ActivityHistory.TimeStamp= DateTime.Now;
             ActivityHistory.Created = DateTime.Now;
             ActivityHistory.LastUpdated = DateTime.Now;
             
-            db.SaveChanges();
+            _db.SaveChanges();
             return ActivityHistory.JassActivityHistoryID;
         }
         public void ActivityHistorySave(JassActivityHistory ActivityHistory)
         {
-            db.Entry(ActivityHistory).State = EntityState.Modified;
-            db.SaveChanges();
+            checkIfMine(ActivityHistory);
+            _db.Entry(ActivityHistory).State = EntityState.Modified;
+            _db.SaveChanges();
         }
         public void ActivityHistoryDelete(int id)
         {
             JassActivityHistory JassActivityHistory = this.ActivityHistoryGetById(id);
-            db.JassActivityHistories.Remove(JassActivityHistory);
-            db.SaveChanges();
+            checkIfMine(JassActivityHistory);
+            _db.JassActivityHistories.Remove(JassActivityHistory);
+            _db.SaveChanges();
         }
 
         #endregion ActivityHistory Model API
@@ -236,7 +279,7 @@ namespace Jassplan.JassServerModelManager
 
         #region IDispose
         protected virtual void Dispose(bool flag){
-            db.Dispose();
+            _db.Dispose();
         }
         public void Dispose()
         {

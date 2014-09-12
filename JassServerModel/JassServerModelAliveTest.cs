@@ -15,7 +15,7 @@ namespace JassServerModelAliveTest
             Console.Write("JassServerModel Sanity Test Starting\n");
             try
             {
-                JassModelManager mm = new JassModelManager();
+                JassModelManager mm = new JassModelManager("test");
                 List<JassActivity> activities = mm.ActivitiesGetAll();
 
                 Console.WriteLine("JassServerModel Sanity Test Successfuly\n");

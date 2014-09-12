@@ -11,7 +11,7 @@ namespace Jassplan.Tests.ModelManager
     [TestClass] //Test of the Model Manager
     public class JassServerModelManagerTest
     {
-        JassModelManager mm = new JassModelManager();
+        JassModelManager mm = new JassModelManager("test");
 
         [TestMethod]
         public void mmActivitiesCRUD()
@@ -286,7 +286,7 @@ namespace Jassplan.Tests.ModelManager
         public void refreshManager()
         {
             mm.Dispose();
-            mm = new JassModelManager();
+            mm = new JassModelManager("test");
         }
 
     }

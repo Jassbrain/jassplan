@@ -10,14 +10,15 @@ using JassWeb.Filters;
 using JassWeb.Models;
 using Jassplan.Model;
 using Jassplan.JassServerModelManager;
+using WebMatrix.WebData;
 
 namespace JassWeb.Controllers
 {
     [Authorize]
     public class TodoListController : ApiController
     {
-       
-        private JassModelManager mm = new JassModelManager();
+
+        private JassModelManager mm = new JassModelManager(WebSecurity.CurrentUserName);
 
         // GET api/TodoList - DONE
         public List<JassActivity> GetTodoList()

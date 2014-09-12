@@ -157,9 +157,23 @@
     <Compile Include="Migrations\201408081332165_parentid.Designer.cs">
       <DependentUpon>201408081332165_parentid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409062139187_estimatedStartHour.cs" />
+    <Compile Include="Migrations\201409062139187_estimatedStartHour.Designer.cs">
+      <DependentUpon>201409062139187_estimatedStartHour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409070225362_username.cs" />
+    <Compile Include="Migrations\201409070225362_username.Designer.cs">
+      <DependentUpon>201409070225362_username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409070306450_review-username.cs" />
+    <Compile Include="Migrations\201409070306450_review-username.Designer.cs">
+      <DependentUpon>201409070306450_review-username.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
+    <Compile Include="ModelManager\JassServerDataManager.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
+    <Compile Include="Model\IUserOwned.cs" />
     <Compile Include="Model\JassActivityReview.cs" />
     <Compile Include="Model\JassActivityCommon.cs" />
     <Compile Include="Model\JassActivityHistory.cs" />
@@ -225,6 +239,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408081332165_parentid.resx">
       <DependentUpon>201408081332165_parentid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409062139187_estimatedStartHour.resx">
+      <DependentUpon>201409062139187_estimatedStartHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409070225362_username.resx">
+      <DependentUpon>201409070225362_username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409070306450_review-username.resx">
+      <DependentUpon>201409070306450_review-username.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
