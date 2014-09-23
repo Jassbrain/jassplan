@@ -1,8 +1,8 @@
-
 var Jassplan = Jassplan || {};
 
 Jassplan.serverProxy = (function () {
- 
+    //This object is in charge of communicating back and forth with the server side
+    //
     var checkUserLogged = function () {
 
         var serverLogged;
@@ -45,7 +45,6 @@ Jassplan.serverProxy = (function () {
         }
         return todoLists;
     }
-
 
     var getTodoLists = function () {
 
@@ -151,6 +150,28 @@ Jassplan.serverProxy = (function () {
         return todoListOut;
     }
 
+    var deleteAllTodoLists = function () {
+        var todoListOut;
+        $.ajax({
+            type: "PUT",
+            dataType: "json",
+            async: false,
+            data: {},
+            url: "/api/todolist/PutDeleteAllTodoLists",
+            success: function (data) {
+                todoListOut = data;
+            },
+            error: function (data) {
+                if (data.status != 200) {
+                    alert("Error while deleting all todolists");
+                }
+            }
+        });
+
+        return todoListOut;
+    }
+
+
     var public = {
         checkUserLogged: checkUserLogged,
         getTodoLists: getTodoLists,
@@ -158,6 +179,7 @@ Jassplan.serverProxy = (function () {
         createTodoList: createTodoList,
         saveTodoList: saveTodoList,
         deleteTodoList: deleteTodoList,
+        deleteAllTodoLists: deleteAllTodoLists,
         archiveTodoLists: archiveTodoLists,
     };
  

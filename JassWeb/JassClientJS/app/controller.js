@@ -1,6 +1,6 @@
 var Jassplan = Jassplan || {};
 
-Jassplan.controller = (function (viewModel, helper) {
+Jassplan.controller = (function (view, viewModel, helper) {
 
     var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
@@ -513,7 +513,7 @@ Jassplan.controller = (function (viewModel, helper) {
         init: init
     };
 
-})(Jassplan.viewmodel, Jassplan.helper);
+})(Jassplan.view, Jassplan.viewmodel, Jassplan.helper);
 
 $(document).bind("mobileinit", function () {
     Jassplan.controller.init();

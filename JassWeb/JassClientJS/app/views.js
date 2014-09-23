@@ -4,7 +4,7 @@
 
 var Jassplan = Jassplan || {};
 
-Jassplan.rowView = (function () {
+Jassplan.view = (function () {
 
     var init = function () { }
     return {

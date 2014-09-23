@@ -1,6 +1,8 @@
 var Jassplan = Jassplan || {};
 
 Jassplan.helper = (function () {
+    //this onject encapsulate some horrible code to decode a URL that you do not want to see
+    //but is kind of useful
 
     var queryStringToObject = function (queryString){ var queryStringObj = {};
       var e;

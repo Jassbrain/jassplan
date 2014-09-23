@@ -71,6 +71,13 @@ namespace JassWeb.Controllers
             mm.ActivityDelete(todoList.JassActivityID);
             return todoList;
         }
+
+        public HttpResponseMessage PutDeleteAllTodoLists()
+        {
+            mm.ActivityDeleteAll();
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         // DELETE api/TodoList/5
         //[ValidateHttpAntiForgeryToken]
         public HttpResponseMessage DeleteTodoList(int id)

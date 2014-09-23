@@ -1,6 +1,12 @@
 var Jassplan = Jassplan || {};
 
 Jassplan.dataContext = (function (serverProxy) {
+    //This object acts as the data context. The controller and view model do not know anything
+    //about a server. This layer provides an abstraction to the data. data is stored in the server
+    //and also in local memory. The idea is great but for the moment the implementatio is pretty
+    //inneficient. we are going to the server everytime is this is posible. Only go to local storage 
+    //if we are offline. We need to change this.
+
     var userLogged = false;
     var notesList = [];
     var notesListStorageKey;
@@ -14,7 +20,8 @@ Jassplan.dataContext = (function (serverProxy) {
 
 
     var loadNotesFromLocalStorage = function () {
-
+        //Ok, this is not efficient... but works.. if the user is logged we are just calling 
+        //the server
         var storedNotes;
         if (userLogged) {
             storedNotes = serverProxy.getTodoLists();
@@ -107,7 +114,7 @@ Jassplan.dataContext = (function (serverProxy) {
             }
         }
         if (!found) {
-            alert("Note cannot be deleted beucase we could not find it");
+            alert("Note cannot be deleted because we could not find it");
         } else {
             Jassplan.serverProxy.deleteTodoList(noteModel);
             notesList.splice(ifound, 1);
@@ -118,6 +125,11 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
 
+    var deleteAllNotes = function(){
+    
+        Jassplan.serverProxy.deleteAllTodoLists();   
+    }
+
     var public = {
         init: init,
         getNotesList: getNotesList,
@@ -125,6 +137,7 @@ Jassplan.dataContext = (function (serverProxy) {
         createBlankNote: createBlankNote,
         saveNote: saveNote,
         deleteNote: deleteNote,
+        deleteAllNotes: deleteAllNotes,
         getLogged: getLogged,
         archiveAndReloadNotes: archiveAndReloadNotes
     };

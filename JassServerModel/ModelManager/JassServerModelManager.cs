@@ -229,6 +229,16 @@ namespace Jassplan.JassServerModelManager
             _db.SaveChanges();
         }
 
+        public void ActivityDeleteAll()
+        {
+            if (_username != "Test") { throw new Exception("Delete all is only for test user"); };
+            foreach (var activity in myActivities())
+            {
+                _db.JassActivities.Remove(activity);
+            }
+            _db.SaveChanges();
+        }
+
         #endregion Activity Model API
 
         #region ActivityHistory Model API
