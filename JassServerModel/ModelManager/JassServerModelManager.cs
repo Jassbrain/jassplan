@@ -231,7 +231,7 @@ namespace Jassplan.JassServerModelManager
 
         public void ActivityDeleteAll()
         {
-            if (_username != "Test") { throw new Exception("Delete all is only for test user"); };
+            if (_username != "test") { throw new Exception("Delete all is only for test user"); };
             foreach (var activity in myActivities())
             {
                 _db.JassActivities.Remove(activity);

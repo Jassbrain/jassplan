@@ -33,6 +33,8 @@ Jassplan.dataContext = (function (serverProxy) {
         if (storedNotes !== null) {
             notesList = storedNotes;
         }
+
+        return notesList;
     };
 
     var loadReviewsFromLocalStorage = function () {
@@ -48,6 +50,8 @@ Jassplan.dataContext = (function (serverProxy) {
         if (storedReviews !== null) {
             reviewsList = storedReviews;
         }
+
+        return reviewsList;
     };
 
     var archiveAndReloadNotes = function () {
@@ -84,22 +88,28 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var saveNote = function (noteModel) {
-        var found = false;
-        var i;
-        for (i = 0; i < notesList.length; i += 1) {
-          if (notesList[i].id === noteModel.id) {
-              notesList[i] = noteModel;
-              found = true;
-              i = notesList.length; } }
-        if (!found) {
+        var noteIndex = noteIndexInNotesList(noteModel);
+        if (noteIndex == null) {
+            notesList.splice(0, 0, noteModel);  //add the note to note list
             Jassplan.serverProxy.createTodoList(noteModel);
-            notesList.splice(0, 0, noteModel);
         } else {
+            notesList[noteIndex] = noteModel; // save the note on notes list
             Jassplan.serverProxy.saveTodoList(noteModel);
         }
-
         saveNotesToLocalStorage();
     };
+
+    var noteIndexInNotesList = function (noteModel){
+        var index = null;
+        var i;
+        for (i = 0; i < notesList.length; i += 1) {
+            if (notesList[i].id === noteModel.id) {
+                index = i;
+                i = notesList.length;
+            }
+        }
+        return index;
+    }
 
     var deleteNote = function (noteModel) {
         var found = false;
