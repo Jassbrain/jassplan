@@ -66,52 +66,46 @@
       <HintPath>..\packages\Google.Apis.1.6.0-beta\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.AccessControl">
-      <HintPath>..\ExtApiGoogle\Google.GData.AccessControl.DLL</HintPath>
+      <HintPath>..\packages\Google.GData.AccessControl.2.2.0.0\lib\Google.GData.AccessControl.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Analytics">
-      <HintPath>..\ExtApiGoogle\Google.GData.Analytics.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Analytics.2.2.0.0\lib\Google.GData.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Apps">
-      <HintPath>..\ExtApiGoogle\Google.GData.Apps.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Apps.2.2.0.0\lib\Google.GData.Apps.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Blogger">
-      <HintPath>..\ExtApiGoogle\Google.GData.Blogger.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Blogger.2.2.0.0\lib\Google.GData.Blogger.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Calendar">
-      <HintPath>..\ExtApiGoogle\Google.GData.Calendar.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Calendar.2.2.0.0\lib\Google.GData.Calendar.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Client">
-      <HintPath>..\ExtApiGoogle\Google.GData.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.CodeSearch">
-      <HintPath>..\ExtApiGoogle\Google.GData.CodeSearch.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Client.2.2.0.0\lib\Google.GData.Client.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Contacts">
-      <HintPath>..\ExtApiGoogle\Google.GData.Contacts.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Contacts.2.2.0.0\lib\Google.GData.Contacts.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.ContentForShopping">
-      <HintPath>..\ExtApiGoogle\Google.GData.ContentForShopping.dll</HintPath>
+      <HintPath>..\packages\Google.GData.ContentForShopping.2.2.0.0\lib\Google.GData.ContentForShopping.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Documents">
-      <HintPath>..\ExtApiGoogle\Google.GData.Documents.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Documents.2.2.0.0\lib\Google.GData.Documents.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Extensions">
-      <HintPath>..\ExtApiGoogle\Google.GData.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.GoogleBase">
-      <HintPath>..\ExtApiGoogle\Google.GData.GoogleBase.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.GData.Health">
-      <HintPath>..\ExtApiGoogle\Google.GData.Health.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Extensions.2.2.0.0\lib\Google.GData.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Photos">
-      <HintPath>..\ExtApiGoogle\Google.GData.Photos.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Photos.2.2.0.0\lib\Google.GData.Photos.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.Spreadsheets">
-      <HintPath>..\ExtApiGoogle\Google.GData.Spreadsheets.dll</HintPath>
+      <HintPath>..\packages\Google.GData.Spreadsheets.2.2.0.0\lib\Google.GData.Spreadsheets.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.WebmasterTools">
+      <HintPath>..\packages\Google.GData.WebmasterTools.2.2.0.0\lib\Google.GData.WebmasterTools.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.YouTube">
-      <HintPath>..\ExtApiGoogle\Google.GData.YouTube.dll</HintPath>
+      <HintPath>..\packages\Google.GData.YouTube.2.2.0.0\lib\Google.GData.YouTube.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -148,7 +142,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="main.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

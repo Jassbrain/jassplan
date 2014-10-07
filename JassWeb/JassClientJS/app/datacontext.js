@@ -1,17 +1,15 @@
 var Jassplan = Jassplan || {};
 
 Jassplan.dataContext = (function (serverProxy) {
-    //This object acts as the data context. The controller and view model do not know anything
-    //about a server. This layer provides an abstraction to the data. data is stored in the server
-    //and also in local memory. The idea is great but for the moment the implementatio is pretty
-    //inneficient. we are going to the server everytime is this is posible. Only go to local storage 
-    //if we are offline. We need to change this.
+    //This object acts as data layer and handles local storage or communimcation with server via the server proxy. 
+    //The idea is great but for the moment the implementatio is pretty
+    //inneficient as we are going to the server everytime and in sync mode...
 
-    var userLogged = false;
-    var notesList = [];
-    var notesListStorageKey;
-    var reviewsList = [];
-    var reviewsListStorageKey;
+    var userLogged = false;     //knows if the user did log in
+    var notesList = [];         //keeps the list of notes
+    var notesListStorageKey;    //keeps the local storage key for the note list
+    var reviewsList = [];       //keeps the review list
+    var reviewsListStorageKey;  //keeps the review list local storage key
 
     var getLogged = function () {
         if (userLogged) return ""
@@ -20,8 +18,7 @@ Jassplan.dataContext = (function (serverProxy) {
 
 
     var loadNotesFromLocalStorage = function () {
-        //Ok, this is not efficient... but works.. if the user is logged we are just calling 
-        //the server
+        //Ok, this is not efficient..if the user is logged we are just calling the server
         var storedNotes;
         if (userLogged) {
             storedNotes = serverProxy.getTodoLists();
@@ -38,7 +35,7 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var loadReviewsFromLocalStorage = function () {
-
+        //oportunity for reuse... we have to siilar algorithms
         var storedReviews;
         if (userLogged) {
             storedReviews = serverProxy.getReviewLists();

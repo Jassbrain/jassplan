@@ -1,0 +1,5 @@
+README Jass Sandbox
+
+As the name states this is just a project with things I a trying or learning.
+It may not even be related with jassbrain... but normally related with 
+C#.. tools for c#/NET or Javascript..etc

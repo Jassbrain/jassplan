@@ -1,5 +1,18 @@
 /**
  * Created by pablo on 12/15/13.
+ *
+ data context functions to test
+ 
+        (*)init: init,
+        (*)getNotesList: getNotesList,
+        getReviewsList: getReviewsList,
+        createBlankNote: createBlankNote,
+        (*)saveNote: saveNote,  (we have two cases, create and update)
+        deleteNote: deleteNote,
+        (*)deleteAllNotes: deleteAllNotes,
+        getLogged: getLogged,
+        archiveAndReloadNotes: archiveAndReloadNotes
+ 
  */
 
 var notesListStorageKey = "Jassplan.NotesListTest";
@@ -7,13 +20,11 @@ var notesListStorageKey = "Jassplan.NotesListTest";
 
 describe("Data context tests", function () {
 
-    //General Tet Setup
-    // Clean Test Local Storage
+    //Clen Up Everything
     $.jStorage.deleteKey(notesListStorageKey);
-    //Delete All Notes for Test User
     Jassplan.dataContext.deleteAllNotes();
 
-    it("Create first - Jassplan.dataContext.saveNote - New Task", function () {
+    it("Create first - Jassplan.dataContext.saveNote/init - New Task", function () {
 
         // Create a note (at this point local and server storage are empty
 
@@ -40,7 +51,7 @@ describe("Data context tests", function () {
 
     });
 
-    it("Create first - Jassplan.dataContext.saveNote - Update Task (after refresh)", function () {
+    it("Create first - Jassplan.dataContext.saveNote/get notes list - Update Task (after refresh)", function () {
 
         Jassplan.dataContext.init(notesListStorageKey);
         notesList = Jassplan.dataContext.getNotesList();
