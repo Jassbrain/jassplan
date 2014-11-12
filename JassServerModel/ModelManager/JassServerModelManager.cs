@@ -12,13 +12,13 @@ using JassServerModel.Model;
 
 namespace Jassplan.JassServerModelManager
 {
-    public class JassModelManager: IDisposable
+    public class JassDataModelManager: IDisposable, IJassDataModelManager
     {
         private JassContext _db = new JassContext();
 
         private string _username;
 
-            public JassModelManager(string username)
+            public JassDataModelManager(string username)
             {
                 _username = username;
             }

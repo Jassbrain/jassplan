@@ -89,89 +89,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201311040155352_InitialCreate.cs" />
-    <Compile Include="Migrations\201311040155352_InitialCreate.Designer.cs">
-      <DependentUpon>201311040155352_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311050315476_done-date-time.cs" />
-    <Compile Include="Migrations\201311050315476_done-date-time.Designer.cs">
-      <DependentUpon>201311050315476_done-date-time.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311060026470_history-classes.cs" />
-    <Compile Include="Migrations\201311060026470_history-classes.Designer.cs">
-      <DependentUpon>201311060026470_history-classes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311060046101_AreaHistoryTable.cs" />
-    <Compile Include="Migrations\201311060046101_AreaHistoryTable.Designer.cs">
-      <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311060118521_activityhistory.cs" />
-    <Compile Include="Migrations\201311060118521_activityhistory.Designer.cs">
-      <DependentUpon>201311060118521_activityhistory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311070248390_nothing.cs" />
-    <Compile Include="Migrations\201311070248390_nothing.Designer.cs">
-      <DependentUpon>201311070248390_nothing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201312020128436_remove-activity-log.cs" />
-    <Compile Include="Migrations\201312020128436_remove-activity-log.Designer.cs">
-      <DependentUpon>201312020128436_remove-activity-log.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201401190345230_remove_area.cs" />
-    <Compile Include="Migrations\201401190345230_remove_area.Designer.cs">
-      <DependentUpon>201401190345230_remove_area.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201402010610548_xxxx.cs" />
-    <Compile Include="Migrations\201402010610548_xxxx.Designer.cs">
-      <DependentUpon>201402010610548_xxxx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201402090525425_title.cs" />
-    <Compile Include="Migrations\201402090525425_title.Designer.cs">
-      <DependentUpon>201402090525425_title.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201403050229063_status.cs" />
-    <Compile Include="Migrations\201403050229063_status.Designer.cs">
-      <DependentUpon>201403050229063_status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407310359244_reivew.cs" />
-    <Compile Include="Migrations\201407310359244_reivew.Designer.cs">
-      <DependentUpon>201407310359244_reivew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407310440070_reviewdate.cs" />
-    <Compile Include="Migrations\201407310440070_reviewdate.Designer.cs">
-      <DependentUpon>201407310440070_reviewdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408060142349_newnew.cs" />
-    <Compile Include="Migrations\201408060142349_newnew.Designer.cs">
-      <DependentUpon>201408060142349_newnew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408060251045_wentback.cs" />
-    <Compile Include="Migrations\201408060251045_wentback.Designer.cs">
-      <DependentUpon>201408060251045_wentback.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408060406365_flag.cs" />
-    <Compile Include="Migrations\201408060406365_flag.Designer.cs">
-      <DependentUpon>201408060406365_flag.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201408081332165_parentid.cs" />
-    <Compile Include="Migrations\201408081332165_parentid.Designer.cs">
-      <DependentUpon>201408081332165_parentid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409062139187_estimatedStartHour.cs" />
-    <Compile Include="Migrations\201409062139187_estimatedStartHour.Designer.cs">
-      <DependentUpon>201409062139187_estimatedStartHour.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070225362_username.cs" />
-    <Compile Include="Migrations\201409070225362_username.Designer.cs">
-      <DependentUpon>201409070225362_username.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409070306450_review-username.cs" />
-    <Compile Include="Migrations\201409070306450_review-username.Designer.cs">
-      <DependentUpon>201409070306450_review-username.cs</DependentUpon>
+    <Compile Include="Migrations\201411110138373_initial.cs" />
+    <Compile Include="Migrations\201411110138373_initial.Designer.cs">
+      <DependentUpon>201411110138373_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelManager\IJassDataModelManager.cs" />
     <Compile Include="ModelManager\JassContext.cs" />
-    <Compile Include="ModelManager\JassServerDataManager.cs" />
     <Compile Include="ModelManager\JassServerModelManager.cs" />
     <Compile Include="Model\IUserOwned.cs" />
     <Compile Include="Model\JassActivityReview.cs" />
@@ -183,78 +107,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="JassplanModel.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201311040155352_InitialCreate.resx">
-      <DependentUpon>201311040155352_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311050315476_done-date-time.resx">
-      <DependentUpon>201311050315476_done-date-time.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311060026470_history-classes.resx">
-      <DependentUpon>201311060026470_history-classes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311060046101_AreaHistoryTable.resx">
-      <DependentUpon>201311060046101_AreaHistoryTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311060118521_activityhistory.resx">
-      <DependentUpon>201311060118521_activityhistory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311070248390_nothing.resx">
-      <DependentUpon>201311070248390_nothing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201312020128436_remove-activity-log.resx">
-      <DependentUpon>201312020128436_remove-activity-log.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401190345230_remove_area.resx">
-      <DependentUpon>201401190345230_remove_area.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201402010610548_xxxx.resx">
-      <DependentUpon>201402010610548_xxxx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201402090525425_title.resx">
-      <DependentUpon>201402090525425_title.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403050229063_status.resx">
-      <DependentUpon>201403050229063_status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407310359244_reivew.resx">
-      <DependentUpon>201407310359244_reivew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407310440070_reviewdate.resx">
-      <DependentUpon>201407310440070_reviewdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408060142349_newnew.resx">
-      <DependentUpon>201408060142349_newnew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408060251045_wentback.resx">
-      <DependentUpon>201408060251045_wentback.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408060406365_flag.resx">
-      <DependentUpon>201408060406365_flag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408081332165_parentid.resx">
-      <DependentUpon>201408081332165_parentid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409062139187_estimatedStartHour.resx">
-      <DependentUpon>201409062139187_estimatedStartHour.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070225362_username.resx">
-      <DependentUpon>201409070225362_username.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409070306450_review-username.resx">
-      <DependentUpon>201409070306450_review-username.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\JassTools\JassTools.csproj">
       <Project>{03d5a981-c8d7-4fb7-bbb0-4f0ad4e6b583}</Project>
       <Name>JassTools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201411110138373_initial.resx">
+      <DependentUpon>201411110138373_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />

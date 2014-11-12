@@ -18,7 +18,7 @@ namespace JassWeb.Controllers
     public class TodoListController : ApiController
     {
 
-        private JassModelManager mm = new JassModelManager(WebSecurity.CurrentUserName);
+        private IJassDataModelManager mm = new JassDataModelManager(WebSecurity.CurrentUserName);
 
         // GET api/TodoList - DONE
         public List<JassActivity> GetTodoList()
