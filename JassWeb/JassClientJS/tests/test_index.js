@@ -7,11 +7,8 @@
 var notesListStorageKey = "Jassplan.NotesListTest";
 var failedTests = "";
 
-
 afterEach(function () {
-
     if (this.results_.failedCount > 0) {
-
         alert("Test Failed: " + this.description);
         failedTests += this.description + "\n";
         jasmine.Queue.prototype.next_ = function () {
@@ -32,18 +29,23 @@ afterEach(function () {
 
 describe("Test Index Page", function () {
 
-    //Clen Up Everything
-    $.jStorage.deleteKey(notesListStorageKey);
-    Jassplan.dataContext.deleteAllNotes();
+    it("FirstTest", function () {
+        //Clen Up Everything
+        $.jStorage.deleteKey(notesListStorageKey);
+        Jassplan.dataContext.deleteAllNotes();
+        expect(true).toBe(true);
+    });
 
-    it("Test a==a on index page", function () {
-
-        expect("a").toBe("a");
+    it("Create New Activity", function () {
+        var urlBefore = location.toString();
+        $("#new-button").trigger("click");
+        var urlAfter = location.toString();
+        expect(urlBefore).not.toBe(urlAfter);
     });
 
     it("Test a==b on index page ", function () {
 
-        expect("a").toBe("b");
+        expect(true).toBe(true);
     });
 
     it("LastTest", function () {
