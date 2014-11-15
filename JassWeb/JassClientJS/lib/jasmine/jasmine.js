@@ -49,7 +49,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
  * Set to false to let the exception bubble up in the browser.
  *
  */
-jasmine.CATCH_EXCEPTIONS = true;
+jasmine.CATCH_EXCEPTIONS = false;
 
 jasmine.getGlobal = function() {
   function getGlobal() {

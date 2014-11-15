@@ -67,4 +67,5 @@ describe("Data context tests", function () {
         expect(notesList[0].title).toBe("A1-MindTest2");
 
     });
+
 });
