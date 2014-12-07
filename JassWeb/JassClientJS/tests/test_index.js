@@ -29,18 +29,29 @@ afterEach(function () {
 
 describe("Test Index Page", function () {
 
-    it("FirstTest", function () {
+    it("Check Test User Logged / Cleanup All Notes", function () {
         //Clen Up Everything
+        //First, make sure this is the "test" user
+        var user = Jassplan.viewmodel.getUserName();
+        expect(user).toBe("test");
         $.jStorage.deleteKey(notesListStorageKey);
         Jassplan.dataContext.deleteAllNotes();
         expect(true).toBe(true);
     });
 
-    it("Create New Activity", function () {
+    it("Open task edit screen from New Task button", function () {
         var urlBefore = location.toString();
         $("#new-button").trigger("click");
         var urlAfter = location.toString();
         expect(urlBefore).not.toBe(urlAfter);
+    });
+
+   
+    it("Type a new name for a new task", function () {
+       var urlBefore = location.toString();
+       // $("#new-button").trigger("click");
+       // var urlAfter = location.toString();
+       // expect(urlBefore).not.toBe(urlAfter);
     });
 
     it("Test a==b on index page ", function () {

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="6f390bf6-6511-4b15-affd-cc140b2489cc"
+  name="1.2 JpDoer" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <useCase
+        Id="083a51b4-00bb-4730-8a2a-55727df5f1cf"
+        name="Access / Browse Do View"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="67962b26-da71-4943-8fd5-6435c2d93615"
+            isDerived="false"
+            sourceEndRoleName="Access Do View"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f2faa53f-ca3d-453a-81fc-78feb721f632"
+                  name="Access Do View"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="62beb64f-32e7-4e25-a32b-5cff10d62af2"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="42d168eb-f0e6-4e8a-9758-b31241a4ab80"
+        name="Executes Plan As Is"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e95022bc-8c5d-46e6-8f3f-9f3debb8daf2"
+            isDerived="false"
+            sourceEndRoleName="Executes Plan without as is"
+            targetEndRoleName="Access Do View"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="083a51b4-00bb-4730-8a2a-55727df5f1cf"
+              LastKnownName="Access / Browse Do View"
+              LastKnownLocation="Package_1204.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b6fe0b2f-7f57-4b98-8a4c-a6723e049fc2"
+                  name="Executes Plan without as is"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e4c6595-9130-49ad-90a9-2a95b58e4964"
+                  name="Access Do View"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a37df809-2e23-4478-9e9b-5eb10a8d2f39"
+            isDerived="false"
+            sourceEndRoleName="Executes Plan As Is"
+            targetEndRoleName="Reads Current Task General and Specific Goals"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d6e9ffa7-1eab-46cf-a2e6-76419c05aa67"
+              LastKnownName="Reads Current Task Goals"
+              LastKnownLocation="Package_1101.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ab6fbb5e-2cd8-4ced-8cf2-0ddd0a3b531a"
+                  name="Executes Plan As Is"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="459a33de-f3a2-47ce-a5f5-ffe2e5878fad"
+                  name="Reads Current Task General and Specific Goals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cad56f3b-7a6f-4590-bc76-3eb6e8b8895b"
+            isDerived="false"
+            sourceEndRoleName="Executes Plan As Is"
+            targetEndRoleName="Mark task done/doneplus"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7c001083-acdf-49a1-845a-fbd77ded71f6"
+              LastKnownName="Mark task done/doneplus"
+              LastKnownLocation="Package_1204.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fe645644-d56f-4173-aaac-b69fa3b50ded"
+                  name="Executes Plan As Is"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3afef5f6-32ee-40ab-8e60-724bbbabdd62"
+                  name="Mark task done/doneplus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e42e5a1c-56c5-4e15-8057-1cd2c7b50d13"
+            isDerived="false"
+            sourceEndRoleName="Executes Plan As Is"
+            targetEndRoleName="Select Parent Focus Task"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cafb261b-54e8-4a12-b43e-2747bb106bf9"
+              LastKnownName="Select Parent Focus Task"
+              LastKnownLocation="Package_1101.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ceede75-c835-4e0b-b639-bab43e2556bf"
+                  name="Executes Plan As Is"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e1c5964-216e-495a-bf7a-8bc162fb0dd5"
+                  name="Select Parent Focus Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7c001083-acdf-49a1-845a-fbd77ded71f6"
+        name="Mark task done/doneplus"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d6e5b0a3-8801-4b64-a463-f29d9ad4d6be"
+            isDerived="false"
+            sourceEndRoleName="Mark task done/doneplus"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="48da74ae-06c2-4470-8429-886835b100f6"
+                  name="Mark task done/doneplus"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0b9901f3-120e-4b54-8173-5851c040d514"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -20,13 +20,19 @@ namespace JassWeb.Controllers
 
         private IJassDataModelManager mm = new JassDataModelManager(WebSecurity.CurrentUserName);
 
+        public string GetUserLogged()
+        {
+            if (User.Identity.IsAuthenticated) return User.Identity.Name;
+            else return "";
+        }
+
         // GET api/TodoList - DONE
-        public List<JassActivity> GetTodoList()
+        public List<JassActivity> GetTodosList()
         {
             return mm.ActivitiesGetAll();
         }
 
-        public List<JassActivityReview> GetReviewList()
+        public List<JassActivityReview> GetReviewsList()
         {
             return mm.ActivityReviewsGetAll();
         }

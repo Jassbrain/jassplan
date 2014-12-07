@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="f1a3c9d7-b213-48af-ad1f-fab0b33cd0d0"
+  name="1 Use Cases" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="aa5bbda3-f15d-4658-b09f-433f0fd60441"
+        LastKnownName="1.0 JpUser"
+        LastKnownLocation="Package_1934.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="fb337269-13fe-43d1-a04a-7231955d6135"
+        LastKnownName="1.1 JpPlanner"
+        LastKnownLocation="Package_2051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a3ef5a10-3038-4d41-9e87-11b2daddb4db"
+        LastKnownName="1.3 Jassplan Common"
+        LastKnownLocation="Package_1101.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6f390bf6-6511-4b15-affd-cc140b2489cc"
+        LastKnownName="1.2 JpDoer"
+        LastKnownLocation="Package_1204.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -5,22 +5,22 @@ Jassplan.serverProxy = (function () {
     //
     var checkUserLogged = function () {
 
-        var serverLogged;
+        var userLogged = "";
 
         $.ajax({
             type: "GET",
             dataType: "json",
             async:false,
-            url: "/account/getuserlogged",
+            url: "/api/todolist/getuserlogged",
             success: function (data) {
-                serverLogged = data;
+                userLogged = data;
             },
             error: function (data) {
-                serverLogged = false;
+                userLogged = "" ;
             }
         });
 
-        return serverLogged;
+        return userLogged;
     }
 
     var getReviewLists = function () {
@@ -31,7 +31,7 @@ Jassplan.serverProxy = (function () {
             type: "GET",
             dataType: "json",
             async: false,
-            url: "/api/todolist/GetReviewList",
+            url: "/api/todolist/GetReviewsList",
             success: function (data) {
                 todoLists = data;
             },
@@ -54,7 +54,7 @@ Jassplan.serverProxy = (function () {
             type: "GET",
             dataType: "json",
             async: false,
-            url: "/api/todolist/GetTodoList",
+            url: "/api/todolist/GetTodosList",
             success: function (data) {
                 todoLists = data;
             },

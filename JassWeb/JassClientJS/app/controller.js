@@ -32,7 +32,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
         var parentId = viewModel.getParent();
 
     }
-
     var renderReviewList = function () {
 
         var reviewsList = viewModel.getReviewsList();
@@ -122,7 +121,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
        // $("#view-model-done-status").text(totalPointsDonePlusAvg + "/" + totalPointsDoneAvg + "/" + totalPointsScheduledAvg);
 
     };
-
     var renderNotesList = function () {
 
         var state = viewModel.getState();
@@ -234,112 +232,58 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $("#view-model-done-status").text(totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled);
  
     };
-
- 
-
-    var onTapStar = function (e) {
-        var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage","");
-        var taskStatus = viewModel.star(taskId);
-        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
-    }
-
-    var onTapHoldStar = function (e) {
-        var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage", "");
-        var taskStatus = viewModel.unstar(taskId);
-        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
-    }
-
-    var onTapParent = function (e) {
-        var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage", "");
-        var taskStatus = viewModel.starparent(taskId);
-        refresh();
-    }
-
-    var onTapHoldParent = function (e) {
-        var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage", "");
-        var taskStatus = viewModel.unstarparent(taskId);
-        refresh();
-    }
-
-    var onPageChange = function (event, data) {
-        var fromPageId;
-        if (data.options.fromPage) {
-            fromPageId = data.options.fromPage.attr("id");
-        }
-        var toPageId = data.toPage.attr("id");
-        switch (toPageId) {
-            case notesListPageId:
-                renderViewModel();
-                renderNotesList();
-                break;
-            case noteEditorPageId:
-                if (fromPageId === notesListPageId) {
-                    renderSelectedNote(data);
-                }
-                break;
-        }
-    };
-    var renderSelectedNote = function (data){
+    var renderSelectedNote = function (data) {
         var u = $.mobile.path.parseUrl(data.options.fromPage.context.URL);
         var re = "^#" + noteEditorPageId;
-        if (u.hash.search(re) !== -1)
-        {
+        if (u.hash.search(re) !== -1) {
 
-        var queryStringObj = helper.queryStringToObject(data.options.queryString);
-        var titleEditor = $(noteTitleEditorSel);
-        var statusEditor = $(noteStatusEditorSel);
-        var flagEditor = $(noteFlagEditorSel);
-        var narrativeEditor = $(noteNarrativeEditorSel);
-        var descriptionEditor = $(noteDescriptionEditorSel);
-        var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
-        var estimatedStartHourEditor = $(noteEstimatedStartHourEditorSel);
-        var doneDateEditor = $(noteDoneDateEditorSel);
-        var actualDurationEditor = $(noteActualDurationEditorSel);
-        var noteId = queryStringObj["noteId"];
+            var queryStringObj = helper.queryStringToObject(data.options.queryString);
+            var titleEditor = $(noteTitleEditorSel);
+            var statusEditor = $(noteStatusEditorSel);
+            var flagEditor = $(noteFlagEditorSel);
+            var narrativeEditor = $(noteNarrativeEditorSel);
+            var descriptionEditor = $(noteDescriptionEditorSel);
+            var estimatedDurationEditor = $(noteEstimatedDurationEditorSel);
+            var estimatedStartHourEditor = $(noteEstimatedStartHourEditorSel);
+            var doneDateEditor = $(noteDoneDateEditorSel);
+            var actualDurationEditor = $(noteActualDurationEditorSel);
+            var noteId = queryStringObj["noteId"];
 
-        if (typeof noteId !== "undefined")
-        {  //here we are supposed to load the values into the fields
-            var notesList = viewModel.getNotesList();
+            if (typeof noteId !== "undefined") {  //here we are supposed to load the values into the fields
+                var notesList = viewModel.getNotesList();
 
-            var notesCount = notesList.length;
-            var note;
-            for (var i = 0; i < notesCount; i++) {
-                note = notesList[i];
-                if (noteId == note.id) {
-                    titleEditor.val(note.title);
-                    updateStatusEditor(statusEditor, note.status);
-                    updateFlagEditor(flagEditor, note.flag);
-                    flagEditor.val(note.flag);
-                    narrativeEditor.val(note.narrative);
-                    descriptionEditor.val(note.description);
-                    estimatedDurationEditor.val(note.estimatedDuration);
-                    estimatedStartHourEditor.val(note.estimatedStartHour);
-                    doneDateEditor.val(note.doneDate);
-                    actualDurationEditor.val(note.actualDuration);
-                    currentNote=note;
-                    break;
+                var notesCount = notesList.length;
+                var note;
+                for (var i = 0; i < notesCount; i++) {
+                    note = notesList[i];
+                    if (noteId == note.id) {
+                        titleEditor.val(note.title);
+                        updateStatusEditor(statusEditor, note.status);
+                        updateFlagEditor(flagEditor, note.flag);
+                        flagEditor.val(note.flag);
+                        narrativeEditor.val(note.narrative);
+                        descriptionEditor.val(note.description);
+                        estimatedDurationEditor.val(note.estimatedDuration);
+                        estimatedStartHourEditor.val(note.estimatedStartHour);
+                        doneDateEditor.val(note.doneDate);
+                        actualDurationEditor.val(note.actualDuration);
+                        currentNote = note;
+                        break;
+                    }
                 }
+                titleEditor.focus();
             }
-            titleEditor.focus();
-        }
         }
         return data;
     };
-
     var updateStatusEditor = function (statusEditor, status) {
         statusEditor.val(status);
         statusEditor.selectmenu("refresh");
     };
-
     var updateFlagEditor = function (flagEditor, flag) {
         flagEditor.val(flag);
         flagEditor.selectmenu("refresh");
     };
-
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);
@@ -355,7 +299,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         estimatedStartHourEditor.val("");
         doneDateEditor.val("");
         actualDurationEditor.val("");
-        currentNote=null;
+        currentNote = null;
 
         if (typeof data.toPage === "string") {
             var url = $.mobile.path.parseUrl(data.toPage);
@@ -368,7 +312,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
             }
         }
     };
-
     var getNoteFromEditor = function () {
 
         var titleEditor = $(noteTitleEditorSel);
@@ -388,10 +331,52 @@ Jassplan.controller = (function (view, viewModel, helper) {
         note.estimatedStartHour = $(noteEstimatedStartHourEditorSel).val();
         note.doneDate = $(noteDoneDateEditorSel).val();
         note.actualDuration = $(noteActualDurationEditorSel).val();
-        
+
         return note;
     };
 
+    var onTapStar = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage","");
+        var taskStatus = viewModel.star(taskId);
+        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+    }
+    var onTapHoldStar = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.unstar(taskId);
+        $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+    }
+    var onTapParent = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.starparent(taskId);
+        refresh();
+    }
+    var onTapHoldParent = function (e) {
+        var id = e.currentTarget.id;
+        var taskId = id.replace("itemimage", "");
+        var taskStatus = viewModel.unstarparent(taskId);
+        refresh();
+    }
+    var onPageChange = function (event, data) {
+        var fromPageId;
+        if (data.options.fromPage) {
+            fromPageId = data.options.fromPage.attr("id");
+        }
+        var toPageId = data.toPage.attr("id");
+        switch (toPageId) {
+            case notesListPageId:
+                renderViewModel();
+                renderNotesList();
+                break;
+            case noteEditorPageId:
+                if (fromPageId === notesListPageId) {
+                    renderSelectedNote(data);
+                }
+                break;
+        }
+    };
     var onSaveNoteButtonTapped = function () {
         //This method will both save a note or create it depending on
         //whether we have a current note or not. If we do we just copy
@@ -421,7 +406,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
             alert('onSaveNoteButtonTapped - We could not get a valid Note from the Editor');
         };
     }
-
     var onDeleteNoteButtonTapped = function () {
         var tempNote = getNoteFromEditor();
 
@@ -448,7 +432,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
         };
        // refresh();
     }
-
     var onRefreshButtonTapped = function () {        
         var href = window.location;
         var hrefNew = window.location.protocol + "//" + window.location.host;
@@ -470,23 +453,18 @@ Jassplan.controller = (function (view, viewModel, helper) {
         viewModel.handleArchiveAction();
         refresh();
     }
-
     var onDeleteButtonTapped = function () {
         viewModel.handleDeleteAction();
         refresh();
     }
-
     var refresh = function(){
-
         window.location.href = window.location.href;
     }
-
     var onOfflineTapped = function () {
         var href = window.location;
         var hrefNew = window.location.protocol + "//" + window.location.host;
         window.location.href = hrefNew;
     }
-
     var onParentNameTapped = function () {
         viewModel.unstarcurrentparent();
         refresh();
@@ -504,9 +482,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $(document).on("tap", "#review-button", null, onReviewButtonTapped);
         $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
         $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
-        //view-model-parent
         $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
-
     };
    
     return {

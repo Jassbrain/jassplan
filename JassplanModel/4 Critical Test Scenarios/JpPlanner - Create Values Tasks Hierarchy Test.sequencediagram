@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="16350fcd-4665-433d-9751-78f009436448" name="JpPlanner - Create Values Tasks Hierarchy Test" linkedPackageId="d9ada9cb-c5ab-46ec-8d0c-bf552fc70c8c" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="82d00573-f173-4583-8663-fa12b91d4015" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="6f24c033-2716-4565-9a11-1952315ffcfb" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="419c35d2-74cc-45a8-be98-6a517035d453">
+          <propertyInstance Id="dbbb25ca-84a1-4ae3-8270-c0b728467866" name="BaseName">
+            <elementDefinition Id="94f3aaff-0fc8-4446-a16f-e6ebe5f7eebf" />
+          </propertyInstance>
+          <elementDefinition Id="e488cd4f-9df3-4a3b-a543-770fb3593f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3729cd8a-e81a-4dd4-a583-e3ef0766fe9d">
+          <propertyInstance Id="198bd46d-7a44-438c-9bc8-f8174174b62a" name="ClrAttributes">
+            <elementDefinition Id="55b69fc6-0606-4462-a8e4-e06b7f7dc92a" />
+          </propertyInstance>
+          <elementDefinition Id="4ea5f7a0-36f5-478a-a1a6-270abbba771b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f263e92e-a3f6-4e68-9275-f1588851cd56">
+          <propertyInstance Id="975a4490-980b-4bbf-96b4-6e61725fefec" name="Usings">
+            <elementDefinition Id="2c38890d-39fa-46b3-97dc-105188473566" />
+          </propertyInstance>
+          <elementDefinition Id="b888c706-2dab-4d4a-9bb9-8cd49cf150d5" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="d6ee3b99-7ea0-464b-9d8a-5ff5b4ffc3ed" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="5bac79dc-6bd9-4538-afc0-3a03e6f41e76" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f15fb208-f6a9-4aea-8635-e6fe28939f33">
+          <propertyInstance Id="68f03333-8c9c-45db-a121-c35198a02ce4" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="b047d02f-bf2f-4210-a3f9-8945972c4611" />
+          </propertyInstance>
+          <elementDefinition Id="06b2dd68-917c-4824-913a-9b8807d33118" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5357a764-999d-4b4a-8dd9-1f64671f1336">
+          <propertyInstance Id="bea35be4-46be-4587-ab26-f4a0a704aabf" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="a1ade98c-0871-4bc5-a920-1b68a79035f9" />
+          </propertyInstance>
+          <elementDefinition Id="b22324b2-7d56-46c4-9498-1032d2a324bc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="631f4167-d6cc-4d05-b1e6-bc2a6867e8fe">
+          <propertyInstance Id="25ba3cc0-ed60-4006-8d38-e213ee719db2" name="ProjectPath" value="ClassTemplate=..\JassplanModelLib\JassplanModelLib.csproj|EnumTemplate=..\JassplanModelLib\JassplanModelLib.csproj|InterfaceTemplate=..\JassplanModelLib\JassplanModelLib.csproj|StructTemplate=..\JassplanModelLib\JassplanModelLib.csproj">
+            <elementDefinition Id="f45a8708-deaf-48c6-9c18-f52c00e13088" />
+          </propertyInstance>
+          <elementDefinition Id="cd904372-91df-46c7-a335-707a0d3f89f0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="e2d18b3d-61f4-4c74-9ba1-f1f8130bbd77">
+          <propertyInstance Id="e72f2c36-cd67-40c3-8751-ce96a126af7b" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4b945c84-4373-4b87-8f5a-997433e38f4f" />
+          </propertyInstance>
+          <elementDefinition Id="ad658c36-f4ca-40d0-977f-206e5811575f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="323e65bd-3dbb-4a83-aa92-ffac34f5ced2">
+          <propertyInstance Id="dc068740-d521-4c0d-b933-78cc191c7667" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="1fe7552b-8dcd-4a12-940b-c2906a35f35c" />
+          </propertyInstance>
+          <elementDefinition Id="77a9d0fe-3b8e-4c14-94a3-5f847250f229" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d6110f86-b082-4938-b067-bcc8b0fa64ff">
+          <propertyInstance Id="b9593f7d-c315-41c7-b4c9-02f8bb8d6fc3" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="4cd6283b-3d2a-4ed0-be56-96a29015e266" />
+          </propertyInstance>
+          <elementDefinition Id="561622e2-10e8-48a1-bc89-10071d5d4674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="172c8e68-73fb-42f5-95e4-3391eee0fc90">
+          <propertyInstance Id="572183f5-0486-42d5-9689-76a67f1a3335" name="Parameters">
+            <elementDefinition Id="c147008e-39d7-425b-9349-0470c6e9f893" />
+          </propertyInstance>
+          <elementDefinition Id="456692b1-e825-4416-a75f-57247d4a230d" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="3dd66ec7-f2a3-4267-8a88-a1a1539bf763" name="JpPlanner - Create Values Tasks Hierarchy Test" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="e8edd972-84ed-4885-8426-b464842f093f" />
+        <fragments>
+          <interactionUse Id="52c5470e-9b8c-4128-9ee1-57703fcff263" name="Jassplan Client Integration Test Init">
+            <elementDefinition Id="a88d14c7-670d-463e-9ba0-3ce0972fd76f" />
+            <coveredLifelines>
+              <lifelineMoniker Id="20aee72c-5216-4dcc-a7d4-e6faaeee2a4f" LastKnownName="JpUser (test)" />
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+              <lifelineMoniker Id="97ccfd82-41d7-4c4f-9c14-8c0ab2f132dd" LastKnownName="JpcController" />
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+              <lifelineMoniker Id="ca0f5e71-4ec4-449a-b7b0-7f62b02f0778" LastKnownName="JpcServiceProxy" />
+            </coveredLifelines>
+            <interactionUseOccurrenceSpecifications>
+              <interactionUseOccurrenceSpecificationMoniker Id="d93d7c7b-5d6d-481b-bfdf-d1f13a8e9592" LastKnownName="InteractionUseOccurrenceSpecification3" />
+              <interactionUseOccurrenceSpecificationMoniker Id="a86271c3-ac8c-44d5-8903-ea4f84fcfad1" LastKnownName="InteractionUseOccurrenceSpecification4" />
+              <interactionUseOccurrenceSpecificationMoniker Id="627c8f16-e4c2-4aad-884e-0754d544b0f3" LastKnownName="InteractionUseOccurrenceSpecification5" />
+              <interactionUseOccurrenceSpecificationMoniker Id="125400bd-015b-485c-94ed-be2c42133823" LastKnownName="InteractionUseOccurrenceSpecification6" />
+              <interactionUseOccurrenceSpecificationMoniker Id="b35ea540-2952-4180-9ae9-dbc02f8d9b04" LastKnownName="InteractionUseOccurrenceSpecification7" />
+              <interactionUseOccurrenceSpecificationMoniker Id="69a43819-1da3-4a99-9e41-f7f1f353266c" LastKnownName="InteractionUseOccurrenceSpecification8" />
+              <interactionUseOccurrenceSpecificationMoniker Id="d25910ce-ff6a-497e-a2a3-70831e06e727" LastKnownName="InteractionUseOccurrenceSpecification9" />
+            </interactionUseOccurrenceSpecifications>
+          </interactionUse>
+          <interactionUseOccurrenceSpecification Id="d93d7c7b-5d6d-481b-bfdf-d1f13a8e9592" name="InteractionUseOccurrenceSpecification3">
+            <elementDefinition Id="2bbe1114-028a-4996-9f49-9db8d85c4cbd" />
+            <covered>
+              <lifelineMoniker Id="20aee72c-5216-4dcc-a7d4-e6faaeee2a4f" LastKnownName="JpUser (test)" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="a86271c3-ac8c-44d5-8903-ea4f84fcfad1" name="InteractionUseOccurrenceSpecification4">
+            <elementDefinition Id="642de6aa-9d66-4eb5-9dba-56e2cf262a65" />
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="627c8f16-e4c2-4aad-884e-0754d544b0f3" name="InteractionUseOccurrenceSpecification5">
+            <elementDefinition Id="c575cb6b-0308-4471-8e6a-e9553799dc6b" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="125400bd-015b-485c-94ed-be2c42133823" name="InteractionUseOccurrenceSpecification6">
+            <elementDefinition Id="064cb657-f8b1-4239-8292-0029100739d5" />
+            <covered>
+              <lifelineMoniker Id="97ccfd82-41d7-4c4f-9c14-8c0ab2f132dd" LastKnownName="JpcController" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="b35ea540-2952-4180-9ae9-dbc02f8d9b04" name="InteractionUseOccurrenceSpecification7">
+            <elementDefinition Id="c128c8c3-4d7c-464d-85ec-182440c3722c" />
+            <covered>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="69a43819-1da3-4a99-9e41-f7f1f353266c" name="InteractionUseOccurrenceSpecification8">
+            <elementDefinition Id="e1c5a563-af9d-4b9e-8796-8edb587efb8b" />
+            <covered>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <interactionUseOccurrenceSpecification Id="d25910ce-ff6a-497e-a2a3-70831e06e727" name="InteractionUseOccurrenceSpecification9">
+            <elementDefinition Id="04737806-9467-4a4a-92d1-136eceeb36fb" />
+            <covered>
+              <lifelineMoniker Id="ca0f5e71-4ec4-449a-b7b0-7f62b02f0778" LastKnownName="JpcServiceProxy" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="274765d2-09b6-479f-9ecb-14b88b412193" name="BehaviorExecutionSpecification16">
+            <elementDefinition Id="2077f0cf-65f6-4db3-b771-d173956048a4" />
+            <coveredLifelines>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="b7337b7e-47ca-4492-b944-8827a23b748c" LastKnownName="ExecutionOccurrenceSpecification32" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="8e963854-353e-470a-b96c-be6b16b9b6c7" LastKnownName="ExecutionOccurrenceSpecification31" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="5f8d02f5-9c91-40af-897e-284a1ff3785c" LastKnownName="MessageOccurrenceSpecification56" />
+              <messageOccurrenceSpecificationMoniker Id="2e86ac6b-1d7d-43e3-b303-347fe4bc3a89" LastKnownName="MessageOccurrenceSpecification57" />
+              <messageOccurrenceSpecificationMoniker Id="f7405c38-654e-4b92-ad90-3f0ff19d5aa0" LastKnownName="MessageOccurrenceSpecification60" />
+              <messageOccurrenceSpecificationMoniker Id="a5fc4e3f-6209-4d1b-aa7e-a11ea41e7944" LastKnownName="MessageOccurrenceSpecification61" />
+              <messageOccurrenceSpecificationMoniker Id="464a79f9-30fb-45bd-93fe-08a23dacca7f" LastKnownName="MessageOccurrenceSpecification64" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="8e963854-353e-470a-b96c-be6b16b9b6c7" name="ExecutionOccurrenceSpecification31">
+            <elementDefinition Id="4d003ef1-6e60-4f78-882e-8d72d00558f2" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="25a99c79-0cdc-49a3-b6ed-6fcc57261ac7" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="12f0164f-94da-47c4-8403-f2a8c9ec77c7" name="MessageOccurrenceSpecification55">
+            <elementDefinition Id="6da2dc3c-77b2-438d-8d52-25a6fbcec8bb" />
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="5f8d02f5-9c91-40af-897e-284a1ff3785c" name="MessageOccurrenceSpecification56">
+            <elementDefinition Id="62ffcd0f-2d01-4afd-9506-a267acc488b0" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="deceb207-150b-471e-8d9e-d2e5a12b922e" name="BehaviorExecutionSpecification17">
+            <elementDefinition Id="fe2bbfdf-893c-4d54-aec0-b26d456c50f1" />
+            <coveredLifelines>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="b9a90649-f698-4a10-b286-87487d0dbbaf" LastKnownName="ExecutionOccurrenceSpecification34" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="a72bf3f4-cb41-47cf-b8c2-b7285ce54eb1" LastKnownName="ExecutionOccurrenceSpecification33" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="6c1d2681-76d9-4bf8-a115-b0b187ba4456" LastKnownName="MessageOccurrenceSpecification58" />
+              <messageOccurrenceSpecificationMoniker Id="a9acc512-9e8e-45c7-8f0b-9498894d9468" LastKnownName="MessageOccurrenceSpecification59" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="a72bf3f4-cb41-47cf-b8c2-b7285ce54eb1" name="ExecutionOccurrenceSpecification33">
+            <elementDefinition Id="b1904fa6-59b1-4b1c-b05e-fecbf07a1aa3" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="7904d7e4-f667-4df6-928d-3cb78c68d07b" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="6c1d2681-76d9-4bf8-a115-b0b187ba4456" name="MessageOccurrenceSpecification58">
+            <elementDefinition Id="bbfe8b90-b4f4-4764-8184-8a0447234334" />
+            <covered>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="2e86ac6b-1d7d-43e3-b303-347fe4bc3a89" name="MessageOccurrenceSpecification57">
+            <elementDefinition Id="7344ede2-6788-42c8-a1dd-b2acdc3dd456" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f7405c38-654e-4b92-ad90-3f0ff19d5aa0" name="MessageOccurrenceSpecification60">
+            <elementDefinition Id="1790f541-6f70-4bc6-b436-929df1b7ae28" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a9acc512-9e8e-45c7-8f0b-9498894d9468" name="MessageOccurrenceSpecification59">
+            <elementDefinition Id="16a6c083-b828-4e4c-b151-4d0748ce5a0e" />
+            <covered>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="b9a90649-f698-4a10-b286-87487d0dbbaf" name="ExecutionOccurrenceSpecification34">
+            <elementDefinition Id="a24e599f-449c-4c93-9d15-22d7da47e520" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="00590ca2-7d69-4f48-9231-ed7d2b7eccff" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" LastKnownName="JpcViewModel" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="0f028bc2-8700-466b-8a3a-f9e1fd9c78a5" name="BehaviorExecutionSpecification18">
+            <elementDefinition Id="5c78d3d3-25e0-4ce1-bd75-28f93aa11e3d" />
+            <coveredLifelines>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="55b95389-7dfb-49fc-810c-b8e44411c1c4" LastKnownName="ExecutionOccurrenceSpecification36" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="37d86234-b8d4-4ced-b6c8-4ea55a33fd1d" LastKnownName="ExecutionOccurrenceSpecification35" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="4cb2853c-eacf-4431-81f3-b28ee35825ba" LastKnownName="MessageOccurrenceSpecification62" />
+              <messageOccurrenceSpecificationMoniker Id="46e7e3ec-bf10-4cbc-81a2-1a501be43161" LastKnownName="MessageOccurrenceSpecification63" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="37d86234-b8d4-4ced-b6c8-4ea55a33fd1d" name="ExecutionOccurrenceSpecification35">
+            <elementDefinition Id="e74c228d-4581-43d2-a662-3d47d8b88407" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="cc0647eb-2717-4da9-b373-d6b9d905a729" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a5fc4e3f-6209-4d1b-aa7e-a11ea41e7944" name="MessageOccurrenceSpecification61">
+            <elementDefinition Id="9216614e-edb5-4cff-84a5-58567f24812d" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="4cb2853c-eacf-4431-81f3-b28ee35825ba" name="MessageOccurrenceSpecification62">
+            <elementDefinition Id="0f998f07-4750-4a7d-8126-cca7a213fa27" />
+            <covered>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="46e7e3ec-bf10-4cbc-81a2-1a501be43161" name="MessageOccurrenceSpecification63">
+            <elementDefinition Id="7631bde4-38e3-4932-950d-4215570cad03" />
+            <covered>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="464a79f9-30fb-45bd-93fe-08a23dacca7f" name="MessageOccurrenceSpecification64">
+            <elementDefinition Id="1272eba9-c414-4270-a421-c2e73120ed66" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="55b95389-7dfb-49fc-810c-b8e44411c1c4" name="ExecutionOccurrenceSpecification36">
+            <elementDefinition Id="87bff3ae-17d5-4a2a-bf50-42a631c9477c" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="a7aa1342-e70f-41c1-b551-3a2e70f795a5" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="85d6f1b1-f273-4459-8246-8972828b64d7" LastKnownName="JpcDataContenxt" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="b7337b7e-47ca-4492-b944-8827a23b748c" name="ExecutionOccurrenceSpecification32">
+            <elementDefinition Id="92c1f11f-d8f9-4610-beaa-fad4c81fa171" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="881cc2e7-460d-4cca-8b11-8919f476291a" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification Id="36d28306-4b24-4a14-b26d-9782cfd00705" name="BehaviorExecutionSpecification20">
+            <elementDefinition Id="9f7c0a69-4b2b-4588-9c07-cb827fc1cddf" />
+            <coveredLifelines>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="d5fe7ca6-2f84-42d5-a02e-93813132b297" LastKnownName="ExecutionOccurrenceSpecification40" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="7bb5e021-1091-42e1-8af8-ab287c749320" LastKnownName="ExecutionOccurrenceSpecification39" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="fa1cac96-ed10-49df-9877-1830064cf67c" LastKnownName="MessageOccurrenceSpecification68" />
+              <messageOccurrenceSpecificationMoniker Id="8d01ee69-e248-44eb-81ec-d39171f54270" LastKnownName="MessageOccurrenceSpecification69" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="7bb5e021-1091-42e1-8af8-ab287c749320" name="ExecutionOccurrenceSpecification39">
+            <elementDefinition Id="72ac57d9-8107-4122-a42a-730c488ee389" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="111153dc-1a7c-40a5-8d00-aa0a1758b466" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ab4b1fe7-57b0-43eb-b812-14edcc14db97" name="MessageOccurrenceSpecification67">
+            <elementDefinition Id="13b428fe-d684-4307-88b2-7140c268259e" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="fa1cac96-ed10-49df-9877-1830064cf67c" name="MessageOccurrenceSpecification68">
+            <elementDefinition Id="aa9b755f-fe87-43fe-a057-0fac6f199cd3" />
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="8d01ee69-e248-44eb-81ec-d39171f54270" name="MessageOccurrenceSpecification69">
+            <elementDefinition Id="f3617718-8d2c-4663-adc8-23a6dffe28ea" />
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="fb68d0e8-59bb-416d-b603-a95c3d1e5c39" name="MessageOccurrenceSpecification70">
+            <elementDefinition Id="a536973a-c491-4251-9590-3f5c4e489b7e" />
+            <covered>
+              <lifelineMoniker Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" LastKnownName="Jasmine" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="d5fe7ca6-2f84-42d5-a02e-93813132b297" name="ExecutionOccurrenceSpecification40">
+            <elementDefinition Id="c73207b3-ceed-4ddc-bf0f-dd9001a65a73" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="8526b01e-cb55-41a7-b61d-711d838770fe" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" LastKnownName="Browser : JassClientJS/index.html?test" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="20aee72c-5216-4dcc-a7d4-e6faaeee2a4f" name="JpUser (test)" isActor="true" lifelineDisplayName="JpUser (test)">
+            <elementDefinition Id="b478ac5e-40b6-4f11-a935-4e6d194a2798" />
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="d93d7c7b-5d6d-481b-bfdf-d1f13a8e9592" LastKnownName="InteractionUseOccurrenceSpecification3" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="71914fe2-91c8-4f72-b8b9-083d3363a23a" name="Browser : JassClientJS/index.html?test" isActor="false" lifelineDisplayName="Browser : JassClientJS/index.html?test">
+            <elementDefinition Id="9aec7ab7-2224-4945-b856-76b4f5726214" />
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="a86271c3-ac8c-44d5-8903-ea4f84fcfad1" LastKnownName="InteractionUseOccurrenceSpecification4" />
+              <messageOccurrenceSpecificationMoniker Id="12f0164f-94da-47c4-8403-f2a8c9ec77c7" LastKnownName="MessageOccurrenceSpecification55" />
+              <executionOccurrenceSpecificationMoniker Id="7bb5e021-1091-42e1-8af8-ab287c749320" LastKnownName="ExecutionOccurrenceSpecification39" />
+              <executionOccurrenceSpecificationMoniker Id="d5fe7ca6-2f84-42d5-a02e-93813132b297" LastKnownName="ExecutionOccurrenceSpecification40" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="4e89aef1-d230-4ae7-bdb6-4fbae7056405" name="Jasmine" isActor="false" lifelineDisplayName="Jasmine">
+            <elementDefinition Id="5a2626c4-c66c-4e57-ae0b-10c6dec6bdb9" />
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="627c8f16-e4c2-4aad-884e-0754d544b0f3" LastKnownName="InteractionUseOccurrenceSpecification5" />
+              <executionOccurrenceSpecificationMoniker Id="8e963854-353e-470a-b96c-be6b16b9b6c7" LastKnownName="ExecutionOccurrenceSpecification31" />
+              <executionOccurrenceSpecificationMoniker Id="b7337b7e-47ca-4492-b944-8827a23b748c" LastKnownName="ExecutionOccurrenceSpecification32" />
+              <messageOccurrenceSpecificationMoniker Id="ab4b1fe7-57b0-43eb-b812-14edcc14db97" LastKnownName="MessageOccurrenceSpecification67" />
+              <messageOccurrenceSpecificationMoniker Id="fb68d0e8-59bb-416d-b603-a95c3d1e5c39" LastKnownName="MessageOccurrenceSpecification70" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="ed8aec50-a206-4103-99ed-8ac5421a337f" name="jpcView" isActor="false" lifelineDisplayName="jpcView">
+            <elementDefinition Id="f23a66b4-5e15-45aa-8ad3-d477df5b5844" />
+          </lifeline>
+          <lifeline Id="97ccfd82-41d7-4c4f-9c14-8c0ab2f132dd" name="JpcController" isActor="false" lifelineDisplayName="JpcController">
+            <elementDefinition Id="ff0cb95c-1c82-4855-9c26-904aaff0bab4" />
+            <represents>
+              <propertyMoniker Id="86d89067-6fea-49ba-8d3c-eafad6cff5ba" />
+            </represents>
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="125400bd-015b-485c-94ed-be2c42133823" LastKnownName="InteractionUseOccurrenceSpecification6" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="3d9f545f-fed2-4a56-a4ed-03ef3bd5875d" name="JpcViewModel" isActor="false" lifelineDisplayName="JpcViewModel">
+            <elementDefinition Id="e9c49164-8008-4a1f-9ae7-31a13ffc2884" />
+            <represents>
+              <propertyMoniker Id="a5b39e62-4acf-4f13-9f28-1bd83a08282a" />
+            </represents>
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="b35ea540-2952-4180-9ae9-dbc02f8d9b04" LastKnownName="InteractionUseOccurrenceSpecification7" />
+              <executionOccurrenceSpecificationMoniker Id="a72bf3f4-cb41-47cf-b8c2-b7285ce54eb1" LastKnownName="ExecutionOccurrenceSpecification33" />
+              <executionOccurrenceSpecificationMoniker Id="b9a90649-f698-4a10-b286-87487d0dbbaf" LastKnownName="ExecutionOccurrenceSpecification34" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="85d6f1b1-f273-4459-8246-8972828b64d7" name="JpcDataContenxt" isActor="false" lifelineDisplayName="JpcDataContenxt">
+            <elementDefinition Id="c58a14ed-124e-4b4b-b289-131ebf88c850" />
+            <represents>
+              <propertyMoniker Id="574695cf-dfa4-49cb-98f6-52489187ca6a" />
+            </represents>
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="69a43819-1da3-4a99-9e41-f7f1f353266c" LastKnownName="InteractionUseOccurrenceSpecification8" />
+              <executionOccurrenceSpecificationMoniker Id="37d86234-b8d4-4ced-b6c8-4ea55a33fd1d" LastKnownName="ExecutionOccurrenceSpecification35" />
+              <executionOccurrenceSpecificationMoniker Id="55b95389-7dfb-49fc-810c-b8e44411c1c4" LastKnownName="ExecutionOccurrenceSpecification36" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="ca0f5e71-4ec4-449a-b7b0-7f62b02f0778" name="JpcServiceProxy" isActor="false" lifelineDisplayName="JpcServiceProxy">
+            <elementDefinition Id="ebe76f0a-cab9-445b-857c-05af2fa63258" />
+            <represents>
+              <propertyMoniker Id="5ea06675-3ff6-4dab-9b7b-c80277a39c1a" />
+            </represents>
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="d25910ce-ff6a-497e-a2a3-70831e06e727" LastKnownName="InteractionUseOccurrenceSpecification9" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="4794d635-0c23-467f-81f2-b0e4732a1ac1" name="getEnv().execute();" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
+            <elementDefinition Id="61077e9a-28e8-4ace-b0b6-90f53dd90e66" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="12f0164f-94da-47c4-8403-f2a8c9ec77c7" LastKnownName="MessageOccurrenceSpecification55" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="5f8d02f5-9c91-40af-897e-284a1ff3785c" LastKnownName="MessageOccurrenceSpecification56" />
+            </receiveEvent>
+          </message>
+          <message Id="6f7eaca7-e557-453f-a8d0-1cbf686dfaf2" name="getUserName()" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="d89122bb-571f-4229-bea2-2248bfc4d772" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="2e86ac6b-1d7d-43e3-b303-347fe4bc3a89" LastKnownName="MessageOccurrenceSpecification57" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="6c1d2681-76d9-4bf8-a115-b0b187ba4456" LastKnownName="MessageOccurrenceSpecification58" />
+            </receiveEvent>
+          </message>
+          <message Id="e358a9fc-3759-48b2-94d8-93a51d67b17e" name="expect(user).toBe(&quot;test&quot;);" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="add6209e-8898-42bb-a141-ed6350b69943" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a9acc512-9e8e-45c7-8f0b-9498894d9468" LastKnownName="MessageOccurrenceSpecification59" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="f7405c38-654e-4b92-ad90-3f0ff19d5aa0" LastKnownName="MessageOccurrenceSpecification60" />
+            </receiveEvent>
+          </message>
+          <message Id="3196b4cb-b8be-45af-9509-9a08b8717325" name="deleteAllNotes" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="4d167cff-8142-478a-a9be-699036be34d5" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="a5fc4e3f-6209-4d1b-aa7e-a11ea41e7944" LastKnownName="MessageOccurrenceSpecification61" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="4cb2853c-eacf-4431-81f3-b28ee35825ba" LastKnownName="MessageOccurrenceSpecification62" />
+            </receiveEvent>
+          </message>
+          <message Id="7682d463-cf30-4b53-b22e-cd6fe09f6a97" name="&lt;&lt;return&gt;&gt;" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="6a5c2a9a-70b7-4251-bfd9-2a9d7449a469" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="46e7e3ec-bf10-4cbc-81a2-1a501be43161" LastKnownName="MessageOccurrenceSpecification63" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="464a79f9-30fb-45bd-93fe-08a23dacca7f" LastKnownName="MessageOccurrenceSpecification64" />
+            </receiveEvent>
+          </message>
+          <message Id="679791f8-6665-4163-9154-54ee1ca722ed" name=" $(&quot;#new-button&quot;).(&quot;click&quot;)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+            <elementDefinition Id="ec9e261a-fc74-426b-a7be-a71e9c1fc74a" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="ab4b1fe7-57b0-43eb-b812-14edcc14db97" LastKnownName="MessageOccurrenceSpecification67" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="fa1cac96-ed10-49df-9877-1830064cf67c" LastKnownName="MessageOccurrenceSpecification68" />
+            </receiveEvent>
+          </message>
+          <message Id="855785f3-c773-45ef-ad63-97973a3f1d8a" name="   expect(urlBefore).not.toBe(urlAfter)" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+            <elementDefinition Id="6afa279e-0821-4d15-995c-7989ead0a17c" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="8d01ee69-e248-44eb-81ec-d39171f54270" LastKnownName="MessageOccurrenceSpecification69" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="fb68d0e8-59bb-416d-b603-a95c3d1e5c39" LastKnownName="MessageOccurrenceSpecification70" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property Id="0093e214-1e96-4b09-adb8-bb22653bf8dc" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="167573f0-e354-441e-b3dc-8724d52deaae" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="416ed752-82d6-417c-aeed-77f57b925fa0" LastKnownName="JpsHomeController" />
+            </type_NamedElement>
+          </property>
+          <property Id="4cea5cde-ce0f-4489-8b6d-7ea288941dd3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0149388f-22d9-4fec-a12c-9da3641f3e3d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="18d1dbc1-611d-4f5f-a251-8349fabef754" LastKnownName="JpcView" />
+            </type_NamedElement>
+          </property>
+          <property Id="a5b39e62-4acf-4f13-9f28-1bd83a08282a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5e231f68-cc76-48ac-896e-7ec19a21dae8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="710893a2-dd49-4ee9-b884-7350daed5d65" LastKnownName="JpcViewModel" />
+            </type_NamedElement>
+          </property>
+          <property Id="586add54-3dc3-4e17-b6bb-420c31ccad49" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="78867842-4d6b-4551-ada1-f1704a4b4d5c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="75940ce1-8a5a-493e-bbcc-573049ac54ab" LastKnownName="ajaxloginController" />
+            </type_NamedElement>
+          </property>
+          <property Id="761df8b0-e3c8-4bd9-9c87-9140660a69c4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="545a928c-1044-457e-bda9-f9c0db2600a2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="239dd864-68e0-4234-beef-82125717d4ea" LastKnownName="JpsAccountController" />
+            </type_NamedElement>
+          </property>
+          <property Id="574695cf-dfa4-49cb-98f6-52489187ca6a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c5edf00a-aead-4d28-857d-c4a20a30ed7b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e332113e-3d2f-4511-a24f-e03162d8b1e4" LastKnownName="JpcDataContenxt" />
+            </type_NamedElement>
+          </property>
+          <property Id="86d89067-6fea-49ba-8d3c-eafad6cff5ba" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c003cf8c-402f-44f4-b14c-b5a69f0a0853" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="34ae8c9c-4d98-4619-9e3c-8b54ce8665c2" LastKnownName="JpcController" />
+            </type_NamedElement>
+          </property>
+          <property Id="5ea06675-3ff6-4dab-9b7b-c80277a39c1a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="309f7333-d921-42cd-a40c-44c1cea26100" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="05b83d14-49b3-49fa-a61a-ea310c61c510" LastKnownName="JpcServiceProxy" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="416ed752-82d6-417c-aeed-77f57b925fa0" name="JpsHomeController" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::WebServerAPI::JpsHomeController">
+        <elementDefinition Id="cb417fe7-3243-44f7-9e63-8b6d38d14ef4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="18d1dbc1-611d-4f5f-a251-8349fabef754" name="JpcView" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::JpcView">
+        <elementDefinition Id="630f92c8-06d0-43dd-8b2e-a8845c3564b5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3300b268-1254-4e4a-831a-ba58cf15f289" name="JpcLoginView" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::WebServerAPI::JpcLoginView">
+        <elementDefinition Id="7ea85242-1694-4eb4-9c59-9ca8a8e7fef1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="75940ce1-8a5a-493e-bbcc-573049ac54ab" name="ajaxloginController" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::ajaxloginController">
+        <elementDefinition Id="23d44ed8-6472-4f1f-b6f4-d25e566769cc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="239dd864-68e0-4234-beef-82125717d4ea" name="JpsAccountController" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::WebServerAPI::JpsAccountController">
+        <elementDefinition Id="faa2786b-567e-4383-9395-913694bcff99" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e332113e-3d2f-4511-a24f-e03162d8b1e4" name="JpcDataContenxt" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::5 Web Client::JpcDataContenxt">
+        <elementDefinition Id="2301e266-fed8-43e7-8459-5018276d6883" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="34ae8c9c-4d98-4619-9e3c-8b54ce8665c2" name="JpcController" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::5 Web Client::JpcController">
+        <elementDefinition Id="6b0a5056-034d-4576-9b93-bff46bd668e8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="05b83d14-49b3-49fa-a61a-ea310c61c510" name="JpcServiceProxy" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::5 Web Client::JpcServiceProxy">
+        <elementDefinition Id="e078d1e2-2855-42bb-9865-1642ded31d3c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="710893a2-dd49-4ee9-b884-7350daed5d65" name="JpcViewModel" isAbstract="false" isLeaf="false" cachedFullName="JassplanModel::5 Web Client::JpcViewModel">
+        <elementDefinition Id="d9784b72-98dd-4789-b924-c41913c52f91" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="25a99c79-0cdc-49a3-b6ed-6fcc57261ac7" name="ExecutionEvent">
+        <elementDefinition Id="456f61fd-6c5b-4c5e-8fb6-840bb2de969d" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="881cc2e7-460d-4cca-8b11-8919f476291a" name="ExecutionEvent">
+        <elementDefinition Id="8078ea3a-0512-4e05-a885-d3d8cbae391d" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="7904d7e4-f667-4df6-928d-3cb78c68d07b" name="ExecutionEvent">
+        <elementDefinition Id="40754d57-ea4e-46b2-9509-96018665b42b" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="00590ca2-7d69-4f48-9231-ed7d2b7eccff" name="ExecutionEvent">
+        <elementDefinition Id="2e5ef1a5-612f-4e9e-b809-572c0f427a27" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="cc0647eb-2717-4da9-b373-d6b9d905a729" name="ExecutionEvent">
+        <elementDefinition Id="d99977ea-9dc4-4dce-8272-ada200837641" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="a7aa1342-e70f-41c1-b551-3a2e70f795a5" name="ExecutionEvent">
+        <elementDefinition Id="8e51ae95-eefa-45f7-b971-db5ba9d5e9f4" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="111153dc-1a7c-40a5-8d00-aa0a1758b466" name="ExecutionEvent">
+        <elementDefinition Id="bcf7529f-21af-4796-b527-ec133fccb571" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="8526b01e-cb55-41a7-b61d-711d838770fe" name="ExecutionEvent">
+        <elementDefinition Id="abbf24c8-0171-405a-8d0d-7f48eed5863d" />
+      </executionEvent>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="d9ada9cb-c5ab-46ec-8d0c-bf552fc70c8c" name="JassplanModel">
+    <elementDefinition Id="a7d3ddda-9e0e-4d17-a0b4-6dad1955abae" />
+    <profileInstances>
+      <packageHasProfileInstances Id="b2492399-c0cd-4961-89ad-17a78ccccc9e">
+        <profileInstance Id="f2aed2db-a1db-42a2-a0f0-e2eb696d85bf" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="26f89482-a0bd-4525-9bf5-5899a117f381">
+        <profileInstance Id="0d2f3431-3702-41e5-8772-1afebc01b6b0" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="d5e8f8e4-ff1c-4dc9-8864-8bf705813957">
+        <profileInstance Id="146dfaee-796a-4239-be9e-bf2bec31e1ca" name="CSharpProfile">
+          <elementDefinition Id="c9ea5e43-5603-4624-9075-03d2477ee53f" />
+        </profileInstance>
+        <elementDefinition Id="237a3c43-eaeb-4561-b948-f53436735770" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="4113984e-fe47-49f5-bb16-a4ffdba3415a">
+        <profileInstance Id="7920a19f-01f2-43fe-a6cc-408d4f717c14" name="TextTemplateBindings">
+          <elementDefinition Id="201f59af-c9fa-4a25-b158-fcf2e91a37e0" />
+        </profileInstance>
+        <elementDefinition Id="58fee64d-46e1-4d55-9187-0a0b77114bb7" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</SequenceDesignerModel>

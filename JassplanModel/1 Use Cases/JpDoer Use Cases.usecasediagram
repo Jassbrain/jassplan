@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="89b187d3-0b20-4193-a698-1636c8ba1c40" name="JpDoer Use Cases" linkedPackageId="b82058dd-8d51-4ee9-bf48-581becef2611" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="750565b7-eef5-47c8-beea-d6ab1c37a004">
+      <elementDefinition Id="2d826927-79ec-4bb9-8daf-79657ba885ed" />
+    </comment>
+    <comment Id="05a02707-85d7-4f1b-b35e-a64187f372dd">
+      <elementDefinition Id="d4daaef0-9b72-4c56-906e-2fd37f46a231" />
+      <body>This is an "ideal" use case, doer does not think at all. He just executes the task one by one as they appear in the Do view without any modification. He perfectly executes the plan meeting all "time" estimates and finished the day with perfect score, N/N/N. 
+</body>
+      <annotatedElements>
+        <useCaseMoniker Id="d690092b-4a00-496c-b16d-dd789d55fe12" LastKnownName="Executes Plan As Is" />
+      </annotatedElements>
+    </comment>
+    <comment Id="7dda9351-5e1b-4386-9a3e-88d7ae8f3884">
+      <elementDefinition Id="55e20856-e2e7-4827-b33c-24dccb45bd9b" />
+      <body>The Do View uses a special logic to show the tasks in order.
+It will use at least, the tasks starting hour, the "order", probably the level of done..etc. Some of those attributes may or may not be present. So this algorithm is a complex business rule. </body>
+      <annotatedElements>
+        <useCaseMoniker Id="588d0fd9-279f-4c1d-b68f-21b2825865d4" LastKnownName="Access / Browse Do View" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="4c8853c0-9cf0-417b-aa27-78b8226c884b" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="6f24c033-2716-4565-9a11-1952315ffcfb" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="96b7bf32-2c2d-43b0-84f4-cb9330e74015">
+          <propertyInstance Id="fdc5ea9d-37e4-4d35-923f-faa92d6c2d8d" name="BaseName">
+            <elementDefinition Id="94f3aaff-0fc8-4446-a16f-e6ebe5f7eebf" />
+          </propertyInstance>
+          <elementDefinition Id="e488cd4f-9df3-4a3b-a543-770fb3593f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="615bc3bd-4faf-4cff-a0f5-9eae118c727b">
+          <propertyInstance Id="28cf2e9f-1ebd-4e9e-8859-a8b939d7c3d3" name="ClrAttributes">
+            <elementDefinition Id="55b69fc6-0606-4462-a8e4-e06b7f7dc92a" />
+          </propertyInstance>
+          <elementDefinition Id="4ea5f7a0-36f5-478a-a1a6-270abbba771b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5db43f59-b699-40a8-acd3-79cacb710fa6">
+          <propertyInstance Id="06e2cd70-e7e1-4cf9-8af7-250e9c713c20" name="Usings">
+            <elementDefinition Id="2c38890d-39fa-46b3-97dc-105188473566" />
+          </propertyInstance>
+          <elementDefinition Id="b888c706-2dab-4d4a-9bb9-8cd49cf150d5" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="3fd8a9eb-516c-4f98-9733-ae9c8e3097cc" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="5bac79dc-6bd9-4538-afc0-3a03e6f41e76" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a80f983b-e56b-4105-8631-c0da4261dae2">
+          <propertyInstance Id="5b900b99-326f-4cc4-87e0-fc9748d12d64" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="b047d02f-bf2f-4210-a3f9-8945972c4611" />
+          </propertyInstance>
+          <elementDefinition Id="06b2dd68-917c-4824-913a-9b8807d33118" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="25aadcd9-c2e5-4713-924a-1f8b2134b5f0">
+          <propertyInstance Id="b36a7d27-7f9f-44bb-970a-3072d60edf5e" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="a1ade98c-0871-4bc5-a920-1b68a79035f9" />
+          </propertyInstance>
+          <elementDefinition Id="b22324b2-7d56-46c4-9498-1032d2a324bc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a9f18dcc-4414-44e1-bcc1-949cfcf8ed4a">
+          <propertyInstance Id="83cda334-f0f3-4dde-b89f-dedece57199a" name="ProjectPath" value="ClassTemplate=..\JassplanModelLib\JassplanModelLib.csproj|EnumTemplate=..\JassplanModelLib\JassplanModelLib.csproj|InterfaceTemplate=..\JassplanModelLib\JassplanModelLib.csproj|StructTemplate=..\JassplanModelLib\JassplanModelLib.csproj">
+            <elementDefinition Id="f45a8708-deaf-48c6-9c18-f52c00e13088" />
+          </propertyInstance>
+          <elementDefinition Id="cd904372-91df-46c7-a335-707a0d3f89f0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="05ad75a2-0050-4c88-9f0a-46b6f06b6b74">
+          <propertyInstance Id="8f575fbe-1c94-4b83-bebb-7a9bb8018d3c" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4b945c84-4373-4b87-8f5a-997433e38f4f" />
+          </propertyInstance>
+          <elementDefinition Id="ad658c36-f4ca-40d0-977f-206e5811575f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="2fde9c65-0086-4322-801d-6e8c9ccc8f75">
+          <propertyInstance Id="3e01c984-a96b-40bf-be5f-ccac6a14ed0d" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="1fe7552b-8dcd-4a12-940b-c2906a35f35c" />
+          </propertyInstance>
+          <elementDefinition Id="77a9d0fe-3b8e-4c14-94a3-5f847250f229" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="840c72a3-8332-4d5a-8f1d-5576c5c593b0">
+          <propertyInstance Id="10ed64fc-bdea-4b5d-a91b-da0463f4e12b" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="4cd6283b-3d2a-4ed0-be56-96a29015e266" />
+          </propertyInstance>
+          <elementDefinition Id="561622e2-10e8-48a1-bc89-10071d5d4674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ebe0ebf2-b237-409d-b976-5efef53b9d25">
+          <propertyInstance Id="ec1e09a3-f4ef-487d-9dda-190ec8e79eea" name="Parameters">
+            <elementDefinition Id="c147008e-39d7-425b-9349-0470c6e9f893" />
+          </propertyInstance>
+          <elementDefinition Id="456692b1-e825-4416-a75f-57247d4a230d" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="16956e91-f268-4ca6-9bd3-d574b8f52d9f">
+      <profileInstance Id="54b18d5e-906e-4c4d-9f85-c65db5b10b94" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="2b1b345e-b384-4cd7-8e8b-ec61a955f0e7">
+      <profileInstance Id="6d32c2c3-6e13-4c8f-aa11-1a54d4997180" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="ef256c74-e530-4b82-a9b5-7a022fe3118e">
+      <profileInstance Id="a1be706e-9ee2-475b-9260-117979ef0f7b" name="CSharpProfile">
+        <elementDefinition Id="c9ea5e43-5603-4624-9075-03d2477ee53f" />
+      </profileInstance>
+      <elementDefinition Id="237a3c43-eaeb-4561-b948-f53436735770" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="358dc045-14b1-46bd-b3a1-25d62137df84">
+      <profileInstance Id="4e203ed2-3565-4148-b465-4e8f8de0e2b7" name="TextTemplateBindings">
+        <elementDefinition Id="201f59af-c9fa-4a25-b158-fcf2e91a37e0" />
+      </profileInstance>
+      <elementDefinition Id="58fee64d-46e1-4d55-9187-0a0b77114bb7" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="bd1fc09c-5b1c-44a3-870d-d28e97ef9917" name="JpDoer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f9b1b331-e71b-4ac3-9632-fdf08b26178d" />
+        <generalsInternal>
+          <generalization Id="e66c34eb-6a12-4c6e-88d0-f38ca81c883f" isSubstitutable="false">
+            <actorMoniker Id="66b617b4-2722-4ea3-a37a-fa72a09e28c0" LastKnownName="JpUser" />
+            <elementDefinition Id="2d96d497-74f5-43f5-b087-8f09e8de7ec4" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="514fc1c8-fb32-4ba0-8761-579bac4df0c4" isDerived="false" sourceEndRoleName="JpDoer" targetEndRoleName="Executes Plan without as is" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d690092b-4a00-496c-b16d-dd789d55fe12" LastKnownName="Executes Plan As Is" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4423532c-789c-4146-9551-463dfa3cd034" name="JpDoer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e99df322-019f-48e8-9966-e4ddb83ab05c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b90277db-3cdf-4aea-ba66-5003e6a6c2e6" name="Executes Plan without as is" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e755525a-c785-406d-b34f-9736f668d651" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d60657d5-148b-4553-affc-9443db351461" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="66b617b4-2722-4ea3-a37a-fa72a09e28c0" name="JpUser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" name="JassPlan" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="588d0fd9-279f-4c1d-b68f-21b2825865d4" name="Access / Browse Do View" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="083a51b4-00bb-4730-8a2a-55727df5f1cf" />
+        <targetEnds>
+          <association Id="52c9b7d0-3586-4e7c-ada5-67256ccef484" isDerived="false" sourceEndRoleName="Access Do View" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9a1b929f-2b95-4b32-be18-0110366341c8" name="Access Do View" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f2faa53f-ca3d-453a-81fc-78feb721f632" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9fabfc23-bdf3-4601-9db3-27dd7c8a4cf1" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="62beb64f-32e7-4e25-a32b-5cff10d62af2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="67962b26-da71-4943-8fd5-6435c2d93615" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d690092b-4a00-496c-b16d-dd789d55fe12" name="Executes Plan As Is" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="42d168eb-f0e6-4e8a-9758-b31241a4ab80" />
+        <targetEnds>
+          <association Id="505b8fe7-ca5e-4835-a362-d4de9df1c1e7" isDerived="false" sourceEndRoleName="Executes Plan without as is" targetEndRoleName="Access Do View" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="588d0fd9-279f-4c1d-b68f-21b2825865d4" LastKnownName="Access / Browse Do View" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="000deb3c-3bc5-4081-8099-1470fdd9fecd" name="Executes Plan without as is" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b6fe0b2f-7f57-4b98-8a4c-a6723e049fc2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5e9f4305-231d-4791-9452-4c875fa0d92f" name="Access Do View" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5e4c6595-9130-49ad-90a9-2a95b58e4964" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e95022bc-8c5d-46e6-8f3f-9f3debb8daf2" />
+          </association>
+          <association Id="95f848aa-2a5f-4ae8-b668-88620a60469c" isDerived="false" sourceEndRoleName="Executes Plan As Is" targetEndRoleName="Reads Current Task General and Specific Goals" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3103fe5c-695b-4108-94f1-96d54c1731d0" LastKnownName="Reads Current Task Goals" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="29c1722b-d40e-4830-8192-869fc93d11d5" name="Executes Plan As Is" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ab6fbb5e-2cd8-4ced-8cf2-0ddd0a3b531a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="19ce8d54-c200-41f5-9871-f5485423b4d4" name="Reads Current Task General and Specific Goals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="459a33de-f3a2-47ce-a5f5-ffe2e5878fad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a37df809-2e23-4478-9e9b-5eb10a8d2f39" />
+          </association>
+          <association Id="8336ba25-f02b-4f46-bafc-40d5e56eb455" isDerived="false" sourceEndRoleName="Executes Plan As Is" targetEndRoleName="Mark task done/doneplus" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="47c3e53c-e5c0-40dc-8c2b-74a6caf6d62b" LastKnownName="Mark task done/doneplus" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="679204d7-d922-45db-8a04-1c96b914a315" name="Executes Plan As Is" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fe645644-d56f-4173-aaac-b69fa3b50ded" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7679774c-d76e-44c9-a069-eafe7e95922a" name="Mark task done/doneplus" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3afef5f6-32ee-40ab-8e60-724bbbabdd62" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cad56f3b-7a6f-4590-bc76-3eb6e8b8895b" />
+          </association>
+          <association Id="7bf4aa2f-52b3-41df-be25-795733f4b341" isDerived="false" sourceEndRoleName="Executes Plan As Is" targetEndRoleName="Select Parent Focus Task" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="146f7f46-e9ac-4a02-8994-efe415322a17" LastKnownName="Select Parent Focus Task" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6974a2b6-97d0-46e3-8225-b4e38f7ac17a" name="Executes Plan As Is" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5ceede75-c835-4e0b-b639-bab43e2556bf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="639bdbba-3651-498a-ad1d-ec27a6b1fabd" name="Select Parent Focus Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e1c5964-216e-495a-bf7a-8bc162fb0dd5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e42e5a1c-56c5-4e15-8057-1cd2c7b50d13" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="3103fe5c-695b-4108-94f1-96d54c1731d0" name="Reads Current Task Goals" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d6e9ffa7-1eab-46cf-a2e6-76419c05aa67" />
+        <targetEnds>
+          <association Id="c97e0379-5b73-4971-8843-153c4d8101cb" isDerived="false" sourceEndRoleName="Reads Current Task General and Specific Goals" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f2256bfe-a50a-420b-ad7b-b9403ed40e49" name="Reads Current Task General and Specific Goals" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="85ec62fa-5042-4ab2-a612-2c1521dda945" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="052f2d9a-7fc6-4863-9c2b-e3fb07f3999d" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c4df64f0-7060-4761-afd4-b10bf6a4b85e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="528c3c28-6102-480b-bd41-b0f312418755" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="47c3e53c-e5c0-40dc-8c2b-74a6caf6d62b" name="Mark task done/doneplus" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7c001083-acdf-49a1-845a-fbd77ded71f6" />
+        <targetEnds>
+          <association Id="e89e6b67-47b5-4500-bd16-38b72f9f5684" isDerived="false" sourceEndRoleName="Mark task done/doneplus" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1755114f-c00c-4739-a005-83c65719ac3d" name="Mark task done/doneplus" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="48da74ae-06c2-4470-8429-886835b100f6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a7387b78-3402-4a85-af10-af94db4dd2dd" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0b9901f3-120e-4b54-8173-5851c040d514" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d6e5b0a3-8801-4b64-a463-f29d9ad4d6be" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="146f7f46-e9ac-4a02-8994-efe415322a17" name="Select Parent Focus Task" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cafb261b-54e8-4a12-b43e-2747bb106bf9" />
+        <targetEnds>
+          <association Id="503e85c6-7b3a-4c2c-ae88-2ced7cff7a5f" isDerived="false" sourceEndRoleName="Select Parent Focus Task" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f5a954f2-0eb3-49a7-9f26-3f241f997bc5" name="Select Parent Focus Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="18322ee4-8762-4ef0-9136-e5cb96666df9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="539b6bde-82fe-4ab8-92c1-59b1a06686a3" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e83dc9f4-eea7-48a8-8ef6-fb88d290514e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8acad198-d887-4040-bb7a-cec5429ecb53" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="0616e397-6ae1-4c63-9ba2-c122eb0f7156" LastKnownName="JassPlan" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="b82058dd-8d51-4ee9-bf48-581becef2611" name="JassplanModel">
+    <elementDefinition Id="a7d3ddda-9e0e-4d17-a0b4-6dad1955abae" />
+  </package>
+</useCaseModelRoot>

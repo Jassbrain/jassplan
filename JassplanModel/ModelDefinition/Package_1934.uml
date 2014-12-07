@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="aa5bbda3-f15d-4658-b09f-433f0fd60441"
+  name="1.0 JpUser" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <useCase
+        Id="afe38d2b-104e-4a43-8775-f58ba8609541"
+        name="Access  / Login"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b2387deb-fc25-43b8-a09b-1d09f6847299"
+            isDerived="false"
+            sourceEndRoleName="Login"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0b41e2d2-d382-42f2-ab53-7a4c229b0c77"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4ab1524-90b0-427e-b9a7-76c882402a45"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7b8aa723-7b13-4869-a542-4c31d4e416b8"
+        name="Logout"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6b2e3c34-5ba5-432e-812a-671da2abe720"
+            isDerived="false"
+            sourceEndRoleName="Logout"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eb84a943-1d30-4427-ab35-ddc7fbf72490"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5efe7662-9188-435b-b0a8-b3a18e319124"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="530d1d41-d989-4bc1-ba7d-77f68652e896"
+        name="Register"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="fc445214-c153-4cf7-833c-f090bf4c5c05"
+            isDerived="false"
+            sourceEndRoleName="Register"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a5cf5ab4-b90d-4bee-89df-b8ed5a7414de"
+                  name="Register"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="34bd915a-629f-4bed-9238-87a8d48a7cec"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

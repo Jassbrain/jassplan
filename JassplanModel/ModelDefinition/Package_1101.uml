@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="a3ef5a10-3038-4d41-9e87-11b2daddb4db"
+  name="1.3 Jassplan Common" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <useCase
+        Id="f1b0f79c-3f9c-47f1-8278-460c61a4e9c4"
+        name="Edit Task"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d7579ef2-a37e-4c7d-8fe4-02da46453bcf"
+            isDerived="false"
+            sourceEndRoleName="Edit Task"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d5d62cb-6a48-4354-a41a-4c224ed6152b"
+                  name="Edit Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d906b47b-7b65-4473-a11a-38e603a5155e"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cafb261b-54e8-4a12-b43e-2747bb106bf9"
+        name="Select Parent Focus Task"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8acad198-d887-4040-bb7a-cec5429ecb53"
+            isDerived="false"
+            sourceEndRoleName="Select Parent Focus Task"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="18322ee4-8762-4ef0-9136-e5cb96666df9"
+                  name="Select Parent Focus Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e83dc9f4-eea7-48a8-8ef6-fb88d290514e"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="63b2d33f-42db-4066-b104-8ca4ced154a2"
+        name="Delete Task"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8a359e75-5156-42c9-bce5-7c10c88b447c"
+            isDerived="false"
+            sourceEndRoleName="Delete Task"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="960a7b33-926f-450c-879d-12cc501072f5"
+                  name="Delete Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5781bc2-a315-44d9-8f27-49d986bff045"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e869c912-f5e2-4a9b-8dc1-99e3fa7a54da"
+        name="Create Root/Child Task"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="5de307f7-5d9d-40f3-9c8f-0b22b56c80e7"
+            isDerived="false"
+            sourceEndRoleName="Create Root/Child Task"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0b818e40-8d8e-4aae-9c61-79605e12759b"
+                  name="Create Root/Child Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f0c6baba-aebe-4c60-be4f-5c7744a36d82"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d6e9ffa7-1eab-46cf-a2e6-76419c05aa67"
+        name="Reads Current Task Goals"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="528c3c28-6102-480b-bd41-b0f312418755"
+            isDerived="false"
+            sourceEndRoleName="Reads Current Task General and Specific Goals"
+            targetEndRoleName="JassPlan"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+              LastKnownName="JassPlan"
+              LastKnownLocation="Package_0734.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="85ec62fa-5042-4ab2-a612-2c1521dda945"
+                  name="Reads Current Task General and Specific Goals"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4df64f0-7060-4761-afd4-b10bf6a4b85e"
+                  name="JassPlan"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+            LastKnownName="JassPlan"
+            LastKnownLocation="Package_0734.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

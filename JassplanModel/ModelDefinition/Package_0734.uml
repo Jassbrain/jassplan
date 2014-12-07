@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="151f1d68-5b98-458b-b6f5-651f0a979206"
+  name="0 System, Actors and Goals" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="f9b1b331-e71b-4ac3-9632-fdf08b26178d"
+        name="JpDoer"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="2d96d497-74f5-43f5-b087-8f09e8de7ec4"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6"
+              LastKnownName="JpUser"
+              LastKnownLocation="Package_0734.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="d60657d5-148b-4553-affc-9443db351461"
+            isDerived="false"
+            sourceEndRoleName="JpDoer"
+            targetEndRoleName="Executes Plan without as is"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="42d168eb-f0e6-4e8a-9758-b31241a4ab80"
+              LastKnownName="Executes Plan As Is"
+              LastKnownLocation="Package_1204.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e99df322-019f-48e8-9966-e4ddb83ab05c"
+                  name="JpDoer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e755525a-c785-406d-b34f-9736f668d651"
+                  name="Executes Plan without as is"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="56cf58db-61df-4b51-9ca6-bdf8119fb202"
+        name="JpPlanner"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="039b630c-7dc7-4664-83f0-35139f770415"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6"
+              LastKnownName="JpUser"
+              LastKnownLocation="Package_0734.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="1797a605-1059-4e7a-b161-ff5fb5c6fa28"
+            isDerived="false"
+            sourceEndRoleName="JpPlanner"
+            targetEndRoleName="Create Values/Tasks "
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="07f9aca2-b2f5-4f65-9065-c0cf9dcc86fd"
+              LastKnownName="Create Values/Tasks Hierarchy"
+              LastKnownLocation="Package_2051.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d598b9f5-4dbd-48b5-bf40-10c59d0d77ef"
+                  name="JpPlanner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e6a1766d-732d-48fa-a00d-a6114eeedb2e"
+                  name="Create Values/Tasks "
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="39897f96-3d35-46ce-9827-30df51eaee06"
+        name="JpThinker"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="1b34fe97-4d11-49cd-9352-f61c80d30cd7"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6"
+              LastKnownName="JpUser"
+              LastKnownLocation="Package_0734.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6"
+        name="JpUser"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="461840f3-ce25-4ebe-adf8-fdee9b8bd059"
+            isDerived="false"
+            sourceEndRoleName="JpUser"
+            targetEndRoleName="Register"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="530d1d41-d989-4bc1-ba7d-77f68652e896"
+              LastKnownName="Register"
+              LastKnownLocation="Package_1934.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b702ddd2-c4ac-4b28-8f83-d2dbc4023770"
+                  name="JpUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f688985-f19c-435d-8727-92290dced59d"
+                  name="Register"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bf44995b-0ecf-442d-b27d-a2a22328219f"
+            isDerived="false"
+            sourceEndRoleName="JpUser"
+            targetEndRoleName="Login"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="afe38d2b-104e-4a43-8775-f58ba8609541"
+              LastKnownName="Access  / Login"
+              LastKnownLocation="Package_1934.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c6c398bf-743a-4b77-a8c0-05e07c72e1bc"
+                  name="JpUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f596f5f8-e07f-4182-836e-6b5b61009aab"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1c5be3f4-1cbc-4b84-b75b-71edc52a0360"
+            isDerived="false"
+            sourceEndRoleName="JpUser"
+            targetEndRoleName="Logout"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7b8aa723-7b13-4869-a542-4c31d4e416b8"
+              LastKnownName="Logout"
+              LastKnownLocation="Package_1934.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6df39fe9-5a8c-416b-9302-66cbf5c67a7c"
+                  name="JpUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="affc1205-8806-4850-a2a3-9d8ae417b8fb"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd"
+        name="JassPlan"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

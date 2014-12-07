@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e3c66aab-6159-414f-a496-49bbe75a5551"
+  name="4 Web Server" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="faa2786b-567e-4383-9395-913694bcff99"
+        name="JpsAccountController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="cb82b48d-f141-40d5-b9d9-10a05948ea87"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="890b0600-3ee5-4649-b3ca-1645a64ceb10">
+                <propertyInstance
+                  Id="3b1d3561-e1f0-4e4d-be3f-e5eaf824a000"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="30eb0b9f-3dbf-47e1-9942-1cbc43e147d7">
+                <propertyInstance
+                  Id="f76150a7-4797-4577-8ad5-bed8e8f50bc1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d258aa42-81c6-44c1-aa22-807ec436a2b7">
+                <propertyInstance
+                  Id="7340164f-e345-473d-b9af-0a0d1bd62ceb"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf72b084-8b8c-4299-b853-4c718718c382">
+                <propertyInstance
+                  Id="b7306e4c-c3ba-4e9a-97f1-7b405c7b0096"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7c293277-3663-4df7-9c67-f0def264a791">
+                <propertyInstance
+                  Id="0dedb030-3465-49cd-817c-b456cbb6fd51"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6343dfdf-2f0b-4cc0-b266-a27f8e37355d"
+            name="Message2"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0e63bc10-4228-42e1-83bc-03f3e259a952"
+            name="JsonLogin"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2edb629e-c7ee-417d-90d6-3f6c91466821"
+        name="JpsTodoListController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ade6660d-1220-4b1b-a512-276d73eaca63"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="332b7a40-c028-4a95-ba4e-5409902dee35">
+                <propertyInstance
+                  Id="d0d8d17e-6628-4aad-9bc2-78fd3ea8a1c3"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ac172ba7-812e-43e6-b5c6-d3496bf7c7c3">
+                <propertyInstance
+                  Id="ac7190df-5c64-4d04-9e8d-a9d7cdf66711"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="292bad21-79db-4a39-9aa8-40b3fff2d87a">
+                <propertyInstance
+                  Id="8bbc3bc7-8623-4fc9-b983-8890283b66da"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3ac6c9e2-3590-41df-ac01-9b056aac3840">
+                <propertyInstance
+                  Id="ded7e921-e49e-4c51-ba51-09a7975a75b2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c8e858bb-21d1-4a99-b81a-7d80a2c891de">
+                <propertyInstance
+                  Id="668fdc32-b322-4ac2-9eaa-6399886236ad"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="accacd6e-2d29-459d-9965-86474b6f9376"
+            name="GetArchiveTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="695c86aa-e75e-4d8b-828c-1da0256587a2"
+            name="DeleteTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="60df5675-9954-4c1c-b6eb-0f3f7e7ca33d"
+            name="PutDeleteAllTodoLists"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="05165a21-d48e-4a07-8969-79cc1a313012"
+            name="PutDeleteTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="713b7a4c-b2d1-49e9-86e1-d3f7ebb09b28"
+            name="PostTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3f98ba33-acae-4e7a-9403-4681be42c19f"
+            name="PutTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="57cf4d19-9bab-4059-9725-76155670edce"
+            name="GetReviewList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="63e3a04b-50e5-4d79-b424-4417ac2a9bac"
+            name="GetTodoList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d45d26cf-bd08-4202-8ce6-124521ab048e"
+            name="GetUseLogged"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cb417fe7-3243-44f7-9e63-8b6d38d14ef4"
+        name="JpsHomeController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f4554282-2505-4ca9-91b9-550ad09f8a6f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1112b913-dec0-42c8-9b28-e9e3ed526923">
+                <propertyInstance
+                  Id="71636159-3dbb-4348-bd3a-1ad81c1005bf"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6871938b-da94-47ed-b1a1-974967c07739">
+                <propertyInstance
+                  Id="9e07bcd1-0e79-4108-8641-5bd62c28ff39"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b7516ac6-0915-43c1-a184-6ff49fd66ca4">
+                <propertyInstance
+                  Id="5a7d4df4-760a-418f-a5d3-6aa9d7f1db67"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5b475d9a-ca16-48d2-ae77-925cc6f03ded">
+                <propertyInstance
+                  Id="052f5f13-c013-4d1e-88c3-01561c40f67e"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b740b649-c876-4ef2-a49b-d1ac32b119da">
+                <propertyInstance
+                  Id="84d1074a-c8f7-46e3-b2d4-4cb32c2b4bb2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7342556e-b881-4d0e-b454-26467e8a87d2"
+            name="index"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="23d44ed8-6472-4f1f-b6f4-d25e566769cc"
+        name="ajaxloginController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c624b593-de6c-40b9-8bba-8c9ceab93316"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5c6a1871-7d07-469f-a77e-4b1d5bef2db0">
+                <propertyInstance
+                  Id="6ed823f9-038d-48a3-a5ed-3a2331e7459f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="993f287e-f70a-4d01-9b48-30015890cd55">
+                <propertyInstance
+                  Id="1f6b71dd-9f67-490a-8230-a07357ac15f0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a3639483-2774-497a-a7e7-225985a2edc3">
+                <propertyInstance
+                  Id="bce240b1-c23f-4b13-9be1-77b374dd7bcd"
+                  name="IsStatic"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e8ad93dc-fdd5-4d76-8696-1456f2c19d79">
+                <propertyInstance
+                  Id="b648a9bb-b5e4-4f64-b8d1-d4e093f06764"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0d6acd0e-c432-4a35-bc8a-a70cead43688">
+                <propertyInstance
+                  Id="74af18a8-feef-4042-9468-c57e11c3d59b"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="01b63705-21fa-4154-bd61-e6cc000dcbcb"
+            name="formSubmitHandler"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

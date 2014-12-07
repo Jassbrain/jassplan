@@ -31,6 +31,11 @@ Jassplan.viewmodel = (function (dataContext) {
         return logged;
     }
 
+    var getUserName = function () {
+        var logged = dataContext.getUserName();
+        return logged;
+    }
+
     var setParent = function (parentin) {
         parent = parentin;
         $.jStorage.set(parentStorageKey, parent);
@@ -212,6 +217,8 @@ Jassplan.viewmodel = (function (dataContext) {
         parent = getParent();
         notesList = dataContext.getNotesList();
         reviewsList = dataContext.getReviewsList();
+
+        //TODO: this code should not be here and also this loop is bad
         for (var i = 0; i < notesList.length; i++) {
             if (notesList[i].id == parent) {
                 parentName = notesList[i].title;
@@ -231,6 +238,7 @@ Jassplan.viewmodel = (function (dataContext) {
         getParentName: getParentName,
         getParent: getParent,
         getLogged: getLogged,
+        getUserName: getUserName,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,
         setStateReview: setStateReview,

@@ -4,7 +4,7 @@ Jassplan.dataContext = (function (serverProxy) {
     //This object acts as data layer and handles local storage or communimcation with server via the server proxy. 
     //The idea is great but for the moment the implementatio is pretty
     //inneficient as we are going to the server everytime and in sync mode...
-
+    var userName = "";     //knows if the user did log in
     var userLogged = false;     //knows if the user did log in
     var notesList = [];         //keeps the list of notes
     var notesListStorageKey;    //keeps the local storage key for the note list
@@ -12,10 +12,12 @@ Jassplan.dataContext = (function (serverProxy) {
     var reviewsListStorageKey;  //keeps the review list local storage key
 
     var getLogged = function () {
-        if (userLogged) return ""
-        else return "x";
+        return userLogged;
     }
 
+    var getUserName = function () {
+        return userName;
+    }
 
     var loadNotesFromLocalStorage = function () {
         //Ok, this is not efficient..if the user is logged we are just calling the server
@@ -77,7 +79,8 @@ Jassplan.dataContext = (function (serverProxy) {
         return noteModel; };
 
     var init = function (storageKey) {
-        userLogged = serverProxy.checkUserLogged();
+        userName = serverProxy.checkUserLogged();
+        if (userName != "") { userLogged = true; };
         notesListStorageKey = storageKey;
         loadNotesFromLocalStorage();
         reviewsListStorageKey = storageKey+"review";
@@ -146,6 +149,7 @@ Jassplan.dataContext = (function (serverProxy) {
         deleteNote: deleteNote,
         deleteAllNotes: deleteAllNotes,
         getLogged: getLogged,
+        getUserName: getUserName,
         archiveAndReloadNotes: archiveAndReloadNotes
     };
 

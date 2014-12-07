@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="01f7ad30-ddba-4d61-9bd6-85dffa4790e9" name="JpUser Use Cases" linkedPackageId="2dd05659-9d74-45fb-af9b-7a0209a2fe8a" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="6b17fb01-520a-42cc-b052-b14e1038ebc3">
+      <elementDefinition Id="c397f6b7-16c1-4d1b-b978-db20389eb4ac" />
+      <body>User registration can be done in two ways. Users can create a tranditional user/password mantained by Jassplan or they can use their existing google account.
+
+Value: user 'joined' the mental gym of jassplan</body>
+      <annotatedElements>
+        <useCaseMoniker Id="845676ff-5ba1-472a-bd55-347adeb5e0c7" LastKnownName="Register" />
+      </annotatedElements>
+    </comment>
+    <comment Id="bd678368-fdb1-4277-8c55-2feaa70d3b92">
+      <elementDefinition Id="2ec17ec5-6dd4-43e2-b038-750d85676277" />
+      <body>Like the days he goes to the gym, use 'enters' into the mental gym of jassplan.
+
+Value: he is in at that moment, he gest the psicological bost of knowing his status, plan and chanllenges and progress</body>
+      <annotatedElements>
+        <useCaseMoniker Id="3f884939-46c3-4bac-bd97-4cef1ef475a3" LastKnownName="Access  / Login" />
+      </annotatedElements>
+    </comment>
+    <comment Id="f1b99af9-a317-4aef-8669-a2ece4bcf50c">
+      <elementDefinition Id="f03b4a78-c12b-480b-845f-a2ac2df3108e" />
+      <body>Logout is not something he does often, as most devices he uses are private... but juts in case, we want to have this funtionality to allow him to use other coputers and to share his.
+
+Value:  privacy and information preservation</body>
+      <annotatedElements>
+        <useCaseMoniker Id="2b45272d-f364-4327-bc71-f87741ed1d4c" LastKnownName="Logout" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="c52a313f-410f-4121-8d48-3c0a6b93d93c" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="6f24c033-2716-4565-9a11-1952315ffcfb" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="1a0fc905-2951-469e-ae8a-b68aa4e0d0a7">
+          <propertyInstance Id="56aadc59-f1c8-4fa0-8aaa-14710b370e2c" name="BaseName">
+            <elementDefinition Id="94f3aaff-0fc8-4446-a16f-e6ebe5f7eebf" />
+          </propertyInstance>
+          <elementDefinition Id="e488cd4f-9df3-4a3b-a543-770fb3593f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="01612f81-c60e-46d6-a911-edca78009c8b">
+          <propertyInstance Id="25fa8428-a2e1-4c59-891e-34efdb25dad1" name="ClrAttributes">
+            <elementDefinition Id="55b69fc6-0606-4462-a8e4-e06b7f7dc92a" />
+          </propertyInstance>
+          <elementDefinition Id="4ea5f7a0-36f5-478a-a1a6-270abbba771b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c8ce5141-7f78-4cdb-b35e-861480aa3f73">
+          <propertyInstance Id="de876e1e-a9c2-45f8-980d-3198859ed023" name="Usings">
+            <elementDefinition Id="2c38890d-39fa-46b3-97dc-105188473566" />
+          </propertyInstance>
+          <elementDefinition Id="b888c706-2dab-4d4a-9bb9-8cd49cf150d5" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="599c1401-339e-4eca-b15b-5ee44d57991f" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="5bac79dc-6bd9-4538-afc0-3a03e6f41e76" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d879d006-7a4a-4010-8fbe-f42fb129ed71">
+          <propertyInstance Id="03cd3133-56e3-4c1f-8019-a768da7733b2" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="b047d02f-bf2f-4210-a3f9-8945972c4611" />
+          </propertyInstance>
+          <elementDefinition Id="06b2dd68-917c-4824-913a-9b8807d33118" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="0b45b229-ee1f-4b4a-9abf-304b6ed13ab7">
+          <propertyInstance Id="46b4f06a-0da5-4838-8e7e-f1ffa37be24e" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="a1ade98c-0871-4bc5-a920-1b68a79035f9" />
+          </propertyInstance>
+          <elementDefinition Id="b22324b2-7d56-46c4-9498-1032d2a324bc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="20ba9707-c087-486b-8da6-41aa3d6aa243">
+          <propertyInstance Id="7476c30b-1b92-4071-9685-bf92737c4159" name="ProjectPath" value="ClassTemplate=..\JassplanModelLib\JassplanModelLib.csproj|EnumTemplate=..\JassplanModelLib\JassplanModelLib.csproj|InterfaceTemplate=..\JassplanModelLib\JassplanModelLib.csproj|StructTemplate=..\JassplanModelLib\JassplanModelLib.csproj">
+            <elementDefinition Id="f45a8708-deaf-48c6-9c18-f52c00e13088" />
+          </propertyInstance>
+          <elementDefinition Id="cd904372-91df-46c7-a335-707a0d3f89f0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="62ccc75d-c33d-4022-9b66-3fcf91319e68">
+          <propertyInstance Id="491589c0-0163-40ce-803d-4473f2509c13" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4b945c84-4373-4b87-8f5a-997433e38f4f" />
+          </propertyInstance>
+          <elementDefinition Id="ad658c36-f4ca-40d0-977f-206e5811575f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5fce63c4-65e7-4815-b86f-efdf6b0e4306">
+          <propertyInstance Id="671b8a08-e4e3-422f-8911-84ce55c88288" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="1fe7552b-8dcd-4a12-940b-c2906a35f35c" />
+          </propertyInstance>
+          <elementDefinition Id="77a9d0fe-3b8e-4c14-94a3-5f847250f229" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="cd13777c-1e58-4a3d-9c60-251062478fd8">
+          <propertyInstance Id="4ef8d1e1-f82e-4179-bbfb-c002687cd90f" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="4cd6283b-3d2a-4ed0-be56-96a29015e266" />
+          </propertyInstance>
+          <elementDefinition Id="561622e2-10e8-48a1-bc89-10071d5d4674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d73a248e-ecad-4474-a9d5-386511d92a4a">
+          <propertyInstance Id="74c883a9-d0f5-4af1-b750-10a1634af387" name="Parameters">
+            <elementDefinition Id="c147008e-39d7-425b-9349-0470c6e9f893" />
+          </propertyInstance>
+          <elementDefinition Id="456692b1-e825-4416-a75f-57247d4a230d" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="cc3014c5-8233-40dc-b087-f058b7e85a98" name="JpUser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6" />
+        <targetEnds>
+          <association Id="90085749-2094-4e76-9ce1-82a146937a6b" isDerived="false" sourceEndRoleName="JpUser" targetEndRoleName="Register" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="845676ff-5ba1-472a-bd55-347adeb5e0c7" LastKnownName="Register" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6ec2ec75-1332-4ccd-acd0-d9ff36d48c9b" name="JpUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b702ddd2-c4ac-4b28-8f83-d2dbc4023770" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="48922ff9-340d-4fe5-9cbe-437d80c93f6e" name="Register" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2f688985-f19c-435d-8727-92290dced59d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="461840f3-ce25-4ebe-adf8-fdee9b8bd059" />
+          </association>
+          <association Id="1c608b19-9f50-461a-85ca-54913a9c0843" isDerived="false" sourceEndRoleName="JpUser" targetEndRoleName="Login" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3f884939-46c3-4bac-bd97-4cef1ef475a3" LastKnownName="Access  / Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="288dc258-c75d-4112-9961-17bede0f2360" name="JpUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c6c398bf-743a-4b77-a8c0-05e07c72e1bc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a18a1de5-e436-4c8b-b394-a51019e959bc" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f596f5f8-e07f-4182-836e-6b5b61009aab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bf44995b-0ecf-442d-b27d-a2a22328219f" />
+          </association>
+          <association Id="701b1108-f0d7-40b0-a521-6979e6700d37" isDerived="false" sourceEndRoleName="JpUser" targetEndRoleName="Logout" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2b45272d-f364-4327-bc71-f87741ed1d4c" LastKnownName="Logout" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5587337e-d8b7-4cab-8da2-fd4f82670d0d" name="JpUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6df39fe9-5a8c-416b-9302-66cbf5c67a7c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a51045f0-2ef7-4c62-a74f-974edc20cfdf" name="Logout" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="affc1205-8806-4850-a2a3-9d8ae417b8fb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1c5be3f4-1cbc-4b84-b75b-71edc52a0360" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="9320618c-504f-4a6d-af59-d7e9374217b2" name="JassPlan" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="6008f910-b656-44fc-953b-51920c7f2241">
+            <elementDefinition Id="57f8ae23-308a-47b8-b701-7a3afc46f881" />
+            <body>Jassplan is an application that has a server on the cloud and can be accessed with a web browser from desktop or mobile devices.
+The primary UI has been optimized for mobile users </body>
+            <annotatedElements>
+              <subsystemMoniker Id="9320618c-504f-4a6d-af59-d7e9374217b2" LastKnownName="JassPlan" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="d7e8047d-e92f-4828-b37a-b697d7adf0dd" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="845676ff-5ba1-472a-bd55-347adeb5e0c7" name="Register" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="530d1d41-d989-4bc1-ba7d-77f68652e896" />
+        <targetEnds>
+          <association Id="ea18afe2-94c6-47a4-8524-a360722f5f4d" isDerived="false" sourceEndRoleName="Register" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="9320618c-504f-4a6d-af59-d7e9374217b2" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a84b5573-7127-4925-b36d-295dfc101954" name="Register" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a5cf5ab4-b90d-4bee-89df-b8ed5a7414de" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79e020d1-f2fa-4af7-8702-9581bf8b226a" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="34bd915a-629f-4bed-9238-87a8d48a7cec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fc445214-c153-4cf7-833c-f090bf4c5c05" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3f884939-46c3-4bac-bd97-4cef1ef475a3" name="Access  / Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="afe38d2b-104e-4a43-8775-f58ba8609541" />
+        <targetEnds>
+          <association Id="2e29d5f7-c888-49d4-8c64-186ad5d7a66f" isDerived="false" sourceEndRoleName="Login" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="9320618c-504f-4a6d-af59-d7e9374217b2" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40d8d91f-c75a-46cb-9a18-e8c015cc9ed5" name="Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0b41e2d2-d382-42f2-ab53-7a4c229b0c77" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8cd2789c-a08c-4473-92c0-7390e4a5036e" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d4ab1524-90b0-427e-b9a7-76c882402a45" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b2387deb-fc25-43b8-a09b-1d09f6847299" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2b45272d-f364-4327-bc71-f87741ed1d4c" name="Logout" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7b8aa723-7b13-4869-a542-4c31d4e416b8" />
+        <targetEnds>
+          <association Id="57fd5541-56c4-487c-b7b3-2ac8246426b5" isDerived="false" sourceEndRoleName="Logout" targetEndRoleName="JassPlan" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="9320618c-504f-4a6d-af59-d7e9374217b2" LastKnownName="JassPlan" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ee2d89ac-4bac-4776-8b66-8d597622453a" name="Logout" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="eb84a943-1d30-4427-ab35-ddc7fbf72490" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82e4bb3e-b5c4-426f-9636-b3caf957a0b4" name="JassPlan" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5efe7662-9188-435b-b0a8-b3a18e319124" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6b2e3c34-5ba5-432e-812a-671da2abe720" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="2dd05659-9d74-45fb-af9b-7a0209a2fe8a" name="JassplanModel">
+    <elementDefinition Id="a7d3ddda-9e0e-4d17-a0b4-6dad1955abae" />
+    <profileInstances>
+      <packageHasProfileInstances Id="7181ec10-1a31-4c6a-bf56-b0eeac6f6287">
+        <profileInstance Id="a4eec4d3-ada3-4be3-a18d-c659e0d8c25f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f8d54973-9945-4190-a973-b4fdca35a9ac">
+        <profileInstance Id="c29c85f6-077e-4196-8345-7041c67f7a0a" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1dfa1f03-d35e-4790-8007-6ace2a125611">
+        <profileInstance Id="5915945e-d89b-48c5-939e-1816a9105cc2" name="CSharpProfile">
+          <elementDefinition Id="c9ea5e43-5603-4624-9075-03d2477ee53f" />
+        </profileInstance>
+        <elementDefinition Id="237a3c43-eaeb-4561-b948-f53436735770" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="8a220700-6dec-41db-8561-0e2f8c018485">
+        <profileInstance Id="56eb0fa7-d7bf-421c-9b20-e30e32c49f04" name="TextTemplateBindings">
+          <elementDefinition Id="201f59af-c9fa-4a25-b158-fcf2e91a37e0" />
+        </profileInstance>
+        <elementDefinition Id="58fee64d-46e1-4d55-9187-0a0b77114bb7" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

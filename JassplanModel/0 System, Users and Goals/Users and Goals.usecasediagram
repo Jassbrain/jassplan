@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c8c89d57-e3b0-4d96-a248-e1c40f72cafc" name="Jassplan Actors And Goals" linkedPackageId="cd868be4-41bc-470b-829a-b0be42188c99" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="1de59fdd-25c5-47b8-ac11-2427c5e3560c">
+      <elementDefinition Id="d6302895-7cb7-4855-95d9-ed5d14116276" />
+      <body>Jpuser has a very busy life and needs/have to get organized. Seriously, not only he does better when he is organized but also his mood improves. The sole idea of starting to get organized and having the intention to plan and execute with logic, motivates him. So, in the same way a person 'joins a gym' to get into exercising and start doing it (when actualy is not necessary to join or use a gym for that), 'joining a task/goal planner' has a similar effect in his mind, mood and effectivenes. So, he decided to use "jassplan" to become more organized, more insighful, more effective, more balanced. Being effective is important but being balanced and toward the highest value is actually as importan. So, He has a registered account with jassplan and he access the application manny times every day. Accessing the application is very easy and convenient and he gets a minor psicological reward of seeing his progress during the day.</body>
+      <annotatedElements>
+        <actorMoniker Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" LastKnownName="JpUser" />
+      </annotatedElements>
+    </comment>
+    <comment Id="e3b3f7d7-1504-4482-aa9f-a0665f1e9a23">
+      <elementDefinition Id="7a3eb7b5-4004-4768-a9aa-ee430443b060" />
+      <body>When JpUser is relaxed and in the mood of organizing or revising his day or week or a more longer period he sits down in a chair or in bed and goes trough ALL his main goals and values (even the non critical ones) and decided what need to be done in that day. He likes to revise all values and tasks even if they do not look urgent and he like to do this by an canonic order starint from mind, then family, then work, etc.. He also update the status of each goal/value marking them with a color code to reflect whether the value is 'ok', 'gnegleced', 'in trouble',..etc. He normally does this in the early morning or at night.
+Setting a trouble status (yellow or red) does not necessary mean that we will takle this value that day.. it is just an indication that this value need attention.
+When planning the day he also tries to chedule the values/things he will do during the day using a few mechanims. Starting hour (to delay a tasks to appear in the to do list until certain time), sibling order .. to be able to say which tasks should be done first,.etc.
+ </body>
+      <annotatedElements>
+        <actorMoniker Id="fbad85b4-2fbb-43bb-9054-e159799481ac" LastKnownName="JpPlanner" />
+      </annotatedElements>
+    </comment>
+    <comment Id="2cfb92a4-b97a-4e91-a669-bf928050fdaf">
+      <elementDefinition Id="40c63c68-5aea-49d1-9426-52ece594e1e1" />
+      <body>JpUser becomes JpDoer when he had already planned the day and he is action. He is ont the road, at the desk working, etc. He does not have time to think about the big picture. He is focused at the task at hand. He udate tasks status, he may modify the plan, but everything is fast and to the point He may reschedule tasks, move them around.</body>
+      <annotatedElements>
+        <actorMoniker Id="b85a5106-0df9-4134-975b-a48cebddd911" LastKnownName="JpDoer" />
+      </annotatedElements>
+    </comment>
+    <comment Id="8f2b6861-e750-4ea1-aa91-26013e7b2b30">
+      <elementDefinition Id="d362c670-5464-43e3-aa60-aa1f04d2380f" />
+      <body>a JpUser becomes a JpThinker when he is really realaxed and looking at the big picture. He cares about the history, he tries to find patterns in his behaviour. He may share his time with the planner... but his role is more abstract, he may end up trying to change a strategy, create a new rules, etc.</body>
+      <annotatedElements>
+        <actorMoniker Id="3336e9a7-7ed6-45b2-ad51-447e628f4aa8" LastKnownName="JpThinker" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="44b0fa63-4666-4621-a6dd-500f4e0e4d15" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="6f24c033-2716-4565-9a11-1952315ffcfb" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a69d2899-1126-4b86-bbad-62b9dd3c0ffa">
+          <propertyInstance Id="f5e99d4c-b8a1-476f-b12c-bcd8f2480586" name="BaseName">
+            <elementDefinition Id="94f3aaff-0fc8-4446-a16f-e6ebe5f7eebf" />
+          </propertyInstance>
+          <elementDefinition Id="e488cd4f-9df3-4a3b-a543-770fb3593f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="084a7b8d-12f7-4cfd-a3aa-fd2ffeab7b2f">
+          <propertyInstance Id="1f125626-61a9-4c93-a55d-1a648e94b37c" name="ClrAttributes">
+            <elementDefinition Id="55b69fc6-0606-4462-a8e4-e06b7f7dc92a" />
+          </propertyInstance>
+          <elementDefinition Id="4ea5f7a0-36f5-478a-a1a6-270abbba771b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3244d414-0886-4725-bb50-8cae7c5b69b0">
+          <propertyInstance Id="c8a98228-f3ac-47c8-86cb-ae2b7c90b26a" name="Usings">
+            <elementDefinition Id="2c38890d-39fa-46b3-97dc-105188473566" />
+          </propertyInstance>
+          <elementDefinition Id="b888c706-2dab-4d4a-9bb9-8cd49cf150d5" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="69e9f295-2cb8-4489-894c-e728b8cc81cb" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="5bac79dc-6bd9-4538-afc0-3a03e6f41e76" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="7c6f50c9-6757-4b51-b6f5-5517f7f72b0a">
+          <propertyInstance Id="c8cd69e7-5f2c-40dd-bad5-ca237473f61b" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="b047d02f-bf2f-4210-a3f9-8945972c4611" />
+          </propertyInstance>
+          <elementDefinition Id="06b2dd68-917c-4824-913a-9b8807d33118" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5fdcaf6a-fb8d-44e1-81ea-14c028f4af20">
+          <propertyInstance Id="f78a9ad8-a59b-412e-b52c-ca5d0e58fa59" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="a1ade98c-0871-4bc5-a920-1b68a79035f9" />
+          </propertyInstance>
+          <elementDefinition Id="b22324b2-7d56-46c4-9498-1032d2a324bc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d81bc245-6707-42f0-bab4-1dd125c1241c">
+          <propertyInstance Id="a73ccce4-4671-4f78-aa39-fa4a7708c932" name="ProjectPath" value="ClassTemplate=..\JassplanModelLib\JassplanModelLib.csproj|EnumTemplate=..\JassplanModelLib\JassplanModelLib.csproj|InterfaceTemplate=..\JassplanModelLib\JassplanModelLib.csproj|StructTemplate=..\JassplanModelLib\JassplanModelLib.csproj">
+            <elementDefinition Id="f45a8708-deaf-48c6-9c18-f52c00e13088" />
+          </propertyInstance>
+          <elementDefinition Id="cd904372-91df-46c7-a335-707a0d3f89f0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="79fe0c69-7c3f-42b1-9377-a0c4a9b372bf">
+          <propertyInstance Id="d31db749-b998-4694-92af-b9cd3f17e074" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4b945c84-4373-4b87-8f5a-997433e38f4f" />
+          </propertyInstance>
+          <elementDefinition Id="ad658c36-f4ca-40d0-977f-206e5811575f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a367743a-d64b-4990-ad8c-f82f4d0ba308">
+          <propertyInstance Id="54f6ba36-4852-4884-bc58-3da8ef852570" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="1fe7552b-8dcd-4a12-940b-c2906a35f35c" />
+          </propertyInstance>
+          <elementDefinition Id="77a9d0fe-3b8e-4c14-94a3-5f847250f229" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="af4a7d3d-c416-4888-b40b-04bc0fdc5942">
+          <propertyInstance Id="0dbb6218-082c-4feb-9e2a-9da495581e31" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="4cd6283b-3d2a-4ed0-be56-96a29015e266" />
+          </propertyInstance>
+          <elementDefinition Id="561622e2-10e8-48a1-bc89-10071d5d4674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d5ed8a4c-e05e-4543-a2fb-c8d7c8dd2fa7">
+          <propertyInstance Id="37a9f2ac-3760-491c-873b-8d15e259b6d5" name="Parameters">
+            <elementDefinition Id="c147008e-39d7-425b-9349-0470c6e9f893" />
+          </propertyInstance>
+          <elementDefinition Id="456692b1-e825-4416-a75f-57247d4a230d" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" name="JpUser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b5c74e9e-3e2b-497e-8ade-3663ad139ab6" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="fbad85b4-2fbb-43bb-9054-e159799481ac" name="JpPlanner" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="56cf58db-61df-4b51-9ca6-bdf8119fb202" />
+        <generalsInternal>
+          <generalization Id="8aab77de-a054-4c19-aeaa-76baea58df6f" isSubstitutable="false">
+            <actorMoniker Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" LastKnownName="JpUser" />
+            <elementDefinition Id="039b630c-7dc7-4664-83f0-35139f770415" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="3336e9a7-7ed6-45b2-ad51-447e628f4aa8" name="JpThinker" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="39897f96-3d35-46ce-9827-30df51eaee06" />
+        <generalsInternal>
+          <generalization Id="4fcfafc7-3110-4cca-8f5a-b351ab335f50" isSubstitutable="false">
+            <actorMoniker Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" LastKnownName="JpUser" />
+            <elementDefinition Id="1b34fe97-4d11-49cd-9352-f61c80d30cd7" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="b85a5106-0df9-4134-975b-a48cebddd911" name="JpDoer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f9b1b331-e71b-4ac3-9632-fdf08b26178d" />
+        <generalsInternal>
+          <generalization Id="c7e505a0-b175-4d48-8057-71158645e069" isSubstitutable="false">
+            <actorMoniker Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" LastKnownName="JpUser" />
+            <elementDefinition Id="2d96d497-74f5-43f5-b087-8f09e8de7ec4" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="cd868be4-41bc-470b-829a-b0be42188c99" name="JassplanModel">
+    <elementDefinition Id="a7d3ddda-9e0e-4d17-a0b4-6dad1955abae" />
+    <profileInstances>
+      <packageHasProfileInstances Id="48f75ef6-5c82-4886-80f3-b157833e86d3">
+        <profileInstance Id="9de212f8-7099-45a9-abf1-9abca2085626" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="cefbe838-97bd-473d-96cd-c9df7b2589cd">
+        <profileInstance Id="7bf64648-62b1-4381-ac96-2e1a4d3d5433" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bce8996f-dac9-4b0c-8652-54aad0cb5390">
+        <profileInstance Id="fcddc06b-609c-454e-9e47-54eb569b8ae9" name="CSharpProfile">
+          <elementDefinition Id="c9ea5e43-5603-4624-9075-03d2477ee53f" />
+        </profileInstance>
+        <elementDefinition Id="237a3c43-eaeb-4561-b948-f53436735770" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="136f31e8-5744-4306-8bd9-c65cb49ff8e9">
+        <profileInstance Id="67cc830a-b1d8-4a12-937d-9b142fee9201" name="TextTemplateBindings">
+          <elementDefinition Id="201f59af-c9fa-4a25-b158-fcf2e91a37e0" />
+        </profileInstance>
+        <elementDefinition Id="58fee64d-46e1-4d55-9187-0a0b77114bb7" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

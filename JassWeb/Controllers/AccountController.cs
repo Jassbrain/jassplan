@@ -17,12 +17,6 @@ namespace JassWeb.Controllers
     public class AccountController : Controller
     {
 
-        public string GetUserLogged()
-        {
-            if (User.Identity.IsAuthenticated) return "true";
-            else return "false";
-        }
-
         //
         // POST: /Account/JsonLogin
 

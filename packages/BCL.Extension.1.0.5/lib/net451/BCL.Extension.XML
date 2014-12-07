@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BCL.Extension</name>
+    </assembly>
+    <members>
+        <member name="T:BCL.Extension.DateTimeExtension">
+            <summary>
+                DateTime结构的扩展
+            </summary>
+        </member>
+        <member name="M:BCL.Extension.DateTimeExtension.ToDateTime(System.Int32)">
+            <summary>
+                Unix时间戳转换为DateTime
+            </summary>
+            <param name="secondsFrom19700101"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BCL.Extension.DateTimeExtension.ToInt32(System.DateTime)">
+            <summary>
+                DateTime转换为Unix时间戳
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BCL.Extension.ExceptionExtension">
+            <summary>
+                Exception类的扩展
+            </summary>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.OrThrow(System.Boolean,System.String)">
+            <summary>
+                否则抛出异常
+            </summary>
+            <param name="condition"></param>
+            <param name="message"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.ThenThrow(System.Boolean,System.String)">
+            <summary>
+                则抛出异常
+            </summary>
+            <param name="condition"></param>
+            <param name="message"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.OrThrowArgument(System.Boolean,System.String)">
+            <summary>
+                否则抛出异常
+            </summary>
+            <param name="condition"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.ThenThrowArgument(System.Boolean,System.String)">
+            <summary>
+                则抛出异常
+            </summary>
+            <param name="condition"></param>
+            <param name="message"></param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.IsNullThenThrow(System.Object)">
+            <summary>
+                如果condition为null，则抛出参数为空异常
+            </summary>
+            <param name="argument"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:BCL.Extension.ExceptionExtension.FullMessage(System.Exception)">
+            <summary>
+                异常的完整信息
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BCL.Extension.DataTableExtension">
+            <summary>
+                DataTable类的扩展
+            </summary>
+        </member>
+        <member name="M:BCL.Extension.DataTableExtension.ToList``1(System.Data.DataTable)">
+            <summary>
+                转换为List泛型
+            </summary>
+            <param name="dt"></param>
+            <typeparam name="TResult"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:BCL.Extension.QueryableExtension">
+            <summary>
+                IQueryable的扩展
+            </summary>
+        </member>
+        <member name="M:BCL.Extension.QueryableExtension.Choose``1(System.Linq.IQueryable{``0},System.Func{System.Linq.IQueryable{``0},System.Linq.IQueryable{``0}})">
+            <summary>
+                按查询条件过滤
+            </summary>
+            <param name="set"></param>
+            <param name="condition"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:BCL.Extension.XmlConverter">
+            <summary>
+                对象和Xml的序列化和反序列化
+            </summary>
+        </member>
+        <member name="M:BCL.Extension.XmlConverter.DeserializeFile``1(System.String)">
+            <summary>
+                从Xml文件反序列化出对象
+            </summary>
+            <param name="path"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BCL.Extension.XmlConverter.SerializeFile(System.Object,System.String)">
+            <summary>
+                序列化至Xml文件
+            </summary>
+            <param name="obj"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:BCL.Extension.XmlConverter.Deserialize``1(System.String)">
+            <summary>
+                从字符串反序列化出对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BCL.Extension.XmlConverter.Serialize(System.Object)">
+            <summary>
+                序列化成字符串
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
