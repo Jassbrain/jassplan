@@ -6,6 +6,19 @@
 
 var notesListStorageKey = "Jassplan.NotesListTest";
 var failedTests = "";
+var testframe = $('#testFrame');
+
+function Jassplan() {
+    return window.frames[0].window.Jassplan;
+}
+
+function Location() {
+    return window.frames[0].window.location;
+}
+
+function FindInFrame(q) {
+    return $('#testFrame').contents().find(q);
+}
 
 afterEach(function () {
     if (this.results_.failedCount > 0) {
@@ -32,26 +45,19 @@ describe("Test Index Page", function () {
     it("Check Test User Logged / Cleanup All Notes", function () {
         //Clen Up Everything
         //First, make sure this is the "test" user
-        var user = Jassplan.viewmodel.getUserName();
+        var x = FindInFrame("#new-button");
+        var user = Jassplan().viewmodel.getUserName();
         expect(user).toBe("test");
         $.jStorage.deleteKey(notesListStorageKey);
-        Jassplan.dataContext.deleteAllNotes();
+        Jassplan().dataContext.deleteAllNotes();
         expect(true).toBe(true);
     });
 
     it("Open task edit screen from New Task button", function () {
-        var urlBefore = location.toString();
-        $("#new-button").trigger("click");
-        var urlAfter = location.toString();
-        expect(urlBefore).not.toBe(urlAfter);
-    });
-
-   
-    it("Type a new name for a new task", function () {
-       //var urlBefore = location.toString();
-       $("#new-button").trigger("click");
-       // var urlAfter = location.toString();
-       // expect(urlBefore).not.toBe(urlAfter);
+        var newbutton = FindInFrame("#new-button");
+        $(newbutton).trigger('click');
+        Jassplan().triggerclick("#new-button");
+        Jassplan().entertext("#note-title-editor","something");
     });
 
     it("Test a==b on index page ", function () {

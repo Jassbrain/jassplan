@@ -483,6 +483,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
         $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
         $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
+        $(document).on("tap", "#new-button", null, function(){alert("newbutton");});
     };
    
     return {

@@ -16,6 +16,7 @@ namespace JassWeb.Controllers
     {
         public ActionResult Index()
         {
+            
             string test = Request["test"];
             //lets try to login first
             if (test == "true")

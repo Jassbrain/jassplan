@@ -4,10 +4,13 @@
 
 var Jassplan = Jassplan || {};
 
+Jassplan.triggerclick = function (domNode) { $(domNode).trigger('click'); };
+Jassplan.entertext = function (domNode, text) { $(domNode).val(text); };
+
 Jassplan.testHelper = (function () {
     var createDummyNotes = function (notesListStorageKey) {
         var notesCount = 10;
-        var notes = [];
+        var notes = [];n
         for (var i = 0; i < notesCount; i++) {
             var config = {};
             var dateCreated = new Date();
