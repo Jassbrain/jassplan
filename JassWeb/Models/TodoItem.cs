@@ -7,7 +7,7 @@ using System.Linq;
 namespace JassWeb.Models
 {
     /// <summary>
-    /// Todo item entity
+    /// item entity
     /// </summary>
     public class TodoItem
     {

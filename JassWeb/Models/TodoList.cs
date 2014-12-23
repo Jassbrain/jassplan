@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace JassWeb.Models
 {
     /// <summary>
-    /// Todo list entity
+    /// list entity
     /// </summary>
     public class TodoList
     {

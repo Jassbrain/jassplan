@@ -130,7 +130,9 @@
 
     <script type="text/javascript">
         if (location.toString().indexOf("?test") > 0) {
-            jasmine.getEnv().execute();
+            var hrefNew = window.location.protocol +
+                "//" + window.location.host + "/JassClientJS/test_index_on_iframe.html";
+            window.location.href = hrefNew;
         }
     </script>
 

@@ -42,10 +42,22 @@ afterEach(function () {
 
 describe("Test Index Page", function () {
 
+    it("Login if not logged", function () {
+        //Clen Up Everything
+        //First, make sure this is the "test" user
+        var user = Jassplan().viewmodel.getUserName();
+        if (user != "test") {
+            var homePage = location.protocol + "//" + location.host + "/";
+            //  $iframe.attr('src',url);   
+            $("#testFrame").attr('src', homePage);
+            Jassplan().entertext("#loginName", "test");
+        }
+
+    });
+
     it("Check Test User Logged / Cleanup All Notes", function () {
         //Clen Up Everything
         //First, make sure this is the "test" user
-        var x = FindInFrame("#new-button");
         var user = Jassplan().viewmodel.getUserName();
         expect(user).toBe("test");
         $.jStorage.deleteKey(notesListStorageKey);
@@ -54,8 +66,6 @@ describe("Test Index Page", function () {
     });
 
     it("Open task edit screen from New Task button", function () {
-        var newbutton = FindInFrame("#new-button");
-        $(newbutton).trigger('click');
         Jassplan().triggerclick("#new-button");
         Jassplan().entertext("#note-title-editor","something");
     });
