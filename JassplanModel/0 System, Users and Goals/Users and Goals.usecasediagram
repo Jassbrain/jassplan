@@ -3,16 +3,17 @@
   <ownedCommentsInternal>
     <comment Id="1de59fdd-25c5-47b8-ac11-2427c5e3560c">
       <elementDefinition Id="d6302895-7cb7-4855-95d9-ed5d14116276" />
-      <body>Jpuser has a very busy life and needs/have to get organized. Seriously, not only he does better when he is organized but also his mood improves. The sole idea of starting to get organized and having the intention to plan and execute with logic, motivates him. So, in the same way a person 'joins a gym' to get into exercising and start doing it (when actualy is not necessary to join or use a gym for that), 'joining a task/goal planner' has a similar effect in his mind, mood and effectivenes. So, he decided to use "jassplan" to become more organized, more insighful, more effective, more balanced. Being effective is important but being balanced and toward the highest value is actually as importan. So, He has a registered account with jassplan and he access the application manny times every day. Accessing the application is very easy and convenient and he gets a minor psicological reward of seeing his progress during the day.</body>
+      <body>1. Jpuser has a very busy life and needs to get organized. He cares about a lot of personal and interpersonal subjects. His life is complex and demanding and he wants to get in control. He noticed that if he goes through the day without paying too much attention, he normally regrets at the end of the day or week after having many things, that he consider important , not done. Some days, he actually does a lot of things but he still regrets the lack of balance. And, even in those periods where is being pretty effective, there are important things that fall into the cracks causing trouble. Sometimes, also, very nice things, that should have been a pleasure to do, are not done for "lack of time".
+Not only he does better when he is organized but also his mood improves. Just the idea of starting to get organized and having the intention to plan and execute with logic, motivates him. So, in the same way a person 'joins a gym' to get into exercising and starts doing it (when actualy is not necessary to join or use a gym for that), 'joining a task/goal planner' has a similar effect in his mind, mood and effectivenes. So, he decided to use "jassplan" to become more organized, more insighful, more effective, more balanced. Being effective is important but being balanced and oriented toward his highest values is actually more important. So, he has a registered account with jassplan and he access the application manny times every day. Accessing the application is very easy and convenient and he gets a minor psicological reward of seeing his progress during the day. Jassplan also helps him to decided what to do next or what to stop doing with reminders and smart goal lists.</body>
       <annotatedElements>
         <actorMoniker Id="0a6db9dc-8630-4d9a-8d68-1304d24dc952" LastKnownName="JpUser" />
       </annotatedElements>
     </comment>
     <comment Id="e3b3f7d7-1504-4482-aa9f-a0665f1e9a23">
       <elementDefinition Id="7a3eb7b5-4004-4768-a9aa-ee430443b060" />
-      <body>When JpUser is relaxed and in the mood of organizing or revising his day or week or a more longer period he sits down in a chair or in bed and goes trough ALL his main goals and values (even the non critical ones) and decided what need to be done in that day. He likes to revise all values and tasks even if they do not look urgent and he like to do this by an canonic order starint from mind, then family, then work, etc.. He also update the status of each goal/value marking them with a color code to reflect whether the value is 'ok', 'gnegleced', 'in trouble',..etc. He normally does this in the early morning or at night.
-Setting a trouble status (yellow or red) does not necessary mean that we will takle this value that day.. it is just an indication that this value need attention.
-When planning the day he also tries to chedule the values/things he will do during the day using a few mechanims. Starting hour (to delay a tasks to appear in the to do list until certain time), sibling order .. to be able to say which tasks should be done first,.etc.
+      <body>2. When JpUser is relaxed and in the mood of organizing or revising his day or week or a more longer period he becomes a JpPlanner and sits down in a chair or in bed and goes trough ALL his main subjects: goals, values, tasks, (even the non critical ones) and decides what he wants/plans to do in that day. He likes to revise all those subjects, values and tasks even if they do not look urgent and he likes to do this using a canonic order starting from "mind", then "body", "family", then work, etc.. He also updates the status of each goal/value marking them with a color code to reflect whether the subject is 'ok', 'neglected', 'in trouble',..etc. He normally does this in the early morning or at night.
+Setting a trouble status (yellow or red) does not necessary mean that we will takle this value that day.. it is just an indication that this value needs attention. 
+When planning the day he also tries to schedule the values/things he will do during the day using a few mechanims. Starting hour (to delay a tasks to appear in the to do list until certain time), sibling order .. to be able to say which tasks should be done first,.etc.
  </body>
       <annotatedElements>
         <actorMoniker Id="fbad85b4-2fbb-43bb-9054-e159799481ac" LastKnownName="JpPlanner" />
@@ -20,14 +21,14 @@ When planning the day he also tries to chedule the values/things he will do duri
     </comment>
     <comment Id="2cfb92a4-b97a-4e91-a669-bf928050fdaf">
       <elementDefinition Id="40c63c68-5aea-49d1-9426-52ece594e1e1" />
-      <body>JpUser becomes JpDoer when he had already planned the day and he is action. He is ont the road, at the desk working, etc. He does not have time to think about the big picture. He is focused at the task at hand. He udate tasks status, he may modify the plan, but everything is fast and to the point He may reschedule tasks, move them around.</body>
+      <body>3. JpUser becomes JpDoer when he had already planned the day and he is in action. He is on the road, at the desk working, etc. He does not have time to think about the big picture. He is focused at the task at hand. He udate tasks status, he may modify the plan, but everything is fast and to the point He may reschedule tasks, move them around. He may even add some new tasks... but all is done without too much care of the global picture. Doer does and only make 'tactical' changes. Ideally he shouuld go throught the day executing the plans "as is". </body>
       <annotatedElements>
         <actorMoniker Id="b85a5106-0df9-4134-975b-a48cebddd911" LastKnownName="JpDoer" />
       </annotatedElements>
     </comment>
     <comment Id="8f2b6861-e750-4ea1-aa91-26013e7b2b30">
       <elementDefinition Id="d362c670-5464-43e3-aa60-aa1f04d2380f" />
-      <body>a JpUser becomes a JpThinker when he is really realaxed and looking at the big picture. He cares about the history, he tries to find patterns in his behaviour. He may share his time with the planner... but his role is more abstract, he may end up trying to change a strategy, create a new rules, etc.</body>
+      <body>4. a JpUser becomes a JpThinker when he is really realaxed and looking at the big picture. He cares about the history, he tries to find patterns in his behaviour. He may share his time with the planner... but his role is more abstract, he may end up trying to change a strategy, create a new rules, etc.</body>
       <annotatedElements>
         <actorMoniker Id="3336e9a7-7ed6-45b2-ad51-447e628f4aa8" LastKnownName="JpThinker" />
       </annotatedElements>

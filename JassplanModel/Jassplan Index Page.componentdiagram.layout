@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Jassplan Index Page">
+  <componentModelMoniker Id="4b9d4a4a-3f36-4193-9da5-15788dec1974" />
+  <nestedChildShapes>
+    <componentShape Id="ab7c324e-cedf-4405-8c7b-e26ac2586fbe" absoluteBounds="0.5, 0.5, 2.875, 2.7833333492279055" customColor="161, 199, 231" whiteBoxBoundsHeight="0.95" whiteBoxBoundsWidth="2.8999999523162843" blackBoxBoundsHeight="0.7" blackBoxBoundsWidth="1.5" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0" whiteBoxSettingsInitialized="true" blackBoxSettingsInitialized="true">
+      <componentMoniker Id="c8e72c2b-ad98-483b-ad1d-08a49931517f" LastKnownName="Index Page" />
+      <nestedChildShapes>
+        <componentUseShape Id="d737436a-3c60-47dc-bbb4-b4076b686603" absoluteBounds="0.60000000000000009, 1.037506485581398, 2.5166666666666666, 0.95833333333333326" customColor="161, 199, 231" whiteBoxBoundsHeight="0" whiteBoxBoundsWidth="0" blackBoxBoundsHeight="0" blackBoxBoundsWidth="0" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0">
+          <partMoniker Id="e7d8cee5-c28a-4e95-99a3-19ff2f092e41" LastKnownName="notes-list-page" />
+        </componentUseShape>
+        <componentUseShape Id="15af8812-a9ff-4de6-90a4-8ad05c34a62a" absoluteBounds="0.6, 2.2333333492279053, 2.5000000238418578, 0.95" customColor="161, 199, 231" whiteBoxBoundsHeight="0" whiteBoxBoundsWidth="0" blackBoxBoundsHeight="0" blackBoxBoundsWidth="0" whiteBoxTopEdgeShapesCount="0" whiteBoxRightEdgeShapesCount="0" whiteBoxBottomEdgeShapesCount="0" whiteBoxLeftEdgeShapesCount="0" blackBoxTopEdgeShapesCount="0" blackBoxRightEdgeShapesCount="0" blackBoxBottomEdgeShapesCount="0" blackBoxLeftEdgeShapesCount="0">
+          <partMoniker Id="c89b5c25-7c62-451d-acef-66653d2f150b" LastKnownName="note-editor-page" />
+        </componentUseShape>
+      </nestedChildShapes>
+    </componentShape>
+  </nestedChildShapes>
+</componentDiagram>

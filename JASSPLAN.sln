@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassTools", "JassTools\Jass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JassToolsTests", "JassToolsTests\JassToolsTests.csproj", "{1D6F75FE-CF71-4B30-AD1B-982A29BEACF2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jp1-ServerAPI", "jp1-ServerAPI", "{5630780D-3D01-437B-B770-48A4EB65EC25}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jp1-Service", "jp1-Service", "{5630780D-3D01-437B-B770-48A4EB65EC25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jp0-Utils", "Jp0-Utils", "{C146A0CD-8833-47C0-BB7A-C9BBBF41DC6E}"
 	ProjectSection(SolutionItems) = preProject

@@ -45,6 +45,7 @@ describe("Test Index Page", function () {
     it("Login if not logged", function () {
         //Clen Up Everything
         //First, make sure this is the "test" user
+
         var user = Jassplan().viewmodel.getUserName();
         if (user != "test") {
             var homePage = location.protocol + "//" + location.host + "/";

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<componentModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="4b9d4a4a-3f36-4193-9da5-15788dec1974" name="Jassplan Index Page" linkedPackageId="5230ea64-451a-4bb1-8d95-70e322eabb0d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="b41eae0c-d628-4d50-9b4b-cc5c82946d94" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="6f24c033-2716-4565-9a11-1952315ffcfb" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f6cdaf28-b7c7-4c3a-9169-2552aae5707e">
+          <propertyInstance Id="12646199-0409-4e3e-89a6-c47415330223" name="BaseName">
+            <elementDefinition Id="94f3aaff-0fc8-4446-a16f-e6ebe5f7eebf" />
+          </propertyInstance>
+          <elementDefinition Id="e488cd4f-9df3-4a3b-a543-770fb3593f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a461cab7-1748-4c6b-a50c-a64822662aa4">
+          <propertyInstance Id="c2e0f0de-c344-410b-b822-659b7ecb4ae0" name="ClrAttributes">
+            <elementDefinition Id="55b69fc6-0606-4462-a8e4-e06b7f7dc92a" />
+          </propertyInstance>
+          <elementDefinition Id="4ea5f7a0-36f5-478a-a1a6-270abbba771b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="86335110-fc9d-47c8-80bf-4c66e306bdce">
+          <propertyInstance Id="89324ada-d46a-4f3b-9372-12323903ec27" name="Usings">
+            <elementDefinition Id="2c38890d-39fa-46b3-97dc-105188473566" />
+          </propertyInstance>
+          <elementDefinition Id="b888c706-2dab-4d4a-9bb9-8cd49cf150d5" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="5afa412e-3047-4ce8-8de0-7df02cc90ce4" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="5bac79dc-6bd9-4538-afc0-3a03e6f41e76" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="7fd5ae55-47e6-459d-8497-f93afd2af7ad">
+          <propertyInstance Id="9391aa45-033c-4976-94f6-97c84a4a7b5a" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="b047d02f-bf2f-4210-a3f9-8945972c4611" />
+          </propertyInstance>
+          <elementDefinition Id="06b2dd68-917c-4824-913a-9b8807d33118" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3e9f398a-a2ab-465e-8a1c-3fed5395527d">
+          <propertyInstance Id="6c1fcd1c-382c-49b6-9967-4a5cc6828299" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="a1ade98c-0871-4bc5-a920-1b68a79035f9" />
+          </propertyInstance>
+          <elementDefinition Id="b22324b2-7d56-46c4-9498-1032d2a324bc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="834713ab-d598-4db8-980c-a8741c415982">
+          <propertyInstance Id="f0512505-413d-49e0-af74-91f793d666e3" name="ProjectPath" value="ClassTemplate=..\JassplanModelLib\JassplanModelLib.csproj|EnumTemplate=..\JassplanModelLib\JassplanModelLib.csproj|InterfaceTemplate=..\JassplanModelLib\JassplanModelLib.csproj|StructTemplate=..\JassplanModelLib\JassplanModelLib.csproj">
+            <elementDefinition Id="f45a8708-deaf-48c6-9c18-f52c00e13088" />
+          </propertyInstance>
+          <elementDefinition Id="cd904372-91df-46c7-a335-707a0d3f89f0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="e7b22c68-962d-438d-9d44-66b37cfb4c36">
+          <propertyInstance Id="371e2baa-fde7-4b9c-be69-fae57f4d7cf7" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="4b945c84-4373-4b87-8f5a-997433e38f4f" />
+          </propertyInstance>
+          <elementDefinition Id="ad658c36-f4ca-40d0-977f-206e5811575f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="1a69ac8a-a218-4c59-9f41-fe75899fd275">
+          <propertyInstance Id="f5e2dfb8-0e8c-4fcd-a9f8-f8661e73bc2c" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="1fe7552b-8dcd-4a12-940b-c2906a35f35c" />
+          </propertyInstance>
+          <elementDefinition Id="77a9d0fe-3b8e-4c14-94a3-5f847250f229" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="9dce8f5b-584a-4181-881e-ae5c97f0e620">
+          <propertyInstance Id="f9cae3a3-56d3-42a0-b021-7d0e762d7e36" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="4cd6283b-3d2a-4ed0-be56-96a29015e266" />
+          </propertyInstance>
+          <elementDefinition Id="561622e2-10e8-48a1-bc89-10071d5d4674" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f06e023c-e44a-4c91-8610-1883a51605c7">
+          <propertyInstance Id="921bd330-851f-4e64-a810-65112e0d92d9" name="Parameters">
+            <elementDefinition Id="c147008e-39d7-425b-9349-0470c6e9f893" />
+          </propertyInstance>
+          <elementDefinition Id="456692b1-e825-4416-a75f-57247d4a230d" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="7ef5e07d-5b51-4e4c-8c42-f7de2e2157bf">
+      <profileInstance Id="858cba44-ea3e-4192-909d-37ca94fa7dc6" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0e7c051b-e076-4a46-932e-77cb67572375">
+      <profileInstance Id="1f7eb609-a62a-4b99-a5b3-7ff31d6e30cd" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="64311332-12e1-482e-9e31-5abf5ed73358">
+      <profileInstance Id="de579d6b-1406-4317-9ff8-1d0ad953e8b1" name="CSharpProfile">
+        <elementDefinition Id="c9ea5e43-5603-4624-9075-03d2477ee53f" />
+      </profileInstance>
+      <elementDefinition Id="237a3c43-eaeb-4561-b948-f53436735770" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="4a1e28cf-31ef-4db2-843c-d75d5daa74c1">
+      <profileInstance Id="306ced59-ab09-40c0-b883-107a0097de57" name="TextTemplateBindings">
+        <elementDefinition Id="201f59af-c9fa-4a25-b158-fcf2e91a37e0" />
+      </profileInstance>
+      <elementDefinition Id="58fee64d-46e1-4d55-9187-0a0b77114bb7" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <componentModelHasComponents>
+      <component Id="c8e72c2b-ad98-483b-ad1d-08a49931517f" name="Index Page" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="99e24818-e193-4972-b612-d098249910d2" />
+        <ownedAttributesInternal>
+          <part Id="e7d8cee5-c28a-4e95-99a3-19ff2f092e41" name="notes-list-page" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="true">
+            <elementDefinition Id="eb4bd9ec-8354-45ff-9700-a45656f64812" />
+            <type_NamedElement>
+              <componentMoniker Id="7b433f10-ccfb-4417-8244-8afe47396a65" LastKnownName="jqm-page" />
+            </type_NamedElement>
+          </part>
+          <part Id="c89b5c25-7c62-451d-acef-66653d2f150b" name="note-editor-page" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="true">
+            <elementDefinition Id="43e2a732-20c8-44ec-9375-14cbff1a83bd" />
+            <type_NamedElement>
+              <componentMoniker Id="9ed34767-aa6a-400e-8825-c6c35339c114" LastKnownName="jqm-page" />
+            </type_NamedElement>
+          </part>
+        </ownedAttributesInternal>
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="7b433f10-ccfb-4417-8244-8afe47396a65" name="jqm-page" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="02d53440-7e06-41d1-9ef1-5d20d2bfe12a" />
+      </component>
+    </componentModelHasComponents>
+    <componentModelHasComponents>
+      <component Id="9ed34767-aa6a-400e-8825-c6c35339c114" name="jqm-page" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="47af1ef9-7a92-4bfb-a731-dd9ca2fc0687" />
+      </component>
+    </componentModelHasComponents>
+  </packagedElements>
+  <package Id="5230ea64-451a-4bb1-8d95-70e322eabb0d" name="JassplanModel">
+    <elementDefinition Id="a7d3ddda-9e0e-4d17-a0b4-6dad1955abae" />
+  </package>
+</componentModel>

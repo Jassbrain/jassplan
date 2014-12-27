@@ -16,22 +16,16 @@ namespace JassWeb.Controllers
     {
         public ActionResult Index()
         {
-            
-            string test = Request["test"];
-            //lets try to login first
-            if (test == "true")
+            if (Request["test"]== "true")
             {
                 if (WebSecurity.Login("test", "password", false))
                 {
                     FormsAuthentication.SetAuthCookie("test", false);
-                    return Redirect("/JassClientJS/index.html?test=true");
+                    return Redirect("/JassClientJS/tests/test_index_on_iframe.html");
                 }
             }
-
-
             if (!User.Identity.IsAuthenticated) return View();
-            else return Redirect("/JassClientJS/index.html");
-            
+            else return Redirect("/JassClientJS/index.html");            
         }
     }
 }
