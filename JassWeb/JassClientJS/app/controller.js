@@ -111,9 +111,9 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
         ul.listview();
 
-        $(document).on("tap", "[name=starimage]", onTapStar);
+        $(document).on("tap click", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
-        $(document).on("tap", "[name=parentimage]", onTapParent);
+        $(document).on("tap click", "[name=parentimage]", onTapParent);
         $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
 
         // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
@@ -222,9 +222,9 @@ Jassplan.controller = (function (view, viewModel, helper) {
         }
         ul.listview();
 
-        $(document).on("tap", "[name=starimage]", onTapStar);
+        $(document).on("tap click", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
-        $(document).on("tap", "[name=parentimage]", onTapParent);
+        $(document).on("tap click", "[name=parentimage]", onTapParent);
         $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
 
        // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
@@ -472,17 +472,17 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
     var init = function () {
         viewModel.init(appStorageKey);
-        $(document).on("tap", "#view-model-logged", onOfflineTapped);
+        $(document).on("tap click", "#view-model-logged", onOfflineTapped);
         $(document).on("pagechange", onPageChange);
         $(document).on("pagebeforechange", onPageBeforeChange);
-        $(document).on("tap", "#save-note-button", null, onSaveNoteButtonTapped);
-        $(document).on("tap", "#refresh-button", null, onRefreshButtonTapped);
-        $(document).on("tap", "#plan-button", null, onPlanButtonTapped);
-        $(document).on("tap", "#do-button", null, onDoButtonTapped);
-        $(document).on("tap", "#review-button", null, onReviewButtonTapped);
-        $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
-        $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
-        $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
+        $(document).on("tap click", "#save-note-button", null, onSaveNoteButtonTapped);
+        $(document).on("tap click", "#refresh-button", null, onRefreshButtonTapped);
+        $(document).on("tap click", "#plan-button", null, onPlanButtonTapped);
+        $(document).on("tap click", "#do-button", null, onDoButtonTapped);
+        $(document).on("tap click", "#review-button", null, onReviewButtonTapped);
+        $(document).on("tap click", "#archive-button", null, onArchiveButtonTapped);
+        $(document).on("tap click", "#delete-button", null, onDeleteNoteButtonTapped);
+        $(document).on("tap click", "#view-model-parent", null, onParentNameTapped);
     };
    
     return {

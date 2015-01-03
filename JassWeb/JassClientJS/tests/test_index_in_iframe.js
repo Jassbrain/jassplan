@@ -36,45 +36,40 @@ afterEach(function () {
         } else {
             alert("Test Failed: " + this.description);
         }
+        jasmine.Queue.prototype.next_ = function () {
+            // to skip to the end and stop processing
+            this.onComplete();
+        }
     }
 });
 
 
 describe("Test Index Page", function () {
 
-    it("Login if not logged", function () {
-        //Clen Up Everything
-        //First, make sure this is the "test" user
-
-        var user = Jassplan().viewmodel.getUserName();
-        if (user != "test") {
-            var homePage = location.protocol + "//" + location.host + "/";
-            //  $iframe.attr('src',url);   
-            $("#testFrame").attr('src', homePage);
-            Jassplan().entertext("#loginName", "test");
-        }
-
-    });
-
     it("Check Test User Logged / Cleanup All Notes", function () {
         //Clen Up Everything
         //First, make sure this is the "test" user
         var user = Jassplan().viewmodel.getUserName();
+
+        if (user == "test") {
+            $.jStorage.deleteKey(notesListStorageKey);
+            Jassplan().dataContext.deleteAllNotes();
+        }
         expect(user).toBe("test");
-        $.jStorage.deleteKey(notesListStorageKey);
-        Jassplan().dataContext.deleteAllNotes();
+    });
+
+    it("Access Plan View", function () {
+        Jassplan().triggerclick("#plan-button");
+        //expect being in the plan view ??
         expect(true).toBe(true);
     });
 
+/*
     it("Open task edit screen from New Task button", function () {
         Jassplan().triggerclick("#new-button");
         Jassplan().entertext("#note-title-editor","something");
     });
-
-    it("Test a==b on index page ", function () {
-
-        expect(true).toBe(true);
-    });
+*/
 
     it("LastTest", function () {
         expect(true).toBe(true);

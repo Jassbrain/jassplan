@@ -4,7 +4,7 @@
 
 var Jassplan = Jassplan || {};
 
-Jassplan.triggerclick = function (domNode) { $(domNode).trigger('click'); };
+Jassplan.triggerclick = function (domNode) { $(domNode).trigger("click"); };
 Jassplan.entertext = function (domNode, text) { $(domNode).val(text); };
 
 Jassplan.testHelper = (function () {
