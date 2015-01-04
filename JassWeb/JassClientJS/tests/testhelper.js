@@ -6,6 +6,7 @@ var Jassplan = Jassplan || {};
 
 Jassplan.triggerclick = function (domNode) { $(domNode).trigger("click"); };
 Jassplan.entertext = function (domNode, text) { $(domNode).val(text); };
+Jassplan.gettext = function (domNode) { return $(domNode)[0].innerHTML; };
 
 Jassplan.testHelper = (function () {
     var createDummyNotes = function (notesListStorageKey) {

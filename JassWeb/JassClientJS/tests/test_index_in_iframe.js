@@ -46,11 +46,8 @@ afterEach(function () {
 
 describe("Test Index Page", function () {
 
-    it("Check Test User Logged / Cleanup All Notes", function () {
-        //Clen Up Everything
-        //First, make sure this is the "test" user
+    it("Check User Logged is 'test' and cleanup All Notes", function () {
         var user = Jassplan().viewmodel.getUserName();
-
         if (user == "test") {
             $.jStorage.deleteKey(notesListStorageKey);
             Jassplan().dataContext.deleteAllNotes();
@@ -60,8 +57,12 @@ describe("Test Index Page", function () {
 
     it("Access Plan View", function () {
         Jassplan().triggerclick("#plan-button");
-        //expect being in the plan view ??
-        expect(true).toBe(true);
+        //expect   <td><h3 id="view-model-state">Do</h3></td>
+        var stateShownInPage = Jassplan().gettext("#view-model-state");
+        expect(stateShownInPage).toBe("Plan");
+        //Expect view model change
+        var stateShownInModelView = Jassplan().viewmodel.getState();
+        expect(stateShownInModelView).toBe("Plan");
     });
 
 /*
