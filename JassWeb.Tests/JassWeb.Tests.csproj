@@ -113,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JassWeb\Jass4Web.csproj">
-      <Project>{CF1FE721-80C5-44DA-B8D6-A38A8F42A6FF}</Project>
+      <Project>{cf1fe721-80c5-44da-b8d6-a38a8f42a6ff}</Project>
       <Name>Jass4Web</Name>
     </ProjectReference>
   </ItemGroup>

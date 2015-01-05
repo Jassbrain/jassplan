@@ -65,12 +65,13 @@ describe("Test Index Page", function () {
         expect(stateShownInModelView).toBe("Plan");
     });
 
-/*
-    it("Open task edit screen from New Task button", function () {
+
+    it("Create New Subject While in Plan View", function () {
         Jassplan().triggerclick("#new-button");
-        Jassplan().entertext("#note-title-editor","something");
+        Jassplan().entertext("#note-title-editor", "something");
+        expect(true).toBe(true);
     });
-*/
+
 
     it("LastTest", function () {
         expect(true).toBe(true);

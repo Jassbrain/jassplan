@@ -43,6 +43,8 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "JassplanModel", "JassplanMo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jp0-Model", "Jp0-Model", "{FDE02A3C-4690-4B03-AF44-363B62FFC97F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jp3-UI-Tests", "Jp3-UI-Tests\Jp3-UI-Tests.csproj", "{AB1B9D3E-2639-438A-994F-3AF514C045AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{7F9BE583-7891-4239-A620-3C606E6DDB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F9BE583-7891-4239-A620-3C606E6DDB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F9BE583-7891-4239-A620-3C606E6DDB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB1B9D3E-2639-438A-994F-3AF514C045AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1B9D3E-2639-438A-994F-3AF514C045AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1B9D3E-2639-438A-994F-3AF514C045AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1B9D3E-2639-438A-994F-3AF514C045AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
