@@ -22,62 +22,41 @@ namespace Jp3_UI_Tests
         {
         }
 
+        enum ControlType {
+            Button,
+            Edit
+        }
+
+        UITestControl getControl(ControlType controlType, BrowserWindow browser, string buttonId){
+           UITestControl button = new UITestControl(browser);
+           button.TechnologyName = "Web";
+           var controlTypeString = controlType.ToString();
+           button.SearchProperties.Add("ControlType", controlTypeString);
+           button.SearchProperties.Add("Id", buttonId);
+           return button;
+        }
+
+        BrowserWindow openBrowserOn(string url){
+            BrowserWindow browser = BrowserWindow.Launch(url);
+            return browser;
+        }
+
+        void loginIntoJassplan(BrowserWindow browser){
+            var loginSubmitButton = getControl(ControlType.Button,browser, "login_submit_button");
+            var loginName = getControl(ControlType.Edit, browser, "loginName");
+            var password = getControl(ControlType.Edit, browser, "password");
+            loginName.SetProperty("value", "test");
+            password.SetProperty("value", "password");
+            Mouse.Click(loginSubmitButton);
+        }
+
         [TestMethod]
         public void First_Big_Jassplan_UI_Test()
         {
-
-            BrowserWindow.ClearCookies();
-            BrowserWindow browser = BrowserWindow.Launch(new Uri("http://jassplan.azurewebsites.net/"));
-            
-            browser.Maximized = true;
-
-
-           //The idea is to test with the user "test/password" which is based on cookie. 
-           //if we are already logged we proceed with testing. if not we will log in.
-
-           UITestControl loginSubmitButton = new UITestControl(browser);
-           loginSubmitButton.TechnologyName = "Web";
-           loginSubmitButton.SearchProperties.Add("ControlType", "Button");
-           loginSubmitButton.SearchProperties.Add("Id", "login_submit_button");
-
-           var loginSubmitButtonExists = loginSubmitButton.Exists;
-
-           
-            if (loginSubmitButtonExists) {
-
-
-               UITestControl loginName = new UITestControl(browser);
-               loginName.TechnologyName = "Web";
-               loginName.SearchProperties.Add("ControlType", "Edit");
-               loginName.SearchProperties.Add("Id", "loginName");
-
-               var loginNameExists = loginName.Exists;
-               if (loginNameExists) { 
-
-               loginName.SetProperty("value", "test");
-
-               }
-
-               UITestControl password = new UITestControl(browser);
-               password.TechnologyName = "Web";
-               password.SearchProperties.Add("ControlType", "Edit");
-               password.SearchProperties.Add("Id", "password");
-
-               var passwordExists = password.Exists;
-               if (passwordExists)
-               {
-
-                   password.SetProperty("value", "password");
-
-               }
-               Playback.Wait(1000);
-
-           Mouse.Click(loginSubmitButton);
-
-
-           Playback.Wait(100000);
-
-           }
+            var logoffBrowserTab = openBrowserOn("http://jassplan.azurewebsites.net/account/logoff");  
+            var mainBrowserTab = openBrowserOn("http://jassplan.azurewebsites.net/");    
+            loginIntoJassplan(mainBrowserTab);
+            Playback.Wait(100000);
         }
 
 
