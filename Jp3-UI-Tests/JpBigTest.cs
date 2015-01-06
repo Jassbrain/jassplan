@@ -53,10 +53,8 @@ namespace Jp3_UI_Tests
         [TestMethod]
         public void First_Big_Jassplan_UI_Test()
         {
-            var logoffBrowserTab = openBrowserOn("http://jassplan.azurewebsites.net/account/logoff");  
-            var mainBrowserTab = openBrowserOn("http://jassplan.azurewebsites.net/");    
-            loginIntoJassplan(mainBrowserTab);
-            Playback.Wait(100000);
+            var browserWindow = openBrowserOn("http://jassplan.azurewebsites.net/account/logoff");    
+            loginIntoJassplan(browserWindow);
         }
 
 
