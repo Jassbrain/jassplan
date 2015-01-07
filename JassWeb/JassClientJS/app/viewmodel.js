@@ -224,7 +224,8 @@ Jassplan.viewmodel = (function (dataContext) {
                 parentName = notesList[i].title;
             }
         }
-        if (parentName == null) { parentName = "";}
+        if (parentName == null) { parentName = ""; };
+        if (getState() == null) { setStateDo(); };
     };
 
     var public = {

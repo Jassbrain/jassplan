@@ -23,8 +23,9 @@ namespace Jp3_UI_Tests
         }
 
         enum ControlType {
-            Button,
-            Edit
+            Button, // input type submit
+            Edit,   // input type text
+            Pane   //Div
         }
 
         UITestControl getControl(ControlType controlType, BrowserWindow browser, string buttonId){
@@ -33,6 +34,7 @@ namespace Jp3_UI_Tests
            var controlTypeString = controlType.ToString();
            button.SearchProperties.Add("ControlType", controlTypeString);
            button.SearchProperties.Add("Id", buttonId);
+           button.Find();
            return button;
         }
 
@@ -50,11 +52,18 @@ namespace Jp3_UI_Tests
             Mouse.Click(loginSubmitButton);
         }
 
+        void verifyPlanView(BrowserWindow browser){
+            var viewModelState = getControl(ControlType.Pane, browser, "view-model-state");
+            var state = viewModelState.GetProperty("innerHTML");
+            Assert.AreEqual(state, "Do");
+        }
+
         [TestMethod]
         public void First_Big_Jassplan_UI_Test()
         {
             var browserWindow = openBrowserOn("http://jassplan.azurewebsites.net/account/logoff");    
             loginIntoJassplan(browserWindow);
+            verifyPlanView(browserWindow);
         }
 
 
