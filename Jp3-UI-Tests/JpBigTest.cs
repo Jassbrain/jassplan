@@ -16,16 +16,18 @@ namespace Jp3_UI_Tests
     /// Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class JpBigTest
+    public class JpBigFatIntegrationTest
     {
-        public JpBigTest()
+        public JpBigFatIntegrationTest()
         {
         }
 
         enum ControlType {
             Button, // input type submit
             Edit,   // input type text
-            Pane   //Div
+            Pane,   //Div
+            Hyperlink,   //<a>
+            Link   //<a>
         }
 
         UITestControl getControl(ControlType controlType, BrowserWindow browser, string buttonId){
@@ -34,6 +36,7 @@ namespace Jp3_UI_Tests
            var controlTypeString = controlType.ToString();
            button.SearchProperties.Add("ControlType", controlTypeString);
            button.SearchProperties.Add("Id", buttonId);
+           var buttons = button.FindMatchingControls();
            button.Find();
            return button;
         }
@@ -43,7 +46,7 @@ namespace Jp3_UI_Tests
             return browser;
         }
 
-        void loginIntoJassplan(BrowserWindow browser){
+        void User_Logins_to_Jassplan(BrowserWindow browser){
             var loginSubmitButton = getControl(ControlType.Button,browser, "login_submit_button");
             var loginName = getControl(ControlType.Edit, browser, "loginName");
             var password = getControl(ControlType.Edit, browser, "password");
@@ -52,40 +55,34 @@ namespace Jp3_UI_Tests
             Mouse.Click(loginSubmitButton);
         }
 
-        void verifyPlanView(BrowserWindow browser){
+        void Assert_Default_View_Correcteness(BrowserWindow browser){
+            Assert_View_Name_Correcteness("Do", browser);
+        }
+
+        void Assert_View_Name_Correcteness(string viewName, BrowserWindow browser)
+        {
             var viewModelState = getControl(ControlType.Pane, browser, "view-model-state");
             var state = viewModelState.GetProperty("innerHTML");
-            Assert.AreEqual(state, "Do");
+            Assert.AreEqual(state, viewName);
+        }
+
+        void Planner_Access_Plan_View(BrowserWindow browser)
+        {
+            var PlanButton = getControl(ControlType.Pane, browser, "plan-button");
+            Mouse.Click(PlanButton);
         }
 
         [TestMethod]
-        public void First_Big_Jassplan_UI_Test()
+        public void Big_Fat_Integration_Test()
         {
             var browserWindow = openBrowserOn("http://jassplan.azurewebsites.net/account/logoff");    
-            loginIntoJassplan(browserWindow);
-            verifyPlanView(browserWindow);
+            User_Logins_to_Jassplan(browserWindow);
+            Assert_Default_View_Correcteness(browserWindow);
+            Planner_Access_Plan_View(browserWindow);
+            Assert_View_Name_Correcteness("Plan", browserWindow);
+            Playback.Wait(30);
         }
 
-
-        #region Additional test attributes
-
-        // You can use the following additional attributes as you write your tests:
-
-        ////Use TestInitialize to run code before running each test 
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{        
-        //    // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-        //}
-
-        ////Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{        
-        //    // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
-        //}
-
-        #endregion
 
         /// <summary>
         ///Gets or sets the test context which provides
