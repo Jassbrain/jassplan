@@ -53,6 +53,13 @@ namespace JassWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult LogOffAndClean()
+        {
+            WebSecurity.Logout();
+
+            return RedirectToAction("IndexClean", "Home");
+        }
+
         //
         // POST: /Account/JsonRegister
         [HttpPost]

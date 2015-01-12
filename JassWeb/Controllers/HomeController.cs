@@ -15,17 +15,14 @@ namespace JassWeb.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            if (Request["test"]== "true")
-            {
-                if (WebSecurity.Login("test", "password", false))
-                {
-                    FormsAuthentication.SetAuthCookie("test", false);
-                    return Redirect("/JassClientJS/tests/test_index_on_iframe.html");
-                }
-            }
+        {       
             if (!User.Identity.IsAuthenticated) return View();
-            else return Redirect("/JassClientJS/index.html");            
+
+            if (User.Identity.Name == "test") {
+                var mm = new JassDataModelManager(WebSecurity.CurrentUserName);
+                mm.ActivityDeleteAll();
+            }
+            return Redirect("/JassClientJS/index.html");            
         }
     }
 }
