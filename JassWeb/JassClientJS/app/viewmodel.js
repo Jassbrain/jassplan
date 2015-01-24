@@ -212,24 +212,29 @@ Jassplan.viewmodel = (function (dataContext) {
         return result;
     };
 
+    var refresh = function(){   
+        dataContext.refresh();
+    }
+
     var init = function () {
         dataContext.init(appStorageKey);
         parent = getParent();
         notesList = dataContext.getNotesList();
         reviewsList = dataContext.getReviewsList();
 
-        //TODO: this code should not be here and also this loop is bad
         for (var i = 0; i < notesList.length; i++) {
             if (notesList[i].id == parent) {
                 parentName = notesList[i].title;
             }
         }
+
         if (parentName == null) { parentName = ""; };
         if (getState() == null) { setStateDo(); };
     };
 
     var public = {
         init: init,
+        refresh: refresh,
         getNotesList: getNotesList,
         getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,

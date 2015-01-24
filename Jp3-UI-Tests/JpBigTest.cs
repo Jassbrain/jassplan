@@ -80,7 +80,7 @@ namespace Jp3_UI_Tests
             Assert_Default_View_Correcteness(browserWindow);
             Planner_Access_Plan_View(browserWindow);
             Assert_View_Name_Correcteness("Plan", browserWindow);
-            Playback.Wait(30);
+            Playback.Wait(60000);
         }
 
 

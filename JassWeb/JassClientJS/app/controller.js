@@ -432,7 +432,8 @@ Jassplan.controller = (function (view, viewModel, helper) {
         };
        // refresh();
     }
-    var onRefreshButtonTapped = function () {        
+    var onRefreshButtonTapped = function () {
+        viewModel.refresh();
         var href = window.location;
         var hrefNew = window.location.protocol + "//" + window.location.host;
         window.location.href = hrefNew;
@@ -457,8 +458,12 @@ Jassplan.controller = (function (view, viewModel, helper) {
         viewModel.handleDeleteAction();
         refresh();
     }
-    var refresh = function(){
+    var refresh = function () {
         window.location.href = window.location.href;
+    }
+    var refreshAll = function () {
+        viewModel.refresh(appStorageKey);
+        refresh();
     }
     var onOfflineTapped = function () {
         var href = window.location;

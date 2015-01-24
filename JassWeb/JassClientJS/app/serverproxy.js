@@ -99,7 +99,7 @@ Jassplan.serverProxy = (function () {
             type: "POST",
             dataType: "json",
             data: todoListIn,
-            async: false,
+            async: true,
             url: "/api/todolist/PostTodoList",
             success: function (data) {
                 todoListOut = data;
@@ -108,8 +108,7 @@ Jassplan.serverProxy = (function () {
                 alert("Error while creating todolist");
             }
         });
-        todoListOut.id = todoListOut.jassActivityID;
-        return todoListOut;
+        return;
     }
 
     var saveTodoList = function (todoListIn) {
@@ -118,17 +117,16 @@ Jassplan.serverProxy = (function () {
             type: "PUT",
             dataType: "json",
             data: todoListIn,
-            async: false,
+            async: true,
             url: "/api/todolist/PutTodoList",
             success: function (data) {
                 todoListOut = data;
             },
             error: function (data) {
-                alert("Error while creating todolist");
+                alert("We failed to saved the task. Are you logged in?");
             }
         });
-        todoListOut.id = todoListOut.jassActivityID;
-        return todoListOut;
+
     }
 
     var deleteTodoList = function (todoListIn) {
@@ -137,7 +135,7 @@ Jassplan.serverProxy = (function () {
             type: "PUT",
             dataType: "json",
             data: todoListIn,
-            async: false,
+            async: true,
             url: "/api/todolist/PutDeleteTodoList",
             success: function (data) {
                 todoListOut = data;

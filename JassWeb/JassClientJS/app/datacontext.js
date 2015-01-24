@@ -20,36 +20,20 @@ Jassplan.dataContext = (function (serverProxy) {
     }
 
     var loadNotesFromLocalStorage = function () {
-        //Ok, this is not efficient..if the user is logged we are just calling the server
-        var storedNotes;
-        if (userLogged) {
-            storedNotes = serverProxy.getTodoLists();
-        }
-        else {
-            storedNotes = $.jStorage.get(notesListStorageKey);
-        }
+        notesList = $.jStorage.get(notesListStorageKey);
 
-        if (storedNotes !== null) {
-            notesList = storedNotes;
+        if (notesList == null) {
+            userName = serverProxy.checkUserLogged();
+            if (userName != "") { 
+                notesList = serverProxy.getTodoLists();
+                notesList = $.jStorage.set(notesListStorageKey,notesList);
+            };
         }
-
         return notesList;
     };
 
     var loadReviewsFromLocalStorage = function () {
-        //oportunity for reuse... we have to siilar algorithms
-        var storedReviews;
-        if (userLogged) {
-            storedReviews = serverProxy.getReviewLists();
-        }
-        else {
-            storedReviews = $.jStorage.get(reviewsListStorageKey);
-        }
-
-        if (storedReviews !== null) {
-            reviewsList = storedReviews;
-        }
-
+        reviewsList = $.jStorage.get(reviewsListStorageKey);
         return reviewsList;
     };
 
@@ -59,11 +43,13 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var getNotesList = function () {
-        return notesList;
+        if (notesList != null) return notesList;
+        else return [];        
     };
 
     var getReviewsList = function () {
-        return reviewsList;
+        if (reviewsList != null) return reviewsList;
+        else return [];
     };
 
     var createBlankNote = function () {
@@ -79,19 +65,18 @@ Jassplan.dataContext = (function (serverProxy) {
         return noteModel; };
 
     var init = function (storageKey) {
-        userName = serverProxy.checkUserLogged();
-        if (userName != "") { userLogged = true; };
         notesListStorageKey = storageKey;
         loadNotesFromLocalStorage();
         reviewsListStorageKey = storageKey+"review";
         loadReviewsFromLocalStorage();
+
+
     };
 
     var saveNote = function (noteModel) {
         var noteIndex = noteIndexInNotesList(noteModel);
         if (noteIndex == null) {
-            notesList.splice(0, 0, noteModel);  //add the note to note list
-            Jassplan.serverProxy.createTodoList(noteModel);
+             Jassplan.serverProxy.createTodoList(noteModel);
         } else {
             notesList[noteIndex] = noteModel; // save the note on notes list
             Jassplan.serverProxy.saveTodoList(noteModel);
@@ -140,8 +125,13 @@ Jassplan.dataContext = (function (serverProxy) {
         Jassplan.serverProxy.deleteAllTodoLists();   
     }
 
+    var refresh = function(){
+        $.jStorage.set(notesListStorageKey, null);
+    }
+
     var public = {
         init: init,
+        refresh: refresh,
         getNotesList: getNotesList,
         getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,
