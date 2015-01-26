@@ -34,6 +34,14 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var loadReviewsFromLocalStorage = function () {
         reviewsList = $.jStorage.get(reviewsListStorageKey);
+
+        if (reviewsList == null) {
+            userName = serverProxy.checkUserLogged();
+            if (userName != "") {
+                reviewsList = serverProxy.getReviewLists();
+                reviewsList = $.jStorage.set(reviewsListStorageKey, reviewsList);
+            };
+        }
         return reviewsList;
     };
 
@@ -125,8 +133,10 @@ Jassplan.dataContext = (function (serverProxy) {
         Jassplan.serverProxy.deleteAllTodoLists();   
     }
 
-    var refresh = function(){
+    var refresh = function () {
+        //we should check here if we have internet connection..
         $.jStorage.set(notesListStorageKey, null);
+        $.jStorage.set(reviewsListStorageKey, null);
     }
 
     var public = {

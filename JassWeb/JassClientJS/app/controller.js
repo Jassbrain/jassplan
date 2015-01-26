@@ -100,8 +100,8 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
 
             $("<li style=\"min-height:50px\">"
-+ "<div style=\"width:60px;float:left\">" + doneDate + "</div>"
-+ "<div style=\"min-width:35px\">" + totalPointsDonePlus + "/" + totalPointsDone + "</div>"
++ "<div style=\"width:90px;float:left\">" + doneDate + "</div>"
++ "<div style=\"min-width:70px\">" + totalPointsDonePlus + "/" + totalPointsDone + "</div>"
 + statusBanner + "<div style=\"clear:both\"><div>"
 + flagBanner
 + "</li>").appendTo(ul);
