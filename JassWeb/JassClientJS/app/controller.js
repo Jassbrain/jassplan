@@ -469,6 +469,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         var href = window.location;
         var hrefNew = window.location.protocol + "//" + window.location.host;
         window.location.href = hrefNew;
+        return;
     }
     var onParentNameTapped = function () {
         viewModel.unstarcurrentparent();
@@ -477,17 +478,17 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
     var init = function () {
         viewModel.init(appStorageKey);
-        $(document).on("tap click", "#view-model-logged", onOfflineTapped);
+        $(document).on("tap", "#view-model-logged", onOfflineTapped);
         $(document).on("pagechange", onPageChange);
         $(document).on("pagebeforechange", onPageBeforeChange);
-        $(document).on("tap click", "#save-note-button", null, onSaveNoteButtonTapped);
-        $(document).on("tap click", "#refresh-button", null, onRefreshButtonTapped);
-        $(document).on("tap click", "#plan-button", null, onPlanButtonTapped);
-        $(document).on("tap click", "#do-button", null, onDoButtonTapped);
-        $(document).on("tap click", "#review-button", null, onReviewButtonTapped);
-        $(document).on("tap click", "#archive-button", null, onArchiveButtonTapped);
-        $(document).on("tap click", "#delete-button", null, onDeleteNoteButtonTapped);
-        $(document).on("tap click", "#view-model-parent", null, onParentNameTapped);
+        $(document).on("tap", "#save-note-button", null, onSaveNoteButtonTapped);
+        $(document).on("tap", "#refresh-button", null, onRefreshButtonTapped);
+        $(document).on("tap", "#plan-button", null, onPlanButtonTapped);
+        $(document).on("tap", "#do-button", null, onDoButtonTapped);
+        $(document).on("tap", "#review-button", null, onReviewButtonTapped);
+        $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
+        $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
+        $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
     };
    
     return {

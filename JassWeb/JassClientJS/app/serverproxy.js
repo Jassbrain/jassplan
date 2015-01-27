@@ -144,7 +144,6 @@ Jassplan.serverProxy = (function () {
                 alert("Error while creating todolist");
             }
         });
-        todoListOut.id = todoListOut.jassActivityID;
         return todoListOut;
     }
 

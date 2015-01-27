@@ -55,6 +55,18 @@ Jassplan.dataContext = (function (serverProxy) {
         else return [];        
     };
 
+    var getLastId = function () {
+        var lastID = 0;
+        if (notesList != null) {
+            for (var i = 0; i < notesList.length; i++) {
+                if (notesList[i].jassActivityID > lastID) {
+                    lastID = notesList[i].jassActivityID;
+                }
+            }
+        }
+        return lastID;
+    };
+
     var getReviewsList = function () {
         if (reviewsList != null) return reviewsList;
         else return [];
@@ -84,6 +96,8 @@ Jassplan.dataContext = (function (serverProxy) {
     var saveNote = function (noteModel) {
         var noteIndex = noteIndexInNotesList(noteModel);
         if (noteIndex == null) {
+            noteModel.jassActivityID = getLastId();
+            notesList.splice(0, 0, noteModel);
              Jassplan.serverProxy.createTodoList(noteModel);
         } else {
             notesList[noteIndex] = noteModel; // save the note on notes list
