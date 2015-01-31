@@ -168,6 +168,27 @@ Jassplan.serverProxy = (function () {
         return todoListOut;
     }
 
+    var saveAllTodoLists = function (allTodos) {
+        var todoListOut;
+        $.ajax({
+            type: "PUT",
+            dataType: "json",
+            async: false,
+            data: allTodos,
+            url: "/api/todolist/PutSaveAllTodoLists",
+            success: function (data) {
+                todoListOut = data;
+            },
+            error: function (data) {
+                if (data.status != 200) {
+                    alert("Error while deleting all todolists");
+                }
+            }
+        });
+
+        return todoListOut;
+    }
+
 
     var public = {
         checkUserLogged: checkUserLogged,
@@ -177,7 +198,8 @@ Jassplan.serverProxy = (function () {
         saveTodoList: saveTodoList,
         deleteTodoList: deleteTodoList,
         deleteAllTodoLists: deleteAllTodoLists,
-        archiveTodoLists: archiveTodoLists,
+        saveAllTodoLists: saveAllTodoLists,
+        archiveTodoLists: archiveTodoLists
     };
  
     return public;

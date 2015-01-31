@@ -52,7 +52,7 @@ namespace Jassplan.JassServerModelManager
 
             #endregion Single User Ilusion Layer
 
-        #region Activity Model API
+        #region activity Model API
 
         //activity is the primary object, we track them and assignthem to, at least, one area.
         //in thefuture will be assinged to more than one area.
@@ -184,6 +184,22 @@ namespace Jassplan.JassServerModelManager
             return activityHistory;
         }
 
+        public JassActivityHistory ActivitySaveIfNew(JassActivity activity)
+        {
+
+            JassActivity activityCurrent = _db.JassActivities.Find(activity.JassActivityID);
+            checkIfMine(activityCurrent);
+
+            var resultActivityHistory = new JassActivityHistory();
+
+            if (activity.LastUpdated > activityCurrent.LastUpdated)
+            {
+                resultActivityHistory = ActivitySave(activity);
+            }
+    
+            return resultActivityHistory;
+        }
+
         public JassActivityHistory ActivitySave(JassActivity Activity)
         {
             
@@ -191,16 +207,7 @@ namespace Jassplan.JassServerModelManager
             checkIfMine(ActivityCurrent);
             if (Activity.Status == null) Activity.Status = "asleep";
 
-            if ((Activity.DoneDate ==null) &&
-                (ActivityCurrent.Status == "asleep" ||
-                 ActivityCurrent.Status == "stared" ||
-                 ActivityCurrent.Status == null) && 
-                (Activity.Status == "done")
-                ){
-                Activity.DoneDate = DateTime.Now;
-            }
-            Activity.LastUpdated = DateTime.Now;
-            //db.Entry(Activity).State = EntityState.Modified;
+            if (Activity.LastUpdated == new DateTime()) { Activity.LastUpdated = DateTime.Now;}
 
             var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivity>();
             mapper.map(Activity, ActivityCurrent);
@@ -211,11 +218,12 @@ namespace Jassplan.JassServerModelManager
             return activityHistory;
         }
 
+
         public JassActivityHistory ActivitySave(JassActivity Activity, JassActivityReview review)
         {
             checkIfMine(Activity); checkIfMine(review); 
             if (Activity.Status == null) Activity.Status = "asleep";
-            Activity.LastUpdated = DateTime.Now;
+            if (Activity.LastUpdated == new DateTime()) { Activity.LastUpdated = DateTime.Now; }
             _db.Entry(Activity).State = EntityState.Modified;
             _db.SaveChanges();
             var activityHistory = ActivitySaveHistory(Activity, review);
@@ -239,7 +247,16 @@ namespace Jassplan.JassServerModelManager
             _db.SaveChanges();
         }
 
-        #endregion Activity Model API
+
+        public void ActivitySaveAll(List<JassActivity> allTodos)
+        {
+            foreach (var activity in allTodos)
+            {
+                ActivitySaveIfNew(activity); //this is going to be slow :(
+            }
+        }
+
+        #endregion activity Model API
 
         #region ActivityHistory Model API
 

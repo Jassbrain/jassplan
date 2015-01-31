@@ -94,6 +94,15 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var saveNote = function (noteModel) {
+        //"2014-11-10T22:24:52.517"
+
+    //    var d = Date();
+    //    noteModel.lastUpdated = "2014-11-10T22:24:52.517";
+        var d = new Date();
+        noteModel.lastUpdated = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() +
+                                "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "." + d.getMilliseconds();
+
+
         var noteIndex = noteIndexInNotesList(noteModel);
         if (noteIndex == null) {
             noteModel.jassActivityID = getLastId();
@@ -149,6 +158,7 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var refresh = function () {
         //we should check here if we have internet connection..
+        Jassplan.serverProxy.saveAllTodoLists(notesList);
         $.jStorage.set(notesListStorageKey, null);
         $.jStorage.set(reviewsListStorageKey, null);
     }
