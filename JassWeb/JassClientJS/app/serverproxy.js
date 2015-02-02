@@ -3,7 +3,7 @@ var Jassplan = Jassplan || {};
 Jassplan.serverProxy = (function () {
     //This object is in charge of communicating back and forth with the server side
     //
-    var checkUserLogged = function () {
+    var checkUserLogged = function (errorHandler) {
 
         var userLogged = "";
 
@@ -23,7 +23,7 @@ Jassplan.serverProxy = (function () {
         return userLogged;
     }
 
-    var getReviewLists = function () {
+    var getReviewLists = function (errorHandler) {
 
         var todoLists;
 
@@ -46,7 +46,7 @@ Jassplan.serverProxy = (function () {
         return todoLists;
     }
 
-    var getTodoLists = function () {
+    var getTodoLists = function (errorHandler) {
 
         var todoLists;
 
@@ -70,7 +70,7 @@ Jassplan.serverProxy = (function () {
         return todoLists;
     }
 
-    var archiveTodoLists = function () {
+    var archiveTodoLists = function errorHandler() {
 
         var todoLists;
 
@@ -93,7 +93,7 @@ Jassplan.serverProxy = (function () {
         return todoLists;
     }
 
-    var createTodoList = function (todoListIn) {
+    var createTodoList = function (todoListIn, errorHandler) {
         var todoListOut;
         $.ajax({
             type: "POST",
@@ -111,7 +111,7 @@ Jassplan.serverProxy = (function () {
         return;
     }
 
-    var saveTodoList = function (todoListIn) {
+    var saveTodoList = function (todoListIn, errorHandler) {
         var todoListOut;
         $.ajax({
             type: "PUT",
@@ -123,13 +123,13 @@ Jassplan.serverProxy = (function () {
                 todoListOut = data;
             },
             error: function (data) {
-                alert("We failed to saved the task. Are you logged in?");
+                errorHandler(401, "We failed to saved the task becuase your are not logged in");
             }
         });
 
     }
 
-    var deleteTodoList = function (todoListIn) {
+    var deleteTodoList = function (todoListIn, errorHandler) {
         var todoListOut;
         $.ajax({
             type: "PUT",
@@ -147,7 +147,7 @@ Jassplan.serverProxy = (function () {
         return todoListOut;
     }
 
-    var deleteAllTodoLists = function () {
+    var deleteAllTodoLists = function (errorHandler) {
         var todoListOut;
         $.ajax({
             type: "PUT",
@@ -168,8 +168,8 @@ Jassplan.serverProxy = (function () {
         return todoListOut;
     }
 
-    var saveAllTodoLists = function (allTodos) {
-        var todoListOut;
+    var saveAllTodoLists = function (allTodos, errorHandler) {
+        var result = false;
         $.ajax({
             type: "PUT",
             dataType: "json",
@@ -177,16 +177,16 @@ Jassplan.serverProxy = (function () {
             data: allTodos,
             url: "/api/todolist/PutSaveAllTodoLists",
             success: function (data) {
-                todoListOut = data;
+                result = true;
             },
             error: function (data) {
                 if (data.status != 200) {
-                    alert("Error while deleting all todolists");
+                    alert("Error while trying to sync. Are you connected? Are you logged in?");
                 }
             }
         });
 
-        return todoListOut;
+        return result;
     }
 
 
