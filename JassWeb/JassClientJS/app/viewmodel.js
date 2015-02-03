@@ -223,7 +223,7 @@ Jassplan.viewmodel = (function (dataContext) {
         reviewsList = dataContext.getReviewsList();
 
         for (var i = 0; i < notesList.length; i++) {
-            if (notesList[i].id == parent) {
+            if (notesList[i].id === parent) {
                 parentName = notesList[i].title;
             }
         }
@@ -231,6 +231,10 @@ Jassplan.viewmodel = (function (dataContext) {
         if (parentName == null) { parentName = ""; };
         if (getState() == null) { setStateDo(); };
     };
+
+    var viewStatus = function() {
+        dataContext.viewStatus();
+    }
 
     var public = {
         init: init,
@@ -248,6 +252,7 @@ Jassplan.viewmodel = (function (dataContext) {
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,
         setStateReview: setStateReview,
+        viewStatus:viewStatus,
         star: star,
         unstar: unstar,
         starparent: starparent,

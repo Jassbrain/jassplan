@@ -8,11 +8,8 @@
 	<TreeState name="DiagramNavigator" viewX="0" viewY="35">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
-		<ExpandedPath>UseCaseDiagram</ExpandedPath>
-		<ExpandedPath>UseCaseDiagram,NLnrdpKGAqAClAaU</ExpandedPath>
-		<ExpandedPath>ClassDiagram</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
-		<SelectedPath>UseCaseDiagram,xategJKGAqAADQU1</SelectedPath>
+		<SelectedPath>UseCaseDiagram</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>

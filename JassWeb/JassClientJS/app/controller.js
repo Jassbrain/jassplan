@@ -25,9 +25,16 @@ Jassplan.controller = (function (view, viewModel, helper) {
     var renderViewModel = function(){
         $("#view-model-state").text(viewModel.getState());
         $("#view-model-parent").text(viewModel.getParentName());
-        var logged = viewModel.getLogged()
+        var logged = viewModel.getLogged();
         $("#view-model-logged").text(logged);
         $("#view-model-logged").css('color', 'red');
+
+        if (logged) {
+            $("#status-button-label").text("-");
+        } else
+        {
+            $("#status-button-label").text("!");
+        }
 
         var parentId = viewModel.getParent();
 
@@ -454,6 +461,10 @@ Jassplan.controller = (function (view, viewModel, helper) {
         viewModel.handleArchiveAction();
         refresh();
     }
+
+    var onStatusButtonTapped = function () {
+        viewModel.viewStatus();
+    }
     var onDeleteButtonTapped = function () {
         viewModel.handleDeleteAction();
         refresh();
@@ -487,6 +498,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $(document).on("tap", "#do-button", null, onDoButtonTapped);
         $(document).on("tap", "#review-button", null, onReviewButtonTapped);
         $(document).on("tap", "#archive-button", null, onArchiveButtonTapped);
+        $(document).on("tap", "#status-button", null, onStatusButtonTapped);
         $(document).on("tap", "#delete-button", null, onDeleteNoteButtonTapped);
         $(document).on("tap", "#view-model-parent", null, onParentNameTapped);
     };

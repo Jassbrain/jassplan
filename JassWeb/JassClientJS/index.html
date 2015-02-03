@@ -30,7 +30,7 @@
 <body>
 <!--List Page--> 
 <div data-role="page" id="notes-list-page" data-title="To Do">
-    <div data-role="header" data-position="fixed">
+    <div data-role="header" data-position="fixed" style="background-color: red">
         <table><tr>
             <td><div id="view-model-state">Do</div></td>
             <td><div id="view-model-parent">N/A</div></td>
@@ -49,6 +49,9 @@
         <div id="do-button" data-role="button" data-theme="b">&nbsp;&nbsp;Do&nbsp;&nbsp;</div>
         <div id="review-button" data-role="button" data-theme="b">View</div>
         <div id="archive-button" data-role="button" data-icon="check" data-theme="b">&nbsp;</div>
+        <div id="status-button" data-role="button" data-icon="gear" data-theme="b">
+            <div id="status-button-label">&nbsp;-</div>
+        </div>
     </div>
 </div>
 

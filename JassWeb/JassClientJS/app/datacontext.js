@@ -109,6 +109,17 @@ Jassplan.dataContext = (function (serverProxy) {
         var refreshToken = $.jStorage.get(refreshStorageKey);
         var loggedToken = $.jStorage.get(loggedStorageKey);
 
+        if (loggedToken === null) {
+            var _userName = serverProxy.checkUserLogged();
+            if (_userName === "") {
+                loggedToken = $.jStorage.set(loggedStorageKey,false);
+            } else {
+                loggedToken = $.jStorage.set(loggedStorageKey, true);
+            }
+        }
+
+        loggedToken = $.jStorage.get(loggedStorageKey);
+
         var weAreInRefresh = (refreshToken !== null);
         var weAreLogged = (loggedToken === true);
 
@@ -127,6 +138,19 @@ Jassplan.dataContext = (function (serverProxy) {
 
 
     };
+
+
+    var viewStatus = function() {
+        var refreshToken = $.jStorage.get(refreshStorageKey);
+        var loggedToken = $.jStorage.get(loggedStorageKey);
+
+        var weAreInRefresh = (refreshToken !== null);
+        var weAreLogged = (loggedToken === true);
+
+        alert("Jassplan Status: \n  logged:" + loggedToken + "\n refresh: " + refreshToken);
+
+    }
+
 
     var saveNote = function (noteModel) {
         //"2014-11-10T22:24:52.517"
@@ -198,6 +222,7 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var public = {
         init: init,
+        viewStatus: viewStatus,
         refresh: refresh,
         getNotesList: getNotesList,
         getReviewsList: getReviewsList,

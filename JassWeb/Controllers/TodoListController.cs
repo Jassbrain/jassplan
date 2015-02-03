@@ -84,10 +84,10 @@ namespace JassWeb.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        public HttpResponseMessage PutSaveAllTodoLists(List<JassActivity> allTodos)
+        public List<JassActivity> PutSaveAllTodoLists(List<JassActivity> allTodos)
         {
             mm.ActivitySaveAll(allTodos);
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return mm.ActivitiesGetAll();
         }
 
         // DELETE api/TodoList/5
