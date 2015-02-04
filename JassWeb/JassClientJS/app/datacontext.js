@@ -156,7 +156,7 @@ Jassplan.dataContext = (function (serverProxy) {
         alert("Jassplan Status: \n  logged: " + loggedToken + "\nrefresh: " + refreshToken + "\n this is also a logoff");
 
         window.localStorage.clear();
-        $.jStorage.set(loggedStorageKey, false);
+        $.jStorage.set(loggedStorageKey, null);
         $("#status-button-label").text("!");
 
     }

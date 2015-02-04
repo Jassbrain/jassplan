@@ -464,6 +464,8 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
     var onStatusButtonTapped = function () {
         viewModel.viewStatus();
+        var hrefNew = window.location.protocol + "//" + window.location.host;
+        window.location.href = hrefNew + "/account/logoff";
     }
     var onDeleteButtonTapped = function () {
         viewModel.handleDeleteAction();
