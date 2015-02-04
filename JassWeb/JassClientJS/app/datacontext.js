@@ -43,7 +43,7 @@ Jassplan.dataContext = (function (serverProxy) {
         if (notesList == null) {
             userName = serverProxy.checkUserLogged();
             if (userName !== "") { 
-                notesList = serverProxy.getTodoLists();
+                notesList = serverProxy.getTodoLists(handleProxyError);
                 notesList = $.jStorage.set(notesListStorageKey,notesList);
             };
         }
@@ -56,7 +56,7 @@ Jassplan.dataContext = (function (serverProxy) {
         if (reviewsList == null) {
             userName = serverProxy.checkUserLogged();
             if (userName != "") {
-                reviewsList = serverProxy.getReviewLists();
+                reviewsList = serverProxy.getReviewLists(handleProxyError);
                 reviewsList = $.jStorage.set(reviewsListStorageKey, reviewsList);
             };
         }
@@ -64,7 +64,7 @@ Jassplan.dataContext = (function (serverProxy) {
     };
 
     var archiveAndReloadNotes = function () {
-            storedNotes = serverProxy.archiveTodoLists();
+        storedNotes = serverProxy.archiveTodoLists(handleProxyError);
             notesList = storedNotes;
     };
 
@@ -176,7 +176,7 @@ Jassplan.dataContext = (function (serverProxy) {
         if (noteIndex == null) {
             noteModel.jassActivityID = getLastId();
             notesList.splice(0, 0, noteModel);
-             Jassplan.serverProxy.createTodoList(noteModel);
+            Jassplan.serverProxy.createTodoList(noteModel, handleProxyError);
         } else {
             notesList[noteIndex] = noteModel; // save the note on notes list
             Jassplan.serverProxy.saveTodoList(noteModel, handleProxyError);
@@ -209,7 +209,7 @@ Jassplan.dataContext = (function (serverProxy) {
         if (!found) {
             alert("Note cannot be deleted because we could not find it");
         } else {
-            Jassplan.serverProxy.deleteTodoList(noteModel);
+            Jassplan.serverProxy.deleteTodoList(noteModel, handleProxyError);
             notesList.splice(ifound, 1);
         }
 
@@ -217,7 +217,7 @@ Jassplan.dataContext = (function (serverProxy) {
     };
     var deleteAllNotes = function(){
     
-        Jassplan.serverProxy.deleteAllTodoLists();   
+        Jassplan.serverProxy.deleteAllTodoLists(handleProxyError);
     }
     var refresh = function () {
         $.jStorage.set(loggedStorageKey, null);

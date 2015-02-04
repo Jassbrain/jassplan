@@ -10,11 +10,10 @@ Jassplan.NoteModel = function (config) {
     this.narrative = config.narrative;
     this.description = config.description;
     this.estimatedDuration = config.estimatedDuration;
-    if (this.estimatedDuration == null || this.estimatedDuration == "") { this.estimatedDuration = 1; };
     this.estimatedStartHour = config.estimatedStartHour;
     this.doneDate = config.doneDate;
     this.actualDuration = config.actualDuration;
-    if (this.actualDuration == null || this.actualDuration == "") { this.actualDuration = 1; };
+    if (!parseInt(this.actualDuration)>0) { this.actualDuration = 1; };
 };
 
 Jassplan.NoteModel.prototype.isValid = function () {

@@ -198,15 +198,26 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var saveNote = function (currentNote) {
 
-        if (currentNote.doneDate == null) {
-            if (currentNote.status == "done" && currentNote.status == "donebad") {
+        if (currentNote.doneDate === null)  {
+            if (currentNote.status === "done" && currentNote.status === "donebad") {
                 currentNote.doneDate = new Date();
             }
         } else {
-            if (currentNote.status == "asleep") {
+            if (currentNote.status === "asleep") {
                 currentNote.doneDate = null;
             }
         }
+
+        if (!(parseInt(currentNote.actualDuration) > 0)) { currentNote.actualDuration = 1; };
+
+        if (getState() === "Do") {
+            currentNote.status = "stared";
+        }
+        if (getState() === "Plan") {
+            currentNote.status = "asleep";
+        }
+
+
         var result = dataContext.saveNote(currentNote);
 
         return result;
