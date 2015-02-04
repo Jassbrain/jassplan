@@ -30,7 +30,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $("#view-model-logged").css('color', 'red');
 
         if (logged) {
-            $("#status-button-label").text("-");
+            $("#status-button-label").text("K");
         } else
         {
             $("#status-button-label").text("!");
@@ -263,7 +263,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
                 var note;
                 for (var i = 0; i < notesCount; i++) {
                     note = notesList[i];
-                    if (noteId == note.id) {
+                    if (noteId == note.jassActivityID) {
                         titleEditor.val(note.title);
                         updateStatusEditor(statusEditor, note.status);
                         updateFlagEditor(flagEditor, note.flag);

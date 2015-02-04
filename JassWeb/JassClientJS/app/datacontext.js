@@ -16,18 +16,21 @@ Jassplan.dataContext = (function (serverProxy) {
 
     var handleProxyError = function (errorCode, errorMessage) {
         if (errorCode === 401) {
-            var logged = $.jStorage.get(loggedStorageKey);
-            if (logged !== true) {
-                alert("You do not seem to be logged in, you will continue working offline");
-            }
-            $.jStorage.set(loggedStorageKey,false);
+            $.jStorage.set(loggedStorageKey, false);
+            $("#status-button-label").text("!");
+            alert("You do not seem to be logged in, you will continue working offline");
+        } else {
+            alert("Error: " + errorCode + " : " + errorMessage);
         }
+
+
     }
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
 
     var getLogged = function () {
-        return userLogged;
+        var loggedToken = $.jStorage.get(loggedStorageKey);
+        return loggedToken;
     }
 
     var getUserName = function () {
@@ -99,43 +102,46 @@ Jassplan.dataContext = (function (serverProxy) {
         var noteModel = new Jassplan.NoteModel(config);
         return noteModel; };
 
-    var init = function (storageKey) {
-        notesListStorageKey = storageKey;
-        reviewsListStorageKey = storageKey + "review";
-        refreshStorageKey = storageKey + "refresh";
-        loggedStorageKey = storageKey + "logged";
-
-    
-        var refreshToken = $.jStorage.get(refreshStorageKey);
+    var checkLoggedStatus = function()
+    {
         var loggedToken = $.jStorage.get(loggedStorageKey);
 
         if (loggedToken === null) {
             var _userName = serverProxy.checkUserLogged();
             if (_userName === "") {
-                loggedToken = $.jStorage.set(loggedStorageKey,false);
+                loggedToken = $.jStorage.set(loggedStorageKey, false);
+                userLogged = false;
             } else {
                 loggedToken = $.jStorage.set(loggedStorageKey, true);
+                userLogged = true;
             }
         }
 
         loggedToken = $.jStorage.get(loggedStorageKey);
+    }
 
+    var init = function (storageKey) {
+        //get all the storage keys
+        notesListStorageKey = storageKey;
+        reviewsListStorageKey = storageKey + "review";
+        refreshStorageKey = storageKey + "refresh";
+        loggedStorageKey = storageKey + "logged";
+
+        //get the refresh and logged token from local storage
+        var refreshToken = $.jStorage.get(refreshStorageKey);
         var weAreInRefresh = (refreshToken !== null);
-        var weAreLogged = (loggedToken === true);
 
+        notesList = $.jStorage.get(notesListStorageKey);
+        reviewsList = $.jStorage.get(reviewsListStorageKey);
 
-        if (weAreInRefresh) {
-            loadNotesFromLocalStorage();
-            var result = serverProxy.saveAllTodoLists(notesList, handleProxyError);
+        checkLoggedStatus();
+
+        if (weAreInRefresh && userLogged) {
+            notesList = serverProxy.saveAllTodoLists(notesList, handleProxyError);
+            $.jStorage.set(notesListStorageKey, notesList);
+            loadReviewsFromLocalStorage();
             $.jStorage.set(refreshStorageKey, null);
-            if (result) {
-                $.jStorage.set(notesListStorageKey, null);
-                $.jStorage.set(reviewsListStorageKey, null);
-            }
         }
-        loadNotesFromLocalStorage();
-        loadReviewsFromLocalStorage();
-
 
     };
 
@@ -147,7 +153,11 @@ Jassplan.dataContext = (function (serverProxy) {
         var weAreInRefresh = (refreshToken !== null);
         var weAreLogged = (loggedToken === true);
 
-        alert("Jassplan Status: \n  logged:" + loggedToken + "\n refresh: " + refreshToken);
+        alert("Jassplan Status: \n  logged: " + loggedToken + "\nrefresh: " + refreshToken + "\n this is also a logoff");
+
+        window.localStorage.clear();
+        $.jStorage.set(loggedStorageKey, false);
+        $("#status-button-label").text("!");
 
     }
 
@@ -173,8 +183,6 @@ Jassplan.dataContext = (function (serverProxy) {
         }
         saveNotesToLocalStorage();
     };
-
-
     var noteIndexInNotesList = function (noteModel){
         var index = null;
         var i;
@@ -186,7 +194,6 @@ Jassplan.dataContext = (function (serverProxy) {
         }
         return index;
     }
-
     var deleteNote = function (noteModel) {
         var found = false;
         var i;
@@ -208,15 +215,12 @@ Jassplan.dataContext = (function (serverProxy) {
 
         saveNotesToLocalStorage();
     };
-
-
-
     var deleteAllNotes = function(){
     
         Jassplan.serverProxy.deleteAllTodoLists();   
     }
-
     var refresh = function () {
+        $.jStorage.set(loggedStorageKey, null);
         $.jStorage.set(refreshStorageKey, "refresh"); 
     }
 

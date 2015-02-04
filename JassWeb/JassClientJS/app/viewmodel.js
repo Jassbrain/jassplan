@@ -158,7 +158,7 @@ Jassplan.viewmodel = (function (dataContext) {
         var filteredNotesList = [];
 
         for (var i = 0; i < notesList.length; i++) {
-            if (notesList[i].parentID == parent || notesList[i].id == parent) {
+            if (notesList[i].parentID == parent || notesList[i].jassActivityID == parent) {
             if (state == "Do" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
             if (state == "Plan") filteredNotesList.push(notesList[i]);
             if (state == "Review" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);

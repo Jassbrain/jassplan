@@ -250,6 +250,8 @@ namespace Jassplan.JassServerModelManager
 
         public void ActivitySaveAll(List<JassActivity> allTodos)
         {
+            if (allTodos == null) return;
+
             foreach (var activity in allTodos)
             {
                 ActivitySaveIfNew(activity); //this is going to be slow :(

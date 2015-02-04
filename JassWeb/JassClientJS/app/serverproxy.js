@@ -36,7 +36,7 @@ Jassplan.serverProxy = (function () {
                 todoLists = data;
             },
             error: function (data) {
-                alert("Error while getting todolist");
+                errorHandler(data.status, data.responseText);
             }
         });
 
@@ -48,7 +48,7 @@ Jassplan.serverProxy = (function () {
 
     var getTodoLists = function (errorHandler) {
 
-        var todoLists;
+        var todoLists = [];
 
         $.ajax({
             type: "GET",
@@ -59,20 +59,16 @@ Jassplan.serverProxy = (function () {
                 todoLists = data;
             },
             error: function (data) {
-                alert("Error while getting todolist");
+                errorHandler(data.status, data.responseText);
             }
         });
 
-        for (var x = 0; x < todoLists.length; x++)
-        {
-            todoLists[x].id=todoLists[x].jassActivityID;
-        }
         return todoLists;
     }
 
     var archiveTodoLists = function errorHandler() {
 
-        var todoLists;
+        var todoLists = [];
 
         $.ajax({
             type: "GET",
@@ -87,9 +83,6 @@ Jassplan.serverProxy = (function () {
             }
         });
 
-        for (var x = 0; x < todoLists.length; x++) {
-            todoLists[x].id = todoLists[x].jassActivityID;
-        }
         return todoLists;
     }
 
@@ -105,7 +98,7 @@ Jassplan.serverProxy = (function () {
                 todoListOut = data;
             },
             error: function (data) {
-                alert("Error while creating todolist");
+                errorHandler(data.status, data.responseText);
             }
         });
         return;
@@ -123,7 +116,7 @@ Jassplan.serverProxy = (function () {
                 todoListOut = data;
             },
             error: function (data) {
-                errorHandler(401, "We failed to saved the task becuase your are not logged in");
+                errorHandler(data.status, data.responseText);
             }
         });
 
@@ -141,7 +134,7 @@ Jassplan.serverProxy = (function () {
                 todoListOut = data;
             },
             error: function (data) {
-                alert("Error while creating todolist");
+                errorHandler(data.status, data.responseText);
             }
         });
         return todoListOut;
@@ -159,9 +152,7 @@ Jassplan.serverProxy = (function () {
                 todoListOut = data;
             },
             error: function (data) {
-                if (data.status != 200) {
-                    alert("Error while deleting all todolists");
-                }
+                errorHandler(data.status, data.responseText);
             }
         });
 
@@ -169,7 +160,7 @@ Jassplan.serverProxy = (function () {
     }
 
     var saveAllTodoLists = function (allTodos, errorHandler) {
-        var result = false;
+        var result = [];
         $.ajax({
             type: "PUT",
             dataType: "json",
@@ -177,12 +168,10 @@ Jassplan.serverProxy = (function () {
             data: allTodos,
             url: "/api/todolist/PutSaveAllTodoLists",
             success: function (data) {
-                result = true;
+                result = data;
             },
             error: function (data) {
-                if (data.status != 200) {
-                    alert("Error while trying to sync. Are you connected? Are you logged in?");
-                }
+                errorHandler(data.status, data.responseText);
             }
         });
 
