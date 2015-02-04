@@ -92,7 +92,7 @@ Jassplan.viewmodel = (function (dataContext) {
         setParent(note.parentID);
     }
 
-    var unstarcurrentparent = function () {
+    var unstarcurrentparent = function() {
         var i = this.noteForId(parent);
         if (i == -1) return;
         var note = notesList[i];
@@ -193,6 +193,15 @@ Jassplan.viewmodel = (function (dataContext) {
 
         var blankNote = dataContext.createBlankNote();
 
+        if (getState() === "Do") {
+                blankNote.status = "stared";
+            }
+        if (getState() === "Plan") {
+                blankNote.status = "asleep";
+        }
+
+
+
         return blankNote;
     };
 
@@ -209,14 +218,6 @@ Jassplan.viewmodel = (function (dataContext) {
         }
 
         if (!(parseInt(currentNote.actualDuration) > 0)) { currentNote.actualDuration = 1; };
-
-        if (getState() === "Do") {
-            currentNote.status = "stared";
-        }
-        if (getState() === "Plan") {
-            currentNote.status = "asleep";
-        }
-
 
         var result = dataContext.saveNote(currentNote);
 

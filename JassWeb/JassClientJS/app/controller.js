@@ -21,6 +21,12 @@ Jassplan.controller = (function (view, viewModel, helper) {
     var totalPointsScheduled;
     var totalPointsDone;
 
+    var _lastEventTimestamp;
+    var checkAndPreventDuplicatedEvent = function (e) {
+        if (e.timeStamp === _lastEventTimestamp) return true;
+        else _lastEventTimestamp = e.timeStamp;
+        return false;
+    }
 
     var renderViewModel = function(){
         $("#view-model-state").text(viewModel.getState());
@@ -343,24 +349,28 @@ Jassplan.controller = (function (view, viewModel, helper) {
     };
 
     var onTapStar = function (e) {
+        if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
         var taskId = id.replace("itemimage","");
         var taskStatus = viewModel.star(taskId);
         $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
     }
     var onTapHoldStar = function (e) {
+        if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
         var taskId = id.replace("itemimage", "");
         var taskStatus = viewModel.unstar(taskId);
         $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
     }
     var onTapParent = function (e) {
+        if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
         var taskId = id.replace("itemimage", "");
         var taskStatus = viewModel.starparent(taskId);
         refresh();
     }
     var onTapHoldParent = function (e) {
+        if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
         var taskId = id.replace("itemimage", "");
         var taskStatus = viewModel.unstarparent(taskId);
