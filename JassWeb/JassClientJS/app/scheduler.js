@@ -1,5 +1,17 @@
 var Jassplan = Jassplan || {};
 
+Jassplan.Schedulable = function(config) {
+    this.original = config;
+
+    this.id = config.id;
+    this.title = config.title;
+    this.order = config.estimatedDuration;
+    this.snoozeUntil = config.estimatedStartHour;
+    this.points = config.actualDuration;
+    this.status = config.status;
+    this.flag = config.flag;
+}
+
 Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumberOfShortTermTasks) {
     //receives a list of tasks to schedule
     var _activeTasks = activeTasks;

@@ -310,6 +310,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="JassClientJS\app\scheduler_adapter_jassplan.js" />
     <Content Include="JassClientJS\app\scheduler.js" />
     <Content Include="JassClientJS\app\views.js" />
     <Content Include="JassClientJS\app\helper.js" />
@@ -1277,6 +1278,8 @@
     <Content Include="JassClientJS\lib\jqm\jquery.mobile.theme-1.3.2.css" />
     <Content Include="JassClientJS\lib\jqm\jquery.mobile.theme-1.3.2.min.css" />
     <Content Include="JassClientJS\lib\jstorage\jstorage.js" />
+    <Content Include="JassClientJS\tests\test_scheduler_adapter.js" />
+    <Content Include="JassClientJS\tests\test_scheduler_adapter.html" />
     <Content Include="JassClientJS\tests\test_scheduler.html" />
     <Content Include="JassClientJS\tests\test_scheduler.js" />
     <Content Include="JassClientJS\tests\test_index_in_iframe.js" />

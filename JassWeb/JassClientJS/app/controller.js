@@ -134,14 +134,30 @@ Jassplan.controller = (function (view, viewModel, helper) {
        // $("#view-model-done-status").text(totalPointsDonePlusAvg + "/" + totalPointsDoneAvg + "/" + totalPointsScheduledAvg);
 
     };
-    var renderNotesList = function () {
 
+    var renderNotesList = function () {
+        /////////////////////////////
+        /////Experiment/////////////
+
+        Jassplan.Schedulable = function (activity) {
+            this.a = activity;
+        }
+        Jassplan.Schedulable.prototype.id = function () { return a.id };
+        Jassplan.Schedulable.prototype.title = function () { return a.title };
+        Jassplan.Schedulable.prototype.order = function () { return a.estimatedDuration };
+        Jassplan.Schedulable.prototype.snoozeUntil = function () { return a.estimatedStartHour };
+        Jassplan.Schedulable.prototype.points = function () { return a.actualDuration };
+        Jassplan.Schedulable.prototype.status = function () { return a.status };
+        Jassplan.Schedulable.prototype.flag = function () { return a.flag };
+
+        /////////////////////////////
         var state = viewModel.getState();
         if (state == "Review") {
             renderReviewList();
             return;
         }
         notesList = viewModel.getNotesList();
+   //     var jsonNotesList = JSON.stringify(notesList2);
 
         var notesCount = notesList.length,
             note,
