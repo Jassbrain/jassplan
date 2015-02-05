@@ -13,7 +13,6 @@ Jassplan.NoteModel = function (config) {
     this.estimatedStartHour = config.estimatedStartHour;
     this.doneDate = config.doneDate;
     this.actualDuration = config.actualDuration;
-    if (!parseInt(this.actualDuration)>0) { this.actualDuration = 1; };
 };
 
 Jassplan.NoteModel.prototype.isValid = function () {

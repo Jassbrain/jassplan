@@ -1,8 +1,11 @@
 var Jassplan = Jassplan || {};
 
-Jassplan.Scheduler = function (activeTasks) {
+Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumberOfShortTermTasks) {
     //receives a list of tasks to schedule
     var _activeTasks = activeTasks;
+    var _maxTimeWindow = maxTimeWindow;
+    var _currentTime = currentTime;
+    var _maxNumberOfShortTermTasks = maxNumberOfShortTermTasks;
     var _shortTermTasks = [];
     var _nextTasks = [];
     var _doneTasks = [];
@@ -24,11 +27,13 @@ Jassplan.Scheduler = function (activeTasks) {
     }
 
     var tryToAddToShortTermList = function (activeTask) {
-        _shortTermTasks.splice(0,0,activeTask);
+        if (_shortTermTasks.length >= _maxNumberOfShortTermTasks) return false;
+        _shortTermTasks.splice(0, 0, activeTask);
         return true;
     }
 
     var tryToAddToNextList = function (activeTask) {
+        _nextTasks.splice(0, 0, activeTask);
         return false;
     }
 
@@ -36,16 +41,17 @@ Jassplan.Scheduler = function (activeTasks) {
         return false;
     }
 
-    var CreateSchedule = function() {        
+    var CreateSchedule = function (currentTime) {
+        //A schedule will be created for a given current time, a max time window and a maximun number of task
+        //for example, current time 3pm, max time window 3 hrs (until 6pm), 5 tasks maximun
+        _currentTime = currentTime;
         for(var t=0; t<activeTasks.length; t++) {
             var activeTask = activeTasks[t];
-            if (tryToAddToShortTermList(activeTask)) break;
-            if (tryToAddToNextList(activeTask)) break;
+            if (tryToAddToShortTermList(activeTask)) continue;
+            if (tryToAddToNextList(activeTask)) continue;
             tryToAddToDoneList(activeTask);
         }
     }
-
-
 
     var public = {
         CreateSchedule: CreateSchedule,
