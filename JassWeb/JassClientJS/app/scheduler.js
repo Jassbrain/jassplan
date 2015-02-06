@@ -2,7 +2,6 @@ var Jassplan = Jassplan || {};
 
 Jassplan.Schedulable = function(config) {
     this.original = config;
-
     this.id = config.id;
     this.title = config.title;
     this.order = config.estimatedDuration;
@@ -12,12 +11,14 @@ Jassplan.Schedulable = function(config) {
     this.flag = config.flag;
 }
 
-Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumberOfShortTermTasks) {
-    //receives a list of tasks to schedule
-    var _activeTasks = activeTasks;
-    var _maxTimeWindow = maxTimeWindow;
-    var _currentTime = currentTime;
-    var _maxNumberOfShortTermTasks = maxNumberOfShortTermTasks;
+Jassplan.Scheduler = function (params) {
+    //receives a list of tasks to be scheduled
+    var _activeTasks = params.activeTasks || []; //List of Schedubles 
+    var _shortTermTimeWindow = params.shortTermTimeWindow || 4; //Time we see in the short term window in "hours" 1.5 = 1hr 30 mins
+    var _currentTime = params.currentTime || new Date(); //Current real time as a DateTime object
+    var _currentTimeWindowStart;
+    var _currentTimeWindowEnd;
+    var _shortTermMaxNumberOfTasks = params.shortTermMaxNumberOfTasks || 5;
     var _shortTermTasks = [];
     var _nextTasks = [];
     var _doneTasks = [];
@@ -38,14 +39,23 @@ Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumbe
         return _activeTasks;
     }
 
-    var tryToAddToShortTermList = function (activeTask) {
-        if (_shortTermTasks.length >= _maxNumberOfShortTermTasks) return false;
-        _shortTermTasks.splice(0, 0, activeTask);
+    var GetNumber = function (param)
+    {
+        if (isNaN(param)) return 0;
+        return parseInt(param);
+    }
+
+    var tryToAddToShortTermList = function (task) {
+        //rule nuber 1, hide tasks that fall outside the window
+        if (GetNumber(task.snoozeUntil) > _currentTimeWindowEnd) return false;
+
+        //add to end of list
+        _shortTermTasks.push(task);
         return true;
     }
 
     var tryToAddToNextList = function (activeTask) {
-        _nextTasks.splice(0, 0, activeTask);
+        _nextTasks.push(activeTask);
         return false;
     }
 
@@ -53,15 +63,26 @@ Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumbe
         return false;
     }
 
-    var CreateSchedule = function (currentTime) {
-        //A schedule will be created for a given current time, a max time window and a maximun number of task
-        //for example, current time 3pm, max time window 3 hrs (until 6pm), 5 tasks maximun
-        _currentTime = currentTime;
-        for(var t=0; t<activeTasks.length; t++) {
-            var activeTask = activeTasks[t];
-            if (tryToAddToShortTermList(activeTask)) continue;
-            if (tryToAddToNextList(activeTask)) continue;
-            tryToAddToDoneList(activeTask);
+    var GetJPHours = function () {
+        return _currentTime.getHours() + _currentTime.getMinutes() / 60;
+    }
+
+    var CreateSchedule = function () {
+        //setup some constraints
+        _currentTimeWindowStart = GetJPHours(_currentTime);
+        _currentTimeWindowEnd = _currentTimeWindowStart + _shortTermTimeWindow;
+
+        //we look at all tasks and we try to add the lists in order
+        for (t in _activeTasks) {
+            if (tryToAddToShortTermList(_activeTasks[t])) continue;
+            if (tryToAddToNextList(_activeTasks[t])) continue;
+            tryToAddToDoneList(_activeTasks[t]);
+        }
+        //if we got too many tasks in the short term list we move some to the next list
+        if (_shortTermTasks.length > _shortTermMaxNumberOfTasks) {
+             var shortTermTaskToBeSentToNext = _shortTermTasks.slice(_shortTermMaxNumberOfTasks, _shortTermTasks.length);
+            _shortTermTasks= _shortTermTasks.slice(0, _shortTermMaxNumberOfTasks);
+            _nextTasks = shortTermTaskToBeSentToNext.concat(_nextTasks);
         }
     }
 
@@ -70,7 +91,9 @@ Jassplan.Scheduler = function (activeTasks, currentTime, maxTimeWindow, maxNumbe
         GetAllActiveTasks: GetAllActiveTasks,
         GetShortTermTasks: GetShortTermTasks,
         GetNextTasks: GetNextTasks,
-        GetDoneTasks: GetDoneTasks
+        GetDoneTasks: GetDoneTasks,
+        GetJPHours : GetJPHours 
+
     }
 
     return public;
