@@ -252,6 +252,14 @@ Jassplan.controller = (function (view, viewModel, helper) {
  
     };
 
+    var updateStatusEditor = function (statusEditor, status) {
+        statusEditor.val(status);
+        statusEditor.selectmenu("refresh");
+    };
+    var updateFlagEditor = function (flagEditor, flag) {
+        flagEditor.val(flag);
+        flagEditor.selectmenu("refresh");
+    };
 
     var renderSelectedNote = function (data) {
         var u = $.mobile.path.parseUrl(data.options.fromPage.context.URL);
@@ -271,12 +279,11 @@ Jassplan.controller = (function (view, viewModel, helper) {
             var noteId = queryStringObj["noteId"];
 
             if (typeof noteId !== "undefined") {  //here we are supposed to load the values into the fields
-                var notesList = viewModel.getNotesList();
-
-                var notesCount = notesList.length;
-                var note;
-                for (var i = 0; i < notesCount; i++) {
-                    note = notesList[i];
+                var note = viewModel.getNoteForId(noteId);
+                if (note === null) {
+                    alert("System Error: Task Id was not found, weird.");
+                    return false;
+                }
                     if (noteId == note.jassActivityID) {
                         titleEditor.val(note.title);
                         updateStatusEditor(statusEditor, note.status);
@@ -289,22 +296,14 @@ Jassplan.controller = (function (view, viewModel, helper) {
                         doneDateEditor.val(note.doneDate);
                         actualDurationEditor.val(note.actualDuration);
                         currentNote = note;
-                        break;
                     }
-                }
+          
                 titleEditor.focus();
             }
         }
         return data;
     };
-    var updateStatusEditor = function (statusEditor, status) {
-        statusEditor.val(status);
-        statusEditor.selectmenu("refresh");
-    };
-    var updateFlagEditor = function (flagEditor, flag) {
-        flagEditor.val(flag);
-        flagEditor.selectmenu("refresh");
-    };
+
     var onPageBeforeChange = function (event, data) {
         var titleEditor = $(noteTitleEditorSel);
         var descriptionEditor = $(noteDescriptionEditorSel);

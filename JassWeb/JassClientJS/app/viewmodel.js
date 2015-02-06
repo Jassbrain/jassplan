@@ -153,10 +153,17 @@ Jassplan.viewmodel = (function (dataContext) {
         return note.status;
     }
 
+    var getNoteForId = function(noteId) {
+        for (var t=0; t<notesList.length; t++) {
+            if (notesList[t].id == noteId) return notesList[t];
+        }
+        return null;
+    }
+
+
+
     var getNotesList = function () {
-
         var filteredNotesList = [];
-
         for (var i = 0; i < notesList.length; i++) {
             if (notesList[i].parentID === parent || notesList[i].jassActivityID === parent) {
             if (state === "Do" && notesList[i].status != null && notesList[i].status !== "asleep") filteredNotesList.push(notesList[i]);
@@ -165,7 +172,6 @@ Jassplan.viewmodel = (function (dataContext) {
             }
         }
         var returnList = [filteredNotesList];
-
         if (state === "Do") {
             var schedulerJassplanAdapter = new Jassplan.SchedulerJassplanAdapter();
             schedulerJassplanAdapter.makeSchedulable(notesList);
@@ -181,9 +187,6 @@ Jassplan.viewmodel = (function (dataContext) {
                             scheduler.GetNextTasks(),
                             scheduler.GetDoneTasks()];
         }
-
-    
-
         return returnList;
     };
 
@@ -270,6 +273,7 @@ Jassplan.viewmodel = (function (dataContext) {
     var public = {
         init: init,
         refresh: refresh,
+        getNoteForId: getNoteForId,
         getNotesList: getNotesList,
         getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,
