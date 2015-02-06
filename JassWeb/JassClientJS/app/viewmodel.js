@@ -158,14 +158,33 @@ Jassplan.viewmodel = (function (dataContext) {
         var filteredNotesList = [];
 
         for (var i = 0; i < notesList.length; i++) {
-            if (notesList[i].parentID == parent || notesList[i].jassActivityID == parent) {
-            if (state == "Do" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
-            if (state == "Plan") filteredNotesList.push(notesList[i]);
-            if (state == "Review" && notesList[i].status != null && notesList[i].status != "asleep") filteredNotesList.push(notesList[i]);
+            if (notesList[i].parentID === parent || notesList[i].jassActivityID === parent) {
+            if (state === "Do" && notesList[i].status != null && notesList[i].status !== "asleep") filteredNotesList.push(notesList[i]);
+            if (state === "Plan") filteredNotesList.push(notesList[i]);
+            if (state === "Review" && notesList[i].status != null && notesList[i].status !== "asleep") filteredNotesList.push(notesList[i]);
             }
         }
+        var returnList = [filteredNotesList];
 
-        return filteredNotesList;
+        if (state === "Do") {
+            var schedulerJassplanAdapter = new Jassplan.SchedulerJassplanAdapter();
+            schedulerJassplanAdapter.makeSchedulable(notesList);
+            var scheduler = new Jassplan.Scheduler(
+                 {
+                     activeTasks: filteredNotesList,
+                     currentTime: new Date(),
+                     shortTermTimeWindow: 2,
+                     shortTermMaxNumberOfTasks: 3
+                 });
+            scheduler.CreateSchedule();
+            returnList = [  scheduler.GetShortTermTasks(),
+                            scheduler.GetNextTasks(),
+                            scheduler.GetDoneTasks()];
+        }
+
+    
+
+        return returnList;
     };
 
     var getReviewsList = function () {

@@ -136,27 +136,17 @@ Jassplan.controller = (function (view, viewModel, helper) {
     };
 
     var renderNotesList = function () {
-        /////////////////////////////
-        /////Experiment/////////////
 
-        Jassplan.Schedulable = function (activity) {
-            this.a = activity;
-        }
-        Jassplan.Schedulable.prototype.id = function () { return a.id };
-        Jassplan.Schedulable.prototype.title = function () { return a.title };
-        Jassplan.Schedulable.prototype.order = function () { return a.estimatedDuration };
-        Jassplan.Schedulable.prototype.snoozeUntil = function () { return a.estimatedStartHour };
-        Jassplan.Schedulable.prototype.points = function () { return a.actualDuration };
-        Jassplan.Schedulable.prototype.status = function () { return a.status };
-        Jassplan.Schedulable.prototype.flag = function () { return a.flag };
-
-        /////////////////////////////
         var state = viewModel.getState();
+
         if (state == "Review") {
             renderReviewList();
             return;
         }
-        notesList = viewModel.getNotesList();
+        //IDEA GENERALIZE THIS TO HAVE A LIST OF LISTS
+        var notesLists = viewModel.getNotesList();
+
+        var notesList = notesLists[0];
    //     var jsonNotesList = JSON.stringify(notesList2);
 
         var notesCount = notesList.length,
@@ -261,6 +251,8 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $("#view-model-done-status").text(totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled);
  
     };
+
+
     var renderSelectedNote = function (data) {
         var u = $.mobile.path.parseUrl(data.options.fromPage.context.URL);
         var re = "^#" + noteEditorPageId;
