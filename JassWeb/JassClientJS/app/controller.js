@@ -143,16 +143,19 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
         var notesLists = viewModel.getNotesList();
 
-        var notesList = notesLists[0];     //var jsonNotesList = JSON.stringify(notesList);
-
-        var notesCount = notesList.length, note, dateGroup, noteDate, i;
+        //initialize the html list
 
         var viewForTaskList = $(notesListSelector);
         viewForTaskList.empty();
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(viewForTaskList);
         var d = viewModel.getNotesListDoneDate().toString();
-        var doneDateStr = d.substring(0, d.indexOf(":")-2);
+        var doneDateStr = d.substring(0, d.indexOf(":") - 2);
+        ////////////// START BIG LOOP
+        for (var l = 0; l < notesLists.length; l++) {
 
+        var notesList = notesLists[l];     //var jsonNotesList = JSON.stringify(notesList);
+
+        var notesCount = notesList.length, note, dateGroup, noteDate, i;
         $("<li data-role=\"list-divider\">" + doneDateStr + "</li>").appendTo(ul);
 
         for (i = 0; i < notesCount; i += 1) {
@@ -205,6 +208,9 @@ Jassplan.controller = (function (view, viewModel, helper) {
             + narrativeHTML
             + "</li>").appendTo(ul);
         }
+        }
+        ///////////////////END BIG LOOP
+
         ul.listview();
 
         $(document).on("tap click", "[name=starimage]", onTapStar);
