@@ -150,19 +150,10 @@ Jassplan.controller = (function (view, viewModel, helper) {
         var viewForTaskList = $(notesListSelector);
         viewForTaskList.empty();
         var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(viewForTaskList);
-
-
-        totalPoints = 0;
-        totalPointsScheduled=0;
-        totalPointsDone = 0;
-        totalPointsDonePlus = 0;
-
         var d = viewModel.getNotesListDoneDate().toString();
-
         var doneDateStr = d.substring(0, d.indexOf(":")-2);
 
         $("<li data-role=\"list-divider\">" + doneDateStr + "</li>").appendTo(ul);
-
 
         for (i = 0; i < notesCount; i += 1) {
             noteDate = (new Date(notesList[i].dateCreated)).toDateString();
@@ -193,17 +184,6 @@ Jassplan.controller = (function (view, viewModel, helper) {
             var actualDuration = notesList[i].actualDuration;
             if (notesList[i].actualDuration == null) { actualDuration = "?" };
 
-            totalPoints += notesList[i].actualDuration;
-            if (notesList[i].status == "stared" || notesList[i].status == "done" || notesList[i].status == "doneplus") {
-                totalPointsScheduled += notesList[i].actualDuration;
-            }
-            if (notesList[i].status == "done" || notesList[i].status == "doneplus") {
-                totalPointsDone += notesList[i].actualDuration;
-            }
-            if (notesList[i].status == "doneplus") {
-                totalPointsDonePlus += notesList[i].actualDuration;
-            }
-
             var flagColor = notesList[i].flag;
 
             var starimageid = "itemimage" + notesList[i].id;
@@ -220,9 +200,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
             + "</a>"           
             + "</div>"
             + "<div style=\"min-width:35px\">" + "<img height=20px width=20px name=\"parentimage\" id=\"" + parentimageid + "\" src=\"images/" + parentImg + "\"/>" + "</div>"
-            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
-
-   
+            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"   
             + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
             + narrativeHTML
             + "</li>").appendTo(ul);
@@ -234,8 +212,10 @@ Jassplan.controller = (function (view, viewModel, helper) {
         $(document).on("tap click", "[name=parentimage]", onTapParent);
         $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
 
-       // alert(totalPointsDone + "/" + totalPointsScheduled + "/" + totalPoints);
-
+        totalPoints = viewModel.getTotalPoints();
+        totalPointsScheduled = viewModel.getTotalPointsScheduled();
+        totalPointsDone = viewModel.getTotalPointsDone();
+        totalPointsDonePlus = viewModel.getTotalPointsDonePlus();
         $("#view-model-done-status").text(totalPointsDonePlus + "/" + totalPointsDone + "/" + totalPointsScheduled);
  
     };

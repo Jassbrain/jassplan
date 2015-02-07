@@ -11,10 +11,20 @@ Jassplan.viewmodel = (function (dataContext) {
     var notesList;
     var reviewsList;
 
+    var totalPoints;
+    var totalPointsScheduled;
+    var totalPointsDone;
+    var totalPointsDonePlus;
+
     var getState = function (){
         state = $.jStorage.get(stateStorageKey);
         return state;
     }
+
+    var getTotalPoints = function () { return totalPoints; };
+    var getTotalPointsScheduled = function () { return totalPointsScheduled; };
+    var getTotalPointsDone = function () { return totalPointsDone; };
+    var getTotalPointsDonePlus = function () { return totalPointsDonePlus; };
 
     var getParent = function () {
         parent = $.jStorage.get(parentStorageKey);
@@ -173,6 +183,29 @@ Jassplan.viewmodel = (function (dataContext) {
         }
         return notesListDoneDate;
     }
+
+
+    var calculatePoints = function()
+    {
+        totalPoints = 0;
+        totalPointsScheduled = 0;
+        totalPointsDone = 0;
+        totalPointsDonePlus = 0;
+
+        for (var i = 0; i < notesList.length; i++) {
+            totalPoints += notesList[i].actualDuration;
+            if (notesList[i].status == "stared" || notesList[i].status == "done" || notesList[i].status == "doneplus") {
+                totalPointsScheduled += notesList[i].actualDuration;
+            }
+            if (notesList[i].status == "done" || notesList[i].status == "doneplus") {
+                totalPointsDone += notesList[i].actualDuration;
+            }
+            if (notesList[i].status == "doneplus") {
+                totalPointsDonePlus += notesList[i].actualDuration;
+            }
+        }
+
+    }
     var getNotesList = function () {
         var filteredNotesList = [];
         for (var i = 0; i < notesList.length; i++) {
@@ -275,6 +308,8 @@ Jassplan.viewmodel = (function (dataContext) {
 
         if (parentName == null) { parentName = ""; };
         if (getState() == null) { setStateDo(); };
+
+        calculatePoints();
     };
 
     var viewStatus = function() {
@@ -283,6 +318,10 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var public = {
         init: init,
+        getTotalPoints: getTotalPoints,
+        getTotalPointsScheduled:getTotalPointsScheduled,
+        getTotalPointsDone: getTotalPointsDone, 
+        getTotalPointsDonePlus: getTotalPointsDonePlus,
         getNotesListDoneDate: getNotesListDoneDate,
         refresh: refresh,
         getNoteForId: getNoteForId,
