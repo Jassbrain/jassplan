@@ -160,8 +160,19 @@ Jassplan.viewmodel = (function (dataContext) {
         return null;
     }
 
-
-
+    var getNotesListDoneDate = function ()
+    {
+        //if wew have done date, show done date, otherwise show today    
+        var notesListDoneDate = new Date();
+        for (i = 0; i < notesList.length; i += 1) {
+            var mindNote = getNoteForId(i); //the idea here is the get the firt task.. usually A1-Mind
+            if (mindNote != null && mindNote.doneDate != null) {
+                notesListDoneDate = new Date(mindNote.doneDate);
+                return notesListDoneDate;
+            }
+        }
+        return notesListDoneDate;
+    }
     var getNotesList = function () {
         var filteredNotesList = [];
         for (var i = 0; i < notesList.length; i++) {
@@ -272,6 +283,7 @@ Jassplan.viewmodel = (function (dataContext) {
 
     var public = {
         init: init,
+        getNotesListDoneDate: getNotesListDoneDate,
         refresh: refresh,
         getNoteForId: getNoteForId,
         getNotesList: getNotesList,

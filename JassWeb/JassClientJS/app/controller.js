@@ -20,6 +20,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
     var totalPoints;
     var totalPointsScheduled;
     var totalPointsDone;
+    var totalPointsDonePlus;
 
     var _lastEventTimestamp;
     var checkAndPreventDuplicatedEvent = function (e) {
@@ -138,70 +139,57 @@ Jassplan.controller = (function (view, viewModel, helper) {
     var renderNotesList = function () {
 
         var state = viewModel.getState();
+        if (state == "Review") { renderReviewList(); return; }
 
-        if (state == "Review") {
-            renderReviewList();
-            return;
-        }
-        //IDEA GENERALIZE THIS TO HAVE A LIST OF LISTS
         var notesLists = viewModel.getNotesList();
 
-        var notesList = notesLists[0];
-   //     var jsonNotesList = JSON.stringify(notesList2);
+        var notesList = notesLists[0];     //var jsonNotesList = JSON.stringify(notesList);
 
-        var notesCount = notesList.length,
-            note,
-            dateGroup,
-            noteDate,
-            i;
-        var view = $(notesListSelector);
-        view.empty();
-        var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(view);
-        totalPoints=0;
+        var notesCount = notesList.length, note, dateGroup, noteDate, i;
+
+        var viewForTaskList = $(notesListSelector);
+        viewForTaskList.empty();
+        var ul = $("<ul id=\"notes-list\" data-role=\"listview\"></ul>").appendTo(viewForTaskList);
+
+
+        totalPoints = 0;
         totalPointsScheduled=0;
         totalPointsDone = 0;
         totalPointsDonePlus = 0;
 
-        //if wew have done date, show done date, otherwise show today
-        var dateForDivider = new Date().toDateString();
-        for (i = 0; i < notesCount; i += 1) {
-            if (notesList[i].doneDate != null) {
-                dateForDivider = notesList[i].doneDate.substring(0,10);
-            }
-        }
-        $("<li data-role=\"list-divider\">" + dateForDivider + "</li>").appendTo(ul);
+        var d = viewModel.getNotesListDoneDate().toString();
+
+        var doneDateStr = d.substring(0, d.indexOf(":")-2);
+
+        $("<li data-role=\"list-divider\">" + doneDateStr + "</li>").appendTo(ul);
 
 
         for (i = 0; i < notesCount; i += 1) {
-
             noteDate = (new Date(notesList[i].dateCreated)).toDateString();
-
             /*
             if (dateGroup !== noteDate) {
                 $("<li data-role=\"list-divider\">" + noteDate + "</li>").appendTo(ul);
                 dateGroup = noteDate;
             }*/
-
             var starImg = "star_" + notesList[i].status + ".png";
-            var parentImg = "subtasks2.png";
-          
+            var parentImg = "subtasks2.png";         
             var description = notesList[i].description;
+            var descriptionLineBreak = (description!=null)?description.indexOf("\n"):-1;
             if (notesList[i].description == null) { description = "" };
+            description = (descriptionLineBreak > 0) ? description.substring(0, descriptionLineBreak) : description;
 
             var narrative = notesList[i].narrative;
+            var narrativeLineBreak = (narrative != null) ? narrative.indexOf("\n") : -1;
             if (notesList[i].narrative == null) { narrative = "" };
+            narrative = (narrativeLineBreak > 0) ? narrative.substring(0, narrativeLineBreak) : narrative;
 
             var narrativeHTML = "";
-
             narrativeHTML = "<div style=\"min-width:150px;font-weight:normal; font-size:small; font-style:italic\">" + narrative + "</div>";
             var notesListTemp = notesList[i];
-
             var estimatedDuration = notesList[i].estimatedDuration;
             if (notesList[i].estimatedDuration == null) { estimatedDuration = "?" };
-
             var estimatedStartHour = notesList[i].estimatedStartHour;
             if (notesList[i].estimatedStartHour == null) { estimatedStartHour = 0 };
-
             var actualDuration = notesList[i].actualDuration;
             if (notesList[i].actualDuration == null) { actualDuration = "?" };
 
