@@ -193,15 +193,22 @@ Jassplan.viewmodel = (function (dataContext) {
         totalPointsDonePlus = 0;
 
         for (var i = 0; i < notesList.length; i++) {
-            totalPoints += notesList[i].actualDuration;
-            if (notesList[i].status == "stared" || notesList[i].status == "done" || notesList[i].status == "doneplus") {
-                totalPointsScheduled += notesList[i].actualDuration;
-            }
-            if (notesList[i].status == "done" || notesList[i].status == "doneplus") {
-                totalPointsDone += notesList[i].actualDuration;
-            }
-            if (notesList[i].status == "doneplus") {
-                totalPointsDonePlus += notesList[i].actualDuration;
+            var taskPoints = parseInt(notesList[i].actualDuration);
+            var taskStatus = notesList[i].status;
+            var taskParentId = notesList[i].parentID;
+
+            var currentParentId = parent;
+            if (taskParentId === currentParentId) {
+                totalPoints += taskPoints;
+                if (taskStatus === "stared" || taskStatus === "done" || taskStatus === "doneplus") {
+                    totalPointsScheduled += taskPoints;
+                }
+                if (taskStatus === "done" || taskStatus === "doneplus") {
+                    totalPointsDone += taskPoints;
+                }
+                if (taskStatus === "doneplus") {
+                    totalPointsDonePlus += taskPoints;
+                }
             }
         }
 
