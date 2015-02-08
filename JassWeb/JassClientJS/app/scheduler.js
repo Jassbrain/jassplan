@@ -42,7 +42,22 @@ Jassplan.Scheduler = function (params) {
     var GetNumber = function (param)
     {
         if (isNaN(param)) return 0;
-        return parseInt(param);
+        if (param == null) return 0;
+        var result = parseInt(param);
+        return result;
+    }
+
+    var pushKeepingSnoozeOrder = function(taskList, task)
+    {
+        for (var t = 0; t < taskList.length; t++) {
+            if (GetNumber(taskList[t].snoozeUntil) > GetNumber(task.snoozeUntil)) {
+                //then we put the tasks juest after
+                taskList.splice(t, 0, task);
+                return true;
+            }
+        }
+        taskList.push(task);
+        return true;
     }
 
     var tryToAddToShortTermList = function (task) {
@@ -50,7 +65,7 @@ Jassplan.Scheduler = function (params) {
         if (GetNumber(task.snoozeUntil) > _currentTimeWindowEnd) return false;
         if (task.status === "doneplus") return false;
 
-        _shortTermTasks.push(task);
+        pushKeepingSnoozeOrder(_shortTermTasks,task);
         return true;
     }
 
@@ -58,7 +73,7 @@ Jassplan.Scheduler = function (params) {
 
         if (task.status === "doneplus") return false;
 
-        _nextTasks.push(task);
+        pushKeepingSnoozeOrder(_nextTasks, task);
         return true;
     }
 

@@ -188,4 +188,54 @@ describe("Test for JPScheduler", function () {
         expect(doneTasks[0].title).toBe("title3");
     });
 
+
+    it("Tasks get ordered by start hour", function () {
+        /*
+            anote.order = anote.estimatedDuration;
+            anote.snoozeUntil = anote.estimatedStartHour;
+            anote.points = anote.actualDuration;
+        */
+
+        var anActiveTask1 = { title: "title1", snoozeUntil: 19 };
+        var anActiveTask2 = { title: "title2", snoozeUntil: 18 };
+        var anActiveTask3 = { title: "title3", snoozeUntil: 20, status: "doneplus" };
+        var anActiveTask4 = { title: "title4", snoozeUntil: 21 };
+        var anActiveTask5 = { title: "title5", snoozeUntil: 22 };
+        var anActiveTask6 = { title: "title6", snoozeUntil: 23 };
+
+        var activeTasks = [anActiveTask1, anActiveTask2, anActiveTask3, anActiveTask4, anActiveTask5, anActiveTask6];
+        var currentTime = new Date("2015-02-06T00:00:00.000Z");  //19
+
+        var scheduler = new Jassplan.Scheduler(
+         {
+             activeTasks: activeTasks,
+             currentTime: currentTime,
+             shortTermTimeWindow: 2,
+             shortTermMaxNumberOfTasks: 3
+         });
+
+        expect(scheduler).toBeDefined();
+        scheduler.CreateSchedule();
+
+        var result = scheduler.GetAllActiveTasks();
+        expect(result.length).toBe(6);
+
+        //since we have a window of 2 hours starting at 19, we should see tasks at 19, 20 and 21.
+        //the other tasks should go to the next
+        var shortTermTasks = scheduler.GetShortTermTasks();
+        expect(shortTermTasks.length).toBe(3);
+        expect(shortTermTasks[0].title).toBe("title2");
+        expect(shortTermTasks[1].title).toBe("title1");
+        expect(shortTermTasks[2].title).toBe("title4");
+
+        var nextTasks = scheduler.GetNextTasks();
+        expect(nextTasks.length).toBe(2);
+        expect(nextTasks[0].title).toBe("title5");
+        expect(nextTasks[1].title).toBe("title6");
+
+        var doneTasks = scheduler.GetDoneTasks();
+        expect(doneTasks.length).toBe(1);
+        expect(doneTasks[0].title).toBe("title3");
+    });
+
 });
