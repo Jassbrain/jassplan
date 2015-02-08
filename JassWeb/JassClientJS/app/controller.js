@@ -141,10 +141,11 @@ Jassplan.controller = (function (view, viewModel, helper) {
         if (s == null) return "&nbsp&nbsp&nbsp&nbsp";
         s = s.toString();
         if (s.length > 4) return s.substring(0, 4);
-        if (s.length == 4) return s;
-        if (s.length == 3) return s + "&nbsp";
-        if (s.length == 2) return s + "&nbsp&nbsp";
-        if (s.length == 1) return s + "&nbsp&nbsp&nbsp";
+        if (s.length === 4) return s;
+        if (s.length === 3) return s + "&nbsp";
+        if (s.length === 2) return s + "&nbsp&nbsp";
+        if (s.length === 1) return s + "&nbsp&nbsp&nbsp";
+        if (s.length === 0) return s + "&nbsp&nbsp&nbsp&nbsp";
         return null;
     };
 

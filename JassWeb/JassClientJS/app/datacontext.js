@@ -175,6 +175,10 @@ Jassplan.dataContext = (function (serverProxy) {
         var noteIndex = noteIndexInNotesList(noteModel);
         if (noteIndex == null) {
             noteModel.jassActivityID = getLastId();
+            noteModel.id = noteModel.jassActivityID;
+            noteModel.Created = noteModel.lastUpdated;
+            noteModel.dateCreated = noteModel.lastUpdated;
+            noteModel.estimatedStartHour = null;
             notesList.splice(0, 0, noteModel);
             Jassplan.serverProxy.createTodoList(noteModel, handleProxyError);
         } else {
