@@ -136,6 +136,18 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
     };
 
+    var make4CharsLength = function (s) {
+   
+        if (s == null) return "&nbsp&nbsp&nbsp&nbsp";
+        s = s.toString();
+        if (s.length > 4) return s.substring(0, 4);
+        if (s.length == 4) return s;
+        if (s.length == 3) return s + "&nbsp";
+        if (s.length == 2) return s + "&nbsp&nbsp";
+        if (s.length == 1) return s + "&nbsp&nbsp&nbsp";
+        return null;
+    };
+
     var renderNotesList = function () {
 
         var state = viewModel.getState();
@@ -191,10 +203,12 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
             var starimageid = "itemimage" + notesList[i].id;
             var parentimageid = "itemimage" + notesList[i].id;
+            var snoozeTime = make4CharsLength(notesList[i].estimatedStartHour);
 
             $("<li style=\"min-height:50px\">"
             + "<div style=\"min-width:35px;float:left\">" + "<img height=23px width=23px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
-            + "<div style=\"position:relative; top:2px;min-width:35px;float:left\">" + notesList[i].actualDuration + "</div>"
+            + "<div style=\"position:relative; top:2px;min-width:15px;float:left\">" + notesList[i].actualDuration + "</div>"
+            + "<div style=\"position:relative; top:2px;min-width:37px;float:left\">" + make4CharsLength(notesList[i].estimatedStartHour) + "</div>"
             + "<div style=\"position:relative; top:1px;height:20px;width:20px;float:left; background-color:"+ flagColor +"\"></div>"
             + "<div style=\"height:15px;width:15px;float:left\"></div>"
             + "<div style=\"min-width:150px;float:left\">"

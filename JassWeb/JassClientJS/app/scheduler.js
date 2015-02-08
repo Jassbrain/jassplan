@@ -46,21 +46,25 @@ Jassplan.Scheduler = function (params) {
     }
 
     var tryToAddToShortTermList = function (task) {
-        //rule nuber 1, hide tasks that fall outside the window
-        if (GetNumber(task.snoozeUntil) > _currentTimeWindowEnd) return false;
 
-        //add to end of list
+        if (GetNumber(task.snoozeUntil) > _currentTimeWindowEnd) return false;
+        if (task.status === "doneplus") return false;
+
         _shortTermTasks.push(task);
         return true;
     }
 
-    var tryToAddToNextList = function (activeTask) {
-        _nextTasks.push(activeTask);
-        return false;
+    var tryToAddToNextList = function (task) {
+
+        if (task.status === "doneplus") return false;
+
+        _nextTasks.push(task);
+        return true;
     }
 
-    var tryToAddToDoneList = function (activeTask) {
-        return false;
+    var tryToAddToDoneList = function (task) {
+        _doneTasks.push(task);
+        return true;
     }
 
     var GetJPHours = function () {
