@@ -349,6 +349,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         var taskId = id.replace("itemimage","");
         var taskStatus = viewModel.star(taskId);
         $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+        refresh();
     }
     var onTapHoldStar = function (e) {
         if (checkAndPreventDuplicatedEvent(e)) return;
@@ -356,6 +357,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         var taskId = id.replace("itemimage", "");
         var taskStatus = viewModel.unstar(taskId);
         $("#" + id).attr("src", "images/star_" + taskStatus + ".png");
+        refresh();
     }
     var onTapParent = function (e) {
         if (checkAndPreventDuplicatedEvent(e)) return;
