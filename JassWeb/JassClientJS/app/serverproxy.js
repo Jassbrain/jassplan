@@ -23,6 +23,28 @@ Jassplan.serverProxy = (function () {
         return userLogged;
     }
 
+    var pingUserLogged = function (errorHandler) {
+
+        var userLogged = "";
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: true,
+            url: "/api/todolist/getuserlogged",
+            success: function (data) {
+                userLogged = data;
+                errorHandler(data, "all good");
+            },
+            error: function (data) {
+                userLogged = "";
+                errorHandler("", "not logged");
+            }
+        });
+
+        return userLogged;
+    }
+
     var getReviewLists = function (errorHandler) {
 
         var todoLists;
@@ -181,6 +203,7 @@ Jassplan.serverProxy = (function () {
 
     var public = {
         checkUserLogged: checkUserLogged,
+        pingUserLogged: pingUserLogged,
         getTodoLists: getTodoLists,
         getReviewLists: getReviewLists,
         createTodoList: createTodoList,

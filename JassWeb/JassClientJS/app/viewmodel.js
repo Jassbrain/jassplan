@@ -41,6 +41,11 @@ Jassplan.viewmodel = (function (dataContext) {
         return logged;
     }
 
+    var pingLogged = function () {
+        var logged = dataContext.pingLogged();
+        return logged;
+    }
+
     var getUserName = function () {
         var logged = dataContext.getUserName();
         return logged;
@@ -341,6 +346,7 @@ Jassplan.viewmodel = (function (dataContext) {
         getParentName: getParentName,
         getParent: getParent,
         getLogged: getLogged,
+        pingLogged: pingLogged,
         getUserName: getUserName,
         setStatePlan: setStatePlan,
         setStateDo: setStateDo,

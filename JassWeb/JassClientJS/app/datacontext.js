@@ -22,8 +22,16 @@ Jassplan.dataContext = (function (serverProxy) {
         } else {
             alert("Error: " + errorCode + " : " + errorMessage);
         }
+    }
 
-
+    var handleProxyLogged = function (userName, errorMessage) {
+        if (userName === "") {
+            $.jStorage.set(loggedStorageKey, false);
+            $("#status-button-label").text("!");
+        } else {
+            $.jStorage.set(loggedStorageKey, true);
+            $("#status-button-label").text("k");
+        }
     }
 
     var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
@@ -31,6 +39,10 @@ Jassplan.dataContext = (function (serverProxy) {
     var getLogged = function () {
         var loggedToken = $.jStorage.get(loggedStorageKey);
         return loggedToken;
+    }
+
+    var pingLogged = function () {
+        serverProxy.pingUserLogged(handleProxyLogged);
     }
 
     var getUserName = function () {
@@ -102,26 +114,11 @@ Jassplan.dataContext = (function (serverProxy) {
         var noteModel = new Jassplan.NoteModel(config);
         return noteModel; };
 
-    var checkLoggedStatus = function()
-    {
-        var loggedToken = $.jStorage.get(loggedStorageKey);
-
-        if (loggedToken === null) {
-            var _userName = serverProxy.checkUserLogged();
-            if (_userName === "") {
-                loggedToken = $.jStorage.set(loggedStorageKey, false);
-                userLogged = false;
-            } else {
-                loggedToken = $.jStorage.set(loggedStorageKey, true);
-                userLogged = true;
-            }
-        }
-
-        loggedToken = $.jStorage.get(loggedStorageKey);
-    }
-
     var init = function (storageKey) {
         //get all the storage keys
+
+        pingLogged();
+
         notesListStorageKey = storageKey;
         reviewsListStorageKey = storageKey + "review";
         refreshStorageKey = storageKey + "refresh";
@@ -134,9 +131,8 @@ Jassplan.dataContext = (function (serverProxy) {
         notesList = $.jStorage.get(notesListStorageKey);
         reviewsList = $.jStorage.get(reviewsListStorageKey);
 
-        checkLoggedStatus();
 
-        if (weAreInRefresh && userLogged) {
+        if (weAreInRefresh) {
             notesList = serverProxy.saveAllTodoLists(notesList, handleProxyError);
             $.jStorage.set(notesListStorageKey, notesList);
             loadReviewsFromLocalStorage();
@@ -239,6 +235,7 @@ Jassplan.dataContext = (function (serverProxy) {
         deleteNote: deleteNote,
         deleteAllNotes: deleteAllNotes,
         getLogged: getLogged,
+        Logged: pingLogged,
         getUserName: getUserName,
         archiveAndReloadNotes: archiveAndReloadNotes
     };
