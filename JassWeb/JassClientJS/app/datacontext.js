@@ -20,7 +20,9 @@ Jassplan.dataContext = (function (serverProxy) {
             $("#status-button-label").text("!");
             alert("You do not seem to be logged in, you will continue working offline");
         } else {
-            alert("Error: " + errorCode + " : " + errorMessage);
+            if (errorCode >= 400) {
+                alert("handleProxyError: " + errorCode + " : " + errorMessage);
+            }
         }
     }
 

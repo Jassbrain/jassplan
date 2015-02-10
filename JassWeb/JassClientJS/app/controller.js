@@ -155,7 +155,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         if (state == "Review") { renderReviewList(); return; }
 
         var notesLists = viewModel.getNotesList();
-
+    
         //initialize the html list
 
         var viewForTaskList = $(notesListSelector);

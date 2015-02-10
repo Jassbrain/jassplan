@@ -87,6 +87,9 @@ Jassplan.Scheduler = function (params) {
     }
 
     var CreateSchedule = function () {
+
+        var activeTasksJson = JSON.stringify(_activeTasks);
+
         //setup some constraints
         _currentTimeWindowStart = GetJPHours(_currentTime);
         _currentTimeWindowEnd = _currentTimeWindowStart + _shortTermTimeWindow;
