@@ -133,7 +133,12 @@ Jassplan.dataContext = (function (serverProxy) {
         notesList = $.jStorage.get(notesListStorageKey);
         reviewsList = $.jStorage.get(reviewsListStorageKey);
 
+        for (var n = 0; n < notesList.length; n++) {
 
+            var note = notesList[n];
+            var title = note.title;
+
+        }
         if (weAreInRefresh) {
             notesList = serverProxy.saveAllTodoLists(notesList, handleProxyError);
             $.jStorage.set(notesListStorageKey, notesList);

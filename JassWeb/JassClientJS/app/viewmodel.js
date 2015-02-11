@@ -21,6 +21,12 @@ Jassplan.viewmodel = (function (dataContext) {
         return state;
     }
 
+    var getStateDisplayName = function () {
+        state = $.jStorage.get(stateStorageKey);
+        if (state === "Review") return "Think";
+        return state;
+    }
+
     var getTotalPoints = function () { return totalPoints; };
     var getTotalPointsScheduled = function () { return totalPointsScheduled; };
     var getTotalPointsDone = function () { return totalPointsDone; };
@@ -343,6 +349,7 @@ Jassplan.viewmodel = (function (dataContext) {
         saveNote: saveNote,
         deleteNote: deleteNote,
         getState: getState,
+        getStateDisplayName: getStateDisplayName,
         getParentName: getParentName,
         getParent: getParent,
         getLogged: getLogged,

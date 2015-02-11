@@ -30,7 +30,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
     }
 
     var renderViewModel = function(){
-        $("#view-model-state").text(viewModel.getState());
+        $("#view-model-state").text(viewModel.getStateDisplayName());
         $("#view-model-parent").text(viewModel.getParentName());
         var logged = viewModel.getLogged();
         $("#view-model-logged").text(logged);

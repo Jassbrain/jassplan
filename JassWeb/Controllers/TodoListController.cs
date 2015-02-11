@@ -90,7 +90,7 @@ namespace JassWeb.Controllers
         }
         public List<JassActivity> PutSaveAllTodoLists(JassActivityList allTodos)
         {
-          //  mm.ActivitySaveAll(allTodos);
+            mm.ActivitySaveAll(allTodos.ActivityListJson);
             return mm.ActivitiesGetAll();
         }
 
