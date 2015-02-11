@@ -84,9 +84,13 @@ namespace JassWeb.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        public List<JassActivity> PutSaveAllTodoLists(List<JassActivity> allTodos)
+        public class JassActivityList
         {
-            mm.ActivitySaveAll(allTodos);
+            public List<JassActivity> ActivityListJson { get; set; }
+        }
+        public List<JassActivity> PutSaveAllTodoLists(JassActivityList allTodos)
+        {
+          //  mm.ActivitySaveAll(allTodos);
             return mm.ActivitiesGetAll();
         }
 
@@ -111,4 +115,6 @@ namespace JassWeb.Controllers
             mm.Dispose();
         }
     }
+
+
 }

@@ -187,7 +187,7 @@ Jassplan.serverProxy = (function () {
             type: "PUT",
             dataType: "json",
             async: false,
-            data: allTodos,
+            data: { "ActivityListJson": allTodos },
             url: "/api/todolist/PutSaveAllTodoLists",
             success: function (data) {
                 result = data;
