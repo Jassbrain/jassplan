@@ -42,7 +42,7 @@ Jassplan.Scheduler = function (params) {
     var GetNumber = function (param)
     {
         if (isNaN(param)) return 0;
-        if (param == null) return 0;
+        if (param == null || param == "") return 0;
         var result = parseInt(param);
         return result;
     }
@@ -95,6 +95,8 @@ Jassplan.Scheduler = function (params) {
         _currentTimeWindowEnd = _currentTimeWindowStart + _shortTermTimeWindow;
 
         //we look at all tasks and we try to add the lists in order
+        var _activeTasksJson = JSON.stringify(_activeTasks);
+
         for (t in _activeTasks) {
             if (tryToAddToShortTermList(_activeTasks[t])) continue;
             if (tryToAddToNextList(_activeTasks[t])) continue;
