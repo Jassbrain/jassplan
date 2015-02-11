@@ -24,7 +24,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
 
     var _lastEventTimestamp;
     var checkAndPreventDuplicatedEvent = function (e) {
-        if (e.timeStamp === _lastEventTimestamp) return true;
+        if ((e.timeStamp - _lastEventTimestamp)<1000) return true;
         else _lastEventTimestamp = e.timeStamp;
         return false;
     }
