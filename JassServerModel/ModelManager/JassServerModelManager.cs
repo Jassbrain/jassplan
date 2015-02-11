@@ -186,17 +186,19 @@ namespace Jassplan.JassServerModelManager
 
         public JassActivityHistory ActivitySaveIfNew(JassActivity activity)
         {
-
-            JassActivity activityCurrent = _db.JassActivities.Find(activity.JassActivityID);
-            checkIfMine(activityCurrent);
-
             var resultActivityHistory = new JassActivityHistory();
 
-            if (activity.LastUpdated > activityCurrent.LastUpdated)
+            JassActivity activityCurrent = _db.JassActivities.Find(activity.JassActivityID);
+
+            if (activityCurrent != null)
             {
-                resultActivityHistory = ActivitySave(activity);
+                checkIfMine(activityCurrent);
+                if (activity.LastUpdated > activityCurrent.LastUpdated)
+                {
+                    resultActivityHistory = ActivitySave(activity);
+                }
             }
-    
+
             return resultActivityHistory;
         }
 
