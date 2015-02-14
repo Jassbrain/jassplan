@@ -5,18 +5,16 @@
 
 describe("Test for JPScheduler", function () {
 
-    it("Can create a googler and called the ping function", function () {
+    it("Call Open Authorization", function () {
 
         var googler = new Jassplan.Googler({});
-        var result = googler.pingGoogleCalendar();
+        var result = googler.apiAuthorization();
+
+        expect(result).not.toBeNull();
     });
 
-    it("a google answers with the authorization info", function () {
+    //            Jassplan.Googler.apiAuthorization();
 
-        var googler = new Jassplan.Googler({});
-        var result = googler.apiAuthorization;
-
-    });
 
 
 });

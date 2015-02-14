@@ -1325,7 +1325,7 @@
     <Content Include="JassClientJS\tests\test_scheduler.html" />
     <Content Include="JassClientJS\tests\test_scheduler.js" />
     <Content Include="JassClientJS\tests\test_index_in_iframe.js" />
-    <Content Include="JassClientJS\tests\test_index_on_iframe.html" />
+    <Content Include="JassClientJS\tests\test_index_in_iframe.html" />
     <Content Include="JassClientJS\tests\test_datacontext.html" />
     <Content Include="JassClientJS\tests\test_datacontext.js" />
     <Content Include="JassClientJS\tests\testhelper.js" />
@@ -1387,6 +1387,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
+    <Content Include="Views\Home\TestGoogle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

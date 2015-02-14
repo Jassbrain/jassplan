@@ -10,11 +10,56 @@ Jassplan.Googleable = function(config) {
 Jassplan.Googler = function (params) {
     //receives a configuration to call google 
 
+    //Jassplan API Key for Browser Applications
+    var jassApiKey = "AIzaSyDF_Ra3V3yIzYrvlnVCS9OwKDUt1fK-GQI";
 
-    var apiAuthorization = { "auth_uri": "https://accounts.google.com/o/oauth2/auth", "client_secret": "n_NWUmm1Mnkc4UiRNGjo3iE3", "token_uri": "https://accounts.google.com/o/oauth2/token", "client_email": "473177441662-8aljqe6fne1s5umrromjg3u0jc6slsh3@developer.gserviceaccount.com", "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/473177441662-8aljqe6fne1s5umrromjg3u0jc6slsh3@developer.gserviceaccount.com", "client_id": "473177441662-8aljqe6fne1s5umrromjg3u0jc6slsh3.apps.googleusercontent.com", "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs" };
+    //Jassplan Client ID
+    var jassClientIO = "473177441662-mrh2rekb57m3414005na2m97qc480539.apps.googleusercontent.com";
+
+    //Client secret
+    var jassSecret = "0WiVaptWICy8wjusv7sww96Z";
+
+    var scopes = 'https://www.googleapis.com/auth/calendar';
+
+    var handleAuthResult = function (authResult) {
+        var json = JSON.stringify(authResult);
+        alert(json);
+    }
+
+    var checkAuth = function () {
+        gapi.auth.authorize({
+            client_id: jassClientIO,
+            scope: scopes,
+            immediate: false
+        },
+            handleAuthResult);
+    }
+
+    var apiAuthorization = function() {
+        gapi.client.setApiKey(jassApiKey);
+        window.setTimeout(checkAuth, 1);
+    };
+
+
+
+    var pingGoogleCalendarCallBack = function (json, raw) {
+       // alert("Hi");
+    };
+
     var pingGoogleCalendar = function() {
+        var calendarEntries;
 
-        return "ok";
+        var request = gapi.client.request({
+            "path": "/calendar/v3/users/me/calendarList",
+            "method": "POST",
+            "body": JSON.stringify({
+                "id":"pablo.elustondo@gmail.com",
+                "selected":true
+            })
+        });
+        request.execute(pingGoogleCalendarCallBack);
+
+        return calendarEntries;
     };
 
     var public = {
