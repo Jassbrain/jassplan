@@ -363,6 +363,12 @@
     <Content Include="JassClientJS\images\star_doneplus.png" />
     <Content Include="JassClientJS\images\star_stared.png" />
     <Content Include="JassClientJS\images\subtasks2.png" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\boot.js" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\console.js" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\jasmine-html.js" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\jasmine.css" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\jasmine.js" />
+    <Content Include="JassClientJS\lib\jasmine-2.2.0\jasmine_favicon.png" />
     <Content Include="JassClientJS\lib\jasmine\MIT.LICENSE" />
     <Content Include="JassClientJS\lib\jqm2\demos\backbone-requirejs\backbone-require.html" />
     <Content Include="JassClientJS\lib\jqm2\demos\backbone-requirejs\index.html" />
@@ -1317,6 +1323,7 @@
     <Content Include="JassClientJS\lib\jqm\jquery.mobile.theme-1.3.2.min.css" />
     <Content Include="JassClientJS\lib\jstorage\jstorage.js" />
     <Content Include="JassClientJS\tests\test_googler.html" />
+    <Content Include="JassClientJS\tests\test_html.html" />
     <Content Include="JassClientJS\tests\test_googler.js" />
     <Content Include="JassClientJS\tests\test_googler_adapter_jassplan.html" />
     <Content Include="JassClientJS\tests\test_googler_adapter_jassplan.js" />

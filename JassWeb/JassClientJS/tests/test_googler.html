@@ -1,34 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Jasmine Test Googler</title>
-    <!-- Libraries -->
-    <script src="../lib/jqm/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="../lib/jstorage/jstorage.js" type="text/javascript"></script>
-    <!-- Jasmine -->
-    <link href="../lib/jasmine/jasmine.css" rel="stylesheet" type="text/css" />
-    <script src="../lib/jasmine/jasmine.js" type="text/javascript"></script>
-    <script src="../lib/jasmine/jasmine-html.js" type="text/javascript"></script>
-    <!-- App -->
-    <!-- Modules under test -->
-    <script src="../app/googler.js" type="text/javascript"></script>
-    <script src="../app/model.js" type="text/javascript"></script>
-    <!-- Spec -->
-    <script src="test_googler.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <title>Specs/Test for Googler</title>
 
-    <script>
-        var googleapiready = function(data) {
-            jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-            jasmine.getEnv().execute();
-        };
-    </script>
+  <link rel="shortcut icon" type="image/png" href="../lib/jasmine-2.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" href="../lib/jasmine-2.2.0/jasmine.css">
 
-    <script src="https://apis.google.com/js/client.js?onload=googleapiready" type="text/javascript"></script>
+  <script src="../lib/jasmine-2.2.0/jasmine.js"></script>
+  <script src="../lib/jasmine-2.2.0/jasmine-html.js"></script>
+  <script src="../lib/jasmine-2.2.0/boot.js"></script>
+
+  <script>  var googleapiready = function (data) { }; </script>
+  <script src="https://apis.google.com/js/client.js?onload=googleapiready" type="text/javascript"></script>
+
+  <!-- include source files here... -->
+  <script src="../app/googler.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="test_googler.js"></script>
 
 </head>
-<body>
-<script type="text/javascript">
 
-</script>
+<body>
 </body>
 </html>

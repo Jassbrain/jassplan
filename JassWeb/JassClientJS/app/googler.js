@@ -10,6 +10,9 @@ Jassplan.Googleable = function(config) {
 Jassplan.Googler = function (params) {
     //receives a configuration to call google 
 
+    var _isAuthorized = false;
+    var _authResult = null;
+
     //Jassplan API Key for Browser Applications
     var jassApiKey = "AIzaSyDF_Ra3V3yIzYrvlnVCS9OwKDUt1fK-GQI";
 
@@ -23,21 +26,29 @@ Jassplan.Googler = function (params) {
 
     var handleAuthResult = function (authResult) {
         var json = JSON.stringify(authResult);
-        alert(json);
+        _authResult = authResult;
+      //  alert(json);
+    }
+
+    var isAuthorized = function () {
+        if (_authResult === null) return false;
+        if (_authResult.status.signed_in === true) return true;
+        return false;
     }
 
     var checkAuth = function () {
+     //   alert("calling gapi auth authorize");
         gapi.auth.authorize({
             client_id: jassClientIO,
             scope: scopes,
-            immediate: false
+            immediate: true
         },
             handleAuthResult);
     }
 
-    var apiAuthorization = function() {
+    var getAuthorization = function() {
         gapi.client.setApiKey(jassApiKey);
-        window.setTimeout(checkAuth, 1);
+        window.setTimeout(checkAuth, 1000);
     };
 
 
@@ -64,7 +75,8 @@ Jassplan.Googler = function (params) {
 
     var public = {
         pingGoogleCalendar: pingGoogleCalendar,
-        apiAuthorization: apiAuthorization
+        getAuthorization: getAuthorization,
+        isAuthorized: isAuthorized
     };
 
     return public;
