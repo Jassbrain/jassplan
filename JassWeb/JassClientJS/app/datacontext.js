@@ -186,6 +186,7 @@ Jassplan.dataContext = (function (serverProxy) {
     };
     var noteIndexInNotesList = function (noteModel){
         var index = null;
+        if (notesList == null) return null;
         var i;
         for (i = 0; i < notesList.length; i += 1) {
             if (notesList[i].id === noteModel.id) {
@@ -220,15 +221,30 @@ Jassplan.dataContext = (function (serverProxy) {
     
         Jassplan.serverProxy.deleteAllTodoLists(handleProxyError);
     }
-    var refresh = function () {
+    var refresh = function(storageKey) {
+
         $.jStorage.set(loggedStorageKey, null);
         $.jStorage.set(refreshStorageKey, "refresh"); 
+    }
+
+    var cleanrefresh = function (storageKey) {
+
+       refreshStorageKey = storageKey + "refresh";
+       loggedStorageKey = storageKey + "logged";
+       notesListStorageKey = storageKey;
+       reviewsListStorageKey = storageKey + "review";
+
+       $.jStorage.set(loggedStorageKey, null);
+       $.jStorage.set(notesListStorageKey, null);
+       $.jStorage.set(reviewsListStorageKey, null);
+        $.jStorage.set(refreshStorageKey, "refresh");
     }
 
     var public = {
         init: init,
         viewStatus: viewStatus,
         refresh: refresh,
+        cleanrefresh: cleanrefresh,
         getNotesList: getNotesList,
         getReviewsList: getReviewsList,
         createBlankNote: createBlankNote,

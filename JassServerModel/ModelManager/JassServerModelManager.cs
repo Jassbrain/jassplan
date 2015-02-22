@@ -50,6 +50,11 @@ namespace Jassplan.JassServerModelManager
                 if (activity.UserName != _username) throw new Exception("id does not belong to user");
             }
 
+            public bool IfMine(IUserOwned activity)
+            {
+                return (activity.UserName == _username);
+            }
+
             #endregion Single User Ilusion Layer
 
         #region activity Model API
@@ -192,10 +197,12 @@ namespace Jassplan.JassServerModelManager
 
             if (activityCurrent != null)
             {
-                checkIfMine(activityCurrent);
-                if (activity.LastUpdated > activityCurrent.LastUpdated)
+                if (IfMine(activityCurrent))
                 {
-                    resultActivityHistory = ActivitySave(activity);
+                    if (activity.LastUpdated > activityCurrent.LastUpdated)
+                    {
+                        resultActivityHistory = ActivitySave(activity);
+                    }
                 }
             }
 

@@ -2,12 +2,15 @@ var Jassplan = Jassplan || {};
 
 Jassplan.viewmodel = (function (dataContext) {
 
-    var appStorageKey = "Notes.NotesList";
+
+    var appStorageKey = "Jassplan.NotesList";
     var state = "Do";
     var parent = null;
+    var localUser = null;
     var parentName = null;
-    var stateStorageKey = "Notes.State";
-    var parentStorageKey = "Notes.Parent";
+    var stateStorageKey = "Jassplan.State";
+    var parentStorageKey = "Jassplan.Parent";
+    var localUserStorageKey = "Jassplan.LocalUser";
     var notesList;
     var reviewsList;
 
@@ -37,6 +40,11 @@ Jassplan.viewmodel = (function (dataContext) {
         return parent;
     }
 
+    var getLocalUser = function () {
+        localUser = $.jStorage.get(localUserStorageKey);
+        return localUser;
+    }
+
     var getParentName = function () {
         return parentName;
     }
@@ -60,6 +68,11 @@ Jassplan.viewmodel = (function (dataContext) {
     var setParent = function (parentin) {
         parent = parentin;
         $.jStorage.set(parentStorageKey, parent);
+    }
+
+    var setLocalUser = function (localUserin) {
+        localUser = localUserin;
+        $.jStorage.set(localUserStorageKey, localUser);
     }
 
     var setStatePlan = function (){
@@ -312,7 +325,15 @@ Jassplan.viewmodel = (function (dataContext) {
         dataContext.refresh();
     }
 
-    var init = function () {
+    var init = function (userName) {
+        localUser = getLocalUser();
+        if (userName != undefined) {
+            if (userName != localUser) {
+                dataContext.cleanrefresh(appStorageKey);
+            }
+            setLocalUser(userName);
+        }
+
         dataContext.init(appStorageKey);
         parent = getParent();
         notesList = dataContext.getNotesList();

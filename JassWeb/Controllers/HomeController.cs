@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using Jassplan.JassServerModelManager;
@@ -24,12 +25,7 @@ namespace JassWeb.Controllers
         public ActionResult Index()
         {       
             if (!User.Identity.IsAuthenticated) return View();
-
-            if (User.Identity.Name == "test") {
-                var mm = new JassDataModelManager(WebSecurity.CurrentUserName);
-                mm.ActivityDeleteAll();
-            }
-            return Redirect("/JassClientJS/index.html");            
+            return Redirect("/JassClientJS/index.html?user=" + User.Identity.Name);            
         }
 
         public string Main()

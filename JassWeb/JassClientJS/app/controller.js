@@ -1,8 +1,6 @@
 var Jassplan = Jassplan || {};
 
 Jassplan.controller = (function (view, viewModel, helper) {
-
-    var appStorageKey = "Notes.NotesList";
     var notesListPageId = "notes-list-page";
     var noteEditorPageId = "note-editor-page";
     var notesListSelector = "#notes-list-content";
@@ -483,7 +481,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
         window.location.href = window.location.href;
     }
     var refreshAll = function () {
-        viewModel.refresh(appStorageKey);
+        viewModel.refresh();
         refresh();
     }
     var onOfflineTapped = function () {
@@ -497,8 +495,21 @@ Jassplan.controller = (function (view, viewModel, helper) {
         refresh();
     }
 
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
     var init = function () {
-        viewModel.init(appStorageKey);
+        var urlVars = getUrlVars();
+        var userName = urlVars.user;
+        viewModel.init(userName);
         $(document).on("tap", "#view-model-logged", onOfflineTapped);
         $(document).on("pagechange", onPageChange);
         $(document).on("pagebeforechange", onPageBeforeChange);
