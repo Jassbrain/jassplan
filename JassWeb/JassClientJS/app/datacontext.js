@@ -136,6 +136,7 @@ Jassplan.dataContext = (function (serverProxy) {
         if (weAreInRefresh) {
             notesList = serverProxy.saveAllTodoLists(notesList, handleProxyError);
             $.jStorage.set(notesListStorageKey, notesList);
+            $.jStorage.set(reviewsListStorageKey, null);
             loadReviewsFromLocalStorage();
             $.jStorage.set(refreshStorageKey, null);
         }
@@ -176,6 +177,7 @@ Jassplan.dataContext = (function (serverProxy) {
             noteModel.Created = noteModel.lastUpdated;
             noteModel.dateCreated = noteModel.lastUpdated;
             noteModel.estimatedStartHour = null;
+            if (notesList == null) notesList = [];
             notesList.splice(0, 0, noteModel);
             Jassplan.serverProxy.createTodoList(noteModel, handleProxyError);
         } else {

@@ -465,7 +465,7 @@ Jassplan.controller = (function (view, viewModel, helper) {
     }
     var onArchiveButtonTapped = function () {
         viewModel.handleArchiveAction();
-        refresh();
+        refreshAll();
     }
 
     var onStatusButtonTapped = function () {

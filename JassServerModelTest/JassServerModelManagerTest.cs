@@ -65,7 +65,7 @@ namespace Jassplan.Tests.ModelManager
             newActivity1.Name = "TestActivity1";
 
             //we save the changes
-            mm.ActivitySave(newActivity1);
+            mm.ActivitySave(newActivity1, true);
 
             refreshManager(); //
 

@@ -59,7 +59,7 @@ namespace JassWeb.Controllers
        // [ValidateHttpAntiForgeryToken]
         public JassActivity PutTodoList(JassActivity todoList)
         {
-                mm.ActivitySave(todoList);
+                mm.ActivitySave(todoList,true);
             return todoList;
         }
 
@@ -73,7 +73,7 @@ namespace JassWeb.Controllers
 
         public JassActivity PutDeleteTodoList(JassActivity todoList)
         {
-            mm.ActivitySave(todoList); //we save it so it stys in history 
+            mm.ActivitySave(todoList,true); //we save it so it stys in history 
             mm.ActivityDelete(todoList.JassActivityID);
             return todoList;
         }

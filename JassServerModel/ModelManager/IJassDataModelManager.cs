@@ -16,7 +16,7 @@ namespace Jassplan.JassServerModelManager
         void ActivitySaveAll(List<JassActivity> allTodos);
 
         global::Jassplan.Model.JassActivity ActivityGetById(int id);
-        global::Jassplan.Model.JassActivityHistory ActivitySave(global::Jassplan.Model.JassActivity Activity);
+        global::Jassplan.Model.JassActivityHistory ActivitySave(global::Jassplan.Model.JassActivity Activity, bool save);
         void Dispose();
     }
 }

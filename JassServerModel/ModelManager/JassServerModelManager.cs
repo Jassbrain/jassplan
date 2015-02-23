@@ -96,11 +96,13 @@ namespace Jassplan.JassServerModelManager
             DateTime? doneDate=null;
             foreach (var activity in activities)
             {
-                if (doneDate == null && activity.DoneDate != null)
+                if (activity.title == "A1 Mind") //bad hack. but..
                 {
                     doneDate = activity.DoneDate;
                 }
             }
+
+
 
             if (doneDate == null) return ActivitiesGetAll();
 
@@ -145,8 +147,9 @@ namespace Jassplan.JassServerModelManager
                 var activityHistory = ActivitySave(activity,review);
                 activity.Status="asleep";
                 activity.DoneDate = null;
-                ActivitySave(activity);
+                ActivitySave(activity, false);
             }
+            _db.SaveChanges();
             return ActivitiesGetAll();
         }
 
@@ -201,7 +204,7 @@ namespace Jassplan.JassServerModelManager
                 {
                     if (activity.LastUpdated > activityCurrent.LastUpdated)
                     {
-                        resultActivityHistory = ActivitySave(activity);
+                        resultActivityHistory = ActivitySave(activity, true);
                     }
                 }
             }
@@ -209,7 +212,7 @@ namespace Jassplan.JassServerModelManager
             return resultActivityHistory;
         }
 
-        public JassActivityHistory ActivitySave(JassActivity Activity)
+        public JassActivityHistory ActivitySave(JassActivity Activity, bool save)
         {
             
             JassActivity ActivityCurrent = _db.JassActivities.Find(Activity.JassActivityID);
@@ -222,7 +225,7 @@ namespace Jassplan.JassServerModelManager
             mapper.map(Activity, ActivityCurrent);
 
             _db.Entry(ActivityCurrent).State = EntityState.Modified;
-            _db.SaveChanges();
+            if (save) _db.SaveChanges();
             var activityHistory = ActivitySaveHistory(Activity);
             return activityHistory;
         }
