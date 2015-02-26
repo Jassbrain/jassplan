@@ -108,7 +108,7 @@ Jassplan.serverProxy = (function () {
         return todoLists;
     }
 
-    var createTodoList = function (todoListIn, errorHandler) {
+    var createTodoList = function (todoListIn, errorHandler, successHandler) {
         var todoListOut;
         $.ajax({
             type: "POST",
@@ -117,7 +117,7 @@ Jassplan.serverProxy = (function () {
             async: true,
             url: "/api/todolist/PostTodoList",
             success: function (data) {
-                todoListOut = data;
+                successHandler(data)
             },
             error: function (data) {
                 errorHandler(data.status, data.responseText);

@@ -14,6 +14,8 @@ Jassplan.dataContext = (function (serverProxy) {
     var loggedStorageKey;  //keeps the review list local storage key
 
 
+    var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
+
     var handleProxyError = function (errorCode, errorMessage) {
         if (errorCode === 401) {
             $.jStorage.set(loggedStorageKey, false);
@@ -26,6 +28,18 @@ Jassplan.dataContext = (function (serverProxy) {
         }
     }
 
+    var handleProxySuccess = function (data) {
+        for (var i = 0; i < notesList.length; i++) {
+            var dataDate = data.dateCreated.toString();
+            var existingDate = notesList[i].dateCreated.toString();
+            if (dataDate === existingDate) {
+                notesList[i].id = data.id;
+                notesList[i].jassActivityID = data.jassActivityID;
+            }
+        }
+        saveNotesToLocalStorage();
+    }
+
     var handleProxyLogged = function (userName, errorMessage) {
         if (userName === "") {
             $.jStorage.set(loggedStorageKey, false);
@@ -35,8 +49,6 @@ Jassplan.dataContext = (function (serverProxy) {
             $("#status-button-label").text("k");
         }
     }
-
-    var saveNotesToLocalStorage = function () { $.jStorage.set(notesListStorageKey, notesList); };
 
     var getLogged = function () {
         var loggedToken = $.jStorage.get(loggedStorageKey);
@@ -159,6 +171,16 @@ Jassplan.dataContext = (function (serverProxy) {
 
     }
 
+    var getMonth = function (d0) {
+        var d = d0 + 1;
+        if (d < 10) return "0" + d;
+        return d;
+    }
+
+    var getDate = function(d) {
+        if (d < 10) return "0" + d;
+        return d;
+    }
 
     var saveNote = function (noteModel) {
         //"2014-11-10T22:24:52.517"
@@ -166,7 +188,7 @@ Jassplan.dataContext = (function (serverProxy) {
     //    var d = Date();
     //    noteModel.lastUpdated = "2014-11-10T22:24:52.517";
         var d = new Date();
-        noteModel.lastUpdated = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() +
+        noteModel.lastUpdated = d.getFullYear() + "-" + getMonth(d.getMonth()) + "-" + getDate(d.getDate()) +
                                 "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "." + d.getMilliseconds();
 
 
@@ -179,7 +201,7 @@ Jassplan.dataContext = (function (serverProxy) {
             noteModel.estimatedStartHour = null;
             if (notesList == null) notesList = [];
             notesList.splice(0, 0, noteModel);
-            Jassplan.serverProxy.createTodoList(noteModel, handleProxyError);
+            Jassplan.serverProxy.createTodoList(noteModel, handleProxyError, handleProxySuccess);
         } else {
             notesList[noteIndex] = noteModel; // save the note on notes list
             Jassplan.serverProxy.saveTodoList(noteModel, handleProxyError);

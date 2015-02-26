@@ -163,10 +163,11 @@ namespace Jassplan.JassServerModelManager
         {
             _db.JassActivities.Add(Activity);
             Activity.UserName =_username;
-            Activity.Created = DateTime.Now;
-            Activity.dateCreated = DateTime.Now;
-            Activity.LastUpdated = DateTime.Now;
+            //Activity.Created = DateTime.Now;
+            //Activity.dateCreated = DateTime.Now;
+            //Activity.LastUpdated = DateTime.Now;
             _db.SaveChanges();
+            
             ActivitySaveHistory(Activity);
             return Activity.JassActivityID;
         }
