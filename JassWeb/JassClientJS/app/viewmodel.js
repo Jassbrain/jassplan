@@ -1,6 +1,6 @@
 var Jassplan = Jassplan || {};
 
-Jassplan.viewmodel = (function (dataContext) {
+Jassplan.ViewmodelConstructor = (function (dataContext) {
 
 
     var appStorageKey = "Jassplan.NotesList";
@@ -208,30 +208,40 @@ Jassplan.viewmodel = (function (dataContext) {
         return notesListDoneDate;
     }
 
+    var calculateChildPoints = function (task) {
+        task.totalPoints = 0;
+        task.totalPointsScheduled = 0;
+        task.totalPointsDone = 0;
+        task.totalPointsDonePlus = 0;
+    }
 
-    var calculatePoints = function()
+    var calculatePoints = function(task)
     {
-        totalPoints = 0;
-        totalPointsScheduled = 0;
-        totalPointsDone = 0;
-        totalPointsDonePlus = 0;
+        var currentParentId = task.id;
+
+        task.totalPoints = 0;
+        task.totalPointsScheduled = 0;
+        task.totalPointsDone = 0;
+        task.totalPointsDonePlus = 0;
 
         for (var i = 0; i < notesList.length; i++) {
             var taskPoints = parseInt(notesList[i].actualDuration);
             var taskStatus = notesList[i].status;
             var taskParentId = notesList[i].parentID;
 
-            var currentParentId = parent;
             if (taskParentId === currentParentId) {
-                totalPoints += taskPoints;
+
+                calculatePoints(notesList[i]);
+
+                task.totalPoints += taskPoints;
                 if (taskStatus === "stared" || taskStatus === "done" || taskStatus === "doneplus") {
-                    totalPointsScheduled += taskPoints;
+                    task.totalPointsScheduled += taskPoints;
                 }
                 if (taskStatus === "done" || taskStatus === "doneplus") {
-                    totalPointsDone += taskPoints;
+                    task.totalPointsDone += taskPoints;
                 }
                 if (taskStatus === "doneplus") {
-                    totalPointsDonePlus += taskPoints;
+                    task.totalPointsDonePlus += taskPoints;
                 }
             }
         }
@@ -348,7 +358,15 @@ Jassplan.viewmodel = (function (dataContext) {
         if (parentName == null) { parentName = ""; };
         if (getState() == null) { setStateDo(); };
 
-        calculatePoints();
+        var task = {};
+        task.id = parent;
+        calculatePoints(task);
+
+        totalPoints = task.totalPoints;
+        totalPointsScheduled = task.totalPointsScheduled;
+        totalPointsDone = task.totalPointsDone;
+        totalPointsDonePlus = task.totalPointsDonePlus ;
+
     };
 
     var viewStatus = function() {
@@ -391,6 +409,6 @@ Jassplan.viewmodel = (function (dataContext) {
 
     return public;
 
-})(Jassplan.dataContext);
+});
 
 

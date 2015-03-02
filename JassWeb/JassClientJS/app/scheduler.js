@@ -13,6 +13,7 @@ Jassplan.Schedulable = function(config) {
 
 Jassplan.Scheduler = function (params) {
     //receives a list of tasks to be scheduled
+    var _allTasks = params.allTasks || []; //List of All Schedubles (parent and childs)
     var _activeTasks = params.activeTasks || []; //List of Schedubles 
     var _shortTermTimeWindow = params.shortTermTimeWindow || 4; //Time we see in the short term window in "hours" 1.5 = 1hr 30 mins
     var _currentTime = params.currentTime || new Date(); //Current real time as a DateTime object

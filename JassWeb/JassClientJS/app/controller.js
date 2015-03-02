@@ -1,6 +1,6 @@
 var Jassplan = Jassplan || {};
 
-Jassplan.controller = (function (view, viewModel, helper) {
+Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
     var notesListPageId = "notes-list-page";
     var noteEditorPageId = "note-editor-page";
     var notesListSelector = "#notes-list-content";
@@ -215,7 +215,9 @@ Jassplan.controller = (function (view, viewModel, helper) {
             + notesList[i].title 
             + "</a>"           
             + "</div>"
-            + "<div style=\"min-width:35px\">" + "<img height=20px width=20px name=\"parentimage\" id=\"" + parentimageid + "\" src=\"images/" + parentImg + "\"/>" + "</div>"
+            + "<div style=\"min-width:35px\">" + "<img height=20px width=20px name=\"parentimage\" id=\"" +
+            parentimageid + "\" src=\"images/" + parentImg + "\"/>"
+            +notesList[i].totalPointsDonePlus + "/" + notesList[i].totalPointsDone + "/" + notesList[i].totalPointsScheduled + "</div>"
             + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"   
             + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
             + narrativeHTML
@@ -528,9 +530,13 @@ Jassplan.controller = (function (view, viewModel, helper) {
         init: init
     };
 
-})(Jassplan.view, Jassplan.viewmodel, Jassplan.helper);
+});
 
 $(document).bind("mobileinit", function () {
+    //Jassplan.view;
+    Jassplan.viewmodel = new Jassplan.ViewmodelConstructor(Jassplan.dataContext);
+    //Jassplan.helper;
+    Jassplan.controller = new Jassplan.ControllerConstructor(Jassplan.view, Jassplan.viewmodel, Jassplan.helper);
     Jassplan.controller.init();
 });
 

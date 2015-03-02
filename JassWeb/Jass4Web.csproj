@@ -1327,6 +1327,8 @@
     <Content Include="JassClientJS\tests\test_googler.js" />
     <Content Include="JassClientJS\tests\test_googler_adapter_jassplan.html" />
     <Content Include="JassClientJS\tests\test_googler_adapter_jassplan.js" />
+    <Content Include="JassClientJS\tests\test_viewmodel.html" />
+    <Content Include="JassClientJS\tests\test_viewmodel.js" />
     <Content Include="JassClientJS\tests\test_scheduler_adapter.js" />
     <Content Include="JassClientJS\tests\test_scheduler_adapter.html" />
     <Content Include="JassClientJS\tests\test_scheduler.html" />
