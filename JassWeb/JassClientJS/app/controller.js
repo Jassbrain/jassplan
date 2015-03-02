@@ -204,6 +204,11 @@ Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
             var parentimageid = "itemimage" + notesList[i].id;
             var snoozeTime = make4CharsLength(notesList[i].estimatedStartHour);
 
+            var childcolor = "white";
+            if (notesList[i].totalPointsScheduled > 0) childcolor = "yellow";
+            if (notesList[i].totalPointsDone > 0) childcolor = "green";
+            if (notesList[i].totalPointsScheduled > 0 && notesList[i].totalPointsDonePlus == notesList[i].totalPointsScheduled) childcolor = "blue";
+
             $("<li style=\"min-height:50px\">"
             + "<div style=\"min-width:35px;float:left\">" + "<img height=23px width=23px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
             + "<div style=\"position:relative; top:2px;min-width:15px;float:left\">" + notesList[i].actualDuration + "</div>"
@@ -215,10 +220,10 @@ Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
             + notesList[i].title 
             + "</a>"           
             + "</div>"
-            + "<div style=\"min-width:35px\">" + "<img height=20px width=20px name=\"parentimage\" id=\"" +
-            parentimageid + "\" src=\"images/" + parentImg + "\"/>"
-            +notesList[i].totalPointsDonePlus + "/" + notesList[i].totalPointsDone + "/" + notesList[i].totalPointsScheduled + "</div>"
-            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"   
+            + "<div id=\"parentdiv" + notesList[i].id + "\" title=\"parentdiv\" style=\"min-width:35px\">"
+            + notesList[i].totalPointsDonePlus + "/" + notesList[i].totalPointsDone + "/" + notesList[i].totalPointsScheduled + 
+            "</div>"
+            + "<div style=\"min-width:35px\">&nbsp;&nbsp;</div>"
             + "<div style=\"min-width:150px;font-size:small\">" + description + "</div>"
             + narrativeHTML
             + "</li>").appendTo(ul);
@@ -230,8 +235,8 @@ Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
 
         $(document).on("tap click", "[name=starimage]", onTapStar);
         $(document).on("taphold", "[name=starimage]", onTapHoldStar);
-        $(document).on("tap click", "[name=parentimage]", onTapParent);
-        $(document).on("taphold", "[name=parentimage]", onTapHoldParent);
+        $(document).on("tap click", "[title=parentdiv]", onTapParent);
+        $(document).on("taphold", "[title=parentdiv]", onTapHoldParent);
 
         totalPoints = viewModel.getTotalPoints();
         totalPointsScheduled = viewModel.getTotalPointsScheduled();
@@ -363,14 +368,14 @@ Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
     var onTapParent = function (e) {
         if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage", "");
+        var taskId = id.replace("parentdiv", "");
         var taskStatus = viewModel.starparent(taskId);
         refresh();
     }
     var onTapHoldParent = function (e) {
         if (checkAndPreventDuplicatedEvent(e)) return;
         var id = e.currentTarget.id;
-        var taskId = id.replace("itemimage", "");
+        var taskId = id.replace("parentdiv", "");
         var taskStatus = viewModel.unstarparent(taskId);
         refresh();
     }
