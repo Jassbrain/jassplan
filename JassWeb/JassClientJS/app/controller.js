@@ -209,6 +209,12 @@ Jassplan.ControllerConstructor = (function (view, viewModel, helper) {
             if (notesList[i].totalPointsDone > 0) childcolor = "green";
             if (notesList[i].totalPointsScheduled > 0 && notesList[i].totalPointsDonePlus == notesList[i].totalPointsScheduled) childcolor = "blue";
 
+            //dirty fix for anoying uefined... hope to get redi of this
+            if (notesList[i].totalPointsScheduled == undefined) notesList[i].totalPointsScheduled = "-";
+            if (notesList[i].totalPointsDone == undefined) notesList[i].totalPointsDone = "-";
+            if (notesList[i].totalPointsDonePlus == undefined) notesList[i].totalPointsDonePlus = "-";
+
+
             $("<li style=\"min-height:50px\">"
             + "<div style=\"min-width:35px;float:left\">" + "<img height=23px width=23px name=\"starimage\" id=\"" + starimageid + "\" src=\"images/" + starImg + "\"/>" + "</div>"
             + "<div style=\"position:relative; top:2px;min-width:15px;float:left\">" + notesList[i].actualDuration + "</div>"
