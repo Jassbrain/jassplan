@@ -93,6 +93,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -351,6 +354,7 @@
     <Content Include="JassClientJS\app\googler_adapter_jassplan.js" />
     <Content Include="JassClientJS\app\scheduler_adapter_jassplan.js" />
     <Content Include="JassClientJS\app\scheduler.js" />
+    <Content Include="JassClientJS\app\serverproxysync.js" />
     <Content Include="JassClientJS\app\views.js" />
     <Content Include="JassClientJS\app\helper.js" />
     <Content Include="JassClientJS\app\viewmodel.js" />
@@ -1066,6 +1070,12 @@
     <Content Include="JassClientJS\lib\jqm2\demos\page-events\logevents-3.php" />
     <Content Include="JassClientJS\lib\jqm2\demos\page-events\logevents.php" />
     <Content Include="JassClientJS\lib\jqm2\jquery.mobile-1.4.5.min.map" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\jassplan.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="JassClientJS\app\controller.js" />

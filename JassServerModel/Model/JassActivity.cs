@@ -17,5 +17,12 @@ namespace Jassplan.Model
         {
             get { return JassActivityID; }
         }
+
+        [NotMapped]
+        public string originalJson
+        {
+            get;
+            set;
+        }
     }
 }

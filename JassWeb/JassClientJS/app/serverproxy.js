@@ -109,7 +109,9 @@ Jassplan.serverProxy = (function () {
     }
 
     var createTodoList = function (todoListIn, errorHandler, successHandler) {
+        todoListIn.originalJson = JSON.stringify(todoListIn);
         var todoListOut;
+        var todoListInJson = JSON.stringify(todoListIn);
         $.ajax({
             type: "POST",
             dataType: "json",

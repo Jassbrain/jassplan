@@ -9,6 +9,8 @@ using System.Data.Entity;
 using System.Reflection;
 using JassTools;
 using JassServerModel.Model;
+using NLog;
+using Newtonsoft.Json;
 
 namespace Jassplan.JassServerModelManager
 {
@@ -16,6 +18,8 @@ namespace Jassplan.JassServerModelManager
     {
         private JassContext _db = new JassContext();
 
+
+        Logger _logger = LogManager.GetLogger("JassDataModelManager");
         private string _username;
 
             public JassDataModelManager(string username)
@@ -161,14 +165,24 @@ namespace Jassplan.JassServerModelManager
         }
         public int ActivityCreate(JassActivity Activity)
         {
-            _db.JassActivities.Add(Activity);
-            Activity.UserName =_username;
-            //Activity.Created = DateTime.Now;
-            //Activity.dateCreated = DateTime.Now;
-            //Activity.LastUpdated = DateTime.Now;
-            _db.SaveChanges();
-            
-            ActivitySaveHistory(Activity);
+            var activityJson = JsonConvert.SerializeObject(Activity);
+            _logger.Info("Starting Create Task: \n" + activityJson);
+            try
+            {
+                _db.JassActivities.Add(Activity);
+                Activity.UserName = _username;
+                //Activity.Created = DateTime.Now;
+                //Activity.dateCreated = DateTime.Now;
+                //Activity.LastUpdated = DateTime.Now;
+                _db.SaveChanges();
+
+                ActivitySaveHistory(Activity);
+
+                _logger.Info("Ending Create Task");
+            }
+            catch (Exception e) {
+                _logger.Error("Error while creating task", e);
+            }
             return Activity.JassActivityID;
         }
 

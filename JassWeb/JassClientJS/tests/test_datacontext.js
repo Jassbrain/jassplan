@@ -68,4 +68,26 @@ describe("Data context tests", function () {
 
     });
 
+
+    it("Creates wierd task", function () {
+
+        // Create a note (at this point local and server storage are empty
+
+        var configJson = "{\"id\":3311,\"jassActivityID\":3311,\"dateCreated\":\"2015-03-06T23:7:22.721\",\"title\":\"tesn\",\"narrative\":\"\",\"description\":\"\",\"estimatedDuration\":\"\",\"estimatedStartHour\":null,\"doneDate\":null,\"actualDuration\":1,\"status\":\"asleep\",\"flag\":\"blue\",\"parentID\":null,\"lastUpdated\":\"2015-03-06T23:7:22.721\",\"Created\":\"2015-03-06T23:7:22.721\"}";
+        var noteModel = JSON.parse(configJson);
+
+        Jassplan.dataContext.init(notesListStorageKey);
+        notesList = $.jStorage.get(notesListStorageKey);
+
+        Jassplan.dataContext.saveNote(noteModel);
+        // Should contain a note.
+        notesList = $.jStorage.get(notesListStorageKey);
+        expect(notesList.length).toBe(2);
+
+    });
+
+    //
+
+   
+
 });
