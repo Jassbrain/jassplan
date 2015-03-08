@@ -189,7 +189,7 @@ Jassplan.dataContext = (function (serverProxy) {
     //    noteModel.lastUpdated = "2014-11-10T22:24:52.517";
         var d = new Date();
         noteModel.lastUpdated = d.getFullYear() + "-" + getMonth(d.getMonth()) + "-" + getDate(d.getDate()) +
-                                "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "." + d.getMilliseconds();
+                                "T" + getDate(d.getHours()) + ":" + getDate(d.getMinutes()) + ":" + getDate(d.getSeconds()) + "." + d.getMilliseconds();
 
 
         var noteIndex = noteIndexInNotesList(noteModel);

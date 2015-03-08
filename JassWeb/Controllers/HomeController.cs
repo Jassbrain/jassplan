@@ -10,6 +10,7 @@ using WebMatrix.WebData;
 using System.Web.Security;
 using System.Xml.XPath;
 using JassWeb.Filters;
+using System.IO;
 
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
@@ -26,6 +27,33 @@ namespace JassWeb.Controllers
         {       
             if (!User.Identity.IsAuthenticated) return View();
             return Redirect("/JassClientJS/index.html?user=" + User.Identity.Name);            
+        }
+
+        public ActionResult Logs()
+        {
+              string path = HttpContext.Server.MapPath("~/Logs/");
+
+              var logFiles = System.IO.Directory.EnumerateFiles(path);
+
+              if (logFiles.Count() > 0)
+              {
+                  var logPath = logFiles.First().ToString();
+                  ViewBag.logs = System.IO.File.ReadAllText(logPath);
+              }
+            return View();
+        }
+
+        public ActionResult RemoveLogs()
+        {
+            string path = HttpContext.Server.MapPath("~/Logs/");
+            var logFiles = System.IO.Directory.EnumerateFiles(path);
+
+
+            foreach (var file in logFiles) {
+                var logPath = file.ToString();
+                System.IO.File.Delete(logPath);
+            }
+            return View("Logs");
         }
 
         public string Main()

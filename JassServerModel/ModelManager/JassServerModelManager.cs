@@ -165,8 +165,6 @@ namespace Jassplan.JassServerModelManager
         }
         public int ActivityCreate(JassActivity Activity)
         {
-            var activityJson = JsonConvert.SerializeObject(Activity);
-            _logger.Info("Starting Create Task: \n" + activityJson);
             try
             {
                 _db.JassActivities.Add(Activity);
@@ -177,11 +175,11 @@ namespace Jassplan.JassServerModelManager
                 _db.SaveChanges();
 
                 ActivitySaveHistory(Activity);
-
-                _logger.Info("Ending Create Task");
             }
             catch (Exception e) {
-                _logger.Error("Error while creating task", e);
+                var activityJson = JsonConvert.SerializeObject(Activity);
+                _logger.Error("\n\nError while creating task\n\n" + activityJson + " \n\n", e);
+                throw e;
             }
             return Activity.JassActivityID;
         }
@@ -229,20 +227,30 @@ namespace Jassplan.JassServerModelManager
 
         public JassActivityHistory ActivitySave(JassActivity Activity, bool save)
         {
-            
-            JassActivity ActivityCurrent = _db.JassActivities.Find(Activity.JassActivityID);
-            checkIfMine(ActivityCurrent);
-            if (Activity.Status == null) Activity.Status = "asleep";
+            try
+            {
+                JassActivity ActivityCurrent = _db.JassActivities.Find(Activity.JassActivityID);
+                checkIfMine(ActivityCurrent);
+                if (Activity.Status == null) Activity.Status = "asleep";
 
-            if (Activity.LastUpdated == new DateTime()) { Activity.LastUpdated = DateTime.Now;}
+                if (Activity.LastUpdated == new DateTime()) { Activity.LastUpdated = DateTime.Now; }
 
-            var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivity>();
-            mapper.map(Activity, ActivityCurrent);
+                var mapper = new JassCommonAttributesMapper<JassActivityCommon, JassActivity, JassActivity>();
+                mapper.map(Activity, ActivityCurrent);
 
-            _db.Entry(ActivityCurrent).State = EntityState.Modified;
-            if (save) _db.SaveChanges();
-            var activityHistory = ActivitySaveHistory(Activity);
-            return activityHistory;
+                _db.Entry(ActivityCurrent).State = EntityState.Modified;
+                if (save) _db.SaveChanges();
+                var activityHistory = ActivitySaveHistory(Activity);
+                return activityHistory;
+            }
+            catch (Exception e)
+            {
+                var activityJson = JsonConvert.SerializeObject(Activity);
+                _logger.Error("\n\nError while saving creating task\n\n" + activityJson + " \n\n", e);
+                throw e;
+            }
+
+            return null;
         }
 
 

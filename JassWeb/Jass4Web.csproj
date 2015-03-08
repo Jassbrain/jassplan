@@ -1407,10 +1407,12 @@
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Home\TestGoogle.cshtml" />
+    <Content Include="Views\Home\Logs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="JassClientJS\lib\jqstorage\" />
+    <Folder Include="logs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
